@@ -1,0 +1,276 @@
+module Formula
+
+  type ident
+      
+  type literal =
+      | FVar ident
+      | FConst bool
+
+  type formula =
+      | L literal
+      | FAnd   formula formula
+      | FOr    formula formula
+      | FImpl  formula formula
+      | FNeg   formula
+
+  type formula_wi =
+      | L_wi literal
+      | FAnd_wi formula_wi formula_wi
+      | FOr_wi formula_wi formula_wi
+      | FNeg_wi formula_wi
+    
+  type formula_nnf =
+      | FAnd_nnf formula_nnf formula_nnf
+      | FOr_nnf formula_nnf formula_nnf
+      | FNeg_nnf literal
+      | L_nnf literal
+    
+  type disj =
+      | FOr_cnf disj disj
+      | FNeg_cnf literal
+      | L_cnf literal
+    
+  type formula_cnf =
+      | FAnd_cnf formula_cnf formula_cnf
+      | D disj
+    
+    
+
+end
+
+
+module Valuation
+
+  use Formula, list.List
+
+  type valuation = ident -> bool
+  
+  let function eval_literal (v: valuation) (f: literal) : bool
+  = match f with
+      | FVar x -> v x
+      | FConst b -> b
+    end
+
+  let rec function eval (v: valuation) (f: formula) : bool
+    variant { f }
+  = match f with
+      | L phi1      -> eval_literal v phi1
+      | FAnd f1 f2  -> eval v f1 && eval v f2
+      | FOr f1 f2   -> eval v f1 || eval v f2
+      | FImpl f1 f2 -> not (eval v f1) || eval v f2
+      | FNeg f      -> not (eval v f)
+    end
+
+  let rec function eval_wi (v: valuation) (f: formula_wi) : bool
+    variant { f }
+  = match f with
+      | L_wi phi1 -> eval_literal v phi1
+      | FAnd_wi f1 f2  -> eval_wi v f1 && eval_wi v f2
+      | FOr_wi f1 f2   -> eval_wi v f1 || eval_wi v f2
+      | FNeg_wi f      -> not (eval_wi v f)
+    end
+
+  let rec function eval_nnf (v: valuation) (f: formula_nnf) : bool
+    variant{ f }
+  = match f with
+      | FAnd_nnf f1 f2 -> eval_nnf v f1 && eval_nnf v f2
+      | FOr_nnf f1 f2 -> eval_nnf v f1 || eval_nnf v f2
+      | FNeg_nnf literal -> not (eval_literal v literal)
+      | L_nnf literal -> eval_literal v literal
+    end
+    
+  let rec function eval_disj (v: valuation) (f: disj) : bool
+    variant{ f }
+  = match f with
+      | FOr_cnf f1 f2 -> eval_disj v f1 || eval_disj v f2
+      | FNeg_cnf literal -> not (eval_literal v literal)
+      | L_cnf literal -> eval_literal v literal
+    end
+    
+  let rec function eval_cnf (v: valuation) (f: formula_cnf) : bool
+    variant{ f }
+  = match f with
+      | FAnd_cnf f1 f2 -> eval_cnf v f1 && eval_cnf v f2
+      | D disj -> eval_disj v disj
+    end
+
+end
+
+module Size
+
+  use Formula, int.Int
+
+  function size (phi: formula_wi) : int 
+  = match phi with
+      | L_wi _ -> 1
+      | FNeg_wi phi -> 1 + size phi
+      | FAnd_wi phi1 phi2 | FOr_wi phi1 phi2 ->
+        1 + size phi1 + size phi2
+    end
+  
+  function size_disj (phi: disj) : int 
+  = match phi with
+      | FOr_cnf phi1 phi2 -> 1 + size_disj phi1 + size_disj phi2
+      | FNeg_cnf _ -> 2
+      | L_cnf _ -> 1
+    end
+    
+  function size_cnf (phi: formula_cnf) : int 
+  = match phi with
+      | FAnd_cnf phi1 phi2 -> 1 + size_cnf phi1 + size_cnf phi2
+      | D phi1 -> size_disj phi1
+    end
+
+  let rec lemma size_nonneg (phi: formula_wi)
+    variant{ phi }
+    ensures{ size phi >= 0 }
+  = match phi with
+      | L_wi _ -> ()
+      | FNeg_wi phi -> size_nonneg phi
+      | FAnd_wi phi1 phi2 | FOr_wi phi1 phi2 ->
+        size_nonneg phi1; size_nonneg phi2
+    end
+    
+  let rec lemma size_nonneg_disj (phi: disj)
+    variant{ phi }
+    ensures{ size_disj phi >= 0 }
+  = match phi with
+      | FNeg_cnf _ | L_cnf _ -> ()
+      | FOr_cnf phi1 phi2 -> size_nonneg_disj phi1; size_nonneg_disj phi2
+    end
+    
+  let rec lemma size_nonneg_cnf (phi: formula_cnf)
+    variant{ phi }
+    ensures{ size_cnf phi >= 0 }
+  = match phi with
+      | FAnd_cnf phi1 phi2 -> size_nonneg_cnf phi1; size_nonneg_cnf phi2
+      | D phi1 -> size_nonneg_disj phi1
+    end
+
+end
+
+
+
+module T
+
+  use Formula, Valuation, Size, int.Int
+
+  let rec function impl_free (phi: formula) : formula_wi
+    variant{ phi }
+    ensures{ forall v. eval v phi = eval_wi v result }
+  = match phi with
+    | FNeg phi1 -> FNeg_wi (impl_free phi1)
+    | FOr phi1 phi2 -> FOr_wi (impl_free phi1) (impl_free phi2)
+    | FAnd phi1 phi2 -> FAnd_wi (impl_free phi1) (impl_free phi2)
+    | FImpl phi1 phi2 -> FOr_wi (FNeg_wi (impl_free phi1)) (impl_free phi2)
+    | L  phi -> L_wi phi
+    end
+
+  let rec function nnfc (phi: formula_wi)
+    variant{ size phi }
+    ensures{ (forall v. eval_wi v phi = eval_nnf v result)}
+  = match phi with
+    | FNeg_wi (FNeg_wi phi1) -> nnfc phi1
+    | FNeg_wi (FAnd_wi phi1 phi2) -> FOr_nnf (nnfc (FNeg_wi phi1)) (nnfc (FNeg_wi phi2))
+    | FNeg_wi (FOr_wi phi1 phi2) -> FAnd_nnf (nnfc (FNeg_wi phi1)) (nnfc (FNeg_wi phi2))
+    | FNeg_wi (L_wi phi1) -> FNeg_nnf (phi1)
+    | FOr_wi phi1 phi2 -> FOr_nnf (nnfc phi1) (nnfc phi2)
+    | FAnd_wi phi1 phi2 -> FAnd_nnf (nnfc phi1) (nnfc phi2)
+    | L_wi phi1 -> L_nnf phi1
+  end
+  
+  let rec function distr (phi1 phi2: formula_cnf)
+    variant{ size_cnf phi1 + size_cnf phi2 }
+    ensures{ (forall v. ((eval_cnf v phi1 || eval_cnf v phi2) = eval_cnf v result)) }
+  = match phi1, phi2 with
+    | FAnd_cnf phi11 phi12, phi2 -> FAnd_cnf (distr phi11 phi2) (distr phi12 phi2)
+    | phi1, FAnd_cnf phi21 phi22 -> FAnd_cnf (distr phi1 phi21) (distr phi1 phi22)
+    | D phi1, D phi2 -> D (FOr_cnf phi1 phi2)
+    
+    end
+
+  let rec function cnfc (phi: formula_nnf)
+    variant{ phi }
+    ensures{ (forall v. eval_nnf v phi = eval_cnf v result) }
+  = match phi with
+    | FOr_nnf phi1 phi2 -> distr (cnfc phi1) (cnfc phi2)
+    | FAnd_nnf phi1 phi2 -> FAnd_cnf (cnfc phi1) (cnfc phi2)
+    | FNeg_nnf literal -> D (FNeg_cnf literal)
+    | L_nnf literal -> D (L_cnf literal)
+  end
+
+  let t (phi: formula) : formula_cnf
+    ensures{ (forall v. eval v phi = eval_cnf v result)}
+  = cnfc (nnfc (impl_free phi))
+ 
+end
+
+module T_CPS
+
+  use Formula, Valuation, T, Size, int.Int
+
+  let rec impl_free_cps (phi: formula) (k: formula_wi -> 'a ) : 'a
+    variant{ phi }
+    ensures{ result = k (impl_free phi) }
+  = match phi with
+    | FNeg phi1 -> impl_free_cps phi1 (fun con -> k (FNeg_wi con))
+    | FOr phi1 phi2 -> impl_free_cps phi1 (fun con -> impl_free_cps phi2 (fun con1 -> k (FOr_wi con con1)))
+    | FAnd phi1 phi2 -> impl_free_cps phi1 (fun con -> impl_free_cps phi2 (fun con1 -> k (FAnd_wi con con1)))
+    | FImpl phi1 phi2 -> impl_free_cps phi1 (fun con -> impl_free_cps phi2 (fun con1 -> k (FOr_wi (FNeg_wi con) con1)))
+    | L phi -> k (L_wi phi)
+    end
+
+  let impl_free_main (phi: formula) : formula_wi
+    ensures{forall v. eval v phi = eval_wi v result}
+  = impl_free_cps phi (fun x -> x)
+
+  let rec nnfc_cps (phi: formula_wi) (k: formula_nnf -> 'a) : 'a
+    variant{ size phi }
+    ensures{ result = k (nnfc phi) }
+  = match phi with
+    | FNeg_wi (FNeg_wi phi1) -> nnfc_cps phi1 (fun con -> k con)
+    | FNeg_wi (FAnd_wi phi1 phi2) -> nnfc_cps (FNeg_wi phi1) (fun con -> nnfc_cps (FNeg_wi phi2) (fun con1 -> k (FOr_nnf con con1)))
+    | FNeg_wi (FOr_wi phi1 phi2) -> nnfc_cps (FNeg_wi phi1) (fun con -> nnfc_cps (FNeg_wi phi2) (fun con1 -> k (FAnd_nnf con con1)))
+    | FOr_wi phi1 phi2 -> nnfc_cps phi1 (fun con -> nnfc_cps phi2 (fun con1 -> k (FOr_nnf con con1)))
+    | FAnd_wi phi1 phi2 -> nnfc_cps phi1 (fun con -> nnfc_cps phi2 (fun con1 -> k (FAnd_nnf con con1)))
+    | FNeg_wi (L_wi phi1) -> k (FNeg_nnf phi1)
+    | L_wi phi1 -> k (L_nnf phi1)
+  end
+
+  let nnfc_main (phi: formula_wi) : formula_nnf
+    ensures{(forall v. eval_wi v phi = eval_nnf v result)}
+  = nnfc_cps phi (fun x -> x)
+
+  let rec distr_cps (phi1 phi2: formula_cnf) (k: formula_cnf -> 'a) : 'a
+    variant{ size_cnf phi1 + size_cnf phi2 }
+    ensures{ result = k (distr phi1 phi2) }
+  = match phi1, phi2 with
+    | FAnd_cnf phi11 phi12, phi2 -> distr_cps phi11 phi2 (fun con -> distr_cps phi12 phi2 (fun con1 -> k (FAnd_cnf con con1)))
+    | phi1, FAnd_cnf phi21 phi22 -> distr_cps phi1 phi21 (fun con -> distr_cps phi1 phi22 (fun con1 -> k (FAnd_cnf con con1)))
+    | D phi1, D phi2 -> k (D (FOr_cnf phi1 phi2))
+    end
+
+  let distr_main (phi1 phi2: formula_cnf) : formula_cnf
+    ensures { (forall v. ((eval_cnf v phi1 || eval_cnf v phi2) = eval_cnf v result)) }
+  = distr_cps phi1 phi2 (fun x -> x)
+
+
+  let rec cnfc_cps (phi: formula_nnf) (k: formula_cnf -> 'a) : 'a
+    variant{ phi }
+    ensures{ result = k (cnfc phi)}
+  = match phi with
+    | FOr_nnf phi1 phi2 -> cnfc_cps phi1 (fun con -> cnfc_cps phi2 (fun con1 -> distr_cps con con1 k))
+    | FAnd_nnf phi1 phi2 -> cnfc_cps phi1 (fun con -> cnfc_cps phi2 (fun con1 -> k (FAnd_cnf con con1)))
+    | FNeg_nnf literal -> k (D (FNeg_cnf literal))
+    | L_nnf literal -> k (D (L_cnf literal))
+  end
+
+  let cnfc_main (phi: formula_nnf) : formula_cnf
+    ensures{ (forall v. eval_nnf v phi = eval_cnf v result) }
+  = cnfc_cps phi (fun x -> x)
+  
+  let t_main (phi: formula) : formula_cnf
+    ensures{ (forall v. eval v phi = eval_cnf v result) }
+  = cnfc_cps (nnfc_cps (impl_free_cps (phi) (fun x -> x)) (fun x -> x)) (fun x -> x)
+
+end
