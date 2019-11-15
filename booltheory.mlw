@@ -1,0 +1,119 @@
+theory Bool
+
+type t
+constant top  : t  
+constant bot  : t 
+
+
+function (/*\) (x y : t) : t 
+function (\*/) (x y : t) : t 
+function (->*) (x y: t) : t
+function neg (x : t) : t 
+
+
+axiom and_neutral : forall x. x /*\ top = x
+axiom or_neutral : forall x. x \*/ bot = x
+
+
+(*
+axiom and_abso : forall x. x /*\ bot = bot
+axiom or_abso : forall x. x \*/ top = top
+
+axiom and_comm : forall x y : t. x /*\ y = y /*\ x
+axiom or_comm : forall x y : t. x \*/ y = y \*/ x
+
+axiom and_distr : forall x y z : t. x /*\ ( y \*/ z) = (x /*\ y ) \*/ (x /*\ z)
+axiom or_distr : forall x y z : t. x \*/ (y /*\ z) = (x \*/ y) /*\ (x \*/ z) 
+
+axiom neg_bot : forall x : t. x /*\ neg x = bot
+axiom neg_top : forall x : t. x \*/ neg x = top*)
+
+end
+
+module BoolImplementation
+
+type t
+type i
+val constant top  : t   
+val constant bot  : t 
+
+val (=) (t1 t2: t) : bool
+  ensures { result <-> t1 = t2 }
+  
+
+let function (/*\) (x y : t) : t  = 
+  if x = top && y = top then top else bot
+
+function (\*/) (x y : t) : t  = 
+  if x = top \/ y = top then top else bot  
+
+function neg (x : t) : t  = 
+  if x = bot then top else bot
+
+function (->*) (x y : t) : t = 
+  (neg x) \*/ y
+  
+  
+clone export Bool with type t = t, constant top = top, constant bot = bot, 
+function (/*\) = (/*\), function (\*/) = (\*/), function neg = neg, function (->*) = (->*), axiom .
+
+
+
+(* LEMMAS AUTOMATIC PROVED *)
+
+
+
+
+
+
+lemma or_elem_abso: forall x. x \*/ top = top
+
+lemma and_elem_abso: forall x. x /*\ bot = bot
+
+lemma repr_of_top : (top) = (neg (bot))
+
+lemma implEquiv: forall x1 x2. (x1 ->* x2) = ((neg x1) \*/ x2)
+
+
+
+(* LEMMAS PROVED WITH THE AXIOMS *)
+
+
+lemma and_neutral_elem: forall x. x /*\ top = x
+
+lemma or_neutral_elem: forall x. x \*/ bot = x
+
+lemma and_assoc: forall x y z. x /*\ (y /*\ z) = (x /*\ y) /*\ z
+lemma or_assoc: forall x y z. x \*/ (y \*/ z) = (x \*/ y) \*/ z
+
+lemma and_comm : forall x y : t. x /*\ y = y /*\ x
+lemma or_comm : forall x y : t. x \*/ y = y \*/ x
+
+lemma and_distr : forall x y z : t. x /*\ ( y \*/ z) = (x /*\ y ) \*/ 
+(x /*\ z)
+lemma or_distr : forall x y z : t. x \*/ (y /*\ z) = (x \*/ y) /*\ 
+(x \*/ z) 
+
+lemma compl_bot : forall x : t. x /*\ neg x = bot
+lemma compl_top : forall x : t.
+ x \*/ neg x = top
+
+
+
+lemma doubleneg: forall b. neg (neg b) = b
+
+lemma deMorgan_or: forall x1 x2. neg ((x1 \*/ x2)) = ((neg x1) /*\ (neg x2))
+
+lemma deMorgan_and: forall x1 x2. neg ((x1 /*\ x2)) = ((neg x1) \*/ (neg x2))
+
+
+
+
+
+
+
+
+
+
+
+end
