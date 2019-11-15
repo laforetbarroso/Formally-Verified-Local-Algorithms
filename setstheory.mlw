@@ -1,0 +1,131 @@
+module BoolSet
+
+
+
+use set.Fset, int.Int, formula.PropositionalFormula, booltheory.BoolImplementation
+
+type boolset = fset t
+
+
+let rec ghost function eval_positive (s: boolset): t
+  variant { cardinal s }
+= if is_empty s then neg bot
+  else let x = pick s in
+    x /*\ eval_positive (remove x s)
+
+
+let rec ghost function eval_negative (s: boolset) : t
+  variant { cardinal s }
+= if is_empty s then bot
+  else let x = pick s in
+    neg (x) \*/ eval_negative (remove x s)
+
+
+let rec lemma neg_positive_isnegative (s: boolset)
+  variant {cardinal s}
+  ensures {neg (eval_positive s) = eval_negative s }
+  = if cardinal s > 0 then
+      let x = pick s in
+        neg_positive_isnegative (remove x s)
+
+
+val predicate (==) (e1 e2: boolset) : bool
+  ensures{result <-> e1 = e2}
+
+lemma eval_negative_add1: forall s x. eval_negative (add x s) = ((neg (x)) \*/ eval_negative s )
+
+let rec lemma eval_negative_add (s: boolset) (x: t)
+  variant{ cardinal s }
+  ensures{ eval_negative (add x s) = ((neg (x)) \*/ eval_negative s )}
+  = ()
+  
+let rec lemma eval_positive_add (s: boolset) (x: t)
+  variant{ cardinal s }
+  ensures{ eval_positive (add x s) = ((x) /*\ eval_positive s ) }
+  = ()
+  
+  
+lemma eval_positive_abso: forall s x. x = bot -> (eval_positive (add x s) = bot)
+
+lemma eval_negative_abso: forall s x. x = bot -> (eval_negative (add x s) = top)
+
+lemma eval_positive_neutral: forall s x. x = top -> (eval_positive (add x s) = eval_positive s)
+
+lemma eval_negative_neutral: forall s x. x = top -> (eval_negative (add x s) = eval_negative s)
+
+
+end
+
+
+module PropositionalFormulaSet
+
+  use int.Int, set.Fset
+  use formula.BoolFunction, formula.PropositionalFormula, formula.Horn, booltheory.BoolImplementation, formula.ConjunctiveNormalForm
+
+  use import BoolSet as BoolSet
+
+  clone export booltheory.Bool with
+    type t = t, constant top = top, constant bot = bot,
+    function (/*\) = (/*\), function (\*/) = (\*/), function neg = neg,
+    function (->*) = (->*), axiom .
+
+  val function eq_pos (x y: pliteral) : bool
+    ensures { result <-> x = y }
+
+  type pliteralset = fset pliteral
+
+  function cast_setPF_setB (fset pliteral) (i -> t) : fset t
+
+  axiom cast_def_empty: forall s f. is_empty s -> cast_setPF_setB s f = empty
+  axiom cast_def_add  : forall s f.
+    not (is_empty s) -> forall x. mem x s ->
+    cast_setPF_setB s f = add (eval_pliteral x f) (cast_setPF_setB (remove x s) f)
+    
+  let rec lemma cast_commutes_add
+    (s: pliteralset) (x: pliteral) (f: i -> t)
+    variant { cardinal (add x s) }
+    ensures { cast_setPF_setB (add x s) f ==
+              add (eval_pliteral x f) (cast_setPF_setB s f) }
+  = () (*if is_empty s then ()
+    else let y = pick (add x s) in
+      if eq_pos x y then ()
+      else let new_s = remove y (add x s) in
+        cast_commutes_add new_s x f*)
+
+  let rec ghost function eval_negative (s: fset pliteral) (f: i -> t) : t
+  = BoolSet.eval_negative (cast_setPF_setB s f)
+  
+  let rec ghost function eval_positive (s: fset pliteral) (f: i -> t) : t
+  = BoolSet.eval_positive (cast_setPF_setB s f)
+
+  let rec lemma neg_positive_isNegative (s: pliteralset) (f: i -> t)
+    variant {cardinal s}
+    ensures {neg (eval_positive s f) = eval_negative s f}
+    = if cardinal s > 0 then
+        let x = pick s in
+          neg_positive_isNegative (remove x s) f
+
+  let rec lemma eval_negative_add (s: pliteralset) (f: i -> t) (x: pliteral)
+    variant{ cardinal s }
+    ensures{ eval_negative (add x s) f =
+             ((neg ( eval_pliteral x f)) \*/ eval_negative s f ) }
+    = ()
+    
+  let rec lemma eval_positive_add (s: pliteralset) (f: i -> t) (x: pliteral)
+    variant{ cardinal s }
+    ensures{ eval_positive (add x s) f =
+             (( eval_pliteral x f) /*\ eval_positive s f ) }
+    = ()
+    
+    
+  lemma eval_positive_abso: forall s x f. (eval_pliteral x f) = bot -> (eval_positive (add x s) f = bot)
+
+  lemma eval_negative_abso: forall s x f. (eval_pliteral x f) = bot -> (eval_negative (add x s) f = top)
+
+  lemma eval_positive_neutral: forall s x f. (eval_pliteral x f) = top -> (eval_positive (add x s) f = eval_positive s f)
+
+  lemma eval_negative_neutral: forall s x f. (eval_pliteral x f) = top -> (eval_negative (add x s) f = eval_negative s f)
+
+  lemma eval_singleton_equalEvalpliteral: forall x e1 e2 f. e1 = CPL x /\ e2 = singleton x -> eval_positive e2 f = Horn.eval_positive e1 f
+
+end
