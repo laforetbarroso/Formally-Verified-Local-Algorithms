@@ -1,0 +1,590 @@
+module Formula
+
+  use list.List
+
+  type ident
+
+  type formula =
+    | FVar   ident
+    | FConst bool
+    | FAnd   formula formula
+    | FOr    formula formula
+    | FImpl  formula formula
+    | FNeg   formula
+
+  type formula_wi =
+    | FVar_wi ident
+    | FConst_wi bool
+    | FAnd_wi formula_wi formula_wi
+    | FOr_wi formula_wi formula_wi
+    | FNeg_wi formula_wi
+
+end
+
+
+
+
+module Predicates
+
+  use Formula
+
+  predicate wf_negations_of_literals (f: formula_wi)
+  = match f with
+    | FNeg_wi f -> (
+      match f with
+      | FOr_wi _ _ | FAnd_wi _ _ |  FNeg_wi _ -> false
+      | _ -> wf_negations_of_literals f
+      end)
+    | FOr_wi f1 f2 | FAnd_wi f1 f2 -> wf_negations_of_literals f1 /\ wf_negations_of_literals f2
+    | FVar_wi _ -> true
+    | FConst_wi _ -> true
+  end
+
+  predicate wf_disjunctions (f: formula_wi)
+  = match f with
+    | FAnd_wi _ _ -> false
+    | FOr_wi f1 f2 -> wf_disjunctions f1 /\ wf_disjunctions f2
+    | FConst_wi _ -> true
+    | FVar_wi _ -> true
+    | FNeg_wi f1 -> wf_disjunctions f1
+  end
+
+  predicate wf_conjunctions_of_disjunctions (f: formula_wi)
+  = match f with
+    | FAnd_wi f1 f2 -> wf_conjunctions_of_disjunctions f1 /\ wf_conjunctions_of_disjunctions f2
+    | FOr_wi f1 f2 -> wf_disjunctions f1 /\ wf_disjunctions f2
+    | FConst_wi _ -> true
+    | FVar_wi _ -> true
+    | FNeg_wi f1 -> wf_conjunctions_of_disjunctions f1
+  end
+
+  constant f1 : formula_wi =
+    FAnd_wi (FOr_wi (FConst_wi true) (FConst_wi false)) (FOr_wi (FAnd_wi (FConst_wi true)(FConst_wi false)) (FConst_wi true))
+
+  constant f2 : formula_wi =
+    FAnd_wi (FOr_wi (FConst_wi true) (FConst_wi false)) (FOr_wi (FAnd_wi (FConst_wi true)(FConst_wi false)) (FConst_wi true))
+
+  constant f3 : formula_wi =
+    FOr_wi f2 f1
+
+  goal G : wf_conjunctions_of_disjunctions f3
+
+end
+
+
+
+
+
+module Valuation
+
+  use Formula, list.List
+
+  type valuation = ident -> bool
+
+  (* outras possibilidades de fazer a funÃ§Ã£o eval? prova por reflexÃ£o ou algebra de Bool *)
+  (* intrepertador *)
+
+  let rec function eval (v: valuation) (f: formula) : bool
+    variant { f }
+  = match f with
+      | FVar x      -> v x
+      | FConst b    -> b
+      | FAnd f1 f2  -> eval v f1 && eval v f2
+      | FOr f1 f2   -> eval v f1 || eval v f2
+      | FImpl f1 f2 -> not (eval v f1) || eval v f2
+      | FNeg f      -> not (eval v f)
+    end
+
+  let rec function eval_wi (v: valuation) (f: formula_wi) : bool
+    variant { f }
+  = match f with
+      | FVar_wi x      -> v x
+      | FConst_wi b    -> b
+      | FAnd_wi f1 f2  -> eval_wi v f1 && eval_wi v f2
+      | FOr_wi f1 f2   -> eval_wi v f1 || eval_wi v f2
+      | FNeg_wi f      -> not (eval_wi v f)
+    end
+
+
+  let rec function eval_cps (v: ident -> (bool)) (f: formula) (k: bool -> bool) : bool
+    variant{ f }
+  = match f with
+    | FVar x -> k (v x)
+    | FConst b -> k b
+    | FAnd f1 f2 -> eval_cps v f1 (fun con -> eval_cps v f2 (fun con1 -> k (con && con1)))
+    | FOr f1 f2 -> eval_cps v f1 (fun con -> eval_cps v f2 (fun con1 -> k (con || con1)))
+    | FImpl f1 f2 -> eval_cps v f1 (fun con -> eval_cps v f2 (fun con1 -> k (not (con) || con1)))
+    | FNeg f1 -> eval_cps v f1 (fun con -> k (not con))
+  end
+
+  let rec function eval_wi_cps (v: valuation) (f: formula_wi) (k: bool -> bool) : bool
+    variant { f }
+  = match f with
+      | FVar_wi x      -> k (v x)
+      | FConst_wi b    -> k b
+      | FAnd_wi f1 f2  -> eval_wi_cps v f1 (fun con -> eval_wi_cps v f2 (fun con1 -> k (con && con1)))
+      | FOr_wi f1 f2   -> eval_wi_cps v f1 (fun con -> eval_wi_cps v f2 (fun con1 -> k (con || con1)))
+      | FNeg_wi f1      -> eval_wi_cps v f1 (fun con -> k (not con))
+    end
+
+
+end
+
+
+
+module T
+
+  use Formula, Valuation, Predicates
+
+  let rec function impl_free (phi: formula) : formula_wi
+    variant { phi }
+    ensures { forall v. eval v phi = eval_wi v result }
+  = match phi with
+    | FNeg phi1 -> FNeg_wi (impl_free phi1)
+    | FOr phi1 phi2 -> FOr_wi (impl_free phi1) (impl_free phi2)
+    | FAnd phi1 phi2 -> FAnd_wi (impl_free phi1) (impl_free phi2)
+    | FImpl phi1 phi2 -> FOr_wi (FNeg_wi (impl_free phi1)) (impl_free phi2)
+    | FConst phi -> FConst_wi phi
+    | FVar phi -> FVar_wi phi
+    end
+
+  use int.Int
+
+  function size (phi: formula_wi) : int = match phi with
+    | FVar_wi _ | FConst_wi _ -> 1
+    | FNeg_wi phi -> 1 + size phi
+    | FAnd_wi phi1 phi2 | FOr_wi phi1 phi2 ->
+        1 + size phi1 + size phi2
+    end
+
+  let rec lemma size_nonneg (phi: formula_wi)
+    variant { phi }
+    ensures { size phi >= 0 }
+  = match phi with
+    | FVar_wi _ | FConst_wi _ -> ()
+    | FNeg_wi phi -> size_nonneg phi
+    | FAnd_wi phi1 phi2 | FOr_wi phi1 phi2 ->
+        size_nonneg phi1; size_nonneg phi2
+    end
+
+  let rec function nnfc (phi: formula_wi)
+    variant { size phi }
+    ensures { (forall v. eval_wi v phi = eval_wi v result) /\ wf_negations_of_literals result }
+  = match phi with
+    | FNeg_wi (FNeg_wi phi1) -> nnfc phi1
+    | FNeg_wi (FAnd_wi phi1 phi2) -> FOr_wi (nnfc (FNeg_wi phi1)) (nnfc (FNeg_wi phi2))
+    | FNeg_wi (FOr_wi phi1 phi2) -> FAnd_wi (nnfc (FNeg_wi phi1)) (nnfc (FNeg_wi phi2))
+    | FOr_wi phi1 phi2 -> FOr_wi (nnfc phi1) (nnfc phi2)
+    | FAnd_wi phi1 phi2 -> FAnd_wi (nnfc phi1) (nnfc phi2)
+    | phi -> phi
+  end
+
+  lemma aux: forall x. wf_conjunctions_of_disjunctions x /\
+    wf_negations_of_literals x /\ not (exists f1 f2. x = FAnd_wi f1 f2) ->
+    wf_disjunctions x
+
+  let rec function distr (phi1 phi2: formula_wi)
+    requires{ wf_negations_of_literals phi1 /\ wf_negations_of_literals phi2}
+    requires{ wf_conjunctions_of_disjunctions phi1 /\ wf_conjunctions_of_disjunctions phi2}
+    variant { size phi1 + size phi2 }
+    ensures { (forall v. eval_wi v (FOr_wi phi1 phi2) = eval_wi v result) } (* EVAL *)
+    ensures { wf_negations_of_literals result /\ wf_conjunctions_of_disjunctions result }
+  = match phi1, phi2 with
+    | FAnd_wi phi11 phi12, phi2 -> FAnd_wi (distr phi11 phi2) (distr phi12 phi2)
+    | phi1, FAnd_wi phi21 phi22 -> FAnd_wi (distr phi1 phi21) (distr phi1 phi22)
+    | phi1,phi2 -> FOr_wi phi1 phi2
+    end
+
+  let rec function cnfc (phi: formula_wi)
+    requires{ wf_negations_of_literals phi }
+    variant { phi }
+    ensures{ (forall v. eval_wi v phi = eval_wi v result) /\ wf_negations_of_literals result}
+    ensures{ wf_conjunctions_of_disjunctions result}
+  = match phi with
+    | FOr_wi phi1 phi2 -> distr (cnfc phi1) (cnfc phi2)
+    | FAnd_wi phi1 phi2 -> FAnd_wi (cnfc phi1) (cnfc phi2)
+    | phi -> phi
+  end
+
+  let t (phi: formula) : formula_wi
+    ensures { (forall v. eval v phi = eval_wi v result) /\ wf_negations_of_literals result /\ wf_conjunctions_of_disjunctions result}
+  = cnfc (nnfc (impl_free phi))
+
+end
+
+module T_CPS
+
+  use Formula, Valuation, Predicates, T, int.Int
+
+  let rec impl_free_cps (phi: formula) (k: formula_wi -> 'a ) : 'a
+ (*   requires { forall f1 f2 v. eval v f1 = eval v f2 -> eval v (k f1) = eval v (k f2) } *)
+    variant { phi }
+    ensures { result = k (impl_free phi) }
+  = match phi with
+    | FNeg phi1 -> impl_free_cps phi1 (fun con -> k (FNeg_wi con))
+    | FOr phi1 phi2 -> impl_free_cps phi1 (fun con -> impl_free_cps phi2 (fun con1 -> k (FOr_wi con con1)))
+    | FAnd phi1 phi2 -> impl_free_cps phi1 (fun con -> impl_free_cps phi2 (fun con1 -> k (FAnd_wi con con1)))
+    | FImpl phi1 phi2 -> impl_free_cps phi1 (fun con -> impl_free_cps phi2 (fun con1 -> k (FOr_wi (FNeg_wi con) con1)))
+    | FConst phi -> k (FConst_wi phi)
+    | FVar phi -> k (FVar_wi phi)
+    end
+
+  let impl_free_main (phi: formula) : formula_wi
+  ensures {forall v. eval v phi = eval_wi v result}
+  = impl_free_cps phi (fun x -> x)
+
+  let rec nnfc_cps (phi: formula_wi) (k: formula_wi -> 'a) : 'a
+    variant { size phi }
+    ensures { result = k (nnfc phi) }
+  = match phi with
+    | FNeg_wi (FNeg_wi phi1) -> nnfc_cps phi1 (fun con -> k con)
+    | FNeg_wi (FAnd_wi phi1 phi2) -> nnfc_cps (FNeg_wi phi1) (fun con -> nnfc_cps (FNeg_wi phi2) (fun con1 -> k (FOr_wi con con1)))
+    | FNeg_wi (FOr_wi phi1 phi2) -> nnfc_cps (FNeg_wi phi1) (fun con -> nnfc_cps (FNeg_wi phi2) (fun con1 -> k (FAnd_wi con con1)))
+    | FOr_wi phi1 phi2 -> nnfc_cps phi1 (fun con -> nnfc_cps phi2 (fun con1 -> k (FOr_wi con con1)))
+    | FAnd_wi phi1 phi2 -> nnfc_cps phi1 (fun con -> nnfc_cps phi2 (fun con1 -> k (FAnd_wi con con1)))
+    | phi -> k (phi)
+  end
+
+  let nnfc_main (phi: formula_wi) : formula_wi
+    ensures {(forall v. eval_wi v phi = eval_wi v result) /\ wf_negations_of_literals result}
+  = nnfc_cps phi (fun x -> x)
+
+  let rec distr_cps (phi1 phi2: formula_wi) (k: formula_wi -> 'a) : 'a
+    requires{ wf_negations_of_literals phi1 /\ wf_negations_of_literals phi2}
+    requires{ wf_conjunctions_of_disjunctions phi1 /\ wf_conjunctions_of_disjunctions phi2}
+    variant { size phi1 + size phi2 }
+    ensures { result = k (distr phi1 phi2) }
+  = match phi1, phi2 with
+    | FAnd_wi phi11 phi12, phi2 -> distr_cps phi11 phi2 (fun con -> distr_cps phi12 phi2 (fun con1 -> k (FAnd_wi con con1)))
+    | phi1, FAnd_wi phi21 phi22 -> distr_cps phi1 phi21 (fun con -> distr_cps phi1 phi22 (fun con1 -> k (FAnd_wi con con1)))
+    | phi1,phi2 -> k (FOr_wi phi1 phi2)
+    end
+
+  let distr_main (phi1 phi2: formula_wi) : formula_wi
+    requires{ wf_negations_of_literals phi1 /\ wf_negations_of_literals phi2}
+    requires{ wf_conjunctions_of_disjunctions phi1 /\ wf_conjunctions_of_disjunctions phi2}
+    ensures { (forall v. eval_wi v (FOr_wi phi1 phi2) = eval_wi v result) } (* EVAL *)
+    ensures { wf_negations_of_literals result /\ wf_conjunctions_of_disjunctions result }
+  = distr_cps phi1 phi2 (fun x -> x)
+
+
+  let rec cnfc_cps (phi: formula_wi) (k: formula_wi -> 'a) : 'a
+    requires{ wf_negations_of_literals phi }
+    variant { phi }
+    ensures{ result = k (cnfc phi)}
+  = match phi with
+    | FOr_wi phi1 phi2 -> cnfc_cps phi1 (fun con -> cnfc_cps phi2 (fun con1 -> distr_cps con con1 k))
+    | FAnd_wi phi1 phi2 -> cnfc_cps phi1 (fun con -> cnfc_cps phi2 (fun con1 -> k (FAnd_wi con con1)))
+    | phi -> k (phi)
+  end
+
+  let cnfc_main (phi: formula_wi) : formula_wi
+    requires{ wf_negations_of_literals phi }
+    ensures{ (forall v. eval_wi v phi = eval_wi v result) /\ wf_negations_of_literals result}
+    ensures{ wf_conjunctions_of_disjunctions result}
+  = cnfc_cps phi (fun x -> x)
+
+end
+
+module Desfunctionalization
+
+  use Formula, Valuation, Predicates, T, int.Int
+
+  (* TYPES *)
+
+  type impl_kont =
+    | KImpl_Id
+    | KImpl_Neg impl_kont formula
+    | KImpl_OrLeft formula impl_kont
+    | KImpl_OrRight impl_kont formula_wi
+    | KImpl_AndLeft formula impl_kont
+    | KImpl_AndRight impl_kont formula_wi
+    | KImpl_ImplLeft formula impl_kont
+    | KImpl_ImplRight impl_kont formula_wi
+
+  type nnfc_kont =
+    | Knnfc_id
+    | Knnfc_negneg nnfc_kont formula_wi
+    | Knnfc_negandleft formula_wi nnfc_kont
+    | Knnfc_negandright nnfc_kont formula_wi
+    | Knnfc_negorleft formula_wi nnfc_kont
+    | Knnfc_negorright nnfc_kont formula_wi
+    | Knnfc_andleft formula_wi nnfc_kont
+    | Knnfc_andright nnfc_kont formula_wi
+    | Knnfc_orleft formula_wi nnfc_kont
+    | Knnfc_orright nnfc_kont formula_wi
+
+  type distr_kont =
+    | KDistr_Id
+    | KDistr_Left formula_wi formula_wi distr_kont
+    | KDistr_Right distr_kont formula_wi
+
+  predicate wf_distr_kont (phi: distr_kont) = match phi with
+    | KDistr_Id -> true
+    | KDistr_Left phi1 phi2 k ->
+        wf_negations_of_literals phi1 /\ wf_conjunctions_of_disjunctions phi1 /\
+        wf_negations_of_literals phi2 /\ wf_conjunctions_of_disjunctions phi2 /\
+        wf_distr_kont k
+    | KDistr_Right k phi ->
+        wf_negations_of_literals phi /\ wf_conjunctions_of_disjunctions phi /\
+        wf_distr_kont k
+    end
+
+  type wf_distr_kont = {
+    distr_k: distr_kont;
+  } invariant { wf_distr_kont distr_k }
+    by { distr_k = KDistr_Id }
+
+  type cnfc_kont =
+    | KCnfc_Id
+    | KCnfc_OrLeft formula_wi cnfc_kont
+    | KCnfc_OrRight cnfc_kont formula_wi
+    | KCnfc_AndLeft formula_wi cnfc_kont
+    | KCnfc_AndRight cnfc_kont formula_wi
+
+  predicate wf_cnfc_kont (phi: cnfc_kont) = match phi with
+    | KCnfc_Id -> true
+    | KCnfc_OrLeft phi k ->
+        wf_negations_of_literals phi /\ wf_cnfc_kont k
+    | KCnfc_OrRight k phi ->
+        wf_negations_of_literals phi /\ wf_conjunctions_of_disjunctions phi /\
+        wf_cnfc_kont k
+    | KCnfc_AndLeft phi k ->
+        wf_negations_of_literals phi /\ wf_cnfc_kont k
+    | KCnfc_AndRight k phi ->
+        wf_negations_of_literals phi /\ wf_conjunctions_of_disjunctions phi /\
+        wf_cnfc_kont k
+    end
+
+  type wf_cnfc_kont = {
+    cnfc_k: cnfc_kont;
+  } invariant { wf_cnfc_kont cnfc_k }
+    by { cnfc_k = KCnfc_Id }
+
+  (* TERMINATION *)
+
+  function var_kont (k: nnfc_kont) : int
+  = match k with
+    | Knnfc_id -> 0
+    | Knnfc_negneg k _ -> 1 + var_kont k
+    | Knnfc_negandleft l k -> 2 + size l + var_kont k
+    | Knnfc_negandright k _ -> 1 + var_kont k
+    | Knnfc_negorleft l k -> 2 + size l + var_kont k
+    | Knnfc_negorright k _ -> 1 + var_kont k
+    | Knnfc_andleft l k -> 2 + size l + var_kont k
+    | Knnfc_andright k _ -> 1 + var_kont k
+    | Knnfc_orleft l k -> 2 + size l + var_kont k
+    | Knnfc_orright k _ -> 1 + var_kont k
+  end
+
+  let rec lemma var_kont_k_nonneg (k: nnfc_kont)
+    variant { k }
+    ensures { var_kont k >= 0 }
+  = match k with
+    | Knnfc_id -> ()
+    | Knnfc_negneg k _ | Knnfc_negandright k _  | Knnfc_negorright k _  | Knnfc_andright k _ | Knnfc_orright k _ -> var_kont_k_nonneg k
+    | Knnfc_negandleft l k | Knnfc_negorleft l k | Knnfc_andleft l k | Knnfc_orleft l k -> size_nonneg l; var_kont_k_nonneg k
+    end
+
+
+
+  (* POSTS *)
+
+
+  predicate nnfc_post (k: nnfc_kont) (phi result: formula_wi)
+  = match k with
+    | Knnfc_id -> let x = phi in x = result
+    | Knnfc_negneg k phi1 -> let neg = phi in nnfc_post k phi result
+    | Knnfc_negandleft phi1 k -> let hl = phi in nnfc_post k (FOr_wi phi (nnfc (FNeg_wi phi1))) result
+    | Knnfc_negandright k phi2 -> let hr = phi in nnfc_post k (FOr_wi phi2 hr) result
+    | Knnfc_negorleft phi1 k -> let hl = phi in nnfc_post k (FAnd_wi phi (nnfc (FNeg_wi phi1))) result
+    | Knnfc_negorright k phi2 ->let hr = phi in nnfc_post k (FAnd_wi phi2 hr) result
+    | Knnfc_andleft phi1 k -> let hl = phi in nnfc_post k (FAnd_wi phi (nnfc phi1)) result
+    | Knnfc_andright k phi2 -> let hr = phi in nnfc_post k (FAnd_wi phi2 hr) result
+    | Knnfc_orleft phi1 k -> let hl = phi in nnfc_post k (FOr_wi phi (nnfc phi1)) result
+    | Knnfc_orright k phi2 -> let hr = phi in nnfc_post k (FOr_wi phi2 hr) result
+  end
+
+  predicate impl_post (k: impl_kont) (phi result: formula_wi)
+  = match k with
+    | KImpl_Id -> let x = phi in x = result
+    | KImpl_Neg k phi1 -> let neg = phi in impl_post k (FNeg_wi phi) result
+    | KImpl_OrLeft phi1 k -> let hl = phi in impl_post k (FOr_wi phi (impl_free phi1)) result
+    | KImpl_OrRight k phi2 -> let hr = phi in impl_post k (FOr_wi phi2 hr) result
+    | KImpl_AndLeft phi1 k -> let hl = phi in impl_post k (FAnd_wi phi (impl_free phi1)) result
+    | KImpl_AndRight k phi2 -> let hr = phi in impl_post k (FAnd_wi phi2 hr) result
+    | KImpl_ImplLeft phi1 k -> let hl = phi in impl_post k (FOr_wi (FNeg_wi phi) (impl_free phi1)) result
+    | KImpl_ImplRight k phi2-> let hr = phi in impl_post k (FOr_wi (FNeg_wi phi2) hr) result
+  end
+
+  predicate distr_post (k: distr_kont) (phi result: formula_wi)
+  = match k with
+    | KDistr_Id -> let x = phi in x = result
+    | KDistr_Left phi1 phi2 k -> let hl = phi in distr_post k (FAnd_wi hl (distr phi1 phi2)) result
+    | KDistr_Right k phi1 -> let hr = phi in distr_post k (FAnd_wi phi1 hr) result
+  end
+
+  predicate cnfc_post (k: cnfc_kont) (phi result: formula_wi)
+  = match k with
+    | KCnfc_Id -> let x = phi in x = result
+    | KCnfc_OrLeft phi1 k -> let hl = phi in cnfc_post k (distr hl (cnfc phi1)) result
+    | KCnfc_OrRight k phi2 -> let hr = phi in cnfc_post k (distr phi2 hr) result
+    | KCnfc_AndLeft phi1 k -> let hl = phi in cnfc_post k (FAnd_wi phi (cnfc phi1)) result
+    | KCnfc_AndRight k phi2 -> let hr = phi in cnfc_post k (FAnd_wi phi2 hr) result
+  end
+
+
+  (* DESF FUNCTIONS *)
+
+
+  (* IMPL_FREE *)
+
+  let rec impl_free_desf_cps (phi: formula) (k: impl_kont) : formula_wi
+    diverges
+    ensures{impl_post k (impl_free phi) result}
+  = match phi with
+    | FNeg phi1 -> impl_free_desf_cps phi1 (KImpl_Neg k phi1)
+    | FOr phi1 phi2 -> impl_free_desf_cps phi1 (KImpl_OrLeft phi2 k)
+    | FAnd phi1 phi2 -> impl_free_desf_cps phi1 (KImpl_AndLeft phi2 k)
+    | FImpl phi1 phi2 -> impl_free_desf_cps phi1 (KImpl_ImplLeft phi2 k)
+    | FConst phi -> impl_apply (FConst_wi phi) k
+    | FVar phi -> impl_apply (FVar_wi phi) k
+  end
+
+  with impl_apply (phi: formula_wi) (k: impl_kont) : formula_wi
+    diverges
+    ensures{impl_post k phi result}
+  = match k with
+    | KImpl_Id -> phi
+    | KImpl_Neg k phi1 -> impl_apply (FNeg_wi phi) k
+    | KImpl_OrLeft phi1 k -> impl_free_desf_cps phi1 (KImpl_OrRight k phi)
+    | KImpl_OrRight k phi2 -> impl_apply (FOr_wi phi2 phi) k
+    | KImpl_AndLeft phi1 k -> impl_free_desf_cps phi1 (KImpl_AndRight k phi)
+    | KImpl_AndRight k phi2 -> impl_apply (FAnd_wi phi2 phi) k
+    | KImpl_ImplLeft phi1 k -> impl_free_desf_cps phi1 (KImpl_ImplRight k phi)
+    | KImpl_ImplRight k phi2-> impl_apply (FOr_wi (FNeg_wi phi2) phi) k
+  end
+
+  let rec impl_desf_main (phi:formula) : formula_wi
+  diverges
+  ensures{ forall v. eval v phi = eval_wi v result }
+  = impl_free_desf_cps phi KImpl_Id
+
+
+  (* NNFC *)
+
+
+  let rec nnfc_desf_cps (phi: formula_wi) (k: nnfc_kont) : formula_wi
+    diverges
+    ensures{ nnfc_post k (nnfc phi) result }
+  = match phi with
+    | FNeg_wi (FNeg_wi phi1) -> nnfc_desf_cps phi1 (Knnfc_negneg k phi1)
+    | FNeg_wi (FAnd_wi phi1 phi2) -> nnfc_desf_cps (FNeg_wi phi1) (Knnfc_negandleft phi2 k)
+    | FNeg_wi (FOr_wi phi1 phi2) -> nnfc_desf_cps (FNeg_wi phi1) (Knnfc_negorleft phi2 k)
+    | FOr_wi phi1 phi2 -> nnfc_desf_cps phi1 (Knnfc_orleft phi2 k)
+    | FAnd_wi phi1 phi2 -> nnfc_desf_cps phi1 (Knnfc_andleft phi2 k)
+    | phi -> nnfc_apply phi k
+  end
+
+  with nnfc_apply (phi: formula_wi) (k: nnfc_kont) : formula_wi
+    diverges
+    ensures{ nnfc_post k phi result }
+  = match k with
+    | Knnfc_id -> phi
+    | Knnfc_negneg k phi1 -> nnfc_apply phi k
+    | Knnfc_negandleft phi1 k -> nnfc_desf_cps (FNeg_wi phi1) (Knnfc_negandright k phi)
+    | Knnfc_negandright k phi2 -> nnfc_apply (FOr_wi phi2 phi) k
+    | Knnfc_negorleft phi1 k -> nnfc_desf_cps (FNeg_wi phi1) (Knnfc_negorright k phi)
+    | Knnfc_negorright k phi2 -> nnfc_apply (FAnd_wi phi2 phi) k
+    | Knnfc_andleft phi1 k -> nnfc_desf_cps phi1 (Knnfc_andright k phi)
+    | Knnfc_andright k phi2 -> nnfc_apply (FAnd_wi phi2 phi) k
+    | Knnfc_orleft phi1 k -> nnfc_desf_cps phi1 (Knnfc_orright k phi)
+    | Knnfc_orright k phi2 -> nnfc_apply (FOr_wi phi2 phi) k
+  end
+
+  let nnfc_desf_main (phi: formula_wi) : formula_wi
+    diverges
+    ensures {(forall v. eval_wi v phi = eval_wi v result) /\ wf_negations_of_literals result}
+  = nnfc_desf_cps phi Knnfc_id
+
+  (* Distr *)
+
+  let rec distr_desf_cps (phi1 phi2: formula_wi) (k: wf_distr_kont) : formula_wi
+    requires{ wf_negations_of_literals phi1 /\ wf_negations_of_literals phi2}
+    requires{ wf_conjunctions_of_disjunctions phi1 /\ wf_conjunctions_of_disjunctions phi2}
+    diverges
+    ensures{ distr_post k.distr_k (distr phi1 phi2) result }
+  = match phi1,phi2 with
+    | FAnd_wi phi11 phi12, phi2 ->
+        distr_desf_cps phi11 phi2 { distr_k = KDistr_Left phi12 phi2 k.distr_k }
+    | phi1, FAnd_wi phi21 phi22 ->
+        distr_desf_cps phi1 phi21 { distr_k = KDistr_Left phi1 phi22 k.distr_k }
+    | phi1,phi2 -> distr_apply (FOr_wi phi1 phi2) k
+  end
+
+  with distr_apply (phi: formula_wi) (k: wf_distr_kont) : formula_wi
+    requires{ wf_negations_of_literals phi}
+    requires{ wf_conjunctions_of_disjunctions phi}
+    diverges
+    ensures{ distr_post k.distr_k phi result }
+  = match k.distr_k with
+    | KDistr_Id -> phi
+    | KDistr_Left phi1 phi2 k ->
+        distr_desf_cps phi1 phi2 { distr_k = KDistr_Right k phi }
+    | KDistr_Right k phi1 ->
+        distr_apply (FAnd_wi phi1 phi) { distr_k = k }
+  end
+
+  let distr_desf_main (phi1 phi2: formula_wi) : formula_wi
+    diverges
+    requires{ wf_negations_of_literals phi1 /\ wf_negations_of_literals phi2}
+    requires{ wf_conjunctions_of_disjunctions phi1 /\ wf_conjunctions_of_disjunctions phi2}
+    ensures { (forall v. eval_wi v (FOr_wi phi1 phi2) = eval_wi v result) } (* EVAL *)
+    ensures { wf_negations_of_literals result /\ wf_conjunctions_of_disjunctions result }
+  = distr_desf_cps phi1 phi2 { distr_k = KDistr_Id }
+
+  (* CNFC *)
+
+  let rec cnfc_desf_cps (phi: formula_wi) (k: wf_cnfc_kont) : formula_wi
+    requires{ wf_negations_of_literals phi }
+    diverges
+    ensures{ cnfc_post k.cnfc_k (cnfc phi) result }
+  = match phi with
+    | FOr_wi phi1 phi2 ->
+        cnfc_desf_cps phi1 { cnfc_k = KCnfc_OrLeft phi2 k.cnfc_k }
+    | FAnd_wi phi1 phi2 ->
+        cnfc_desf_cps phi1 { cnfc_k = KCnfc_AndLeft phi2 k.cnfc_k }
+    | phi -> cnfc_apply phi k
+  end
+
+  with cnfc_apply (phi: formula_wi) (k: wf_cnfc_kont) : formula_wi
+    requires{ wf_negations_of_literals phi }
+    requires { wf_conjunctions_of_disjunctions phi }
+    diverges
+    ensures{ cnfc_post k.cnfc_k phi result }
+  = match k.cnfc_k with
+    | KCnfc_Id -> phi
+    | KCnfc_OrLeft phi1 k ->
+        cnfc_desf_cps phi1 { cnfc_k = KCnfc_OrRight k phi }
+    | KCnfc_OrRight k phi2 ->
+        cnfc_apply (distr_desf_cps phi2 phi { distr_k = KDistr_Id })
+          { cnfc_k = k }
+    | KCnfc_AndLeft phi1 k ->
+        cnfc_desf_cps phi1 { cnfc_k = KCnfc_AndRight k phi }
+    | KCnfc_AndRight k phi2 ->
+        cnfc_apply (FAnd_wi phi2 phi) { cnfc_k = k }
+  end
+
+  let cnfc_desf_main (phi: formula_wi) : formula_wi
+    diverges
+    requires{ wf_negations_of_literals phi }
+    ensures{ (forall v. eval_wi v phi = eval_wi v result) /\ wf_negations_of_literals result}
+    ensures{ wf_conjunctions_of_disjunctions result}
+  = cnfc_desf_cps phi { cnfc_k = KCnfc_Id }
+
+  let t (phi: formula) : formula_wi
+    diverges
+    ensures{(forall v. eval v phi = eval_wi v result) /\ wf_negations_of_literals result /\ wf_conjunctions_of_disjunctions result}
+  = cnfc_desf_main ( nnfc_desf_main ( impl_desf_main phi))
+
+end
