@@ -1,0 +1,129 @@
+module Hornify
+
+  use import formula.ConjunctiveNormalForm as CNF 
+  use import formula.Horn as Horn
+  
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+ 
+  
+  clone export set.SetApp with type elt = pliteral
+
+
+  exception MoreThanOnePositive
+  
+  function eval_domain (phi: clause_cnf) (s: set) (p: option rightside) (f: i -> t) : t
+  = eval_clause_cnf phi f \*/ eval_negative s f \*/ eval_optionrightside p f
+  
+  function eval_codomain (s: set) (p: option rightside) (f: i -> t) : t
+  = eval_negative s f \*/  eval_optionrightside p f
+ 
+  (* Cast Functions *)
+    
+  let convertLiteralToR (pl: pliteral) : (rightside)
+    ensures{ forall f. CNF.eval_pliteral pl f = Horn.eval_rightside (assign_rightside result f) }
+  = match pl with
+      | LBottom -> RProp bot
+      | LVar x -> RVar x
+    end
+    
+    
+  (* *)
+  
+    
+  let addLiterals (pl: pliteral) (nl: pliteral) (s: set) (p: option rightside) : (rs: set, rp: option rightside)
+  requires{ p = None }
+  ensures{ (not is_empty rs) }
+  ensures { forall f. (eval_pliteral pl f \*/ (neg (eval_pliteral nl f)) \*/ eval_negative s f \*/ eval_optionrightside p f) = (eval_negative rs f \*/ eval_optionrightside rp f) }
+  = match pl with
+      | LBottom -> let rbottom = Some (RProp bot) in
+                    match nl with
+                      | LBottom -> ((add (LBottom) s), rbottom)
+                      | LVar x -> ((add (LVar x) s), rbottom)
+                    end
+      | LVar x -> let rvar = Some (RVar x) in
+                    match nl with
+                      | LBottom -> ((add (LBottom) s), rvar)
+                      | LVar x -> ((add (LVar x) s), rvar)
+                      
+                    end
+   end
+    
+  let processCombination (pl: pliteral) (nl: pliteral) (s: set) (p: option rightside) : (rs: set, rp: option rightside)
+  raises{ MoreThanOnePositive }
+  ensures{ (not is_empty rs) }
+  ensures { forall f. (eval_pliteral pl f \*/ (neg (eval_pliteral nl f)) \*/ eval_negative s f \*/ eval_optionrightside p f) = (eval_negative rs f \*/ eval_optionrightside rp f) }
+  = match p with
+      | None -> addLiterals pl nl s p
+      | Some _ -> raise MoreThanOnePositive
+    end
+  
+    
+  let rec hornify_aux (phi: clause_cnf) (s: set) (p: option rightside) : (rs: set, rp: option rightside)
+  requires{ exists x y. phi = DOr_cnf x y }
+  ensures{ (not is_empty rs) }
+  ensures{ forall f. eval_domain phi s p f = eval_codomain rs rp f }
+  ensures{ forall f. eval_domain phi s p f = ((eval_positive rs f) ->* (eval_optionrightside rp f)) }
+  raises{ MoreThanOnePositive }
+  variant{ phi }
+  = match phi with
+      | DOr_cnf (DLiteral _) (DLiteral _) -> raise MoreThanOnePositive
+      | DOr_cnf (DLiteral pl) (DNeg_cnf nl) | DOr_cnf (DNeg_cnf nl) (DLiteral pl) -> (* OR of positive literal and negative literal *)
+                              processCombination pl nl s p
+      | DOr_cnf (DNeg_cnf nl1) (DNeg_cnf nl2) -> ((add (nl1) (add nl2 s)), p)
+      | DOr_cnf (DOr_cnf phi1 phi2) (DLiteral pl) | DOr_cnf (DLiteral pl) (DOr_cnf phi1 phi2) -> (* OR of binary or and positive literal *)
+                              match p with
+                                | None -> hornify_aux (DOr_cnf phi1 phi2) s (Some (convertLiteralToR pl))
+                                | Some _ -> raise MoreThanOnePositive
+                              end 
+      | DOr_cnf (DOr_cnf phi1 phi2) (DNeg_cnf nl) | DOr_cnf (DNeg_cnf nl) (DOr_cnf phi1 phi2) -> (* Combination of binary or and negative literal *)
+                             hornify_aux (DOr_cnf phi1 phi2) (add nl s) p
+      | DOr_cnf phi1 phi2 -> let (s1,p1) = hornify_aux phi1 s p in
+                              hornify_aux phi2 s1 p1
+      | _ -> absurd        
+    end
+    
+  let conjunction (s: set): leftside
+  requires{not is_empty s}
+  ensures{forall f. eval_positive s f = eval_leftside result f }
+  = let rec build (s: set)
+     requires{not is_empty s}
+     ensures{forall f. eval_positive s f = Horn.eval_positive result f}
+     variant{cardinal s}
+     = if((cardinal s) = 1) then CPL (choose s) else
+         let element = choose s in
+          CPAnd (CPL (element)) (build (remove (element) s)) in
+    LPos (build s)
+ 
+   
+  let getPositive (p: option rightside) : rightside
+  ensures{forall f. eval_optionrightside p f = eval_rightside (assign_rightside result f)}
+  = match p with
+      | None -> RProp bot
+      | Some x -> x
+    end
+  
+  let getBasicHorn (phi: clause_cnf) : basichornclause
+  ensures{ forall f. eval_clause_cnf phi f = eval_basichornclause result f }
+  raises{ MoreThanOnePositive }
+  = match phi with
+      | DLiteral (LVar x) -> BImpl (LTop) (RVar x)
+      | DLiteral (LBottom) -> BImpl (LTop) (RProp bot)
+      | DNeg_cnf (LVar x) -> BImpl (LPos (CPL (LVar x))) (RProp bot)
+      | DNeg_cnf (LBottom) -> BImpl (LTop) (RProp top)
+      | DOr_cnf _ _ -> let (s,p) = hornify_aux phi (empty ()) None in
+                             BImpl (conjunction s) (getPositive p) 
+    end
+
+  let rec hornify (phi: formula_cnf) : hornclause
+  raises{ MoreThanOnePositive }
+  ensures{forall f. eval_formula_cnf phi f = eval_hornclause result f}
+  variant{ phi }
+  = match phi with
+      | FClause_cnf phi1 -> HBasic (getBasicHorn phi1)
+      | FAnd_cnf phi1 phi2 -> HAnd (hornify phi1) (hornify phi2)
+  end
+  
+
+
+  
+end
