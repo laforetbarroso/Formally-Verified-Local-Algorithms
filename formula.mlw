@@ -1,0 +1,197 @@
+theory BoolFunction
+
+  type t
+  type i
+  constant bot : t
+  constant top : t
+
+  function (/*\) t t : t
+  function (->*) t t : t
+  function (\*/) t t : t
+  function neg t : t
+
+end
+
+theory PropositionalFormula
+
+  use booltheory.BoolImplementation
+
+  type formula =
+    | Prop t
+    | Var i
+    | Neg formula
+    | And formula formula
+    | Or formula formula
+    | Impl formula formula
+    
+
+  function assign (e : formula) (f : i -> t)  : formula =
+    match e with
+    | Prop t -> Prop t
+    | Var i -> Prop (f i)
+    | Neg e -> Neg (assign e f)
+    | And e1 e2 -> And (assign e1 f) (assign e2 f)
+    | Or e1 e2 -> Or (assign e1 f) (assign e2 f)
+    | Impl e1 e2 -> Impl (assign e1 f) (assign e2 f)
+    end
+
+  function eval_recursive (e : formula) : t =
+    match e with
+    | Prop t -> t
+    | Neg e1 -> neg (eval_recursive e1)
+    | And e1 e2 -> (eval_recursive e1) /*\ (eval_recursive e2)
+    | Or e1 e2 -> (eval_recursive e1) \*/ (eval_recursive e2)
+    | Impl e1 e2 -> (eval_recursive e1) ->* (eval_recursive e2)
+    | _ -> bot (* never reached *)
+    end
+
+  function eval (e : formula) (f : i -> t) : t = 
+    eval_recursive (assign e f)
+  
+
+end
+
+theory ConjunctiveNormalForm
+
+  use booltheory.BoolImplementation
+
+  type pliteral =
+      | LBottom
+      | LVar i
+
+  type formula_wi =
+      | L_wi pliteral
+      | FAnd_wi formula_wi formula_wi
+      | FOr_wi formula_wi formula_wi
+      | FNeg_wi formula_wi
+    
+  type formula_nnf =
+      | L_nnf pliteral
+      | FNeg_nnf pliteral
+      | FAnd_nnf formula_nnf formula_nnf
+      | FOr_nnf formula_nnf formula_nnf
+      
+
+  type clause_cnf =
+      | DLiteral pliteral
+      | DNeg_cnf pliteral
+      | DOr_cnf clause_cnf clause_cnf
+      
+  type formula_cnf =
+      | FClause_cnf clause_cnf
+      | FAnd_cnf formula_cnf formula_cnf
+      
+      
+  function eval_pliteral (l: pliteral) (f: i -> t) : t
+  = match l with
+      | LBottom -> bot
+      | LVar i -> f i
+    end
+
+  function eval_wi (fwi: formula_wi) (f: i -> t) : t
+  = match fwi with
+      | L_wi phi1 -> eval_pliteral phi1 f
+      | FAnd_wi fwi1 fwi2  -> eval_wi fwi1 f /*\ eval_wi fwi2 f
+      | FOr_wi fwi1 fwi2   -> eval_wi fwi1 f \*/ eval_wi fwi2 f
+      | FNeg_wi fwi      -> neg (eval_wi fwi f)
+    end
+
+  function eval_nnf (fnnf: formula_nnf) (f: i -> t)  : t
+  = match fnnf with
+      | FNeg_nnf literal -> neg (eval_pliteral literal f)
+      | L_nnf literal -> eval_pliteral literal f
+      | FAnd_nnf fnnf1 fnnf2 -> eval_nnf fnnf1 f /*\ eval_nnf fnnf2 f
+      | FOr_nnf fnnf1 fnnf2 -> eval_nnf fnnf1 f \*/ eval_nnf fnnf2 f
+    end
+
+  function eval_clause_cnf (fcnf: clause_cnf) (f: i -> t) : t
+  = match fcnf with
+      | DLiteral l -> eval_pliteral l f
+      | DNeg_cnf l -> neg (eval_pliteral l f)
+      | DOr_cnf phi1 phi2 -> eval_clause_cnf phi1 f \*/ eval_clause_cnf phi2 f
+    end
+    
+  function eval_formula_cnf (e: formula_cnf) (f: i -> t) : t
+  = match e with
+      | FClause_cnf phi1 -> eval_clause_cnf phi1 f
+      | FAnd_cnf phi1 phi2 -> eval_formula_cnf phi1 f /*\ eval_formula_cnf phi2 f
+    end
+
+
+end
+
+theory Horn
+
+  use booltheory.BoolImplementation, ConjunctiveNormalForm, option.Option
+
+  type rightside =
+      | RProp t
+      | RVar i
+
+  type conj_pliteral =
+      | CPL pliteral
+      | CPAnd conj_pliteral conj_pliteral
+
+  type leftside = 
+      | LTop
+      | LPos conj_pliteral
+
+  type basichornclause =
+      | BImpl leftside rightside
+
+  type hornclause =
+      | HBasic basichornclause
+      | HAnd hornclause hornclause
+      
+      
+  function assign_rightside (r: rightside) (f: i -> t) : rightside
+  = match r with
+      | RProp t -> RProp t
+      | RVar i -> RProp (f i)
+    end
+    
+      
+  function eval_rightside (r: rightside) : t
+  = match r with
+      | RProp t -> t
+      | _ -> bot
+    end
+    
+  function eval_positive (plc: conj_pliteral) (f: i -> t) : t
+  = match plc with
+      | CPL l -> eval_pliteral l f
+      | CPAnd phi1 phi2 -> eval_positive phi1 f /*\ (eval_positive phi2 f)
+    end
+    
+  function eval_leftside (l: leftside) (f: i -> t) : t
+  = match l with
+      | LTop -> top
+      | LPos phi1 -> eval_positive phi1 f
+    end
+    
+  function eval_basichornclause (b: basichornclause) (f: i -> t) : t
+  = match b with
+      | BImpl left right -> (eval_leftside left f) ->* (eval_rightside (assign_rightside right f))
+    end
+    
+  function eval_hornclause (h: hornclause) (f: i -> t) : t
+  = match h with
+      | HBasic h1 -> eval_basichornclause h1 f
+      | HAnd h1 h2 -> eval_hornclause h1 f /*\ eval_hornclause h2 f
+    end
+
+  function eval_optionrightside (p: option rightside) (f: i -> t) : t
+  = match p with
+      | None -> bot
+      | Some x -> eval_rightside (assign_rightside x f)
+    end
+
+end
+
+module LemmasAux
+
+  use PropositionalFormula, ConjunctiveNormalForm, booltheory.BoolImplementation
+
+  lemma prop_top_isFNegwi_Lwi_LBottom: forall e1 e2 f. e1 = Prop top /\ e2 = FNeg_wi (L_wi LBottom) -> eval e1 f = eval_wi e2 f
+
+end
