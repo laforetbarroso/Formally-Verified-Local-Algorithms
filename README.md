@@ -1,10 +1,8 @@
 # Formally Verified Bug-free Implementations of Logical Algorithms
-----
 
 Implementation and verification of standard Computational Logic Algorithms
 
 ## Contents
-----
 
 * Bool Theory
     * Bool Constants Theory
@@ -17,7 +15,6 @@ Implementation and verification of standard Computational Logic Algorithms
 
 ## # [booltheory.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/booltheory.mlw) - Boolean Theory
 
-----
 
 Description of each lemma and axiom proved/needed for each file.
 
@@ -58,7 +55,6 @@ All other properties can be deducted from the axioms above.
 
 ## # [setstheory.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/setstheory.mlw) - Sets Theory
 
-----
 
 Theory for boolean sets and formula sets.
 
@@ -96,8 +92,6 @@ The negative and positive evaluations uses the functions defined in the BoolSet 
 
 ## # [formula.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/formula.mlw) - Formula Types
 
-----
-
 This file has all the types of formulas and their respective evaluation function.
 
 * Standard Formula (module PropositialFormula)
@@ -118,8 +112,6 @@ Impl
 
 ## # [cnf.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/cnf.mlw) - Transformation Algorithm to Conjunctive Normal Form
 
-----
-
 Implementation and Verification of the Transformation Algorithm to Conjunctive Normal Form.
 
 **Functions:**
@@ -132,8 +124,6 @@ Implementation and Verification of the Transformation Algorithm to Conjunctive N
 
 ## # [hornify.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/hornify.mlw) - Transformation Algorithm from CNF to Horn Clauses
 
-----
-
 Implementation and Verification of the Transformation Algorithm from CNF to Horn Clauses.
 
 It uses sets to identify the negative/positive literals of a specific formulae.
@@ -141,15 +131,11 @@ It uses sets to identify the negative/positive literals of a specific formulae.
 
 ## Authors
 
-----
-
 * **Pedro Barroso**
 * **Mário Pereria** 
 * **António Ravara**
 
 ## Acknowledgments
-
-----
 
 * Marco Giunti
 * Tezos
