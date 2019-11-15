@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="3" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="4" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="setstheory.mlw"/>
+<theory name="BoolSet">
+ <goal name="VC eval_positive" expl="VC for eval_positive" proved="true">
+ <proof prover="2"><result status="valid" time="0.06" steps="13175"/></proof>
+ </goal>
+ <goal name="VC eval_negative" expl="VC for eval_negative" proved="true">
+ <proof prover="2"><result status="valid" time="0.07" steps="13332"/></proof>
+ </goal>
+ <goal name="VC neg_positive_isnegative" expl="VC for neg_positive_isnegative" proved="true">
+ <proof prover="2"><result status="valid" time="0.08" steps="15146"/></proof>
+ </goal>
+ <goal name="eval_negative_add1" proved="true">
+ <proof prover="2"><result status="valid" time="0.12" steps="22406"/></proof>
+ </goal>
+ <goal name="VC eval_negative_add" expl="VC for eval_negative_add">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.12" steps="22406"/></proof>
+ </goal>
+ <goal name="VC eval_positive_add" expl="VC for eval_positive_add">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.06" steps="12482"/></proof>
+ </goal>
+ <goal name="eval_positive_abso">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.05" steps="11664"/></proof>
+ </goal>
+ <goal name="eval_negative_abso">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.05" steps="11697"/></proof>
+ <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="3469205"/></proof>
+ <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="eval_positive_neutral">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.06" steps="12580"/></proof>
+ </goal>
+ <goal name="eval_negative_neutral">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.05" steps="12015"/></proof>
+ </goal>
+</theory>
+<theory name="PropositionalFormulaSet">
+ <goal name="VC cast_commutes_add" expl="VC for cast_commutes_add">
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="199852"/></proof>
+ <proof prover="3" obsolete="true"><result status="valid" time="0.12" steps="363631"/></proof>
+ <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="VC neg_positive_isNegative" expl="VC for neg_positive_isNegative">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.12" steps="25380"/></proof>
+ </goal>
+ <goal name="VC eval_negative_add" expl="VC for eval_negative_add">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.09" steps="25503"/></proof>
+ </goal>
+ <goal name="VC eval_positive_add" expl="VC for eval_positive_add">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.07" steps="22902"/></proof>
+ <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="3346762"/></proof>
+ <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="eval_positive_abso">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.07" steps="22693"/></proof>
+ </goal>
+ <goal name="eval_negative_abso">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.07" steps="22550"/></proof>
+ </goal>
+ <goal name="eval_positive_neutral">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.07" steps="23119"/></proof>
+ </goal>
+ <goal name="eval_negative_neutral">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.07" steps="23215"/></proof>
+ </goal>
+ <goal name="eval_singleton_equalEvalpliteral">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.14" steps="27601"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<file proved="true">
+<path name=".."/><path name="booltheory.mlw"/>
+<theory name="BoolImplementation" proved="true">
+ <goal name="or_elem_abso" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="193"/></proof>
+ </goal>
+ <goal name="and_elem_abso" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="284"/></proof>
+ </goal>
+ <goal name="repr_of_top" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="309"/></proof>
+ </goal>
+ <goal name="implEquiv" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="353"/></proof>
+ </goal>
+ <goal name="and_neutral_elem" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="477"/></proof>
+ </goal>
+ <goal name="or_neutral_elem" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="558"/></proof>
+ </goal>
+ <goal name="and_assoc" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="938"/></proof>
+ </goal>
+ <goal name="or_assoc" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="1088"/></proof>
+ </goal>
+ <goal name="and_comm" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="1164"/></proof>
+ </goal>
+ <goal name="or_comm" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="1277"/></proof>
+ </goal>
+ <goal name="and_distr" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="1583"/></proof>
+ </goal>
+ <goal name="or_distr" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="1800"/></proof>
+ </goal>
+ <goal name="compl_bot" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="1647"/></proof>
+ </goal>
+ <goal name="compl_top" proved="true">
+ <proof prover="0"><result status="valid" time="0.00" steps="39"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01" steps="2005"/></proof>
+ </goal>
+ <goal name="doubleneg" proved="true">
+ <proof prover="0"><result status="valid" time="0.00" steps="21"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01" steps="2134"/></proof>
+ <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="7668"/></proof>
+ </goal>
+ <goal name="deMorgan_or" proved="true">
+ <proof prover="0" obsolete="true"><result status="valid" time="0.00" steps="28"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="2434"/></proof>
+ <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="4370"/></proof>
+ </goal>
+ <goal name="deMorgan_and" proved="true">
+ <proof prover="0" obsolete="true"><result status="valid" time="0.00" steps="36"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="2636"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="374224"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

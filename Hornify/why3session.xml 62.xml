@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<file proved="true">
+<path name=".."/><path name="hornify.mlw"/>
+<theory name="Hornify">
+ <goal name="VC convertPLiteralToPL" expl="VC for convertPLiteralToPL">
+ <proof prover="0"><result status="valid" time="0.10" steps="21284"/></proof>
+ </goal>
+ <goal name="VC convertPLtoPLC" expl="VC for convertPLtoPLC">
+ <proof prover="0"><result status="timeout" time="1.00" steps="281673"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00" steps="5606786"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="VC convertLiteralToR" expl="VC for convertLiteralToR">
+ <proof prover="0"><result status="valid" time="0.09" steps="21300"/></proof>
+ </goal>
+ <goal name="VC convertLiteralToPLC" expl="VC for convertLiteralToPLC">
+ <proof prover="0"><result status="valid" time="0.09" steps="21126"/></proof>
+ </goal>
+ <goal name="VC addLiterals" expl="VC for addLiterals">
+ <proof prover="0"><result status="timeout" time="1.00" steps="154963"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00" steps="3066993"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="VC processCombination" expl="VC for processCombination">
+ <proof prover="0"><result status="valid" time="0.05" steps="18046"/></proof>
+ </goal>
+ <goal name="VC hornify_aux" expl="VC for hornify_aux">
+ <proof prover="0"><result status="timeout" time="1.00" steps="149903"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00" steps="2083438"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="VC conjunction" expl="VC for conjunction">
+ <proof prover="0"><result status="timeout" time="1.00" steps="98001"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00" steps="1431661"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="VC getPositive" expl="VC for getPositive">
+ <proof prover="0"><result status="valid" time="0.09" steps="20760"/></proof>
+ </goal>
+ <goal name="VC getBasicHorn" expl="VC for getBasicHorn">
+ <proof prover="0"><result status="timeout" time="1.00" steps="193594"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00" steps="3073632"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="VC hornify" expl="VC for hornify">
+ <proof prover="0"><result status="valid" time="0.13" steps="23933"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>
