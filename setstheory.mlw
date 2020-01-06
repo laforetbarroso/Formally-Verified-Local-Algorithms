@@ -86,11 +86,11 @@ module PropositionalFormulaSet
     variant { cardinal (add x s) }
     ensures { cast_setPF_setB (add x s) f ==
               add (eval_pliteral x f) (cast_setPF_setB s f) }
-  = () (*if is_empty s then ()
+  = if is_empty s then ()
     else let y = pick (add x s) in
       if eq_pos x y then ()
       else let new_s = remove y (add x s) in
-        cast_commutes_add new_s x f*)
+        cast_commutes_add new_s x f
 
   let rec ghost function eval_negative (s: fset pliteral) (f: i -> t) : t
   = BoolSet.eval_negative (cast_setPF_setB s f)

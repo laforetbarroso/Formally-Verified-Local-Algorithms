@@ -193,5 +193,8 @@ module LemmasAux
   use PropositionalFormula, ConjunctiveNormalForm, booltheory.BoolImplementation
 
   lemma prop_top_isFNegwi_Lwi_LBottom: forall e1 e2 f. e1 = Prop top /\ e2 = FNeg_wi (L_wi LBottom) -> eval e1 f = eval_wi e2 f
+ 
+  lemma notbot: forall t f. t <> bot -> eval (Prop t) f = eval_wi (FNeg_wi (L_wi LBottom)) f
+
 
 end

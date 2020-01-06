@@ -3,8 +3,8 @@
 "http://why3.lri.fr/why3session.dtd">
 <why3session shape_version="8">
 <prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
-<prover id="3" name="Z3" version="4.8.4" timelimit="5" steplimit="0" memlimit="1000"/>
-<prover id="4" name="Alt-Ergo" version="2.2.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="3" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="4" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
 <file format="whyml">
 <path name=".."/><path name="setstheory.mlw"/>
 <theory name="BoolSet" proved="true">
@@ -31,6 +31,8 @@
  </goal>
  <goal name="eval_negative_abso" proved="true">
  <proof prover="2"><result status="valid" time="0.05" steps="12038"/></proof>
+ <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="3469205"/></proof>
+ <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="eval_positive_neutral" proved="true">
  <proof prover="2"><result status="valid" time="0.06" steps="12987"/></proof>
@@ -41,9 +43,9 @@
 </theory>
 <theory name="PropositionalFormulaSet">
  <goal name="VC cast_commutes_add" expl="VC for cast_commutes_add">
- <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="1433520"/></proof>
- <proof prover="3"><result status="timeout" time="5.00" steps="863491"/></proof>
- <proof prover="4"><result status="timeout" time="5.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="200556"/></proof>
+ <proof prover="3"><result status="timeout" time="1.00" steps="784202"/></proof>
+ <proof prover="4"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="VC neg_positive_isNegative" expl="VC for neg_positive_isNegative" proved="true">
  <proof prover="2"><result status="valid" time="0.12" steps="25970"/></proof>
@@ -53,6 +55,8 @@
  </goal>
  <goal name="VC eval_positive_add" expl="VC for eval_positive_add" proved="true">
  <proof prover="2"><result status="valid" time="0.07" steps="23474"/></proof>
+ <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="3346762"/></proof>
+ <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="eval_positive_abso" proved="true">
  <proof prover="2"><result status="valid" time="0.07" steps="23264"/></proof>
