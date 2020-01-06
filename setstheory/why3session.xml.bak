@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="3" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="4" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/>
+<path name="setstheory.mlw"/>
+<theory name="BoolSet">
+ <goal name="VC eval_positive" expl="VC for eval_positive">
+ <proof prover="2"><result status="valid" time="0.06" steps="13175"/></proof>
+ </goal>
+ <goal name="VC eval_negative" expl="VC for eval_negative">
+ <proof prover="2"><result status="valid" time="0.07" steps="13332"/></proof>
+ </goal>
+ <goal name="VC neg_positive_isnegative" expl="VC for neg_positive_isnegative">
+ <proof prover="2"><result status="valid" time="0.08" steps="15146"/></proof>
+ </goal>
+ <goal name="eval_negative_add1">
+ <proof prover="2"><result status="valid" time="0.12" steps="22406"/></proof>
+ </goal>
+ <goal name="VC eval_negative_add" expl="VC for eval_negative_add">
+ <proof prover="2"><result status="valid" time="0.12" steps="10997"/></proof>
+ </goal>
+ <goal name="VC eval_positive_add" expl="VC for eval_positive_add">
+ <proof prover="2"><result status="valid" time="0.06" steps="13048"/></proof>
+ </goal>
+ <goal name="eval_positive_abso">
+ <proof prover="2"><result status="valid" time="0.05" steps="12005"/></proof>
+ </goal>
+ <goal name="eval_negative_abso">
+ <proof prover="2"><result status="valid" time="0.05" steps="12038"/></proof>
+ </goal>
+ <goal name="eval_positive_neutral">
+ <proof prover="2"><result status="valid" time="0.06" steps="12987"/></proof>
+ </goal>
+ <goal name="eval_negative_neutral">
+ <proof prover="2"><result status="valid" time="0.05" steps="12356"/></proof>
+ </goal>
+</theory>
+<theory name="PropositionalFormulaSet">
+ <goal name="VC cast_commutes_add" expl="VC for cast_commutes_add">
+ <proof prover="2"><result status="timeout" time="1.00" steps="144740"/></proof>
+ <proof prover="3"><result status="timeout" time="1.00" steps="371040"/></proof>
+ <proof prover="4"><result status="timeout" time="1.00"/></proof>
+ <transf name="split_vc" >
+  <goal name="VC cast_commutes_add.0" expl="variant decrease">
+  <proof prover="2"><result status="valid" time="0.12" steps="25028"/></proof>
+  </goal>
+  <goal name="VC cast_commutes_add.1" expl="postcondition">
+  <proof prover="2"><result status="valid" time="0.30" steps="46674"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="VC neg_positive_isNegative" expl="VC for neg_positive_isNegative">
+ <proof prover="2"><result status="valid" time="0.12" steps="25970"/></proof>
+ </goal>
+ <goal name="VC eval_negative_add" expl="VC for eval_negative_add">
+ <proof prover="2"><result status="valid" time="0.09" steps="26467"/></proof>
+ </goal>
+ <goal name="VC eval_positive_add" expl="VC for eval_positive_add">
+ <proof prover="2"><result status="valid" time="0.07" steps="23474"/></proof>
+ </goal>
+ <goal name="eval_positive_abso">
+ <proof prover="2"><result status="valid" time="0.07" steps="23264"/></proof>
+ </goal>
+ <goal name="eval_negative_abso">
+ <proof prover="2"><result status="valid" time="0.07" steps="23068"/></proof>
+ </goal>
+ <goal name="eval_positive_neutral">
+ <proof prover="2"><result status="valid" time="0.07" steps="23689"/></proof>
+ </goal>
+ <goal name="eval_negative_neutral">
+ <proof prover="2"><result status="valid" time="0.07" steps="23785"/></proof>
+ </goal>
+ <goal name="eval_singleton_equalEvalpliteral">
+ <proof prover="2"><result status="valid" time="0.14" steps="29332"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

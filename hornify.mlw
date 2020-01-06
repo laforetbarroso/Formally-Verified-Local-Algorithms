@@ -3,19 +3,19 @@ module Hornify
   use import formula.ConjunctiveNormalForm as CNF 
   use import formula.Horn as Horn
   
-  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
  
+  use import booltheory.BoolImplementation as BI
   
-  clone export set.SetApp with type elt = pliteral
-
+  clone import appset.Appset with type elt = pliteral
 
   exception MoreThanOnePositive
   
-  function eval_domain (phi: clause_cnf) (s: set) (p: option rightside) (f: i -> t) : t
-  = eval_clause_cnf phi f \*/ eval_negative s f \*/ eval_optionrightside p f
+  function eval_domain (phi: clause_cnf) (s: t) (p: option rightside) (f: i -> BI.t) : BI.t
+  = eval_clause_cnf phi f \*/ eval_negative s.contents f \*/ eval_optionrightside p f
   
-  function eval_codomain (s: set) (p: option rightside) (f: i -> t) : t
-  = eval_negative s f \*/  eval_optionrightside p f
+  function eval_codomain (s: t) (p: option rightside) (f: i -> BI.t) : BI.t
+  = eval_negative s.contents f \*/  eval_optionrightside p f
  
   (* Cast Functions *)
     
@@ -30,10 +30,10 @@ module Hornify
   (* *)
   
     
-  let addLiterals (pl: pliteral) (nl: pliteral) (s: set) (p: option rightside) : (rs: set, rp: option rightside)
+  let addLiterals (pl: pliteral) (nl: pliteral) (s: t) (p: option rightside) : (rs: t, rp: option rightside)
   requires{ p = None }
   ensures{ (not is_empty rs) }
-  ensures { forall f. (eval_pliteral pl f \*/ (neg (eval_pliteral nl f)) \*/ eval_negative s f \*/ eval_optionrightside p f) = (eval_negative rs f \*/ eval_optionrightside rp f) }
+  ensures { forall f. (eval_pliteral pl f \*/ (neg (eval_pliteral nl f)) \*/ eval_negative s.contents f \*/ eval_optionrightside p f) = (eval_negative rs.contents f \*/ eval_optionrightside rp f) }
   = match pl with
       | LBottom -> let rbottom = Some (RProp bot) in
                     match nl with
@@ -48,21 +48,21 @@ module Hornify
                     end
    end
     
-  let processCombination (pl: pliteral) (nl: pliteral) (s: set) (p: option rightside) : (rs: set, rp: option rightside)
+  let processCombination (pl: pliteral) (nl: pliteral) (s: t) (p: option rightside) : (rs: t, rp: option rightside)
   raises{ MoreThanOnePositive }
   ensures{ (not is_empty rs) }
-  ensures { forall f. (eval_pliteral pl f \*/ (neg (eval_pliteral nl f)) \*/ eval_negative s f \*/ eval_optionrightside p f) = (eval_negative rs f \*/ eval_optionrightside rp f) }
+  ensures { forall f. (eval_pliteral pl f \*/ (neg (eval_pliteral nl f)) \*/ eval_negative s.contents f \*/ eval_optionrightside p f) = (eval_negative rs.contents f \*/ eval_optionrightside rp f) }
   = match p with
       | None -> addLiterals pl nl s p
       | Some _ -> raise MoreThanOnePositive
     end
   
     
-  let rec hornify_aux (phi: clause_cnf) (s: set) (p: option rightside) : (rs: set, rp: option rightside)
+  let rec hornify_aux (phi: clause_cnf) (s: t) (p: option rightside) : (rs: t, rp: option rightside)
   requires{ exists x y. phi = DOr_cnf x y }
   ensures{ (not is_empty rs) }
   ensures{ forall f. eval_domain phi s p f = eval_codomain rs rp f }
-  ensures{ forall f. eval_domain phi s p f = ((eval_positive rs f) ->* (eval_optionrightside rp f)) }
+  ensures{ forall f. eval_domain phi s p f = ((eval_positive rs.contents f) ->* (eval_optionrightside rp f)) }
   raises{ MoreThanOnePositive }
   variant{ phi }
   = match phi with
@@ -82,12 +82,12 @@ module Hornify
       | _ -> absurd        
     end
     
-  let conjunction (s: set): leftside
+  let conjunction (s: t): leftside
   requires{not is_empty s}
-  ensures{forall f. eval_positive s f = eval_leftside result f }
-  = let rec build (s: set)
+  ensures{forall f. eval_positive s.contents f = eval_leftside result f }
+  = let rec build (s: t)
      requires{not is_empty s}
-     ensures{forall f. eval_positive s f = Horn.eval_positive result f}
+     ensures{forall f. eval_positive s.contents f = Horn.eval_positive result f}
      variant{cardinal s}
      = if((cardinal s) = 1) then CPL (choose s) else
          let element = choose s in
@@ -110,7 +110,7 @@ module Hornify
       | DLiteral (LBottom) -> BImpl (LTop) (RProp bot)
       | DNeg_cnf (LVar x) -> BImpl (LPos (CPL (LVar x))) (RProp bot)
       | DNeg_cnf (LBottom) -> BImpl (LTop) (RProp top)
-      | DOr_cnf _ _ -> let (s,p) = hornify_aux phi (empty ()) None in
+      | DOr_cnf _ _ -> let (s,p) = hornify_aux phi (empty) None in
                              BImpl (conjunction s) (getPositive p) 
     end
 
