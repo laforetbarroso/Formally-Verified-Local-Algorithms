@@ -6,19 +6,19 @@ use int.Int, formula.PropositionalFormula, booltheory.BoolImplementation
 
 use import set.Fset as Set
 
-type boolset = set t
+type boolset = fset t
 
 let rec ghost function eval_positive (s: boolset): t
   variant { cardinal s }
 = if is_empty s then neg bot
-  else let x = choose s in
+  else let x = pick s in
     x /*\ eval_positive (remove x s)
 
 
 let rec ghost function eval_negative (s: boolset) : t
   variant { cardinal s }
 = if is_empty s then bot
-  else let x = choose s in
+  else let x = pick s in
     neg (x) \*/ eval_negative (remove x s)
 
 
@@ -26,7 +26,7 @@ let rec lemma neg_positive_isnegative (s: boolset)
   variant {cardinal s}
   ensures {neg (eval_positive s) = eval_negative s }
   = if cardinal s > 0 then
-      let x = choose s in
+      let x = pick s in
         neg_positive_isnegative (remove x s)
 
 
@@ -73,9 +73,9 @@ module PropositionalFormulaSet
   val function eq_pos (x y: pliteral) : bool
     ensures { result <-> x = y }
 
-  type pliteralset = set pliteral
+  type pliteralset = fset pliteral
 
-  function cast_setPF_setB (set pliteral) (i -> t) : set t
+  function cast_setPF_setB (fset pliteral) (i -> t) : fset t
 
   axiom cast_def_empty: forall s f. is_empty s -> cast_setPF_setB s f = empty
   axiom cast_def_add  : forall s f.
@@ -88,22 +88,22 @@ module PropositionalFormulaSet
     ensures { cast_setPF_setB (add x s) f ==
               add (eval_pliteral x f) (cast_setPF_setB s f) }
   = if is_empty s then ()
-    else let y = choose (add x s) in
+    else let y = pick (add x s) in
       if eq_pos x y then ()
       else let new_s = remove y (add x s) in
         cast_commutes_add new_s x f
 
-  let rec ghost function eval_negative (s: set pliteral) (f: i -> t) : t
+  let rec ghost function eval_negative (s: fset pliteral) (f: i -> t) : t
   = BoolSet.eval_negative (cast_setPF_setB s f)
   
-  let rec ghost function eval_positive (s: set pliteral) (f: i -> t) : t
+  let rec ghost function eval_positive (s: fset pliteral) (f: i -> t) : t
   = BoolSet.eval_positive (cast_setPF_setB s f)
 
   let rec lemma neg_positive_isNegative (s: pliteralset) (f: i -> t)
     variant {cardinal s}
     ensures {neg (eval_positive s f) = eval_negative s f}
     = if cardinal s > 0 then
-        let x = choose s in
+        let x = pick s in
           neg_positive_isNegative (remove x s) f
 
   let rec lemma eval_negative_add (s: pliteralset) (f: i -> t) (x: pliteral)

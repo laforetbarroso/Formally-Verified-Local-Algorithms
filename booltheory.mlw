@@ -107,10 +107,9 @@ lemma deMorgan_or: forall x1 x2. neg ((x1 \*/ x2)) = ((neg x1) /*\ (neg x2))
 lemma deMorgan_and: forall x1 x2. neg ((x1 /*\ x2)) = ((neg x1) \*/ (neg x2))
 
 
+lemma ifnottop_thenbot: forall t. t <> top -> t = bot
 
-
-
-
+lemma ifnotbot_thentop: forall t. t <> bot -> t = top
 
 
 

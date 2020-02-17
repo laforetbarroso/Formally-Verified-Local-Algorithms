@@ -1,0 +1,21 @@
+\begin{tabular}{|l|l|l|l|l|c|c|}
+\hline \multicolumn{3}{|c|}{Proof obligations } & \provername{Alt-Ergo 2.2.0} & \provername{Z3 4.8.4} \\ 
+\hline
+\explanation{VC for impl\_free}  & \explanation{variant decrease} & & \noresult& \valid{0.14} \\ 
+\cline{2-4}
+ & \explanation{postcondition}  &  & \valid{0.04} & \timeout{120s} \\
+\hline
+\explanation{VC for nnfc}  & \explanation{variant decrease} & & \noresult& \valid{0.18} \\ 
+\cline{2-4}
+ & \explanation{postcondition}  &  & \noresult& \timeout{120s} \\ 
+\hline
+\explanation{VC for distr}  & \explanation{variant decrease} & & \noresult& \valid{0.15} \\ 
+\cline{2-4}
+ & \explanation{postcondition}  &  & \valid{0.18} & \timeout{120s} \\  
+\hline
+\explanation{VC for cnfc}  & \explanation{variant decrease} & & \noresult& \valid{0.12} \\
+\cline{2-4}
+ & \explanation{postcondition}  &  & \valid{0.01} & \timeout{120s} \\ 
+\hline
+\explanation{VC for t} & & & \noresult& \valid{0.02} \\ 
+\hline \end{tabular}

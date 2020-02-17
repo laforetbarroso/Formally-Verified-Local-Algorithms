@@ -73,9 +73,9 @@ theory ConjunctiveNormalForm
       
 
   type clause_cnf =
-      | DLiteral pliteral
-      | DNeg_cnf pliteral
-      | DOr_cnf clause_cnf clause_cnf
+      | CLiteral pliteral
+      | CNeg_cnf pliteral
+      | COr_cnf clause_cnf clause_cnf
       
   type formula_cnf =
       | FClause_cnf clause_cnf
@@ -106,9 +106,9 @@ theory ConjunctiveNormalForm
 
   function eval_clause_cnf (fcnf: clause_cnf) (f: i -> t) : t
   = match fcnf with
-      | DLiteral l -> eval_pliteral l f
-      | DNeg_cnf l -> neg (eval_pliteral l f)
-      | DOr_cnf phi1 phi2 -> eval_clause_cnf phi1 f \*/ eval_clause_cnf phi2 f
+      | CLiteral l -> eval_pliteral l f
+      | CNeg_cnf l -> neg (eval_pliteral l f)
+      | COr_cnf phi1 phi2 -> eval_clause_cnf phi1 f \*/ eval_clause_cnf phi2 f
     end
     
   function eval_formula_cnf (e: formula_cnf) (f: i -> t) : t

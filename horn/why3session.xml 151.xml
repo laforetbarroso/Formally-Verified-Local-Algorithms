@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="horn.mlw"/>
+<theory name="Horn">
+ <goal name="eval_setconjunction&#39;vc" expl="VC for eval_setconjunction" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="eval_setconjunction&#39;vc.0" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.10" steps="23084"/></proof>
+  </goal>
+  <goal name="eval_setconjunction&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.15" steps="28202"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="convertRStoAF&#39;vc" expl="VC for convertRStoAF" proved="true">
+ <proof prover="2"><result status="valid" time="0.11" steps="27993"/></proof>
+ </goal>
+ <goal name="convertPLtoAF&#39;vc" expl="VC for convertPLtoAF" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.13" steps="28321"/></proof>
+ </goal>
+ <goal name="convertAFtoPL&#39;vc" expl="VC for convertAFtoPL" proved="true">
+ <proof prover="2"><result status="valid" time="0.11" steps="27442"/></proof>
+ </goal>
+ <goal name="add_then_mem" proved="true">
+ <proof prover="2"><result status="valid" time="0.13" steps="29562"/></proof>
+ </goal>
+ <goal name="convertConjunctionToSet&#39;vc" expl="VC for convertConjunctionToSet">
+ <proof prover="0"><result status="timeout" time="1.00" steps="1941887"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="132774"/></proof>
+ <transf name="split_vc" >
+  <goal name="convertConjunctionToSet&#39;vc.0" expl="postcondition">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.12" steps="30432"/></proof>
+  </goal>
+  <goal name="convertConjunctionToSet&#39;vc.1" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1482060"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="164163"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="eval_equivalent">
+ <proof prover="0"><result status="timeout" time="1.00" steps="776920"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="227586"/></proof>
+ <transf name="split_vc" >
+  <goal name="eval_equivalent.0">
+  <proof prover="0"><result status="timeout" time="1.00" steps="776497"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="227633"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="convertToSet&#39;vc" expl="VC for convertToSet">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2777653"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="174272"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

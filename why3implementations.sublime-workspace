@@ -1,0 +1,452 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pp_for",
+				"pp_formula_wi"
+			],
+			[
+				"of",
+				"oflat"
+			],
+			[
+				"pp_formula",
+				"pp_formula_cnf"
+			],
+			[
+				"pp_formua",
+				"pp_formula_cnf"
+			],
+			[
+				"V_",
+				"V_pl"
+			],
+			[
+				"hornclause",
+				"hornclause_conj"
+			],
+			[
+				"positive",
+				"positiveliteral"
+			],
+			[
+				"positi",
+				"positiveliteral"
+			],
+			[
+				"posi",
+				"positiveliteral_conj"
+			],
+			[
+				"FOr_cnf",
+				"FOr_cnf"
+			],
+			[
+				"pp_litera",
+				"pp_literal_fmt"
+			],
+			[
+				"FAnd",
+				"FAnd_h"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					""
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"All Syntaxes"
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"Performance"
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"Regex Compatibility"
+				]
+			],
+			[
+				"Packages/Default/Syntax Tests.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"terminus",
+				"Terminus: Toggle Panel"
+			],
+			[
+				"ayu",
+				"ayu: Activate theme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"syntax",
+				"Preferences: Settings – Syntax Specific"
+			],
+			[
+				"Syntax",
+				"Plugin Development: Convert Syntax to .sublime-syntax"
+			],
+			[
+				"latex",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"packet",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Packages/User/Terminus.sublime-settings",
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Installed Packages/Terminus.sublime-package",
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Packages/Terminality/README.md",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/horn.ml",
+		"/Users/pbarroso/Desktop/tese.sublime-project",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/list__List.ml",
+		"/Users/pbarroso/Desktop/Tese/Document/tese.tex",
+		"/Users/pbarroso/.zshrc",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/horn.mlw",
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Packages/User/WhyML.sublime-syntax",
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Packages/User/WhyML.yaml",
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Packages/User/Why3.sublime-build",
+		"/Users/pbarroso/.bash_profile",
+		"/Users/pbarroso/.config/karabiner/karabiner.json",
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Packages/User/untitled.sublime-build",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/horn.mlw\", line 19, characters 2-13: File \"../horn.mlw",
+		"/Users/pbarroso/Desktop/horn.mlw",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/\"../horn.mlw\",",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/booltheory.mlw",
+		"/Users/pbarroso/Desktop/Why3/why3/stdlib/set.mlw",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/typeform.ml",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/appset.drv",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/horn__Horn.ml",
+		"/Users/pbarroso/Desktop/formally-verified-bug-free-implementations-of-logical-algorithms/hornify.mlw",
+		"/Users/pbarroso/Library/Application Support/Sublime Text 3/Packages/User/WhyML2.sublime-syntax",
+		"/Users/pbarroso/Desktop/Tese/Document/Chapters/teste.mlw",
+		"/Users/pbarroso/Desktop/Tese/Document/Chapters/supportingbooolean.tex",
+		"/Users/Shared/Relocated Items/Configuration/private/etc/paths.system_default",
+		"/Users/pbarroso/Desktop/Tese/Document/Chapters/stateoftheart.tex",
+		"/Users/pbarroso/Desktop/Tese/Document/Chapters/introduction.tex",
+		"/Users/pbarroso/Desktop/Tese/Document/template.tex",
+		"/Users/pbarroso/Desktop/Tese/Document/Chapters/hornify.tex",
+		"/Users/pbarroso/Desktop/Tese/Document/Chapters/cnf.tex",
+		"/Users/pbarroso/Desktop/Tese/Document/Chapters/preliminaries.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/conclusions.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/stepexecution.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/hornify.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/cnf.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/preliminaries.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/background.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/stateoftheart.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/introduction.tex",
+		"/Users/pbarroso/Desktop/Apresentacao/presentation.tex",
+		"/Users/pbarroso/Desktop/Apresentacao/cnf.tex",
+		"/Users/pbarroso/Desktop/Apresentacao/hornify.tex",
+		"/Users/pbarroso/Desktop/Apresentacao/appendix.tex",
+		"/Users/pbarroso/Desktop/Apresentacao/conclusoes.tex",
+		"/Users/pbarroso/Desktop/Apresentacao/beamerthemeUfg.sty",
+		"/Users/pbarroso/Desktop/Apresentacao/Guião",
+		"/Users/pbarroso/Desktop/Apresentacao/DLL.mlw",
+		"/Users/pbarroso/Desktop/Apresentacao/concluso.tex",
+		"/Users/pbarroso/Desktop/ParserTest/untitled.mly",
+		"/Users/pbarroso/Desktop/ParserTest/Cnf.odocl",
+		"/Users/pbarroso/Desktop/ParserTest/cnf.ml",
+		"/Users/pbarroso/Desktop/ParserTest/open OUnit",
+		"/Users/pbarroso/Desktop/Tese Doc/template.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/template.log",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/appendix2.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/problem.tex",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/preliminaries.log",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/stepexecution.log",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/cnf.log",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/conclusions.log",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/hornify.log",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/background.log",
+		"/Users/pbarroso/Desktop/Tese Doc/template.aux",
+		"/Users/pbarroso/Desktop/Tese Doc/template-blx.bib",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/abstract-pt.tex",
+		"/Users/pbarroso/Desktop/gitla/formally-verified-bug-free-implementations-of-logical-algorithms/Results/resultado_desfuncionalizacao.pdf",
+		"/Users/pbarroso/Desktop/Tese Doc/template.pdf",
+		"/Users/pbarroso/Desktop/gitla/formally-verified-bug-free-implementations-of-logical-algorithms/index.html",
+		"/Users/pbarroso/Desktop/gitla/formally-verified-bug-free-implementations-of-logical-algorithms/cnf.ml",
+		"/Users/pbarroso/Desktop/gitla/formally-verified-bug-free-implementations-of-logical-algorithms/type ident = string",
+		"/Users/pbarroso/Desktop/gitla/formally-verified-bug-free-implementations-of-logical-algorithms/booltheory.mlw",
+		"/Users/pbarroso/Desktop/gitla/formally-verified-bug-free-implementations-of-logical-algorithms/bt.drv",
+		"/Users/pbarroso/Desktop/horn.ml",
+		"/Users/pbarroso/Desktop/Update/booltheory.mlw",
+		"/Users/pbarroso/Downloads/Apresentação PT/apresentacao.tex",
+		"/Users/pbarroso/Desktop/Update/booltheory.ml",
+		"/Users/pbarroso/Desktop/Tese Doc/Chapters/abstract-en.tex",
+		"/Users/pbarroso/Desktop/Horn/.gitignore",
+		"/Users/pbarroso/Desktop/Horn/.gjtignore",
+		"/Users/pbarroso/Desktop/Horn/README.md",
+		"/Users/pbarroso/Desktop/Horn/formula.mlw",
+		"/Users/pbarroso/Desktop/Horn/booltheory.mlw",
+		"/Users/pbarroso/Desktop/Horn/setstheory.mlw",
+		"/Applications/CatchMouse.app/Contents/Info.plist",
+		"/Users/pbarroso/Desktop/CNF Website/index.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/css/group.scss",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/css/material-kit.scss",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/oflatocsigen.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/formally.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/oflat.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/cps.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_layouts/factorprojectlayout.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_layouts/factorlayout.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/js/custom.js",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/publications.html",
+		"/Users/pbarroso/Desktop/thesis-preparation/Preparação/Documento de Preparacao/template.tex",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/css/custom.css",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/contact.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/projects.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/team.html",
+		"/Users/pbarroso/Downloads/project-website-template-master/index.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/index.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_layouts/default.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/factor/css/frame.css",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_layouts/untitled.html",
+		"/Users/pbarroso/Desktop/backup.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_config.yml",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/css/print.css",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_layouts/project.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_projects/factor.md",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/people.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_layouts/project-factor.html",
+		"/Users/pbarroso/Desktop/releaselab.gitlab.io/_data/people.yml",
+		"/Users/pbarroso/Desktop/tese_latex/5d2347e714f25b5555c17e40/template.tex",
+		"/Users/pbarroso/Downloads/ApresentacaoINForum.pdfpc",
+		"/Users/pbarroso/Downloads/Apresenta__o_PT (1).pdfpc",
+		"/Users/pbarroso/Downloads/Apresenta__o_PT.pdfpc",
+		"/Users/pbarroso/Desktop/Tese/Related Work/Horn Algorithm/Horn_sets.ml",
+		"/Users/pbarroso/Desktop/Tese/Related Work/Horn Algorithm/Horn copy.ml",
+		"/Users/pbarroso/Desktop/Tese/Related Work/Horn Algorithm/Proof",
+		"/Users/pbarroso/Desktop/Tese/Related Work/Horn Algorithm/Horn copy 2.ml"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 122.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.Terminus":
+	{
+		"height": 150.0
+	},
+	"output.exec":
+	{
+		"height": 242.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.latextools":
+	{
+		"height": 171.0
+	},
+	"pinned_build_system": "",
+	"project": "why3implementations.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 192.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

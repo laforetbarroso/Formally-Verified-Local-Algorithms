@@ -1,0 +1,44 @@
+module booltheory.BoolImplementation
+  syntax type t   "bool"
+  syntax val top  "true"
+  syntax val bot  "false"
+  syntax val (=)  "%1 = %2"
+  syntax type i   "string"
+  syntax val (/*\) "%1 && %2"
+end
+
+module set.SetApp
+  syntax val mem      "REMOVE"
+  syntax val (==)     "REMOVE" 
+  syntax val eq       "%1 = %2"
+  syntax val subset   "Set.subset"
+  syntax val is_empty "Set.is_empty"
+  syntax val empty    "Set.empty"
+  syntax val add      "Set.add"
+  syntax val remove   "Set.remove"
+  syntax val union    "Set.union"
+  syntax val inter    "Set.inter"
+  syntax val diff     "Set.diff"
+  syntax val choose   "Set.choose"
+  syntax val cardinal "Set.cardinal"
+  syntax val disjoint "REMOVE"
+end
+
+module horn.Horn
+  prelude "open Typeform\nopen FormulaHorn\nmodule SS = Set.Make(struct type t = Typeform.atomicformula let compare = Stdlib.compare end)"
+  syntax type SetApp.set            "SS.t"
+  syntax val SetApp.mem      "REMOVE"
+  syntax val SetApp.(==)     "REMOVE"
+  syntax val SetApp.eq       "%1 = %2"
+  syntax val SetApp.subset   "SS.subset"
+  syntax val SetApp.is_empty "SS.is_empty"
+  syntax val SetApp.empty    "let () = %1 in SS.empty"
+  syntax val SetApp.add      "SS.add"
+  syntax val SetApp.remove   "SS.remove"
+  syntax val SetApp.union    "SS.union"
+  syntax val SetApp.inter    "SS.inter"
+  syntax val SetApp.diff     "SS.diff"
+  syntax val SetApp.choose   "SS.choose"
+  syntax val SetApp.cardinal "SS.cardinal"
+  syntax val SetApp.disjoint "REMOVE"
+end
