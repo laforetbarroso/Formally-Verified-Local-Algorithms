@@ -8,7 +8,7 @@ module booltheory.BoolImplementation
 end
 
 module set.SetApp
-  syntax val mem      "REMOVE"
+  syntax val mem      "SS.mem"
   syntax val (==)     "REMOVE" 
   syntax val eq       "%1 = %2"
   syntax val subset   "Set.subset"
@@ -27,7 +27,7 @@ end
 module horn.Horn
   prelude "open Typeform\nopen FormulaHorn\nmodule SS = Set.Make(struct type t = Typeform.atomicformula let compare = Stdlib.compare end)"
   syntax type SetApp.set            "SS.t"
-  syntax val SetApp.mem      "REMOVE"
+  syntax val SetApp.mem      "SS.mem"
   syntax val SetApp.(==)     "REMOVE"
   syntax val SetApp.eq       "%1 = %2"
   syntax val SetApp.subset   "SS.subset"
@@ -41,4 +41,5 @@ module horn.Horn
   syntax val SetApp.choose   "SS.choose"
   syntax val SetApp.cardinal "SS.cardinal"
   syntax val SetApp.disjoint "REMOVE"
+  syntax val eq_pos "%1 = %2"
 end

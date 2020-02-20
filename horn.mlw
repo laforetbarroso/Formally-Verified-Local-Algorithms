@@ -171,14 +171,14 @@ module Horn
   let rec lemma convertConjunctionToSet_lemma (y: pliteral) (phi: conj_pliteral)
     ensures { op_and y phi -> (mem (convertPLtoAF y) (convertConjunctionToSet phi)) }
   = match phi with
-      | CPL pl -> ()
+      | CPL _ -> ()
       | CPAnd c1 c2 -> convertConjunctionToSet_lemma y c1; convertConjunctionToSet_lemma y c2
      end
      
   let rec lemma convertConjunctionToSet_lemma1 (y: atomicformula) (phi: conj_pliteral)
     ensures { mem y (convertConjunctionToSet phi) -> op_and (convertAFtoPL y) phi }
   = match phi with
-      | CPL pl -> ()
+      | CPL _ -> ()
       | CPAnd c1 c2 -> convertConjunctionToSet_lemma1 y c1; convertConjunctionToSet_lemma1 y c2
      end
     
@@ -188,7 +188,7 @@ module Horn
     variant { phi }
     ensures { let s = convertConjunctionToSet phi in HornFormula.eval_positive phi f = eval_setconjunction s f }
   = match phi with
-      | CPL x -> () (* assert{ convertConjunctionToSet phi = singleton (convertPLtoAF x) } *)
+      | CPL _ -> () (* assert{ convertConjunctionToSet phi = singleton (convertPLtoAF x) } *)
       | CPAnd z w -> eval_equivalent z f; eval_equivalent w f
      end
    
@@ -210,31 +210,72 @@ module Horn
       | HAnd e1 e2 -> (convertToList e1) ++ (convertToList e2)
     end
     
-  
-  let rec function algorithmA (listformula: list (set,rightside)) (newlist: list (set,rightside)) (s: set) : (rl: (list (set,rightside)), rt: set)
-    (* ensures{ forall x. mem x rt -> is_reachable x listformula } *)
-    ensures{ length newlist <= length rl }
-    ensures{ cardinal s <= cardinal rt }
+    
+  let rec findFirst (listformula: list (set,rightside)) (s: set) : (left: list (set,rightside), right:  list (set,rightside))
+    variant { length listformula }
+    ensures { left ++ right = listformula }
+    ensures { match right with
+                | Nil -> true
+                | Cons (l,_) _ -> subset l s
+               end }
   = match listformula with
-      | Nil -> (newlist, s)
-      | Cons (l,r) lst -> let (new_list, new_set) = 
-          if subset l s then (newlist  ,(add (convertRStoAF r) s)) 
-            else (newlist ++ (Cons (l,r) Nil), s) in
-              algorithmA lst new_list new_set
+      | Nil -> (Nil,Nil)
+      | Cons (l,r) lst -> if subset l s then (Nil , Cons (l,r) lst) 
+            else let (le,ri) = findFirst lst s in
+              (Cons (l,r) le, ri)
+     end
+     
+  function length_unique_r (listformula: list (set,rightside)) (s: fset atomicformula) : int 
+  = match listformula with
+      | Nil -> 0
+      | Cons (_,r) lst -> if mem (convertRStoAF r) s 
+            then 0 + length_unique_r lst s 
+            else 1 + length_unique_r lst (add (convertRStoAF r) s)         
+    end
+     
+  function set_from_listformula (listformula: list (set,rightside)) : fset atomicformula
+  = match listformula with
+      | Nil -> empty
+      | Cons (_,r) lst -> add (convertRStoAF r) (set_from_listformula lst)
+     end 
+  
+  let rec function algorithmA (listformula: list (set,rightside)) (s: set) : set
+    (* ensures{ forall x. mem x rt -> is_reachable x listformula } *)
+    variant{ length listformula }
+    ensures{ subset s result }
+    ensures{ subset result (union s (set_from_listformula listformula)) }
+  = match listformula with
+      | Nil -> s
+      | _ -> let (left,right) = findFirst listformula s in
+              match right with
+                | Nil -> s
+                | Cons (_,r) lst -> algorithmA (left ++ lst) (add (convertRStoAF r) s)
+               end
     end
     
-  let rec function processHorn (phi: list (set, rightside)) (s: set) : BoolImplementation.t
-    variant { cardinal s }
-  = let (new_list, new_set) = (algorithmA phi Nil s) in
-    if(mem ABot new_set) then bot else
-      if(new_set == s) then top else
-        processHorn new_list new_set
+  predicate exists_bot_in_list (phi: list (set, rightside))
+  = match phi with
+      | Nil -> false
+      | Cons (_,r) lst -> if ( convertRStoAF r = ABot ) then true else exists_bot_in_list lst
+     end
+     
+     
+  let function processHorn (phi: list (set, rightside)) (s: set) : BoolImplementation.t
+    requires{ s = singleton ATop }
+    ensures { result = (if(mem ABot (algorithmA phi s)) then bot else top) }
+    ensures { (result = bot) -> mem (ABot) (algorithmA phi s) }
+    ensures { (result = bot) -> exists_bot_in_list phi }
+  = let result_set = (algorithmA phi s) in
+      if(mem ABot result_set) then bot else top
     
   let function horn (phi: hornclause) : BoolImplementation.t
   = processHorn (convertToList phi) (singleton ATop)
   
-  
+  lemma completeness_1: forall x. mem ABot (algorithmA (convertToList x) (mk (singleton ATop))) -> horn x = bot
  
+  lemma completeness_2: forall x. not mem ABot (algorithmA (convertToList x) (mk (singleton ATop))) -> horn x = top
+  
+  lemma completeness: forall x. horn x <> bot -> horn x = top
   
   (*
   goal convertSet_Top: convertToSet(     LTop     ) == add (ATop) empty
