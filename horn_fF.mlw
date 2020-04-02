@@ -439,10 +439,10 @@ module Horn
         let (setc,p) = clause in
           not subset setc c *)
 
-  lemma not_subset_findFirst: forall clauselist c.
-    not_subset_in_findFirst clauselist c ->
+  lemma not_subset_findFirst: forall clauselist.
+    (forall c. not_subset_in_findFirst clauselist c ->
        let (left,right) = findFirst (fset_from_list clauselist) c in
-          right = Nil
+          right = Nil)
 
   lemma not_subset: forall clauselist c result.
     not_subset_in_findFirst clauselist c /\ result = c ->
