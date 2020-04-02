@@ -14,8 +14,8 @@ module TypeForm
     end
 end
 
+module Evals
 
-module Horn
   use TypeForm
 
   use import formula.ConjunctiveNormalForm as CNF 
@@ -26,11 +26,7 @@ module Horn
   use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
  
   clone set.SetApp with type elt = atomicformula
-  
-  
-  (* EVALS *)
-  
-  
+
   function eval_setconjunction (s: fset atomicformula) (f: i-> BoolImplementation.t) : BoolImplementation.t
   
   axiom eval_setconjunction_empty: forall f, s: fset atomicformula. is_empty s -> eval_setconjunction s f = top
@@ -43,7 +39,10 @@ module Horn
    
    
   val function eq_pos (x y: atomicformula) : bool
-    ensures { result <-> x = y }   
+    ensures { result <-> x = y }
+  
+  val function rs_eq_pos (x y: rightside) : bool
+    ensures { result <-> x = y }  
       
   let rec lemma eval_commutes_add (s: set) (x: atomicformula) (f: i -> t)
     variant { cardinal (add x s) }
@@ -59,14 +58,72 @@ module Horn
    
   
 
-  function eval_list (l: list (set, rightside)) (f: i-> BoolImplementation.t) : BoolImplementation.t
+  function eval_list (l: list (fset atomicformula, rightside)) (f: i-> BoolImplementation.t) : BoolImplementation.t
   = match l with
       | Nil -> top
       | Cons (t,r) l1 -> ((eval_setconjunction t f) ->* (eval_rightside (assign_rightside r f))) /*\ eval_list l1 f
     end
+
+end
+
+module SAT
+
+  use TypeForm
+
+  use import formula.ConjunctiveNormalForm as CNF 
+  use import formula.Horn as HornFormula
+  use import list.Mem as ListMem
+  use list.List, list.Append, list.Length
   
-  (* SYNTATIC CONVERTERS *)
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Evals
+
+  predicate is_satisfiable (phi: hornclause)
+  = exists f. eval_hornclause phi f = top
   
+  predicate is_satisfiable_rs (phi: rightside)
+  = exists f. (eval_rightside (assign_rightside phi f)) = top
+  
+  predicate is_satisfiable_ls (phi: leftside)
+  = exists f. (eval_leftside phi f) = top
+  
+  predicate is_unsatisfiable_ls (phi: leftside)
+  = forall f. (eval_leftside phi f) <> top
+  
+  predicate is_unsatisfiable_rs (phi: rightside)
+  = forall f. (eval_rightside (assign_rightside phi f)) <> top
+  
+  lemma if_unsat_then_not_sat: forall p. is_unsatisfiable_rs p -> 
+                                  not is_satisfiable_rs p
+  
+  constant id_val: i -> t = fun _ -> top
+  
+  lemma top_is_satisfiable: forall p. p = RProp top -> 
+                                        is_satisfiable_rs p
+  
+  lemma bot_is_unsatisfiable: forall p. p = RProp bot -> 
+                                          is_unsatisfiable_rs p
+    
+  lemma if_satisf_then_not_bottom: forall p. is_satisfiable_rs p -> 
+                                               p <> RProp bot
+    
+  
+  
+end
+
+
+module Converts
+
+  use TypeForm
+
+  use import formula.ConjunctiveNormalForm as CNF 
+  use import formula.Horn as HornFormula
+  use import list.Mem as ListMem
+  use list.List, list.Append, list.Length
+  
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Evals
+
   let function convertRStoAF (phi: rightside) : atomicformula
     ensures {forall f. eval_rightside (assign_rightside phi f) = eval_atomicformula result f}
     ensures { match phi with
@@ -100,12 +157,110 @@ module Horn
       | ABot -> LBottom
       | AVar x -> LVar x
     end
+    
+    
+  let function convertAFtoRS (phi: atomicformula) : rightside
+    ensures { forall f. eval_atomicformula phi f = eval_rightside (assign_rightside result f)}
+    ensures { match phi with
+                | ATop -> result = RProp top
+                | ABot -> result = RProp bot
+                | AVar x -> result = RVar x
+              end }
+  = match phi with
+      | ATop -> RProp top
+      | ABot -> RProp bot
+      | AVar x -> RVar x
+    end
+    
+  lemma convertPLtoAF_evaluation: forall f phi. eval_pliteral phi f = eval_atomicformula (convertPLtoAF phi) f
+    
+  lemma convertAFtoPL_evaluation: forall f phi. phi <> ATop -> eval_atomicformula phi f = eval_pliteral (convertAFtoPL phi) f
+    
+  lemma PLtoAF_AFtoPL: forall x. x <> ATop -> x = convertPLtoAF (convertAFtoPL x)
+ 
+
+end
+
+module Logic
+
+  use TypeForm
+
+  use import formula.ConjunctiveNormalForm as CNF 
+  use import formula.Horn as HornFormula
+  use import list.Mem as ListMem
+  use list.List, list.Append, list.Length, list.HdTl
+  
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Evals
+  use Converts
+  use set.Fset
+
+  function findFirst (clauselist: list (fset atomicformula,rightside)) 
+                     (c: fset atomicformula) 
+                     : (list (fset atomicformula,rightside), 
+                        list (fset atomicformula,rightside))
+  = match clauselist with
+      | Nil -> (Nil,Nil)
+      | Cons (setc,p) l -> if subset setc c then 
+                               (Nil , Cons (setc,p) l) 
+                           else let (le,ri) = findFirst l c in
+                               (Cons (setc,p) le, ri)
+     end
+     
+  
+  function algorithmA_basic (clause: (fset atomicformula,rightside)) 
+                            (c: fset atomicformula) 
+                            : fset atomicformula
+  = let (setc, p) = clause in
+      if (subset setc c) then
+        (add (convertRStoAF p) c)
+      else
+        c
+        
+  (* function algorithmA (clauselist: list (fset atomicformula,rightside)) 
+                              (c: fset atomicformula) : fset atomicformula
+  = match clauselist with
+      | Nil -> empty
+      | Cons clause Nil -> algorithmA_basic clause c
+      | Cons clause l -> c
+              let (left,right) = findFirst clauselist c in
+                match right with
+                  | Nil -> c
+                  | Cons (_,p) l -> 
+                      algorithmA (left ++ l) (add (convertRStoAF p) c)
+                 end 
+    end     *)
+
+
+end
+
+
+module Horn
+  use TypeForm
+  use Evals
+
+  use import formula.ConjunctiveNormalForm as CNF 
+  use import formula.Horn as HornFormula
+  use list.Mem as ListMem
+  use list.List, list.Append, list.Length, list.HdTl
+  
+  use import booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Evals
+  use SAT
+  clone Converts
+  use Logic
+  use import set.Fset as FS
+  clone set.SetApp with type elt = atomicformula
+  
+  (*
+  
+    CONVERTING DATA STRUCTURES
+  
+  *)
   
   
   (* LEMMAS *)
   
-  (* lemma union_set: forall s:set. exists x:set, y:set. s = union x y *) 
-       
   let rec lemma aux (s1: set) (s2: set) (f: i -> t)
    variant { cardinal s1 + cardinal s2 }
    ensures { eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f }
@@ -116,35 +271,17 @@ module Horn
     | False, False -> let element = choose s1 in aux (remove element s1) s2 f;
     assert { union s1 s2 == add element (union (remove element s1) s2) };
     assert { eval_setconjunction s1 f = eval_atomicformula element f /*\ eval_setconjunction (remove element s1) f }
-     (*let s1 = union y1 y2; s2 = union x1 x2 in aux y1 y2 f; aux x1 x2 f*)
    end 
-  
- (* lemma union_eval: forall s1 s2 f. eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f *)
   
   lemma union_eval_empty: forall s1 s2 f. s1 = empty /\ s2 = empty -> eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f
   
   lemma union_eval_samesingleton: forall s1 s2 e f. s1 = singleton e /\ s2 = singleton e -> eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f
     
   lemma union_eval_diffsingleton: forall s1 s2 e1 e2 f. e1 <> e2 /\ s1 = singleton e1 /\ s2 = singleton e2 -> eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f
-
-  lemma convertPLtoAF_evaluation: forall f phi. eval_pliteral phi f = eval_atomicformula (convertPLtoAF phi) f
-    
-  lemma convertAFtoPL_evaluation: forall f phi. phi <> ATop -> eval_atomicformula phi f = eval_pliteral (convertAFtoPL phi) f
-    
-  lemma PLtoAF_AFtoPL: forall x. x <> ATop -> x = convertPLtoAF (convertAFtoPL x)
-    
+     
   lemma add_then_mem: forall x ns. ns = add (convertPLtoAF x) empty -> mem (convertPLtoAF x) ns
-  
-  
-  (* Implementation *)
-  
-  
-  (* let rec function eval_setconjunction (s: set) (f: i-> BoolImplementation.t) : BoolImplementation.t
-  variant { cardinal s }
-  = if is_empty s then top
-  else let x = choose s in
-    (eval_atomicformula x f) /*\ eval_setconjunction (remove x s) f *)
-    
+      
+
     
   function numberOfHBasic (phi: hornclause) : int
   = match phi with
@@ -160,8 +297,6 @@ module Horn
   
   
   let rec function convertConjunctionToSet (phi: conj_pliteral) : set
-  (* ensures{ forall y. mem y result -> op_and (convertAFtoPL y) phi }
-   ensures{ forall y. op_and y phi -> (mem (convertPLtoAF y) result) } *)
   = match phi with
       | CPL pl -> singleton (convertPLtoAF pl)
       | CPAnd c1 c2 -> union (convertConjunctionToSet c1) (convertConjunctionToSet c2)
@@ -188,7 +323,7 @@ module Horn
     variant { phi }
     ensures { let s = convertConjunctionToSet phi in HornFormula.eval_positive phi f = eval_setconjunction s f }
   = match phi with
-      | CPL _ -> () (* assert{ convertConjunctionToSet phi = singleton (convertPLtoAF x) } *)
+      | CPL _ -> ()
       | CPAnd z w -> eval_equivalent z f; eval_equivalent w f
      end
    
@@ -205,105 +340,180 @@ module Horn
   let rec function convertToList (phi: hornclause) : list (set, rightside)
     ensures{ forall l r. phi = HBasic (BImpl l r) -> ListMem.mem (convertToSet l, r) result }
     ensures{ length result = numberOfHBasic phi }
+    ensures { result <> Nil }
   = match phi with
       | HBasic (BImpl l r) -> Cons ((convertToSet l), r) Nil
       | HAnd e1 e2 -> (convertToList e1) ++ (convertToList e2)
     end
     
     
-  let rec findFirst (listformula: list (set,rightside)) (s: set) : (left: list (set,rightside), right:  list (set,rightside))
-    variant { length listformula }
-    ensures { left ++ right = listformula }
-    ensures { match right with
-                | Nil -> true
-                | Cons (l,_) _ -> subset l s
-               end }
-  = match listformula with
-      | Nil -> (Nil,Nil)
-      | Cons (l,r) lst -> if subset l s then (Nil , Cons (l,r) lst) 
-            else let (le,ri) = findFirst lst s in
-              (Cons (l,r) le, ri)
-     end
-     
-  function length_unique_r (listformula: list (set,rightside)) (s: fset atomicformula) : int 
-  = match listformula with
-      | Nil -> 0
-      | Cons (_,r) lst -> if mem (convertRStoAF r) s 
-            then 0 + length_unique_r lst s 
-            else 1 + length_unique_r lst (add (convertRStoAF r) s)         
-    end
-     
-  function set_from_listformula (listformula: list (set,rightside)) : fset atomicformula
-  = match listformula with
-      | Nil -> empty
-      | Cons (_,r) lst -> add (convertRStoAF r) (set_from_listformula lst)
-     end 
-  
-  let rec function algorithmA (listformula: list (set,rightside)) (s: set) : set
-    (* ensures{ forall x. mem x rt -> is_reachable x listformula } *)
-    variant{ length listformula }
-    ensures{ subset s result }
-    ensures{ subset result (union s (set_from_listformula listformula)) }
-  = match listformula with
-      | Nil -> s
-      | _ -> let (left,right) = findFirst listformula s in
-              match right with
-                | Nil -> s
-                | Cons (_,r) lst -> algorithmA (left ++ lst) (add (convertRStoAF r) s)
-               end
-    end
-    
-  predicate exists_bot_in_list (phi: list (set, rightside))
-  = match phi with
-      | Nil -> false
-      | Cons (_,r) lst -> if ( convertRStoAF r = ABot ) then true else exists_bot_in_list lst
-     end
-     
-     
-  let function processHorn (phi: list (set, rightside)) (s: set) : BoolImplementation.t
-    requires{ s = singleton ATop }
-    ensures { result = (if(mem ABot (algorithmA phi s)) then bot else top) }
-    ensures { (result = bot) -> mem (ABot) (algorithmA phi s) }
-    ensures { (result = bot) -> exists_bot_in_list phi }
-  = let result_set = (algorithmA phi s) in
-      if(mem ABot result_set) then bot else top
-    
-  let function horn (phi: hornclause) : BoolImplementation.t
-  = processHorn (convertToList phi) (singleton ATop)
-  
-  lemma completeness_1: forall x. mem ABot (algorithmA (convertToList x) (mk (singleton ATop))) -> horn x = bot
- 
-  lemma completeness_2: forall x. not mem ABot (algorithmA (convertToList x) (mk (singleton ATop))) -> horn x = top
-  
-  lemma completeness: forall x. horn x <> bot -> horn x = top
-  
   (*
-  goal convertSet_Top: convertToSet(     LTop     ) == add (ATop) empty
-  goal convertSet_Bottom: convertToSet(     (LPos (CPL LBottom))     ) == add (ABot) empty
-  goal convertSet_Variable: forall x. convertToSet(     (LPos (CPL (LVar x)))     ) == add (AVar x) empty
-  goal convertSet_And_Bot_Bot: convertToSet(     (LPos (CPAnd (CPL LBottom) (CPL LBottom)))     ) == add (ABot) empty
-  goal convertSet_And_X_Y: forall x y. convertToSet(     (LPos (CPAnd (CPL (LVar x)) (CPL (LVar y))))     ) == add (AVar x) (add (AVar y) empty)
-  goal convertSet_And_X_X: forall x. convertToSet(     (LPos (CPAnd (CPL (LVar x)) (CPL (LVar x))))     ) == add (AVar x) empty
-  goal convertSet_And_X_Y_Z: forall x y z. convertToSet(     (LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar y))) (CPL (LVar z))))     ) == add (AVar x) (add (AVar y) (add (AVar z) empty))
-  goal convertSet_And_X_X_Y_Z: forall x y z. convertToSet(     (LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar x))) (CPAnd (CPL (LVar y)) (CPL (LVar z)))))     ) == add (AVar x) (add (AVar y) (add (AVar z) empty))
-  goal convertSet_And_X_Y_W_Z: forall x y w z. convertToSet(     (LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar y))) (CPAnd (CPL (LVar w)) (CPL (LVar z)))))     ) == add (AVar x) (add (AVar y) (add (AVar z) (add (AVar w) empty)))
- *)
- (*
-  goal convertList_Basic_Impl_Top_Bot: convertToList (HBasic (BImpl (LTop) (RProp bot))) = Cons ((singleton ATop), RProp bot) Nil
-  goal convertList_Basic_Impl_Top_Var: forall x. convertToList (HBasic (BImpl (LTop) (RVar x))) = Cons ((add ATop empty), RVar x) Nil
-  goal convertList_Basic_Impl_AndBotBot_Bot: convertToList (HBasic (BImpl ((LPos (CPAnd (CPL LBottom) (CPL LBottom)))) (RProp bot))) = Cons (union (add (ABot) empty) (add (ABot) empty ), RProp bot) Nil
-  goal convertList_Basic_Impl_AndBotBot_Var: forall x. convertToList (HBasic (BImpl ((LPos (CPAnd (CPL LBottom) (CPL LBottom)))) (RVar x))) = Cons (union (add (ABot) empty) (add (ABot) empty ), RVar x) Nil
-  goal convertList_Basic_Impl_AndXY_Bot: forall x y. convertToList (HBasic (BImpl ((LPos (CPAnd (CPL (LVar x)) (CPL (LVar y))))) (RProp bot))) = Cons (union (add (AVar x) empty) (add (AVar y) empty ), RProp bot) Nil
-  goal convertList_Basic_Impl_AndXY_Top: forall x y. convertToList (HBasic (BImpl ((LPos (CPAnd (CPL (LVar x)) (CPL (LVar y))))) (RProp top))) = Cons (union (add (AVar x) empty) (add (AVar y) empty ), RProp top) Nil
-  goal convertList_Basic_Impl_AndXX_Bot: forall x. convertToList (HBasic (BImpl ((LPos (CPAnd (CPL (LVar x)) (CPL (LVar x))))) (RProp bot))) = Cons (union (add (AVar x) empty) (add (AVar x) empty ), RProp bot) Nil
-  goal convertList_Basic_Impl_AndXX_Top: forall x. convertToList (HBasic (BImpl ((LPos (CPAnd (CPL (LVar x)) (CPL (LVar x))))) (RProp top))) = Cons (union (add (AVar x) empty) (add (AVar x) empty ), RProp top) Nil
-  goal convertList_Basic_Impl_AndXYZ_Bot: forall x y z. convertToList (HBasic (BImpl ((LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar y))) (CPL (LVar z))))) (RProp bot))) = Cons (union (union (add (AVar x) empty) (add (AVar y) empty)) (add (AVar z) empty ), RProp bot) Nil
-  goal convertList_Basic_Impl_AndXYZ_Top: forall x y z. convertToList (HBasic (BImpl ((LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar y))) (CPL (LVar z))))) (RProp top))) = Cons (union (union (add (AVar x) empty) (add (AVar y) empty)) (add (AVar z) empty ), RProp top) Nil
-  goal convertList_Basic_Impl_AndXXYZ_Bot: forall x y z. convertToList (HBasic (BImpl ((LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar x))) (CPAnd (CPL (LVar y)) (CPL (LVar z)))))) (RProp bot))) = Cons (union (union (add (AVar x) empty) (add (AVar x) empty)) (union (add (AVar y) empty) (add (AVar z) empty) ), RProp bot) Nil
-  goal convertList_Basic_Impl_AndXXYZ_Top: forall x y z. convertToList (HBasic (BImpl ((LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar x))) (CPAnd (CPL (LVar y)) (CPL (LVar z)))))) (RProp top))) = Cons (union (union (add (AVar x) empty) (add (AVar x) empty)) (union (add (AVar y) empty) (add (AVar z) empty) ), RProp top) Nil
-  goal convertList_Basic_Impl_AndXYWZ_Bot: forall x y w z. convertToList (HBasic (BImpl ((LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar y))) (CPAnd (CPL (LVar w)) (CPL (LVar z)))))) (RProp bot))) = Cons (union (union (add (AVar x) empty) (add (AVar y) empty)) (union (add (AVar w) empty) (add (AVar z) empty) ), RProp bot) Nil
-  goal convertList_Basic_Impl_AndXYWZ_Top: forall x y w z. convertToList (HBasic (BImpl ((LPos (CPAnd (CPAnd (CPL (LVar x)) (CPL (LVar y))) (CPAnd (CPL (LVar w)) (CPL (LVar z)))))) (RProp top))) = Cons (union (union (add (AVar x) empty) (add (AVar y) empty)) (union (add (AVar w) empty) (add (AVar z) empty) ), RProp top) Nil
+  
+    HORN ALGORITHM STARTS HERE
+  
   *)
+  
+  function fset_from_list (clauselist: list (set, rightside))
+                          : list (fset atomicformula, rightside)
+  = match clauselist with
+      | Nil -> Nil
+      | Cons (setc, p) l -> Cons (to_fset setc, p) (fset_from_list l)
+    end
+    meta rewrite_def function fset_from_list
+  
+  
+  predicate not_subset_in_findFirst (clauselist: list (set,rightside)) 
+                                    (c: set)
+  = match clauselist with
+      | Nil -> true
+      | Cons (setc,_) l -> (not subset setc c) /\ 
+                              not_subset_in_findFirst l c
+     end  
+  
+     
+  predicate if_subset_then_mem_result_clause (clause: (set,rightside)) 
+                                             (c c': set)
+  = let (setc, p) = clause in
+      if( subset setc c ) then
+        mem (convertRStoAF p) c'
+      else c' = c
+    
+    
+      
+  predicate if_subset_then_mem_result (clauselist: list (set,rightside)) 
+                                      (c c': set)
+  = match clauselist with
+    | Nil -> c' = c
+    | Cons clause Nil -> if_subset_then_mem_result_clause clause c c'
+    | Cons (setc,p) l ->  if( subset setc c ) then
+                            mem (convertRStoAF p) c'
+                          else 
+                            if_subset_then_mem_result l c c'
+                                
+    end
+  
+  lemma fset_from_list_distr: 
+    forall left right. fset_from_list (left ++ right) = 
+      (fset_from_list left) ++ (fset_from_list right)
+     
+  let rec findFirst (clauselist: list (set,rightside)) 
+                             (c: set) 
+                             : (left: list (set,rightside), 
+                                right:  list (set,rightside))
+    variant { length clauselist }
+    ensures { left ++ right = clauselist }
+    ensures { match right with
+                | Nil -> not_subset_in_findFirst clauselist c
+                | Cons (setc,p) _ -> subset setc c /\ 
+                                      not_subset_in_findFirst left c
+               end }   
+    ensures { let (rl,rr) = findFirst (fset_from_list clauselist) c in
+                  rl = fset_from_list left /\
+                  rr = fset_from_list right }
+  = match clauselist with
+      | Nil -> (Nil,Nil)
+      | Cons (setc,p) l -> if subset setc c then 
+                              (Nil , Cons (setc,p) l) 
+                           else 
+                            let (le,ri) = findFirst l c in
+                              (Cons (setc,p) le, ri)
+     end
 
+        
+  let rec algorithmA_basic (clause: (set,rightside)) (c: set) : set
+    requires{ mem ATop c }
+    ensures { if_subset_then_mem_result_clause clause c result }
+    ensures { subset c result }
+    (* ensures { let (setc, p) = clause in 
+                result = algorithmA_basic (to_fset setc,p) c } *)
+  = let (setc, p) = clause in
+      if (subset setc c) then
+        add (convertRStoAF p) c
+      else
+        c
+  
+  (* lemma not_subset: forall clauselist:list (set,rightside), c:set, clause:(set,rightside), setc:set, p:rightside. 
+    not_subset_in_findFirst clauselist c /\
+      ListMem.mem clause clauselist ->
+        let (setc,p) = clause in
+          not subset setc c *)
+          
+  lemma not_subset: forall clauselist c result.
+    not_subset_in_findFirst clauselist c /\ result = c ->
+      if_subset_then_mem_result clauselist c result 
+      
+  lemma subset: forall clauselist, c:set, left right setc p l, result:set. 
+    (left ++ right) = clauselist /\
+      right = Cons (setc,p) l /\
+        not_subset_in_findFirst left c /\
+          subset setc c /\
+            mem (convertRStoAF p) result ->
+              if_subset_then_mem_result clauselist c result 
+          
+  
+  
+  let rec function algorithmA (clauselist: list (set,rightside)) 
+                              (c: set) : set
+    requires { clauselist <> Nil }
+    requires { mem ATop c }
+    variant { length clauselist }
+    ensures { if_subset_then_mem_result clauselist c result }
+    ensures { subset c result }
+    (* ensures { result = algorithmA (fset_from_list clauselist) c } *)
+  = match clauselist with
+    | Cons clause Nil -> algorithmA_basic clause c
+    | _ -> let (left,right) = findFirst clauselist c in
+                match right with
+                  | Nil -> c
+                  | Cons (_,p) l -> 
+                      algorithmA (left ++ l) (add (convertRStoAF p) c)
+                 end
+    end
+     
+  let function horn (phi: hornclause) : BoolImplementation.t
+  = let c' = (algorithmA (convertToList phi) (singleton ATop)) in
+      if(mem ABot c') then bot else top
+ 
+  
+  goal A1: 
+    not mem ABot 
+       (algorithmA_basic ((singleton ATop), RProp top) 
+        ((singleton ATop)))
+  
+  lemma case1_with_basic: forall phi p. is_satisfiable phi /\ 
+        phi = HBasic (BImpl LTop p) -> 
+          is_satisfiable_rs p /\ 
+            not mem ABot 
+              (algorithmA_basic ((to_fset (convertToSet LTop)), p) 
+                ((singleton ATop)))
+
+  lemma case2_with_basic: forall phi p c. 
+      phi = HBasic (BImpl c p) /\ 
+        is_satisfiable phi -> 
+          not mem ABot 
+            (algorithmA_basic ((to_fset (convertToSet c)), p) 
+              ((singleton ATop)))
+     
+  (* lemma case1: forall phi p. 
+    is_satisfiable phi /\ 
+      phi = HBasic (BImpl LTop p) -> 
+        is_satisfiable_rs p /\ 
+          not mem ABot 
+            (algorithmA ( (convertToList phi)) (mk (singleton ATop)))
+            
+   lemma case2: forall phi p c. 
+    is_satisfiable phi /\ 
+      phi = HBasic (BImpl c p) /\
+        is_satisfiable_ls c -> 
+          not mem ABot 
+            (algorithmA ( (convertToList phi)) (mk (singleton ATop))) 
+            
+   lemma case_induction: forall phi phi1 phi2.
+    is_satisfiable phi /\
+      phi = HAnd phi1 phi2 ->
+        not mem ABot
+          (algorithmA ( (convertToList phi)) (mk (singleton ATop)))       
+            
+            *)
 end
 

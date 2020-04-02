@@ -37,6 +37,8 @@ type i
 val constant top  : t   
 val constant bot  : t 
 
+axiom top_not_bot: bot <> top
+
 val (=) (t1 t2: t) : bool
   ensures { result <-> t1 = t2 }
   
