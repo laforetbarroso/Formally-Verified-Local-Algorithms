@@ -347,6 +347,136 @@
  <goal name="not_subset_findFirst">
  <transf name="split_vc" >
   <goal name="not_subset_findFirst.0">
+  <transf name="induction_arg_ty_lex" arg1="clauselist">
+   <goal name="not_subset_findFirst.0.0">
+   <transf name="introduce_premises" >
+    <goal name="not_subset_findFirst.0.0.0">
+    <transf name="split_vc" >
+     <goal name="not_subset_findFirst.0.0.0.0" proved="true">
+     <proof prover="1"><result status="valid" time="0.03" steps="50"/></proof>
+     <proof prover="2"><result status="timeout" time="1.00" steps="199646"/></proof>
+     </goal>
+     <goal name="not_subset_findFirst.0.0.0.1">
+     <proof prover="0"><result status="timeout" time="1.00" steps="2438107"/></proof>
+     <proof prover="1"><result status="timeout" time="1.00"/></proof>
+     <proof prover="2"><result status="timeout" time="1.00" steps="230244"/></proof>
+     <transf name="unfold" arg1="not_subset_in_findFirst" arg2="in" arg3="H1">
+      <goal name="not_subset_findFirst.0.0.0.1.0">
+      <transf name="compile_match" >
+       <goal name="not_subset_findFirst.0.0.0.1.0.0">
+       <transf name="destruct" arg1="H1">
+        <goal name="not_subset_findFirst.0.0.0.1.0.0.0">
+        <transf name="destruct" arg1="H3">
+         <goal name="not_subset_findFirst.0.0.0.1.0.0.0.0" expl="destruct premise" proved="true">
+         <proof prover="2"><result status="valid" time="0.10" steps="31777"/></proof>
+         </goal>
+         <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1">
+         <proof prover="0"><result status="timeout" time="1.00" steps="2004630"/></proof>
+         <proof prover="1"><result status="timeout" time="1.00"/></proof>
+         <proof prover="2"><result status="timeout" time="1.00" steps="182670"/></proof>
+         <transf name="unfold" arg1="findFirst" arg2="in" arg3="H">
+          <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0">
+          <transf name="assert" arg1="(exists a b. x3 = (a,b))">
+           <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.0" expl="asserted formula" proved="true">
+           <proof prover="2"><result status="valid" time="0.16" steps="35717"/></proof>
+           </goal>
+           <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1">
+           <proof prover="0"><result status="timeout" time="1.00" steps="2615161"/></proof>
+           <proof prover="1"><result status="timeout" time="1.00"/></proof>
+           <proof prover="2"><result status="timeout" time="1.00" steps="145864"/></proof>
+           <transf name="introduce_exists" >
+            <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0">
+            <transf name="subst" arg1="x3">
+             <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0">
+             <transf name="replace" arg1="(fset_from_list (Cons (x1, x) x2))" arg2="(Cons (to_fset x1, x) (fset_from_list x2))" arg3="in" arg4="H">
+              <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0">
+              <proof prover="0"><result status="timeout" time="1.00" steps="2566145"/></proof>
+              <proof prover="1"><result status="timeout" time="1.00"/></proof>
+              <proof prover="2"><result status="timeout" time="1.00" steps="169438"/></proof>
+              <transf name="compile_match" >
+               <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0">
+               <proof prover="0"><result status="timeout" time="1.00" steps="2851855"/></proof>
+               <proof prover="1"><result status="timeout" time="1.00"/></proof>
+               <proof prover="2"><result status="timeout" time="1.00" steps="201866"/></proof>
+               <transf name="eliminate_let" >
+                <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0">
+                <proof prover="0"><result status="timeout" time="1.00" steps="2155963"/></proof>
+                <proof prover="1"><result status="timeout" time="1.00"/></proof>
+                <proof prover="2"><result status="timeout" time="1.00" steps="141651"/></proof>
+                <transf name="compile_match" >
+                 <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0">
+                 <transf name="eliminate_let" >
+                  <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0">
+                  <transf name="eliminate_if" >
+                   <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0.0">
+                   <transf name="destruct" arg1="H">
+                    <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0.0.0">
+                    <proof prover="0"><result status="timeout" time="1.00" steps="2206507"/></proof>
+                    <proof prover="1"><result status="timeout" time="1.00"/></proof>
+                    <proof prover="2"><result status="timeout" time="1.00" steps="180168"/></proof>
+                    <transf name="destruct" arg1="H">
+                     <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0.0.0.0" expl="destruct premise" proved="true">
+                     <proof prover="2"><result status="valid" time="0.10" steps="32935"/></proof>
+                     </goal>
+                     <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0.0.0.1">
+                     <proof prover="0"><result status="timeout" time="1.00" steps="2209359"/></proof>
+                     <proof prover="1"><result status="timeout" time="1.00"/></proof>
+                     <proof prover="2"><result status="timeout" time="1.00" steps="172783"/></proof>
+                     <transf name="compile_match" >
+                      <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0.0.0.1.0">
+                      <transf name="destruct" arg1="H3">
+                       <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0.0.0.1.0.0" expl="destruct premise">
+                       <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="13689743"/></proof>
+                       <proof prover="1" timelimit="5"><result status="timeout" time="5.00"/></proof>
+                       <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="988347"/></proof>
+                       </goal>
+                       <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.0.0.0.0.0.0.0.1.0.1" proved="true">
+                       <proof prover="2"><result status="valid" time="0.10" steps="33352"/></proof>
+                       </goal>
+                      </transf>
+                      </goal>
+                     </transf>
+                     </goal>
+                    </transf>
+                    </goal>
+                   </transf>
+                   </goal>
+                  </transf>
+                  </goal>
+                 </transf>
+                 </goal>
+                </transf>
+                </goal>
+               </transf>
+               </goal>
+              </transf>
+              </goal>
+              <goal name="not_subset_findFirst.0.0.0.1.0.0.0.1.0.1.0.0.1" expl="equality hypothesis" proved="true">
+              <proof prover="2"><result status="valid" time="0.16" steps="38325"/></proof>
+              </goal>
+             </transf>
+             </goal>
+            </transf>
+            </goal>
+           </transf>
+           </goal>
+          </transf>
+          </goal>
+         </transf>
+         </goal>
+        </transf>
+        </goal>
+       </transf>
+       </goal>
+      </transf>
+      </goal>
+     </transf>
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
   <transf name="unfold" arg1="findFirst" arg2="in" arg3="H">
    <goal name="not_subset_findFirst.0.0">
    <transf name="destruct_term" arg1="clauselist">
