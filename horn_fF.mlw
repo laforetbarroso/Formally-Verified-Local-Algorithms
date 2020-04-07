@@ -207,6 +207,14 @@ module Logic
                                (Cons (setc,p) le, ri)
      end
   meta rewrite_def function findFirst
+  
+  lemma subset_findFirst: forall clauselist c setc p l.
+    let (left, right) = findFirst clauselist c in
+      right = Cons (setc,p) l -> subset setc c
+  
+  lemma concat_findFirst: forall clauselist c.
+    let (left, right) = findFirst clauselist c in
+      left ++ right = clauselist
 
 
   function algorithmA_basic (clause: (fset atomicformula,rightside))
@@ -217,22 +225,23 @@ module Logic
         (add (convertRStoAF p) c)
       else
         c
+       
 
-  (* function algorithmA (clauselist: list (fset atomicformula,rightside))
+  let rec ghost function algorithmA (clauselist: list (fset atomicformula,rightside))
                               (c: fset atomicformula) : fset atomicformula
-  = match clauselist with
-      | Nil -> empty
-      | Cons clause Nil -> algorithmA_basic clause c
-      | Cons clause l -> c
-              let (left,right) = findFirst clauselist c in
+    variant{ length clauselist }
+  = let (left,right) = findFirst clauselist c in
                 match right with
                   | Nil -> c
-                  | Cons (_,p) l ->
-                      algorithmA (left ++ l) (add (convertRStoAF p) c)
+                  | Cons (setc,p) l ->
+                      if(subset setc c) then
+                        algorithmA (left ++ l) (add (convertRStoAF p) c)
+                      else
+                        absurd
                  end
-    end     *)
-
-
+                 
+  goal G: true
+  
 end
 
 
@@ -249,7 +258,6 @@ module Horn
   use Evals
   use SAT
   clone Converts
-  use Logic
   use import set.Fset as FS
   clone set.SetApp with type elt = atomicformula
 
@@ -432,12 +440,7 @@ module Horn
         add (convertRStoAF p) c
       else
         c
-
-  (* lemma not_subset: forall clauselist:list (set,rightside), c:set, clause:(set,rightside), setc:set, p:rightside.
-    not_subset_in_findFirst clauselist c /\
-      ListMem.mem clause clauselist ->
-        let (setc,p) = clause in
-          not subset setc c *)
+        
 
   lemma not_subset_findFirst: forall clauselist.
     (forall c. not_subset_in_findFirst clauselist c ->
@@ -458,14 +461,14 @@ module Horn
 
 
 
-  let rec function algorithmA (clauselist: list (set,rightside))
+  let rec algorithmA (clauselist: list (set,rightside))
                               (c: set) : set
     requires { mem ATop c }
     variant { length clauselist }
     ensures { let (left, right) = findFirst (fset_from_list clauselist) c in
                 if_subset_then_mem_result right c result }
     ensures { subset c result }
-    (* ensures { result = algorithmA (fset_from_list clauselist) c } *)
+    ensures { result = algorithmA (fset_from_list clauselist) c }
   = let (left,right) = findFirst clauselist c in
                 match right with
                   | Nil -> c
@@ -491,31 +494,28 @@ module Horn
                 ((singleton ATop)))
 
   lemma case2_with_basic: forall phi p c.
-      phi = HBasic (BImpl c p) /\
-        is_satisfiable phi ->
+     is_satisfiable phi /\
+      phi = HBasic (BImpl c p) ->
           not mem ABot
             (algorithmA_basic ((to_fset (convertToSet c)), p)
               ((singleton ATop)))
 
-  (* lemma case1: forall phi p.
+  lemma case1: forall phi p.
     is_satisfiable phi /\
       phi = HBasic (BImpl LTop p) ->
         is_satisfiable_rs p /\
           not mem ABot
-            (algorithmA ( (convertToList phi)) (mk (singleton ATop)))
+            (algorithmA (fset_from_list (convertToList phi)) ((singleton ATop)))
 
    lemma case2: forall phi p c.
     is_satisfiable phi /\
-      phi = HBasic (BImpl c p) /\
-        is_satisfiable_ls c ->
+      phi = HBasic (BImpl c p) ->
           not mem ABot
-            (algorithmA ( (convertToList phi)) (mk (singleton ATop)))
+            (algorithmA (fset_from_list (convertToList phi)) ((singleton ATop)))
 
    lemma case_induction: forall phi phi1 phi2.
     is_satisfiable phi /\
       phi = HAnd phi1 phi2 ->
         not mem ABot
-          (algorithmA ( (convertToList phi)) (mk (singleton ATop)))
-
-            *)
+          (algorithmA (fset_from_list (convertToList phi)) ((singleton ATop)))
 end
