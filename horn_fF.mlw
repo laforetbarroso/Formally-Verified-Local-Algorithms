@@ -257,7 +257,7 @@ module Horn
   use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
   use Evals
   use SAT
-  clone Converts
+  use Converts
   use import set.Fset as FS
   clone set.SetApp with type elt = atomicformula
 
@@ -403,6 +403,55 @@ module Horn
   lemma fset_from_list_distr:
     forall left right. fset_from_list (left ++ right) =
       (fset_from_list left) ++ (fset_from_list right)
+      
+      
+      
+  function findFirst (clauselist: list (fset atomicformula,rightside))
+                     (c: fset atomicformula)
+                     : (list (fset atomicformula,rightside),
+                        list (fset atomicformula,rightside))
+  = match clauselist with
+      | Nil -> (Nil,Nil)
+      | Cons (setc,p) l -> if subset setc c then
+                               (Nil , Cons (setc,p) l)
+                           else let (le,ri) = findFirst l c in
+                               (Cons (setc,p) le, ri)
+     end
+  meta rewrite_def function findFirst
+  
+  lemma subset_findFirst: forall clauselist c setc p l.
+    let (left, right) = findFirst clauselist c in
+      right = Cons (setc,p) l -> subset setc c
+  
+  lemma concat_findFirst: forall clauselist c.
+    let (left, right) = findFirst clauselist c in
+      left ++ right = clauselist
+
+
+  function algorithmA_basic (clause: (fset atomicformula,rightside))
+                            (c: fset atomicformula)
+                            : fset atomicformula
+  = let (setc, p) = clause in
+      if (subset setc c) then
+        (add (convertRStoAF p) c)
+      else
+        c
+       
+
+  let rec ghost function algorithmA_spec (clauselist: list (fset atomicformula,rightside))
+                              (c: fset atomicformula) : fset atomicformula
+    variant{ length clauselist }
+  = let (left,right) = findFirst clauselist c in
+                match right with
+                  | Nil -> c
+                  | Cons (setc,p) l ->
+                      if(FS.subset setc c) then
+                        algorithmA_spec (left ++ l) (FS.add (convertRStoAF p) c)
+                      else
+                        absurd
+                 end  
+      
+      
 
   let rec findFirst (clauselist: list (set,rightside))
                              (c: set)
@@ -468,7 +517,7 @@ module Horn
     ensures { let (left, right) = findFirst (fset_from_list clauselist) c in
                 if_subset_then_mem_result right c result }
     ensures { subset c result }
-    ensures { result = algorithmA (fset_from_list clauselist) c }
+    ensures { result = algorithmA_spec (fset_from_list clauselist) c }
   = let (left,right) = findFirst clauselist c in
                 match right with
                   | Nil -> c
@@ -479,6 +528,10 @@ module Horn
   let function horn (phi: hornclause) : BoolImplementation.t
   = let c' = (algorithmA (convertToList phi) (singleton ATop)) in
       if(mem ABot c') then bot else top
+      
+      
+  
+                 
 
 
   goal A1:
@@ -505,17 +558,17 @@ module Horn
       phi = HBasic (BImpl LTop p) ->
         is_satisfiable_rs p /\
           not mem ABot
-            (algorithmA (fset_from_list (convertToList phi)) ((singleton ATop)))
+            (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
 
    lemma case2: forall phi p c.
     is_satisfiable phi /\
       phi = HBasic (BImpl c p) ->
           not mem ABot
-            (algorithmA (fset_from_list (convertToList phi)) ((singleton ATop)))
+            (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
 
    lemma case_induction: forall phi phi1 phi2.
     is_satisfiable phi /\
       phi = HAnd phi1 phi2 ->
         not mem ABot
-          (algorithmA (fset_from_list (convertToList phi)) ((singleton ATop)))
+          (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
 end
