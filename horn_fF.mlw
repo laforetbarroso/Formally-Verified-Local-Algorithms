@@ -258,6 +258,7 @@ module Horn
   use Evals
   use SAT
   clone Converts
+  use Logic
   use import set.Fset as FS
   clone set.SetApp with type elt = atomicformula
 
