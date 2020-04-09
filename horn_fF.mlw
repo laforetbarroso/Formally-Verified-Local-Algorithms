@@ -557,7 +557,7 @@ module Horn
                 ((singleton ATop)))
 
   lemma case2_with_basic: forall phi p c.
-     is_satisfiable phi /\
+     is_satisfiable phi /\ c <> LTop /\
         phi = HBasic (BImpl c p) ->
           not mem ABot
             (algorithmA_basic ((to_fset (convertToSet c)), p)
@@ -569,9 +569,15 @@ module Horn
         is_satisfiable_rs p /\
           not mem ABot
             (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
+            
+   lemma aux_findFirst: forall c p.
+     c <> LTop ->
+       let phi = HBasic (BImpl c p) in
+        let (left,right) = findFirst (fset_from_list (convertToList phi)) (singleton ATop) in
+          right = Nil
 
    lemma case2: forall phi p c.
-    is_satisfiable phi /\
+    is_satisfiable phi /\ c <> LTop /\
       phi = HBasic (BImpl c p) ->
           not mem ABot
             (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
