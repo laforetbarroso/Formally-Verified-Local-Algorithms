@@ -436,21 +436,30 @@ module Horn
         (add (convertRStoAF p) c)
       else
         c
+        
+  lemma if_subset_algorithmA_basic: forall clause c.
+    let (a,b) = clause in
+      if_subset_then_mem_result_clause (a, b) c (algorithmA_basic clause c)
        
+       
+  lemma subset_algorithmA_basic: forall clause c.
+    subset c (algorithmA_basic clause c)
+  
+  
 
   let rec ghost function algorithmA_spec (clauselist: list (fset atomicformula,rightside))
                               (c: fset atomicformula) : fset atomicformula
-    variant{ length clauselist }
+    requires{ mem ATop c }
+    variant { length clauselist }
+    ensures { let (left, right) = findFirst clauselist c in
+                if_subset_then_mem_result right c result }
+    ensures { subset c result }
   = let (left,right) = findFirst clauselist c in
                 match right with
                   | Nil -> c
-                  | Cons (setc,p) l ->
-                      if(FS.subset setc c) then
-                        algorithmA_spec (left ++ l) (FS.add (convertRStoAF p) c)
-                      else
-                        absurd
-                 end  
-      
+                  | Cons (_,p) l ->
+                      algorithmA_spec (left ++ l) (FS.add (convertRStoAF p) c)
+                 end
       
 
   let rec findFirst (clauselist: list (set,rightside))
@@ -539,7 +548,8 @@ module Horn
        (algorithmA_basic ((singleton ATop), RProp top)
         ((singleton ATop)))
 
-  lemma case1_with_basic: forall phi p. is_satisfiable phi /\
+  lemma case1_with_basic: forall phi p. 
+      is_satisfiable phi /\
         phi = HBasic (BImpl LTop p) ->
           is_satisfiable_rs p /\
             not mem ABot
@@ -548,7 +558,7 @@ module Horn
 
   lemma case2_with_basic: forall phi p c.
      is_satisfiable phi /\
-      phi = HBasic (BImpl c p) ->
+        phi = HBasic (BImpl c p) ->
           not mem ABot
             (algorithmA_basic ((to_fset (convertToSet c)), p)
               ((singleton ATop)))
