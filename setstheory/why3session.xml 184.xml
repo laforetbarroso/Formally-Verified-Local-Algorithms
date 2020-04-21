@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="Z3" version="4.5.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.3.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="6" name="CVC4" version="1.5" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/><path name="setstheory.mlw"/>
+<theory name="BoolSet" proved="true">
+ <goal name="VC eval_positive" expl="VC for eval_positive" proved="true">
+ <proof prover="2"><result status="valid" time="0.07" steps="13432"/></proof>
+ </goal>
+ <goal name="VC eval_negative" expl="VC for eval_negative" proved="true">
+ <proof prover="2"><result status="valid" time="0.07" steps="13589"/></proof>
+ </goal>
+ <goal name="VC deriv" expl="VC for deriv" proved="true">
+ <proof prover="2"><result status="valid" time="0.08" steps="15628"/></proof>
+ </goal>
+ <goal name="VC evalElemLet" expl="VC for evalElemLet" proved="true">
+ <proof prover="2"><result status="valid" time="0.13" steps="23599"/></proof>
+ </goal>
+ <goal name="evalElem1" proved="true">
+ <proof prover="2"><result status="valid" time="0.05" steps="11341"/></proof>
+ </goal>
+ <goal name="VC evalElem" expl="VC for evalElem" proved="true">
+ <proof prover="2"><result status="valid" time="0.09" steps="18056"/></proof>
+ </goal>
+</theory>
+<theory name="PropositionalFormulaSet" proved="true">
+ <goal name="VC eval_positive" expl="VC for eval_positive" proved="true">
+ <proof prover="2"><result status="valid" time="0.08" steps="16027"/></proof>
+ <proof prover="6" obsolete="true"><result status="valid" time="0.11" steps="15559"/></proof>
+ </goal>
+ <goal name="VC cast_commutes_add" expl="VC for cast_commutes_add" proved="true">
+ <transf name="split_vc" proved="true" >
+  <goal name="VC cast_commutes_add.0" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.09" steps="17105"/></proof>
+  <proof prover="6" obsolete="true"><result status="valid" time="0.06" steps="16585"/></proof>
+  </goal>
+  <goal name="VC cast_commutes_add.1" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="5.00" steps="1180463"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="5.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.25" steps="34378"/></proof>
+  <proof prover="6" obsolete="true"><result status="valid" time="0.24" steps="35899"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="VC deriv" expl="VC for deriv" proved="true">
+ <proof prover="2"><result status="valid" time="0.15" steps="26954"/></proof>
+ <proof prover="6" obsolete="true"><result status="valid" time="0.29" steps="22664"/></proof>
+ </goal>
+ <goal name="VC evalElemLet" expl="VC for evalElemLet" proved="true">
+ <transf name="split_vc" proved="true" >
+  <goal name="VC evalElemLet.0" expl="postcondition" proved="true">
+  <transf name="unfold" proved="true" arg1="eval_negative">
+   <goal name="VC evalElemLet.0.0" expl="postcondition" proved="true">
+   <transf name="assert" proved="true" arg1="(cast_setPF_setB (add x s) f == add (eval_pl x f) (cast_setPF_setB s f))">
+    <goal name="VC evalElemLet.0.0.0" expl="asserted formula" proved="true">
+    <proof prover="2"><result status="valid" time="0.06" steps="14321"/></proof>
+    <proof prover="6" obsolete="true"><result status="valid" time="0.07" steps="14066"/></proof>
+    </goal>
+    <goal name="VC evalElemLet.0.0.1" expl="postcondition" proved="true">
+    <proof prover="2"><result status="valid" time="0.06" steps="14622"/></proof>
+    <proof prover="6" obsolete="true"><result status="valid" time="0.07" steps="14358"/></proof>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="evalElem1" proved="true">
+ <proof prover="2"><result status="valid" time="0.06" steps="14368"/></proof>
+ <proof prover="6" obsolete="true"><result status="valid" time="0.05" steps="14111"/></proof>
+ </goal>
+ <goal name="VC evalElem" expl="VC for evalElem" proved="true">
+ <proof prover="2"><result status="valid" time="0.10" steps="20335"/></proof>
+ <proof prover="6" obsolete="true"><result status="valid" time="0.10" steps="19850"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

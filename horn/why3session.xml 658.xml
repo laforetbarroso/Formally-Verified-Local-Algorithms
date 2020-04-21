@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<file proved="true">
+<path name=".."/>
+<path name="horn.mlw"/>
+<theory name="Horn">
+ <goal name="convertSet_Top">
+ <proof prover="2"><result status="valid" time="0.16"/></proof>
+ </goal>
+ <goal name="convertSet_Bottom">
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertSet_Variable">
+ <proof prover="2"><result status="valid" time="0.15"/></proof>
+ </goal>
+ <goal name="convertSet_And_Bot_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="valid" time="0.12"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_Y">
+ <proof prover="2"><result status="valid" time="0.29"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_X">
+ <proof prover="2"><result status="valid" time="0.18"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_Y_Z">
+ <proof prover="2"><result status="valid" time="0.39"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_X_Y_Z">
+ <proof prover="2"><result status="valid" time="0.46"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_Y_W_Z">
+ <proof prover="2"><result status="valid" time="0.66"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_Top_Bot">
+ <proof prover="2"><result status="valid" time="0.10"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_Top_Var">
+ <proof prover="2"><result status="valid" time="0.10"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndBotBot_Bot">
+ <proof prover="2"><result status="valid" time="0.12"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndBotBot_Var">
+ <proof prover="2"><result status="valid" time="0.12"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXY_Bot">
+ <proof prover="2"><result status="valid" time="0.12"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXY_Top">
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXX_Bot">
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXX_Top">
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

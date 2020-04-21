@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<file>
+<path name=".."/><path name="booltheory.mlw"/>
+<theory name="BoolImplementation">
+ <goal name="repr_of_top" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="52"/></proof>
+ </goal>
+ <goal name="and_neutral_elem">
+ <proof prover="0"><result status="unknown" time="0.01"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01" steps="191"/></proof>
+ <proof prover="2"><result status="unknown" time="0.02" steps="20082"/></proof>
+ </goal>
+ <goal name="or_neutral_elem" proved="true">
+ <proof prover="0"><result status="unknown" time="0.01"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01" steps="289"/></proof>
+ <proof prover="2"><result status="valid" time="0.02" steps="6070"/></proof>
+ </goal>
+ <goal name="doubleneg" proved="true">
+ <proof prover="0"><result status="unknown" time="0.01"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01" steps="374"/></proof>
+ <proof prover="2"><result status="valid" time="0.02" steps="5262"/></proof>
+ </goal>
+ <goal name="deMorgan_or" proved="true">
+ <proof prover="0"><result status="valid" time="0.00" steps="24"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01" steps="657"/></proof>
+ </goal>
+ <goal name="deMorgan_and" proved="true">
+ <proof prover="0"><result status="valid" time="0.00" steps="32"/></proof>
+ <proof prover="1"><result status="unknown" time="0.01" steps="857"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

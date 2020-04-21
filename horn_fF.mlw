@@ -325,6 +325,20 @@ module Horn
       | CPL _ -> ()
       | CPAnd c1 c2 -> convertConjunctionToSet_lemma1 y c1; convertConjunctionToSet_lemma1 y c2
      end
+     
+  let rec lemma convertConjunctionToSet_lemma_differs_singleton_atop (y: atomicformula) (phi: conj_pliteral)
+    ensures { (convertConjunctionToSet phi) <> singleton ATop }
+  = match phi with
+      | CPL _ -> ()
+      | CPAnd c1 c2 -> convertConjunctionToSet_lemma_differs_singleton_atop y c1; convertConjunctionToSet_lemma_differs_singleton_atop y c2
+     end
+   
+  let rec lemma convertConjunctionToSet_lemma_subset (y: atomicformula) (phi: conj_pliteral)
+    ensures { not subset (convertConjunctionToSet phi) (singleton ATop) }
+  = match phi with
+      | CPL _ -> ()
+      | CPAnd c1 c2 -> convertConjunctionToSet_lemma_subset y c1; convertConjunctionToSet_lemma_subset y c2
+     end
 
   goal pp_same_p: forall x y f. HornFormula.eval_positive (CPAnd (CPL x) (CPL y)) f = eval_setconjunction (union (singleton (convertPLtoAF y)) (singleton (convertPLtoAF x))) f
 
@@ -538,15 +552,7 @@ module Horn
   = let c' = (algorithmA (convertToList phi) (singleton ATop)) in
       if(mem ABot c') then bot else top
       
-      
-  
-                 
 
-
-  goal A1:
-    not mem ABot
-       (algorithmA_basic ((singleton ATop), RProp top)
-        ((singleton ATop)))
 
   lemma case1_with_basic: forall phi p. 
       is_satisfiable phi /\
@@ -570,21 +576,47 @@ module Horn
           not mem ABot
             (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
             
-   lemma aux_findFirst: forall c p.
-     c <> LTop ->
+  (*lemma all_mem_convert_diferent_atop:
+    forall x y x2.
+      mem x2 (to_fset (convertConjunctionToSet(CPAnd x y))) -> x2 <> ATop*)
+    
+  (*lemma and_convert_different_satop:      
+    forall x y x2.
+       not (mem x2 (to_fset (convertConjunctionToSet (CPAnd x y))) ->
+            mem x2 (singleton ATop))*)
+            
+   (*lemma nottop_findFirst: forall x.
+    let c = LPos x in
+       not subset (to_fset (convertConjunctionToSet x)) (singleton ATop)  *)       
+            
+   (*lemma aux_findFirst: forall x p.
+     let c = LPos x in
        let phi = HBasic (BImpl c p) in
         let (left,right) = findFirst (fset_from_list (convertToList phi)) (singleton ATop) in
-          right = Nil
+          right = Nil*)
 
-   lemma case2: forall phi p c.
-    is_satisfiable phi /\ c <> LTop /\
+   lemma case2: forall phi p x c.
+    is_satisfiable phi /\ c = LPos x /\
       phi = HBasic (BImpl c p) ->
           not mem ABot
             (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
+            
+   (* lemma algorithmA_spec_concat: forall phi1 phi2.
+    let phi = HAnd phi1 phi2 in
+    
+      subset (union (algorithmA_spec (fset_from_list (convertToList phi1)) ((singleton ATop)))
+        (algorithmA_spec (fset_from_list (convertToList phi2)) ((singleton ATop))))
+          (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop))) *)
+        
 
-   lemma case_induction: forall phi phi1 phi2.
+   lemma case_induction1: forall phi phi1 phi2.
     is_satisfiable phi /\
       phi = HAnd phi1 phi2 ->
-        not mem ABot
-          (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
+          not mem ABot
+           (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
+           
+   lemma horn_proof: forall phi.
+    is_satisfiable phi -> 
+      not mem ABot
+           (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
 end
