@@ -57,11 +57,15 @@ module Evals
   eval_setconjunction (add x s) f = eval_atomicformula x f /*\ eval_setconjunction s f
 
 
+  function eval_clause (clause: (fset atomicformula, rightside)) (f: i-> BoolImplementation.t) : BoolImplementation.t
+  = match clause with
+    | (setc,p) -> ((eval_setconjunction setc f) ->* (eval_rightside (assign_rightside p f)))
+    end
 
-  function eval_list (l: list (fset atomicformula, rightside)) (f: i-> BoolImplementation.t) : BoolImplementation.t
+  function eval_clauselist (l: list (fset atomicformula, rightside)) (f: i-> BoolImplementation.t) : BoolImplementation.t
   = match l with
       | Nil -> top
-      | Cons (t,r) l1 -> ((eval_setconjunction t f) ->* (eval_rightside (assign_rightside r f))) /*\ eval_list l1 f
+      | Cons clause l1 -> eval_clause clause f /*\ eval_clauselist l1 f
     end
 
 end
@@ -77,6 +81,7 @@ module SAT
 
   use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
   use Evals
+  use set.Fset
 
   predicate is_satisfiable (phi: hornclause)
   = exists f. eval_hornclause phi f = top
@@ -92,6 +97,24 @@ module SAT
 
   predicate is_unsatisfiable_rs (phi: rightside)
   = forall f. (eval_rightside (assign_rightside phi f)) <> top
+  
+  predicate is_satisfiable_clause (clause: (fset atomicformula, rightside))
+  = exists f. (eval_clause clause f) = top
+  
+  predicate is_satisfiable_clauselist (clauselist: list (fset atomicformula, rightside))
+  = match clauselist with
+    | Nil -> true
+    | Cons clause l -> is_satisfiable_clause clause /\ is_satisfiable_clauselist l
+    end
+  
+  predicate is_satisfiable_clause_left (set: fset atomicformula)
+  = exists f. (eval_setconjunction set f) = top
+  
+  predicate is_unsatisfiable_clause_left (set: fset atomicformula)
+  = forall f. (eval_setconjunction set f) <> top
+  
+  predicate is_satisfiable_clause_right (p: rightside)
+  = exists f. (eval_rightside (assign_rightside p f)) = top
 
   lemma if_unsat_then_not_sat: forall p. is_unsatisfiable_rs p ->
                                   not is_satisfiable_rs p
@@ -209,7 +232,7 @@ module Logic
   meta rewrite_def function findFirst
   
   lemma subset_findFirst: forall clauselist c setc p l.
-    let (left, right) = findFirst clauselist c in
+    let (_, right) = findFirst clauselist c in
       right = Cons (setc,p) l -> subset setc c
   
   lemma concat_findFirst: forall clauselist c.
@@ -385,13 +408,21 @@ module Horn
     meta rewrite_def function fset_from_list
 
 
-  predicate not_subset_in_findFirst (clauselist: list (set,rightside))
+  predicate not_subset (clauselist: list (set,rightside))
                                     (c: set)
   = match clauselist with
       | Nil -> true
       | Cons (setc,_) l -> (not subset setc c) /\
-                              not_subset_in_findFirst l c
+                              not_subset l c
      end
+     
+  predicate not_subset_spec (clauselist: list (fset atomicformula,rightside))
+                                    (c: fset atomicformula)
+  = match clauselist with
+      | Nil -> true
+      | Cons (setc,_) l -> (not subset setc c) /\
+                              not_subset_spec l c
+    end
 
 
   predicate if_subset_then_mem_result_clause (clause: (fset atomicformula,rightside))
@@ -433,31 +464,17 @@ module Horn
      end
   meta rewrite_def function findFirst
   
+  lemma not_subset_if_right_nil: forall clauselist c.
+    let (left, right) = findFirst clauselist c in
+      right = Nil -> not_subset_spec clauselist c
+  
   lemma subset_findFirst: forall clauselist c setc p l.
     let (left, right) = findFirst clauselist c in
-      right = Cons (setc,p) l -> subset setc c
+      right = Cons (setc,p) l -> subset setc c /\ not_subset_spec left c
   
   lemma concat_findFirst: forall clauselist c.
     let (left, right) = findFirst clauselist c in
       left ++ right = clauselist
-
-
-  function algorithmA_basic (clause: (fset atomicformula,rightside))
-                            (c: fset atomicformula)
-                            : fset atomicformula
-  = let (setc, p) = clause in
-      if (subset setc c) then
-        (add (convertRStoAF p) c)
-      else
-        c
-        
-  lemma if_subset_algorithmA_basic: forall clause c.
-    let (a,b) = clause in
-      if_subset_then_mem_result_clause (a, b) c (algorithmA_basic clause c)
-       
-       
-  lemma subset_algorithmA_basic: forall clause c.
-    subset c (algorithmA_basic clause c)
   
   
 
@@ -483,9 +500,9 @@ module Horn
     variant { length clauselist }
     ensures { left ++ right = clauselist }
     ensures { match right with
-                | Nil -> not_subset_in_findFirst clauselist c
+                | Nil -> not_subset clauselist c
                 | Cons (setc,p) _ -> subset setc c /\
-                                      not_subset_in_findFirst left c
+                                      not_subset left c
                end }
     ensures { let (rl,rr) = findFirst (fset_from_list clauselist) c in
                   rl = fset_from_list left /\
@@ -498,29 +515,20 @@ module Horn
                             let (le,ri) = findFirst l c in
                               (Cons (setc,p) le, ri)
      end
-
-
-  let rec algorithmA_basic (clause: (set,rightside)) (c: set) : set
-    requires{ mem ATop c }
-    ensures { let (a,b) = clause in
-       if_subset_then_mem_result_clause (to_fset a, b) c result }
-    ensures { subset c result }
-    (* ensures { let (setc, p) = clause in
-                result = algorithmA_basic (to_fset setc,p) c } *)
-  = let (setc, p) = clause in
-      if (subset setc c) then
-        add (convertRStoAF p) c
-      else
-        c
-        
+   
+   
+  lemma not_subset_spec_findFirst: forall clauselist.
+    (forall c. not_subset_spec clauselist c ->
+       let (left,right) = findFirst (clauselist) c in
+          right = Nil)      
 
   lemma not_subset_findFirst: forall clauselist.
-    (forall c. not_subset_in_findFirst clauselist c ->
+    (forall c. not_subset clauselist c ->
        let (left,right) = findFirst (fset_from_list clauselist) c in
           right = Nil)
 
   lemma not_subset: forall clauselist c result.
-    not_subset_in_findFirst clauselist c /\ result = c ->
+    not_subset clauselist c /\ result = c ->
       let (left,right) = findFirst (fset_from_list clauselist) c in
         right = Nil /\ if_subset_then_mem_result right c result
 
@@ -552,68 +560,118 @@ module Horn
   = let c' = (algorithmA (convertToList phi) (singleton ATop)) in
       if(mem ABot c') then bot else top
       
-
-
-  lemma case1_with_basic: forall phi p. 
-      is_satisfiable phi /\
-        phi = HBasic (BImpl LTop p) ->
+   
+  predicate not_empty_setc_clauselist (clauselist: list (fset atomicformula, rightside))
+  = match clauselist with
+    | Nil -> true
+    | Cons (setc,p) l -> not is_empty setc /\ not_empty_setc_clauselist l
+    end
+      
+  lemma case1_singleton_list: forall clauselist p.
+    let clause = (singleton ATop,p) in
+      clauselist = (Cons clause Nil) /\
+        is_satisfiable_clause clause ->
           is_satisfiable_rs p /\
             not mem ABot
-              (algorithmA_basic ((to_fset (convertToSet LTop)), p)
-                ((singleton ATop)))
+              (algorithmA_spec clauselist (singleton ATop))
+  
+  lemma case2_singleton_list: forall clauselist setc p.
+    let clause = (setc,p) in
+      setc <> (singleton ATop) /\
+        not is_empty setc /\
+          clauselist = Cons clause Nil /\
+            is_satisfiable_clause clause ->
+                not mem ABot
+                  (algorithmA_spec clauselist (singleton ATop))
+                  
+  
+                  
+  lemma case_clause_singleton_list: forall clauselist setc p.
+    let clause = (setc,p) in
+        not is_empty setc /\
+          clauselist = Cons clause Nil /\
+            is_satisfiable_clause clause ->
+                not mem ABot
+                  (algorithmA_spec clauselist ((singleton ATop)))
+                  
+                  
+  lemma test: forall clauselist setc p.
+    ( let clause = (setc,p) in
+        not is_empty setc /\
+          clauselist = Cons clause Nil /\
+            is_satisfiable_clause clause ->
+                not mem ABot
+                  (algorithmA_spec clauselist ((singleton ATop))) ) -> (let clause = (setc,p) in
+      setc <> (singleton ATop) /\
+        not is_empty setc /\
+          clauselist = Cons clause Nil /\
+            is_satisfiable_clause clause ->
+                not mem ABot
+                  (algorithmA_spec clauselist (singleton ATop)))
+                  
+                  
+  lemma case1_list: forall clauselist p c.
+    let clause = (singleton ATop,p) in
+      clauselist = (Cons clause Nil) /\
+        is_satisfiable_clause clause /\
+          not mem ABot c /\ mem ATop c ->
+            is_satisfiable_rs p ->
+              not mem ABot
+                (algorithmA_spec clauselist c)
+ 
+  (*lemma sat_then_not_bot: forall setc p.
+    let clause = (setc,p) in
+      is_satisfiable_clause clause -> ((convertRStoAF p) <> ABot)*)
+      
+  (*lemma sat_list_then_sat_all_clause: forall clauselist.
+    is_satisfiable_clauselist clauselist ->
+      forall clause. ListMem.mem clause clauselist -> is_satisfiable_clause clause*)
+      
+  
+  lemma case2_list: forall clauselist setc p c.
+    let clause = (setc,p) in
+        not is_empty setc /\
+          clauselist = Cons clause Nil /\
+            not mem ABot c /\ mem ATop c /\
+              is_satisfiable_clause clause ->
+                  not mem ABot
+                    (algorithmA_spec clauselist c)
+                  
+  lemma case_clause_list: forall clauselist setc p c.
+    let clause = (setc,p) in
+        not is_empty setc /\
+          clauselist = Cons clause Nil /\
+            not mem ABot c /\ mem ATop c /\
+              is_satisfiable_clause clause ->
+                  not mem ABot
+                    (algorithmA_spec clauselist c)
+                  
+                  
+  lemma case_induction_list: forall clauselist.
+    is_satisfiable_clauselist clauselist /\
+      not_empty_setc_clauselist clauselist->
+        not mem ABot
+             (algorithmA_spec clauselist (singleton ATop))
+      
 
-  lemma case2_with_basic: forall phi p c.
-     is_satisfiable phi /\ c <> LTop /\
-        phi = HBasic (BImpl c p) ->
-          not mem ABot
-            (algorithmA_basic ((to_fset (convertToSet c)), p)
-              ((singleton ATop)))
-
-  lemma case1: forall phi p.
+  (*lemma case1: forall phi p.
     is_satisfiable phi /\
       phi = HBasic (BImpl LTop p) ->
         is_satisfiable_rs p /\
           not mem ABot
             (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
-            
-  (*lemma all_mem_convert_diferent_atop:
-    forall x y x2.
-      mem x2 (to_fset (convertConjunctionToSet(CPAnd x y))) -> x2 <> ATop*)
-    
-  (*lemma and_convert_different_satop:      
-    forall x y x2.
-       not (mem x2 (to_fset (convertConjunctionToSet (CPAnd x y))) ->
-            mem x2 (singleton ATop))*)
-            
-   (*lemma nottop_findFirst: forall x.
-    let c = LPos x in
-       not subset (to_fset (convertConjunctionToSet x)) (singleton ATop)  *)       
-            
-   (*lemma aux_findFirst: forall x p.
-     let c = LPos x in
-       let phi = HBasic (BImpl c p) in
-        let (left,right) = findFirst (fset_from_list (convertToList phi)) (singleton ATop) in
-          right = Nil*)
 
    lemma case2: forall phi p x c.
     is_satisfiable phi /\ c = LPos x /\
       phi = HBasic (BImpl c p) ->
           not mem ABot
             (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
-            
-   (* lemma algorithmA_spec_concat: forall phi1 phi2.
-    let phi = HAnd phi1 phi2 in
-    
-      subset (union (algorithmA_spec (fset_from_list (convertToList phi1)) ((singleton ATop)))
-        (algorithmA_spec (fset_from_list (convertToList phi2)) ((singleton ATop))))
-          (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop))) *)
-        
 
    lemma case_induction1: forall phi phi1 phi2.
     is_satisfiable phi /\
       phi = HAnd phi1 phi2 ->
           not mem ABot
-           (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))
+           (algorithmA_spec (fset_from_list (convertToList phi)) ((singleton ATop)))*)
            
    lemma horn_proof: forall phi.
     is_satisfiable phi -> 
