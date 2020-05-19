@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="horn_old.mlw"/>
+<theory name="Evals" proved="true">
+ <goal name="eval_setconjunction_singleton" proved="true">
+ <proof prover="0"><result status="valid" time="0.04" steps="101883"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="323693"/></proof>
+ </goal>
+ <goal name="eval_commutes_add&#39;vc" expl="VC for eval_commutes_add" proved="true">
+ <proof prover="0"><result status="timeout" time="1.00" steps="501118"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="167710"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="eval_commutes_add&#39;vc.0" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.13" steps="27361"/></proof>
+  </goal>
+  <goal name="eval_commutes_add&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.19" steps="36362"/></proof>
+  </goal>
+  <goal name="eval_commutes_add&#39;vc.2" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.17" steps="32013"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="add_eval" proved="true">
+ <proof prover="2"><result status="valid" time="0.16" steps="30237"/></proof>
+ </goal>
+</theory>
+<theory name="Test">
+ <goal name="convertRStoAF&#39;vc" expl="VC for convertRStoAF" proved="true">
+ <proof prover="2"><result status="valid" time="0.16" steps="30600"/></proof>
+ </goal>
+ <goal name="convertPLtoAF&#39;vc" expl="VC for convertPLtoAF" proved="true">
+ <proof prover="2"><result status="valid" time="0.14" steps="28791"/></proof>
+ </goal>
+ <goal name="convertAFtoPL&#39;vc" expl="VC for convertAFtoPL" proved="true">
+ <proof prover="2"><result status="valid" time="0.14" steps="29309"/></proof>
+ </goal>
+ <goal name="convertAFtoRS&#39;vc" expl="VC for convertAFtoRS" proved="true">
+ <proof prover="2"><result status="valid" time="0.15" steps="30156"/></proof>
+ </goal>
+ <goal name="aux&#39;vc" expl="VC for aux" proved="true">
+ <proof prover="0"><result status="timeout" time="1.00" steps="507134"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="127662"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="aux&#39;vc.0" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.08" steps="25798"/></proof>
+  </goal>
+  <goal name="aux&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.17" steps="31478"/></proof>
+  </goal>
+  <goal name="aux&#39;vc.2" expl="assertion" proved="true">
+  <proof prover="2"><result status="valid" time="0.36" steps="61025"/></proof>
+  </goal>
+  <goal name="aux&#39;vc.3" expl="assertion" proved="true">
+  <proof prover="2"><result status="valid" time="0.13" steps="29169"/></proof>
+  </goal>
+  <goal name="aux&#39;vc.4" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.24" steps="37851"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="union_eval_empty" proved="true">
+ <proof prover="2"><result status="valid" time="0.16" steps="31644"/></proof>
+ </goal>
+ <goal name="union_eval_samesingleton" proved="true">
+ <proof prover="2"><result status="valid" time="0.18" steps="34674"/></proof>
+ </goal>
+ <goal name="union_eval_diffsingleton" proved="true">
+ <proof prover="2"><result status="valid" time="0.68" steps="94877"/></proof>
+ </goal>
+ <goal name="convertPLtoAF_evaluation" proved="true">
+ <proof prover="1"><result status="valid" time="0.25" steps="725"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="148135"/></proof>
+ </goal>
+ <goal name="convertAFtoPL_evaluation" proved="true">
+ <proof prover="0"><result status="timeout" time="1.00" steps="781486"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="138883"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="convertAFtoPL_evaluation.0" proved="true">
+  <proof prover="1"><result status="valid" time="0.99" steps="1492"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="140109"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="PLtoAF_AFtoPL">
+ <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="819212"/></proof>
+ <proof prover="1" timelimit="5"><result status="timeout" time="5.00"/></proof>
+ <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="1525057"/></proof>
+ <transf name="split_vc" >
+  <goal name="PLtoAF_AFtoPL.0">
+  <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="816993"/></proof>
+  <proof prover="1" timelimit="5"><result status="timeout" time="5.00"/></proof>
+  <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="1484866"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="add_then_mem" proved="true">
+ <proof prover="2"><result status="valid" time="0.13" steps="31993"/></proof>
+ </goal>
+ <goal name="convertConjunctionToSet_lemma&#39;vc" expl="VC for convertConjunctionToSet_lemma" proved="true">
+ <proof prover="2"><result status="valid" time="0.18" steps="34784"/></proof>
+ </goal>
+ <goal name="convertConjunctionToSet_lemma1&#39;vc" expl="VC for convertConjunctionToSet_lemma1" proved="true">
+ <proof prover="0"><result status="timeout" time="1.00" steps="2152876"/></proof>
+ <proof prover="1" timelimit="5"><result status="valid" time="2.26" steps="1936"/></proof>
+ <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="760144"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="convertConjunctionToSet_lemma1&#39;vc.0" expl="postcondition" proved="true">
+  <proof prover="0"><result status="timeout" time="1.00" steps="1851298"/></proof>
+  <proof prover="1" timelimit="5"><result status="valid" time="1.32" steps="1531"/></proof>
+  <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="888873"/></proof>
+  </goal>
+  <goal name="convertConjunctionToSet_lemma1&#39;vc.1" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.18" steps="34545"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="pp_same_p" proved="true">
+ <proof prover="2"><result status="valid" time="0.31" steps="47992"/></proof>
+ </goal>
+ <goal name="eval_equivalent&#39;vc" expl="VC for eval_equivalent" proved="true">
+ <proof prover="1"><result status="valid" time="0.35" steps="1597"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="111974"/></proof>
+ </goal>
+ <goal name="convertToSet&#39;vc" expl="VC for convertToSet" proved="true">
+ <proof prover="2"><result status="valid" time="0.17" steps="33746"/></proof>
+ </goal>
+ <goal name="convertToList&#39;vc" expl="VC for convertToList" proved="true">
+ <proof prover="2"><result status="valid" time="0.18" steps="36592"/></proof>
+ </goal>
+ <goal name="findFirst&#39;vc" expl="VC for findFirst" proved="true">
+ <proof prover="2"><result status="valid" time="0.26" steps="43388"/></proof>
+ </goal>
+ <goal name="algorithmA_basic&#39;vc" expl="VC for algorithmA_basic" proved="true">
+ <proof prover="2"><result status="valid" time="0.16" steps="38114"/></proof>
+ </goal>
+ <goal name="algorithmA&#39;vc" expl="VC for algorithmA">
+ <proof prover="0"><result status="timeout" time="1.00" steps="2591333"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="132304"/></proof>
+ </goal>
+ <goal name="case_clause_basic" proved="true">
+ <proof prover="2"><result status="valid" time="0.62" steps="80953"/></proof>
+ </goal>
+ <goal name="case_clause" proved="true">
+ <proof prover="2"><result status="valid" time="0.61" steps="85904"/></proof>
+ </goal>
+ <goal name="case_induction">
+ <proof prover="0"><result status="timeout" time="1.00" steps="3019101"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="142242"/></proof>
+ </goal>
+</theory>
+<theory name="Horn">
+ <goal name="convertRStoAF&#39;vc" expl="VC for convertRStoAF" proved="true">
+ <proof prover="2"><result status="valid" time="0.16" steps="30600"/></proof>
+ </goal>
+ <goal name="convertPLtoAF&#39;vc" expl="VC for convertPLtoAF" proved="true">
+ <proof prover="2"><result status="valid" time="0.14" steps="28791"/></proof>
+ </goal>
+ <goal name="convertAFtoPL&#39;vc" expl="VC for convertAFtoPL" proved="true">
+ <proof prover="2"><result status="valid" time="0.14" steps="29309"/></proof>
+ </goal>
+ <goal name="convertAFtoRS&#39;vc" expl="VC for convertAFtoRS" proved="true">
+ <proof prover="2"><result status="valid" time="0.15" steps="30156"/></proof>
+ </goal>
+ <goal name="aux&#39;vc" expl="VC for aux">
+ <proof prover="0"><result status="timeout" time="1.00" steps="507965"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="127657"/></proof>
+ </goal>
+ <goal name="union_eval_empty" proved="true">
+ <proof prover="2"><result status="valid" time="0.17" steps="31644"/></proof>
+ </goal>
+ <goal name="union_eval_samesingleton" proved="true">
+ <proof prover="2"><result status="valid" time="0.20" steps="34674"/></proof>
+ </goal>
+ <goal name="union_eval_diffsingleton" proved="true">
+ <proof prover="2"><result status="valid" time="0.71" steps="94877"/></proof>
+ </goal>
+ <goal name="convertPLtoAF_evaluation" proved="true">
+ <proof prover="1"><result status="valid" time="0.24" steps="725"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="140033"/></proof>
+ </goal>
+ <goal name="convertAFtoPL_evaluation">
+ <proof prover="0"><result status="timeout" time="1.00" steps="781834"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="138726"/></proof>
+ </goal>
+ <goal name="PLtoAF_AFtoPL">
+ <proof prover="0"><result status="timeout" time="1.00" steps="781296"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="262137"/></proof>
+ </goal>
+ <goal name="add_then_mem" proved="true">
+ <proof prover="2"><result status="valid" time="0.13" steps="31993"/></proof>
+ </goal>
+ <goal name="convertConjunctionToSet_lemma&#39;vc" expl="VC for convertConjunctionToSet_lemma" proved="true">
+ <proof prover="2"><result status="valid" time="0.19" steps="34784"/></proof>
+ </goal>
+ <goal name="convertConjunctionToSet_lemma1&#39;vc" expl="VC for convertConjunctionToSet_lemma1">
+ <proof prover="0"><result status="timeout" time="1.00" steps="2230797"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="196712"/></proof>
+ </goal>
+ <goal name="pp_same_p" proved="true">
+ <proof prover="2"><result status="valid" time="0.30" steps="47992"/></proof>
+ </goal>
+ <goal name="eval_equivalent&#39;vc" expl="VC for eval_equivalent" proved="true">
+ <proof prover="1"><result status="valid" time="0.35" steps="1597"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="111974"/></proof>
+ </goal>
+ <goal name="convertToSet&#39;vc" expl="VC for convertToSet" proved="true">
+ <proof prover="2"><result status="valid" time="0.17" steps="33746"/></proof>
+ </goal>
+ <goal name="convertToList&#39;vc" expl="VC for convertToList" proved="true">
+ <proof prover="2"><result status="valid" time="0.19" steps="36592"/></proof>
+ </goal>
+ <goal name="findFirst&#39;vc" expl="VC for findFirst" proved="true">
+ <proof prover="2"><result status="valid" time="0.27" steps="43388"/></proof>
+ </goal>
+ <goal name="algorithmA_basic&#39;vc" expl="VC for algorithmA_basic" proved="true">
+ <proof prover="2"><result status="valid" time="0.22" steps="41414"/></proof>
+ </goal>
+ <goal name="algorithmA&#39;vc" expl="VC for algorithmA">
+ <proof prover="0"><result status="timeout" time="1.00" steps="2456405"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="121902"/></proof>
+ </goal>
+ <goal name="horn&#39;vc" expl="VC for horn">
+ <proof prover="0"><result status="timeout" time="1.00" steps="3488644"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="130342"/></proof>
+ </goal>
+ <goal name="if_unsat_then_not_sat" proved="true">
+ <proof prover="2"><result status="valid" time="0.19" steps="36365"/></proof>
+ </goal>
+ <goal name="singleton" proved="true">
+ <proof prover="2"><result status="valid" time="0.09" steps="32007"/></proof>
+ </goal>
+ <goal name="satisf" proved="true">
+ <proof prover="2"><result status="valid" time="0.29" steps="45321"/></proof>
+ </goal>
+ <goal name="top_is_satisfiable">
+ <proof prover="0"><result status="timeout" time="1.00" steps="2266428"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="152674"/></proof>
+ <transf name="split_vc" >
+  <goal name="top_is_satisfiable.0">
+  <proof prover="0" timelimit="5"><undone/></proof>
+  <proof prover="1" timelimit="5"><result status="timeout" time="5.00"/></proof>
+  <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="1083891"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="bot_is_unsatisfiable" proved="true">
+ <proof prover="2"><result status="valid" time="0.20" steps="37144"/></proof>
+ </goal>
+ <goal name="if_satisf_then_not_bottom" proved="true">
+ <proof prover="2"><result status="valid" time="0.16" steps="35479"/></proof>
+ </goal>
+ <goal name="check1" proved="true">
+ <proof prover="2"><result status="valid" time="0.20" steps="37547"/></proof>
+ </goal>
+ <goal name="A1" proved="true">
+ <proof prover="2"><result status="valid" time="0.28" steps="46562"/></proof>
+ </goal>
+ <goal name="case1_with_basic" proved="true">
+ <proof prover="2"><result status="valid" time="0.30" steps="48054"/></proof>
+ </goal>
+ <goal name="case2_with_basic">
+ <proof prover="0"><result status="timeout" time="1.00" steps="2005666"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="113795"/></proof>
+ </goal>
+ <goal name="case1">
+ <proof prover="0"><result status="timeout" time="1.00" steps="3114864"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="112225"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

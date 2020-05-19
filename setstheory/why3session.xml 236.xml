@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="3" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="4" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/><path name="setstheory.mlw"/>
+<theory name="BoolSet">
+ <goal name="VC eval_positive" expl="VC for eval_positive">
+ <proof prover="2"><result status="valid" time="0.06" steps="13175"/></proof>
+ </goal>
+ <goal name="VC eval_negative" expl="VC for eval_negative">
+ <proof prover="2"><result status="valid" time="0.07" steps="13332"/></proof>
+ </goal>
+ <goal name="VC deriv" expl="VC for deriv">
+ <proof prover="2"><result status="valid" time="0.08" steps="15308"/></proof>
+ </goal>
+ <goal name="VC evalElemNegative" expl="VC for evalElemNegative">
+ <proof prover="2"><result status="valid" time="0.12" steps="22591"/></proof>
+ </goal>
+ <goal name="VC evalElemPositive" expl="VC for evalElemPositive">
+ <proof prover="2"><result status="valid" time="0.06" steps="12644"/></proof>
+ </goal>
+ <goal name="evalPositiveAbso">
+ <proof prover="2"><result status="valid" time="0.05" steps="11664"/></proof>
+ </goal>
+ <goal name="evalNegativeAbso">
+ <proof prover="2"><result status="valid" time="0.05" steps="11697"/></proof>
+ <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="3469205"/></proof>
+ <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="evalPositiveNeutral">
+ <proof prover="2"><result status="valid" time="0.06" steps="12580"/></proof>
+ </goal>
+ <goal name="evalNegativeNeutral">
+ <proof prover="2"><result status="valid" time="0.05" steps="12015"/></proof>
+ </goal>
+</theory>
+<theory name="PropositionalFormulaSet">
+ <goal name="VC deriv" expl="VC for deriv">
+ <proof prover="2"><result status="valid" time="0.09" steps="17425"/></proof>
+ </goal>
+ <goal name="VC evalElemNegative" expl="VC for evalElemNegative">
+ <proof prover="2"><result status="valid" time="0.09" steps="17271"/></proof>
+ </goal>
+ <goal name="VC evalElemPositive" expl="VC for evalElemPositive">
+ <proof prover="2"><result status="valid" time="0.07" steps="14907"/></proof>
+ <proof prover="3"><result status="timeout" time="1.00" steps="3346762"/></proof>
+ <proof prover="4"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="evalElem_empty">
+ <proof prover="2"><undone/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

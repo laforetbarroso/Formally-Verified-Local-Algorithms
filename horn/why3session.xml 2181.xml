@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="horn.mlw"/>
+<theory name="Horn">
+ <goal name="convertRStoAF&#39;vc" expl="VC for convertRStoAF" proved="true">
+ <proof prover="2"><result status="valid" time="0.11" steps="29777"/></proof>
+ </goal>
+ <goal name="convertPLtoAF&#39;vc" expl="VC for convertPLtoAF" proved="true">
+ <proof prover="2"><result status="valid" time="0.13" steps="28122"/></proof>
+ </goal>
+ <goal name="convertAFtoPL&#39;vc" expl="VC for convertAFtoPL" proved="true">
+ <proof prover="2"><result status="valid" time="0.11" steps="28640"/></proof>
+ </goal>
+ <goal name="union_set">
+ <proof prover="0"><result status="timeout" time="1.00" steps="777039"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="255303"/></proof>
+ <transf name="split_vc" >
+  <goal name="union_set.0">
+  <proof prover="0"><result status="timeout" time="1.00" steps="775683"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="255252"/></proof>
+  </goal>
+  <goal name="union_set&#39;vc.0" expl="assertion">
+  <proof prover="2"><undone/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="union_simple" proved="true">
+ <proof prover="2"><result status="valid" time="0.17" steps="31519"/></proof>
+ </goal>
+ <goal name="union_eval">
+ <proof prover="0"><result status="timeout" time="1.00" steps="427586"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="241996"/></proof>
+ <transf name="split_vc" >
+  <goal name="union_eval.0">
+  <proof prover="0"><result status="timeout" time="1.00" steps="423321"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="141235"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="convertPLtoAF_evaluation" proved="true">
+ <proof prover="1"><result status="valid" time="0.24" steps="657"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="143886"/></proof>
+ </goal>
+ <goal name="convertAFtoPL_evaluation" proved="true">
+ <transf name="split_vc" proved="true" >
+  <goal name="convertAFtoPL_evaluation.0" proved="true">
+  <transf name="destruct_term" proved="true" arg1="phi">
+   <goal name="convertAFtoPL_evaluation.0.0" proved="true">
+   <proof prover="2"><result status="valid" time="0.07" steps="29146"/></proof>
+   </goal>
+   <goal name="convertAFtoPL_evaluation.0.1" proved="true">
+   <proof prover="1"><result status="valid" time="0.02" steps="24"/></proof>
+   <proof prover="2"><result status="timeout" time="1.00" steps="145486"/></proof>
+   </goal>
+   <goal name="convertAFtoPL_evaluation.0.2" proved="true">
+   <proof prover="2"><result status="valid" time="0.14" steps="25470"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="PLtoAF_AFtoPL" proved="true">
+ <transf name="split_vc" proved="true" >
+  <goal name="PLtoAF_AFtoPL.0" proved="true">
+  <transf name="destruct_term" proved="true" arg1="x">
+   <goal name="PLtoAF_AFtoPL.0.0" proved="true">
+   <proof prover="2"><result status="valid" time="0.07" steps="28639"/></proof>
+   </goal>
+   <goal name="PLtoAF_AFtoPL.0.1" proved="true">
+   <proof prover="1"><result status="valid" time="0.02" steps="22"/></proof>
+   <proof prover="2"><result status="timeout" time="1.00" steps="260179"/></proof>
+   </goal>
+   <goal name="PLtoAF_AFtoPL.0.2" proved="true">
+   <proof prover="2"><result status="valid" time="0.14" steps="25230"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="add_then_mem" proved="true">
+ <proof prover="2"><result status="valid" time="0.13" steps="30721"/></proof>
+ </goal>
+ <goal name="convertConjunctionToSet&#39;vc" expl="VC for convertConjunctionToSet" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1142097"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.16" steps="36886"/></proof>
+ <transf name="split_vc" >
+  <goal name="convertConjunctionToSet&#39;vc.0" expl="postcondition">
+  <proof prover="0"><result status="timeout" time="1.00" steps="1142691"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="227155"/></proof>
+  </goal>
+  <goal name="convertConjunctionToSet&#39;vc.1" expl="postcondition">
+  <proof prover="0"><result status="timeout" time="1.00" steps="1594776"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="197542"/></proof>
+  </goal>
+  <goal name="convertConjunctionToSet&#39;vc.2" expl="postcondition">
+  <proof prover="0"><result status="timeout" time="1.00" steps="1517301"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><undone/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="pp_same_p" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="526998"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14" steps="29910"/></proof>
+ <transf name="split_vc" >
+  <goal name="pp_same_p.0">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="456435"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2" obsolete="true"><undone/></proof>
+  </goal>
+  <goal name="aux&#39;vc.0" expl="assertion">
+  <proof prover="2"><undone/></proof>
+  </goal>
+  <goal name="aux&#39;vc.1" expl="assertion">
+  <proof prover="2"><undone/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="eval_equivalent&#39;vc" expl="VC for eval_equivalent">
+ <proof prover="0"><result status="timeout" time="1.00" steps="1081572"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="124126"/></proof>
+ <transf name="split_vc" >
+  <goal name="eval_equivalent&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.13" steps="29448"/></proof>
+  </goal>
+  <goal name="eval_equivalent&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.13" steps="29638"/></proof>
+  </goal>
+  <goal name="eval_equivalent&#39;vc.2" expl="postcondition">
+  <proof prover="0"><result status="timeout" time="1.00" steps="1160875"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="154894"/></proof>
+  <transf name="split_vc" >
+   <goal name="eval_equivalent&#39;vc.2.0" expl="postcondition">
+   <proof prover="0"><result status="timeout" time="1.00" steps="1068743"/></proof>
+   <proof prover="1"><result status="timeout" time="1.00"/></proof>
+   <proof prover="2"><result status="timeout" time="1.00" steps="130629"/></proof>
+   </goal>
+   <goal name="eval_equivalent&#39;vc.2.1" expl="postcondition">
+   <proof prover="0"><result status="timeout" time="1.00" steps="642406"/></proof>
+   <proof prover="1"><result status="timeout" time="1.00"/></proof>
+   <proof prover="2"><result status="timeout" time="1.00" steps="195347"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="eval_equivalent&#39;vc.0" expl="assertion">
+  <proof prover="0"><result status="timeout" time="1.00" steps="1153058"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><undone/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="convertToSet&#39;vc" expl="VC for convertToSet" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1838276"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="175105"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="convertToSet&#39;vc.0" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1144435"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.11" steps="26567"/></proof>
+  </goal>
+  <goal name="convertToSet&#39;vc.1" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="780847"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.11" steps="28803"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="convertToList&#39;vc" expl="VC for convertToList" proved="true">
+ <proof prover="2"><result status="valid" time="0.15" steps="34521"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

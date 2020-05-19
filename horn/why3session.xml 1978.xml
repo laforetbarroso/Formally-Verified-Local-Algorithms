@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<file proved="true">
+<path name=".."/>
+<path name="horn.mlw"/>
+<theory name="Horn">
+ <goal name="ex1">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.16"/></proof>
+ </goal>
+ <goal name="ex2">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="2.00"/></proof>
+ </goal>
+ <goal name="ex3">
+ <proof prover="2"><result status="valid" time="0.15"/></proof>
+ </goal>
+ <goal name="ex4">
+ <proof prover="2"><result status="valid" time="0.16"/></proof>
+ </goal>
+ <goal name="ex5">
+ <proof prover="2"><result status="valid" time="0.16"/></proof>
+ </goal>
+ <goal name="ex6">
+ <proof prover="2"><result status="valid" time="0.16"/></proof>
+ </goal>
+ <goal name="ex7">
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="ex8">
+ <proof prover="2"><result status="valid" time="0.15"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

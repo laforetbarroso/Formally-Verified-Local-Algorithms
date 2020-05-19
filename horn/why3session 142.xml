@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="8">
+<prover id="0" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/><path name="horn.mlw"/>
+<theory name="Horn">
+ <goal name="VC eval_setconjunction" expl="VC for eval_setconjunction">
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="VC convertRStoAF" expl="VC for convertRStoAF">
+ <proof prover="2"><result status="valid" time="0.11"/></proof>
+ </goal>
+ <goal name="VC convertPLtoAF" expl="VC for convertPLtoAF">
+ <proof prover="2"><result status="valid" time="0.11"/></proof>
+ </goal>
+ <goal name="add_then_mem">
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="VC convertConjunctionToSet" expl="VC for convertConjunctionToSet">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <transf name="split_vc" >
+  <goal name="VC convertConjunctionToSet.0" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="VC convertConjunctionToSet.0.0" expl="postcondition">
+   <proof prover="0"><result status="timeout" time="1.00"/></proof>
+   <proof prover="1"><result status="timeout" time="1.00"/></proof>
+   <proof prover="2"><result status="timeout" time="1.00"/></proof>
+   </goal>
+   <goal name="VC convertConjunctionToSet.0.1" expl="postcondition">
+   <proof prover="2"><result status="valid" time="0.13"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="VC convertConjunctionToSet.1" expl="postcondition">
+  <proof prover="2"><result status="valid" time="0.10"/></proof>
+  </goal>
+  <goal name="VC convertConjunctionToSet.1" expl="precondition">
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
+  </goal>
+  <goal name="VC convertConjunctionToSet.0" expl="precondition">
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="VC convertToSet" expl="VC for convertToSet">
+ <proof prover="0"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00"/></proof>
+ </goal>
+ <goal name="convertSet_Top">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.12"/></proof>
+ </goal>
+ <goal name="convertSet_Bottom">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="convertSet_Variable">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="convertSet_And_Bot_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.16"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_Y">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.19"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_X">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.17"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_Y_Z">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.37"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_X_Y_Z">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.30"/></proof>
+ </goal>
+ <goal name="convertSet_And_X_Y_W_Z">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.35"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_Top_Bot">
+ <proof prover="0" obsolete="true"><result status="failure" time="0.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.10"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_Top_Var">
+ <proof prover="0" obsolete="true"><result status="failure" time="0.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.10"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndBotBot_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndBotBot_Var">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXY_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXY_Top">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXX_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.13"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXX_Top">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXYZ_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.15"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXYZ_Top">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXXYZ_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXXYZ_Top">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXYWZ_Bot">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+ <goal name="convertList_Basic_Impl_AndXYWZ_Top">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.14"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>
