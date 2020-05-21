@@ -125,7 +125,7 @@ theory Horn
   use booltheory.BoolImplementation, ConjunctiveNormalForm, option.Option
 
   type rightside =
-      | RProp t
+      | RBottom
       | RVar i
 
   type conj_pliteral =
@@ -144,17 +144,17 @@ theory Horn
       | HAnd hornclause hornclause
       
       
-  function assign_rightside (r: rightside) (f: i -> t) : rightside
+  (* function assign_rightside (r: rightside) (f: i -> t) : rightside
   = match r with
-      | RProp t -> RProp t
       | RVar i -> RProp (f i)
-    end
+      | _ -> r
+    end *)
     
       
-  function eval_rightside (r: rightside) : t
+  function eval_rightside (r: rightside) (f: i -> t) : t
   = match r with
-      | RProp t -> t
-      | _ -> bot
+      | RBottom -> bot
+      | RVar i -> f i
     end
     
   function eval_positive (plc: conj_pliteral) (f: i -> t) : t
@@ -171,7 +171,7 @@ theory Horn
     
   function eval_basichornclause (b: basichornclause) (f: i -> t) : t
   = match b with
-      | BImpl left right -> (eval_leftside left f) ->* (eval_rightside (assign_rightside right f))
+      | BImpl left right -> (eval_leftside left f) ->* (eval_rightside right f)
     end
     
   function eval_hornclause (h: hornclause) (f: i -> t) : t
@@ -183,7 +183,7 @@ theory Horn
   function eval_optionrightside (p: option rightside) (f: i -> t) : t
   = match p with
       | None -> bot
-      | Some x -> eval_rightside (assign_rightside x f)
+      | Some x -> eval_rightside x f
     end
 
 end
