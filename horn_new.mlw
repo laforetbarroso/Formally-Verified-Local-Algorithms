@@ -59,7 +59,7 @@ module Evals
 
   function eval_clause (clause: (fset atomicformula, rightside)) (f: i-> BoolImplementation.t) : BoolImplementation.t
   = match clause with
-    | (setc,p) -> ((eval_setconjunction setc f) ->* (eval_rightside p f))
+    | (setc,p) -> ((eval_setconjunction setc f) ->* (eval_rightside (assign_rightside p f)))
     end
 
   function eval_clauselist (l: list (fset atomicformula, rightside)) (f: i-> BoolImplementation.t) : BoolImplementation.t
@@ -87,7 +87,7 @@ module SAT
   = exists f. eval_hornclause phi f = top
 
   predicate is_satisfiable_rs (phi: rightside)
-  = exists f. (eval_rightside phi f) = top
+  = exists f. (eval_rightside (assign_rightside phi f)) = top
 
   predicate is_satisfiable_ls (phi: leftside)
   = exists f. (eval_leftside phi f) = top
@@ -99,7 +99,7 @@ module SAT
   = forall f. (eval_leftside phi f) <> top
 
   predicate is_unsatisfiable_rs (phi: rightside)
-  = forall f. (eval_rightside phi f) <> top
+  = forall f. (eval_rightside (assign_rightside phi f)) <> top
   
   predicate is_satisfiable_set (set: fset atomicformula)
   = exists f. (eval_setconjunction set f) = top
@@ -111,7 +111,7 @@ module SAT
   = match clause with
     | setc, p -> 
       (is_unsatisfiable_set setc) || 
-        (exists f. ((eval_setconjunction setc f) = top) /\ (eval_rightside p f = top))
+        (exists f. ((eval_setconjunction setc f) = top) /\ (eval_rightside (assign_rightside p f) = top))
     end
   
   predicate is_satisfiable_clauselist (clauselist: list (fset atomicformula, rightside))
@@ -127,21 +127,21 @@ module SAT
   = forall f. (eval_setconjunction set f) <> top
   
   predicate is_satisfiable_clause_right (p: rightside)
-  = exists f. (eval_rightside p f) = top
+  = exists f. (eval_rightside (assign_rightside p f)) = top
 
   lemma if_unsat_then_not_sat: forall p. is_unsatisfiable_rs p ->
                                   not is_satisfiable_rs p
 
   constant id_val: i -> t = fun _ -> top
 
-  (*lemma top_is_satisfiable: forall p. p = RProp top ->
-                                        is_satisfiable_rs p*)
+  lemma top_is_satisfiable: forall p. p = RProp top ->
+                                        is_satisfiable_rs p
 
-  lemma bot_is_unsatisfiable: forall p. p = RBottom ->
+  lemma bot_is_unsatisfiable: forall p. p = RProp bot ->
                                           is_unsatisfiable_rs p
 
   lemma if_satisf_then_not_bottom: forall p. is_satisfiable_rs p ->
-                                               p <> RBottom
+                                               p <> RProp bot
 
 
 
@@ -163,15 +163,16 @@ module Converts
   let function convertRStoAF (phi: rightside) : atomicformula
     ensures {forall f. eval_rightside (assign_rightside phi f) = eval_atomicformula result f}
     ensures { match phi with
-                | RBottom -> ABot
+                RProp t -> if t = top then result = ATop else result = ABot
                 | RVar x -> result = AVar x
               end}
   = match phi with
-      | RBottom -> ABot
+      | RProp t -> if t = top then ATop else ABot
       | RVar x -> AVar x
     end
 
   let function convertPLtoAF (phi: pliteral) : atomicformula
+    ensures { forall f.  eval_pliteral phi f = eval_atomicformula result f}
     ensures{ match phi with
               | LBottom -> result = ABot
               | LVar x -> result = AVar x
@@ -183,6 +184,7 @@ module Converts
 
   let function convertAFtoPL (phi: atomicformula) : pliteral
     requires{ phi <> ATop }
+    ensures { forall f. eval_atomicformula phi f = eval_pliteral result f}
     ensures{ match phi with
               | ATop -> false
               | ABot -> result = LBottom
@@ -214,7 +216,7 @@ module Converts
 
   lemma PLtoAF_AFtoPL: forall x. x <> ATop -> x = convertPLtoAF (convertAFtoPL x)
   
-  lemma RStoAF_RStoPL: forall x. x = convertRStoAF (convertAFtoRS x)
+  lemma RStoAF_AFtoRS: forall x. x = convertRStoAF (convertAFtoRS x)
 
 
 end
@@ -442,11 +444,12 @@ module Horn
                              else
                                 variable_in_clauselist variable l
         end
-        
-  lemma test1:
-    forall clauselist setc p. 
-      (ListMem.mem (setc,p) clauselist -> variable_in_clauselist (convertRStoAF p) clauselist)
-  
+
+  lemma t1:
+    forall clauselist clause ls.
+        clauselist = Cons clause ls ->
+          (forall p. variable_in_clauselist p ls -> variable_in_clauselist p clauselist)
+
   lemma concat_var_in:
     forall sub1 sub2.
         (forall p. (variable_in_clauselist p sub2 || variable_in_clauselist p sub1) -> 
@@ -536,7 +539,7 @@ module Horn
   = variable <> ABot /\ variable <> ATop ->
       match clauselist with
         | Nil -> false
-        | Cons (setc,p) cl -> if ((p = (convertAFtoRS variable)) || (mem variable setc)) then
+        | Cons (setc,p) cl -> if (((convertRStoAF p) = variable) || (mem variable setc)) then
                                 true
                               else
                                 variable_in_clauselist_program variable cl
