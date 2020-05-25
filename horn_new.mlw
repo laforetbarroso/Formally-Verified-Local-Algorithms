@@ -217,6 +217,8 @@ module Converts
   lemma PLtoAF_AFtoPL: forall x. x <> ATop -> x = convertPLtoAF (convertAFtoPL x)
   
   lemma RStoAF_AFtoRS: forall x. x = convertRStoAF (convertAFtoRS x)
+  
+  lemma AFtoRS_RStoAF: forall x. x = convertAFtoRS (convertRStoAF x)
 
 
 end
@@ -444,11 +446,21 @@ module Horn
                              else
                                 variable_in_clauselist variable l
         end
+       
+       
+  predicate var_in_set_of_af (set: fset atomicformula) (var: atomicformula)
+  = mem var set /\ var <> ATop /\ var <> ABot
 
-  lemma t1:
+  (*lemma t1:
     forall clauselist clause ls.
         clauselist = Cons clause ls ->
           (forall p. variable_in_clauselist p ls -> variable_in_clauselist p clauselist)
+
+  lemma t2:
+    forall clauselist l1 l2.
+        (forall clause. ListMem.mem clause (l1++l2) -> ListMem.mem clause clauselist) ->
+          (forall p. variable_in_clauselist p (l1++l2) -> variable_in_clauselist p clauselist)
+
 
   lemma concat_var_in:
     forall sub1 sub2.
@@ -476,13 +488,12 @@ module Horn
       let (left,right) = findFirst clauselist c in
         right = Cons (setc,v) l ->
           let (left2,right2) = findFirst (left++l) (add (convertRStoAF v) c) in
-            (forall p. variable_in_clauselist p (right) -> variable_in_clauselist p clauselist)
+            (forall p. variable_in_clauselist p (right) -> variable_in_clauselist p clauselist)*)
   
         
   let rec ghost function algorithmA_spec (clauselist: list (fset atomicformula,rightside))
                               (c: fset atomicformula) : fset atomicformula
     requires{ mem ATop c }
-    requires{ clauselist <> Nil }
     ensures { let (_, right) = findFirst clauselist c in
                 if_subset_then_mem_result right c result }
     ensures { subset c result }
@@ -490,21 +501,33 @@ module Horn
   = let (left,right) = findFirst clauselist c in
                 match right with
                   | Nil -> c
-                  | Cons (_,p) Nil -> (FS.add (convertRStoAF p) c)
                   | Cons (_,p) l ->
-                      algorithmA_spec (left ++ l) (FS.add (convertRStoAF p) c)
+                      (*match l with
+                      | Nil -> absurd
+                      | Cons _ _ ->*)
+                        algorithmA_spec (left ++ l) (FS.add (convertRStoAF p) c)
+                      (*end*)
                  end
-                
+  
+  lemma testeeee:
+     forall l x p.
+      variable_in_clauselist p l -> variable_in_clauselist p (Cons x l)
+   
+  lemma var_in_right_then_var_in_clauselist_2:
+    forall clauselist c clause l.
+      let (left,right) = findFirst clauselist c in
+        right = Cons clause l ->
+        (forall p. (variable_in_clauselist p (left++l) -> variable_in_clauselist p clauselist))
+               
   
   lemma smb_generic: forall clauselist newc c. 
-      clauselist <> Nil /\ mem ATop c /\ 
-        (forall p. mem p c /\ p <> ABot /\ p <> ATop -> variable_in_clauselist p clauselist) ->
+      mem ATop c /\ 
+        (forall p. var_in_set_of_af c p -> variable_in_clauselist p clauselist) ->
           newc = algorithmA_spec clauselist c ->
-            (forall p. mem p newc /\ p <> ABot /\ p <> ATop -> 
+            (forall p. var_in_set_of_af newc p -> 
               variable_in_clauselist p clauselist)        
    
   lemma smb: forall clauselist c. 
-      clauselist <> Nil ->
         c = algorithmA_spec clauselist (singleton ATop) ->
           (forall p. mem p c /\ p <> ABot /\ p <> ATop -> 
             variable_in_clauselist p clauselist)
