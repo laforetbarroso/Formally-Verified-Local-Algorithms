@@ -437,20 +437,24 @@ module Horn
     let (left, right) = findFirst clauselist c in
       left ++ right = clauselist
   
-  predicate variable_in_clauselist (variable: atomicformula) (clauselist: list (fset atomicformula,rightside))
-  = variable <> ATop /\ variable <> ABot ->
-      match clauselist with
-        | Nil -> false
-        | Cons (setc,p) l -> if (((convertRStoAF p) = variable) || (mem variable setc)) then
-                                true
-                             else
-                                variable_in_clauselist variable l
-        end
-       
-       
-  predicate var_in_set_of_af (set: fset atomicformula) (var: atomicformula)
-  = mem var set /\ var <> ATop /\ var <> ABot
+  function set_smb_clauselist (clauselist: list (fset atomicformula,rightside)) : fset atomicformula
+  = match clauselist with 
+    | Nil -> empty
+    | Cons (set,p) l -> union (add (convertRStoAF p) set) (set_smb_clauselist l)
+    end
+    
+  lemma if_mem_then_subset_set_smb: forall set p clauselist.
+    ListMem.mem (set,p) clauselist -> subset (add (convertRStoAF p) set) (set_smb_clauselist clauselist)
+    
+  lemma sublist_subset_set_smb:
+    forall clauselist sublist. (forall clause.
+      (ListMem.mem clause sublist -> ListMem.mem clause clauselist)) -> subset (set_smb_clauselist sublist) (set_smb_clauselist clauselist)
 
+
+  lemma subset_set_smb_clauselist:
+    forall clauselist set p.
+      ListMem.mem (set,p) clauselist -> mem (convertRStoAF p) (set_smb_clauselist clauselist)
+    
   (*lemma t1:
     forall clauselist clause ls.
         clauselist = Cons clause ls ->
@@ -497,6 +501,7 @@ module Horn
     ensures { let (_, right) = findFirst clauselist c in
                 if_subset_then_mem_result right c result }
     ensures { subset c result }
+    ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }
     variant { length clauselist }
   = let (left,right) = findFirst clauselist c in
                 match right with
@@ -509,28 +514,19 @@ module Horn
                       (*end*)
                  end
   
-  lemma testeeee:
-     forall l x p.
-      variable_in_clauselist p l -> variable_in_clauselist p (Cons x l)
-   
-  lemma var_in_right_then_var_in_clauselist_2:
-    forall clauselist c clause l.
-      let (left,right) = findFirst clauselist c in
-        right = Cons clause l ->
-        (forall p. (variable_in_clauselist p (left++l) -> variable_in_clauselist p clauselist))
-               
+  lemma diff_mem_clauselist:
+     forall clauselist c newc. mem ATop c -> newc = algorithmA_spec clauselist c -> subset (diff newc c) (add (ATop) (add ABot (set_smb_clauselist clauselist)))
+     
   
   lemma smb_generic: forall clauselist newc c. 
       mem ATop c /\ 
-        (forall p. var_in_set_of_af c p -> variable_in_clauselist p clauselist) ->
+        subset c (add (ATop) (add ABot (set_smb_clauselist clauselist))) ->
           newc = algorithmA_spec clauselist c ->
-            (forall p. var_in_set_of_af newc p -> 
-              variable_in_clauselist p clauselist)        
+            subset newc (add (ATop) (add ABot (set_smb_clauselist clauselist)))    
    
   lemma smb: forall clauselist c. 
         c = algorithmA_spec clauselist (singleton ATop) ->
-          (forall p. mem p c /\ p <> ABot /\ p <> ATop -> 
-            variable_in_clauselist p clauselist)
+          subset c (add (ATop) (add ABot (set_smb_clauselist clauselist)))
       
   
   lemma herbrand_model_case1: forall clause p.
