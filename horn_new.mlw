@@ -96,7 +96,7 @@ module Horn
   use import formula.ConjunctiveNormalForm as CNF
   use import formula.Horn as HornFormula
   use list.Mem as ListMem
-  use list.List, list.Append, list.Length, list.HdTl
+  use list.List, list.Append, list.Length, list.HdTl, list.Permut, list.NumOcc
 
   use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
   use Converts
@@ -217,7 +217,7 @@ module Horn
   lemma if_unsat_then_not_sat: forall p. is_unsatisfiable_rs p ->
                                   not is_satisfiable_rs p
 
-  constant id_val: i -> t = fun _ -> top
+  constant val_all_top: i -> t = fun _ -> top
 
   lemma top_is_satisfiable: forall p. p = RProp top ->
                                         is_satisfiable_rs p
@@ -441,6 +441,13 @@ module Horn
        let (_,right) = findFirst (clauselist) c in
           right = Nil)
           
+  (* (PROVED) IF THERE IS SUBSET IN CLAUSE THEN RIGHT <> NIL *) 
+  
+  lemma subset_spec_then_right_not_nil: forall clauselist c.
+    ((exists set p. ListMem.mem (set,p) clauselist /\ subset set c) ->
+       (let (_,right) = findFirst (clauselist) c in
+          right <> Nil))
+          
   (* (PROVED) IF RIGHT = NIL THEN THERE IS NO SUBSET IN CLAUSE *)  
   
   lemma not_subset_spec_if_right_nil: forall clauselist c.
@@ -496,16 +503,22 @@ module Horn
   (* PROVED UNTIL HERE *)
   
   
-  lemma all_x_top_then_eval_setconjunction_top:
-    forall s x f. (mem x s /\ 
+  let rec lemma all_x_top_then_eval_setconjunction_top (s: fset atomicformula) (f: i -> t)
+    ensures  { (forall x. mem x s -> 
       eval_atomicformula x f = top) -> 
-        eval_setconjunction s f = top
+        eval_setconjunction s f = top }
+    variant{ cardinal s }
+  = if( FS.is_empty s ) then
+      ()
+    else
+      let o = pick s in
+        all_x_top_then_eval_setconjunction_top (FS.remove o s) f
   
   
   lemma subset_of_evalsetconjunction_1:
     forall c d.
       subset c d -> 
-        (exists f:i -> t. eval_setconjunction d f = top -> eval_setconjunction c f = top)
+        (exists f:i -> t. (eval_setconjunction d f = top -> eval_setconjunction c f = top))
         
   
   lemma subset_of_evalsetconjunction:
@@ -521,12 +534,12 @@ module Horn
             (exists g:i -> t. eval_setconjunction c g = top)) ->
        (forall c d.
         subset c d -> 
-          (exists f:i -> t. eval_setconjunction d f = top -> eval_setconjunction c f = top))
+          (exists f:i -> t. (eval_setconjunction d f = top -> eval_setconjunction c f = top)))
           
   lemma distr_exists:
       (forall c d.
         subset c d -> 
-          (exists f:i -> t. eval_setconjunction d f = top -> eval_setconjunction c f = top)) -> 
+          (exists f:i -> t. (eval_setconjunction d f = top -> eval_setconjunction c f = top))) -> 
         (forall c d.
       subset c d -> 
         (exists f:i -> t. eval_setconjunction d f = top) -> 
@@ -536,6 +549,13 @@ module Horn
   lemma subset_of_satisfiable_set:
     forall c d.
       (is_satisfiable_set d /\ subset c d) -> is_satisfiable_set c
+      
+  
+  
+  lemma satisf_clauselist_all_mem_satisf:
+    forall clauselist.
+      is_satisfiable_clauselist clauselist -> 
+        (forall x. ListMem.mem x clauselist -> is_satisfiable_clause x)
       
       
   lemma sublist_is_satisfiable_clauselist:
@@ -552,9 +572,6 @@ module Horn
                 if_subset_then_mem_result right c result }
     ensures { subset c result }
     ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }
-    ensures { is_satisfiable_clauselist clauselist ->  
-                not mem ABot result -> 
-                  (forall p. mem p (diff result c) -> is_satisfiable_af p) }
     variant { length clauselist }
   = let (left,right) = findFirst clauselist c in
                 match right with
@@ -567,7 +584,6 @@ module Horn
   
   lemma diff_mem_clauselist:
      forall clauselist c newc. mem ATop c -> newc = algorithmA_spec clauselist c -> subset (diff newc c) (add (ATop) (add ABot (set_smb_clauselist clauselist)))
-     
   
   lemma smb_generic: forall clauselist newc c. 
       mem ATop c /\ 
@@ -584,31 +600,169 @@ module Horn
   
   (* START OF MONOTONE LEMMAS *)
   
-  lemma diff_imples_subset_set_c:
-    forall c clauselist. 
-      mem ATop c /\ clauselist <> Nil ->
-      (forall p. mem p (diff (algorithmA_spec clauselist c) c) -> 
-        exists set. ListMem.mem (set,(convertAFtoRS p)) clauselist /\
-          subset set (algorithmA_spec clauselist c))
-          
-  lemma all_subset_mem_p_algorithmA:
-    forall c clauselist. 
-      mem ATop c /\ clauselist <> Nil ->
-      (forall set p. 
-        (ListMem.mem (set,p) clauselist /\
-         subset set c) ->
-           mem (convertRStoAF p) (algorithmA_spec clauselist c))
-        
-        
-          
-  lemma monotone_A: forall c d clauselist.
-   mem ATop c -> 
-      subset c d -> 
-        subset (algorithmA_spec clauselist c) (algorithmA_spec clauselist d)
+  lemma not_subset_spec_test: forall l c. not_subset_spec l c -> (forall set p. ListMem.mem (set,p) l -> not subset set c)
+  
+  (*let rec lemma algorithmA_aux (c set: fset atomicformula) (clauselist left right l: list (fset atomicformula,rightside)) (p: rightside)
+    requires { mem ATop c }
+    requires { subset set c }
+    requires { right = Cons (set,p) l }
+    requires { clauselist = left ++ right }
+    requires { let (l,r) = findFirst clauselist c in r <> Nil }
+    ensures { algorithmA_spec clauselist c = algorithmA_spec (left ++ l) (add (convertRStoAF p) c) }
+  = let (l,r) = findFirst clauselist c in
+      ()*)
+      
+  predicate is_equal_list (list1 list2: list 'a)
+  = match list1,list2 with
+    | Nil, Nil -> True
+    | Cons _ _, Nil | Nil, Cons _ _ -> False
+    | Cons x1 list1', Cons x2 list2' -> 
+        x1 = x2 && 
+        is_equal_list list1' list2'
+    end
+    
+  let rec lemma equality_is_equal_list (l1 l2: list 'a)
+    ensures { is_equal_list l1 l2 -> l1 = l2 }
+  = match l1,l2 with
+    | Nil, Nil -> ()
+    | Cons x l, Cons y ls -> equality_is_equal_list l ls
+    | _ -> ()
+    end
+    
+  let rec lemma is_equal_list_itself (l1: list 'a)
+    ensures { is_equal_list l1 l1 }
+  = match l1 with
+    | Nil -> ()
+    | Cons x l -> is_equal_list_itself l
+    end
+    
+    
+  lemma is_equal_list_findFirst: forall clauselist c.
+    let (left,right) = findFirst clauselist c in
+      is_equal_list (left ++ right) clauselist
+      
+      
+  let rec lemma tuple_equality (z1 z2 r1 r2: list 'a)
+    ensures { is_equal_list (z1++z2) (r1++r2) -> is_equal_list z1 r1 -> is_equal_list z2 r2 }
+    ensures { is_equal_list (z1++z2) (r1++r2) -> is_equal_list z2 r2 -> is_equal_list z1 r1 }
+    variant { length r1 }
+  = match z1,r1 with
+    | Nil, Nil -> ()
+    | Cons x l, Cons y lx -> tuple_equality l z2 lx r2
+    | _ -> ()
+    end
+  
+  let ghost function permut_to_match_findFirst (clauselist: list (fset atomicformula, rightside)) (c d: fset atomicformula) : list (fset atomicformula, rightside)
+    requires { subset c d }
+    requires { let (left,right) = findFirst clauselist c in right <> Nil }
+    ensures { permut clauselist result }
+    ensures { let (left,right) = findFirst clauselist c in
+              let (l,r) = findFirst result d in
+              (hd right) = (hd r) }
+  = let (left,right) = findFirst clauselist c in
+    let (l,r) = findFirst clauselist d in
+    if (is_equal_list r right) then
+      clauselist
+    else
+      (right ++ left)
+  
+  let lemma permutacoes (clauselist clauselist2: list (fset atomicformula, rightside)) (c: fset atomicformula)
+    requires { permut clauselist clauselist2 }
+    requires {  mem ATop c }
+    ensures { (algorithmA_spec clauselist c == algorithmA_spec clauselist2 c) }
+    = match clauselist with
+      | Nil -> ()
+      | Cons x l -> ()
+      end
+      
+  let rec lemma exists_permut_that_match_findFirst (clauselist: list (fset atomicformula, rightside)) (c d: fset atomicformula)
+    requires { subset c d }
+    requires { let (left,right) = findFirst clauselist c in right <> Nil }
+    ensures { exists clauselist2. permut clauselist clauselist2 /\ 
+              let (left,right) = findFirst clauselist c in
+              let (l,r) = findFirst clauselist2 d in
+              (hd right) = (hd r) }
+    variant { length clauselist }
+  = ()
+  
+  
+  let lemma num_occ_permut_concat (set: fset atomicformula) (p: rightside) (left right l left1 right1 l1: list (fset atomicformula, rightside))
+    requires { permut (left ++ right) (left1 ++ right1) }
+    ensures { forall x. num_occ x (left ++ right) = num_occ x (left1 ++ right1) }
+  = ()
+  
+  let lemma num_occ_concat (left right: list (fset atomicformula, rightside))
+    ensures { forall x. num_occ x (left ++ right)  = num_occ x left + num_occ x right }
+  = ()
+  
+  let lemma num_occ_1_plus_tail (set: fset atomicformula) (p: rightside) (left right l: list (fset atomicformula, rightside))
+    requires { is_equal_list right (Cons (set,p) l) }
+    ensures { 1 + num_occ (set,p) (left ++ l) = num_occ (set,p) (left ++ right) }
+  = begin
+      assert { num_occ (set,p) right = 1 + num_occ (set,p) l }
+    end
+  
+  let lemma num_occ_permut_list (set: fset atomicformula) (p: rightside) (left right l left1 right1 l1: list (fset atomicformula, rightside))
+    requires { permut (left ++ right) (left1 ++ right1) }
+    requires { is_equal_list right (Cons (set,p) l) }
+    requires { is_equal_list right1 (Cons (set,p) l1) }
+    ensures { forall x. num_occ x (left ++ l) = num_occ x (left1 ++ l1) }
+  = ()
+  
+  let lemma permut_list_permut_sublist (set: fset atomicformula) (p: rightside) (left right l left1 right1 l1: list (fset atomicformula, rightside))
+    requires { permut (left ++ right) (left1 ++ right1) }
+    requires { is_equal_list right (Cons (set,p) l) }
+    requires { is_equal_list right1 (Cons (set,p) l1) }
+    ensures { permut (left ++ l) (left1 ++ l1) }
+  =  begin 
+        assert{num_occ (set,p) right = 1 + num_occ (set,p) l};
+     end
+      
+  
+  let rec lemma monotone_A (c d: fset atomicformula) (clauselist: list (fset atomicformula,rightside))
+    requires { mem ATop c }
+    requires { subset c d }
+    ensures { subset (algorithmA_spec clauselist c) (algorithmA_spec clauselist d)  }
+    variant { length clauselist }
+  = let (left,right) = findFirst clauselist c in
+                match right with
+                  | Nil -> ()
+                  | Cons (_,p) l ->
+                        monotone_A (FS.add (convertRStoAF p) c) (FS.add (convertRStoAF p) d) (left ++ l)
+                 end
+    
+
         
   (* END OF MONOTONE LEMMAS *)
       
   (* START OF HERBRAND LEMMAS *)
+  
+  let rec lemma all_set_without_bot_eval_set (c: fset atomicformula)
+   requires{ not mem ABot c }
+   ensures { (eval_setconjunction c val_all_top = top) }
+   variant{ cardinal c }
+  = if (FS.is_empty c) then
+      ()
+    else
+      let o = pick c in
+        all_set_without_bot_eval_set (FS.remove o c)
+  
+  
+  let rec lemma bot_not_in_set_then_sat_set (c: fset atomicformula)
+   requires{ not mem ABot c }
+   ensures { is_satisfiable_set c }
+   variant{ cardinal c }
+  = if (FS.is_empty c) then
+      ()
+    else
+      let o = pick c in
+        bot_not_in_set_then_sat_set (FS.remove o c)
+  
+  lemma diff_is_sat_p:
+    forall clauselist c. is_satisfiable_clauselist clauselist -> 
+      (let result = algorithmA_spec clauselist c in
+                not mem ABot result -> 
+                  (forall p. mem p (diff result c) -> is_satisfiable_af p))
   
   lemma herbrand_model_case1: forall clause p.
     clause = (singleton ATop, p) /\ is_satisfiable_clause clause -> is_satisfiable_rs p
@@ -678,7 +832,6 @@ module Horn
   let rec algorithmA (clauselist: list (set,rightside))
                               (c: set) : set
     requires { mem ATop c }
-    requires { clauselist <> Nil }
     ensures { let (_, right) = findFirst (listset_to_listfset clauselist) c in
                 if_subset_then_mem_result right c result }
     ensures { subset c result }
@@ -687,7 +840,6 @@ module Horn
   = let (left,right) = findFirst clauselist c in
                 match right with
                   | Nil -> c
-                  | Cons (_,p) Nil -> (add (convertRStoAF p) c)
                   | Cons (_,p) l ->
                       algorithmA (left ++ l) (add (convertRStoAF p) c)
                  end
@@ -888,6 +1040,15 @@ module Horn
   (* END OF CASE 2 *)
   
   (* START OF INDUCTION CASE *)
+  
+  
+  lemma case3_induction_general: forall clauselist c.
+    clauselist <> Nil /\
+      is_satisfiable_clauselist clauselist /\
+        not_empty_setc_clauselist clauselist /\
+        not mem ABot c /\ mem ATop c ->
+          not mem ABot
+               (algorithmA_spec clauselist c)
                   
                   
   lemma case3_induction: forall clauselist.
