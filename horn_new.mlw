@@ -470,16 +470,45 @@ module Horn
         forall s1 p1. ListMem.mem (s1,p1) cl /\ subset s1 c ->
           exists s2 p2. findOneSubset cl c = (s2,p2) /\ s2 = s1 /\ p1 = p2     
           
-  lemma findOneSubset_exists_permut:
-     forall cl1 cl2 c.
-      not is_nil cl1 ->
-        permut cl1 cl2 ->
-          exists s p. findOneSubset cl1 c = (s,p) /\ findOneSubset cl2 c = (s,p)
+          
+          
+    (*
+    SET OF SYMBOLS OF CLAUSELIST
+  
+  *)    
+      
+  
+  (* SET OF SYMBOLS OF CLAUSELIST *) 
+  
+  function set_smb_clauselist (clauselist: list (fset atomicformula,rightside)) : fset atomicformula
+  = match clauselist with 
+    | Nil -> empty
+    | Cons (set,p) l -> union (add (convertRStoAF p) set) (set_smb_clauselist l)
+    end
+    
+  (* (PROVED) IF MEM CLAUSELIST -> SET IS SUBSET OF SET_SMB_CLAUSELIST AND P MEM SET *) 
+    
+  lemma if_mem_then_subset_set_smb: forall set p clauselist.
+    ListMem.mem (set,p) clauselist -> subset (add (convertRStoAF p) set) (set_smb_clauselist clauselist)
+    
+  (* (PROVED) IF MEM CLAUSELIST -> P MEM SET *)  
+
+  lemma subset_set_smb_clauselist:
+    forall clauselist set p.
+      ListMem.mem (set,p) clauselist -> mem (convertRStoAF p) (set_smb_clauselist clauselist)
+  
+  (* (PROVED) SUBLIST: SUBSET (SET_SMB SUBLIST) (SET_SMB LIST) *)  
+    
+  lemma sublist_subset_set_smb:
+    forall clauselist sublist. (forall clause.
+      (ListMem.mem clause sublist -> ListMem.mem clause clauselist)) -> 
+        subset (set_smb_clauselist sublist) (set_smb_clauselist clauselist)  
   
   let rec ghost function algorithmA_spec (clauselist: list (fset atomicformula,rightside))
                               (c: fset atomicformula) : fset atomicformula
     requires{ mem ATop c }
     ensures { subset c result }
+    ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }
     variant { length clauselist }
   = match clauselist with
     | Nil -> c
@@ -516,44 +545,7 @@ module Horn
     
     
     
-    
-    
-      
-
-  
-          
- 
-  (*
-    SET OF SYMBOLS OF CLAUSELIST
-  
-  *)    
-      
-  
-  (* SET OF SYMBOLS OF CLAUSELIST *) 
-  
-  function set_smb_clauselist (clauselist: list (fset atomicformula,rightside)) : fset atomicformula
-  = match clauselist with 
-    | Nil -> empty
-    | Cons (set,p) l -> union (add (convertRStoAF p) set) (set_smb_clauselist l)
-    end
-    
-  (* (PROVED) IF MEM CLAUSELIST -> SET IS SUBSET OF SET_SMB_CLAUSELIST AND P MEM SET *) 
-    
-  lemma if_mem_then_subset_set_smb: forall set p clauselist.
-    ListMem.mem (set,p) clauselist -> subset (add (convertRStoAF p) set) (set_smb_clauselist clauselist)
-    
-  (* (PROVED) IF MEM CLAUSELIST -> P MEM SET *)  
-
-  lemma subset_set_smb_clauselist:
-    forall clauselist set p.
-      ListMem.mem (set,p) clauselist -> mem (convertRStoAF p) (set_smb_clauselist clauselist)
-  
-  (* (PROVED) SUBLIST: SUBSET (SET_SMB SUBLIST) (SET_SMB LIST) *)  
-    
-  lemma sublist_subset_set_smb:
-    forall clauselist sublist. (forall clause.
-      (ListMem.mem clause sublist -> ListMem.mem clause clauselist)) -> 
-        subset (set_smb_clauselist sublist) (set_smb_clauselist clauselist)   
+     
         
         
   (* PROVED UNTIL HERE *)
