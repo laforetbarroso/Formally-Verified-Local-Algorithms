@@ -713,14 +713,70 @@
   <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="9028784"/></proof>
   <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="706422"/></proof>
   <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
+  <transf name="destruct" arg1="H">
+   <goal name="algorithmA_spec&#39;vc.3.0" expl="postcondition" proved="true">
+   <proof prover="2"><result status="valid" time="0.26" steps="48619"/></proof>
+   </goal>
+   <goal name="algorithmA_spec&#39;vc.3.1" expl="postcondition">
+   <proof prover="0"><result status="timeout" time="1.00" steps="2141317"/></proof>
+   <proof prover="2"><result status="timeout" time="1.00" steps="191752"/></proof>
+   <proof prover="4"><result status="timeout" time="1.00"/></proof>
+   <transf name="destruct" arg1="H">
+    <goal name="algorithmA_spec&#39;vc.3.1.0" expl="postcondition">
+    <proof prover="0"><result status="timeout" time="1.00" steps="2312908"/></proof>
+    <proof prover="2"><result status="timeout" time="1.00" steps="145876"/></proof>
+    <proof prover="4"><result status="timeout" time="1.00"/></proof>
+    <transf name="eliminate_let" >
+     <goal name="algorithmA_spec&#39;vc.3.1.0.0" expl="postcondition">
+     <proof prover="0"><result status="timeout" time="1.00" steps="2341736"/></proof>
+     <proof prover="2"><result status="timeout" time="1.00" steps="183342"/></proof>
+     <proof prover="4"><result status="timeout" time="1.00"/></proof>
+     <transf name="destruct" arg1="H">
+      <goal name="algorithmA_spec&#39;vc.3.1.0.0.0" expl="postcondition">
+      <transf name="destruct" arg1="H">
+       <goal name="algorithmA_spec&#39;vc.3.1.0.0.0.0" expl="postcondition">
+       <proof prover="0"><result status="timeout" time="1.00" steps="2374700"/></proof>
+       <proof prover="2"><result status="timeout" time="1.00" steps="183333"/></proof>
+       <proof prover="4"><result status="timeout" time="1.00"/></proof>
+       <transf name="instantiate" arg1="sublist_subset_set_smb" arg2="clauselist">
+        <goal name="algorithmA_spec&#39;vc.3.1.0.0.0.0.0" expl="postcondition">
+        <transf name="instantiate" arg1="Hinst" arg2="(removeFromList (x1, x) clauselist)">
+         <goal name="algorithmA_spec&#39;vc.3.1.0.0.0.0.0.0" expl="postcondition">
+         <proof prover="0"><result status="timeout" time="1.00" steps="2287162"/></proof>
+         <proof prover="2"><result status="timeout" time="1.00" steps="150637"/></proof>
+         <proof prover="4"><result status="timeout" time="1.00"/></proof>
+         <transf name="destruct" arg1="Hinst">
+          <goal name="algorithmA_spec&#39;vc.3.1.0.0.0.0.0.0.0" expl="destruct premise" proved="true">
+          <proof prover="2"><result status="valid" time="0.25" steps="48284"/></proof>
+          </goal>
+          <goal name="algorithmA_spec&#39;vc.3.1.0.0.0.0.0.0.1" expl="postcondition">
+          <proof prover="0"><result status="timeout" time="1.00" steps="2282373"/></proof>
+          <proof prover="2"><result status="timeout" time="1.00" steps="123273"/></proof>
+          <proof prover="4"><result status="timeout" time="1.00"/></proof>
+          </goal>
+         </transf>
+         </goal>
+        </transf>
+        </goal>
+       </transf>
+       </goal>
+      </transf>
+      </goal>
+     </transf>
+     </goal>
+    </transf>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
   <transf name="split_vc" >
    <goal name="algorithmA_spec&#39;vc.3.0" expl="postcondition" proved="true">
    <proof prover="2"><result status="valid" time="0.23" steps="48619"/></proof>
    </goal>
    <goal name="algorithmA_spec&#39;vc.3.1" expl="postcondition">
-   <proof prover="0"><result status="timeout" time="1.00" steps="2346121"/></proof>
-   <proof prover="2"><result status="timeout" time="1.00" steps="119652"/></proof>
-   <proof prover="4"><result status="timeout" time="1.00"/></proof>
+   <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="7600238"/></proof>
+   <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="609147"/></proof>
+   <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -2064,7 +2120,7 @@
    </transf>
    </goal>
    <goal name="removeFromList_algorithmA&#39;vc.4.0" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -2523,12 +2579,12 @@
          <transf name="assert" arg1="(is_satisfiable_af (convertRStoAF p))">
           <goal name="case3_induction_general.0.0.1.0.0.1.1.0.0" expl="asserted formula">
           <proof prover="0"><result status="timeout" time="1.00" steps="1767201"/></proof>
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           <proof prover="4"><result status="timeout" time="1.00"/></proof>
           </goal>
           <goal name="case3_induction_general.0.0.1.0.0.1.1.0.1">
           <proof prover="0"><result status="timeout" time="1.00" steps="1203923"/></proof>
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           <proof prover="4"><result status="timeout" time="1.00"/></proof>
           </goal>
          </transf>
