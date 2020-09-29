@@ -474,10 +474,11 @@ module Horn
   goal G: false
   
   
-  val findOneSubset (clauselist: list (fset atomicformula,rightside)) 
-                         (c: fset atomicformula) 
-                         : (fset atomicformula,rightside)
-  ensures { result = findOneSubset clauselist c }   
+  val findOneSubset_prog (clauselist: list (set ,rightside)) 
+                         (c: set) 
+                         : (set ,rightside)
+  ensures { let ( setc, p) = result in
+             (to_fset setc, p) = findOneSubset (listset_to_listfset clauselist) c }   
           
           
           
@@ -1316,15 +1317,33 @@ module Horn
   
   (* PROGRAM *)
   
-  let rec function algorithmA_spec (clauselist: list (set ,rightside))
-                              (c: set) : fset atomicformula
+  let rec removeFromList (elem: (set, rightside)) (clauselist: list (set, rightside)) : list (set, rightside)
+    ensures { result = removeFromList elem clauselist }
+    ensures { ListMem.mem elem clauselist ->
+      num_occ elem clauselist = 1 + num_occ elem result }
+    ensures { forall s2:set, p2. 
+      let (s1,p1) = elem in
+        not (s1 == s2 && rs_eq_pos p1 p2) ->
+          num_occ (s2,p2) clauselist = num_occ (s2,p2) result }
+    ensures { ListMem.mem elem clauselist ->
+      length clauselist = 1 + length result }
+    variant { length clauselist }
+  = match clauselist with
+    | Nil -> Nil
+    | Cons (s1,p1) l -> let (s2,p2) = elem in
+      if (s1 == s2 && rs_eq_pos p1 p2) then l else Cons (s1,p1) (removeFromList elem l)
+    end
+    
+  
+  let rec algorithmA (clauselist: list (set ,rightside))
+                              (c: set) : set
     requires{ mem ATop c }
     ensures { subset c result }
-    ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }
+    (*ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }*)
     variant { length clauselist }
   = match clauselist with
     | Nil -> c
-    | Cons _ _ ->  let (s,p) = findOneSubset clauselist c in
+    | Cons _ _ ->  let (s,p) = findOneSubset_prog clauselist c in
               algorithmA (removeFromList (s,p) clauselist) (add (convertRStoAF p) c)
     end
       

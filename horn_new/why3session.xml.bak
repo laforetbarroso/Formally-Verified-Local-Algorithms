@@ -2487,6 +2487,123 @@
  <proof prover="2"><result status="valid" time="0.34" steps="67471"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
+ <goal name="removeFromList&#39;vc" expl="VC for removeFromList">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2181419"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="159203"/></proof>
+ <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <transf name="split_vc" >
+  <goal name="removeFromList&#39;vc.0" expl="variant decrease">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2100668"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="127249"/></proof>
+  <proof prover="4"><result status="valid" time="0.04" steps="46"/></proof>
+  </goal>
+  <goal name="removeFromList&#39;vc.1" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2331389"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="2.00" steps="201734"/></proof>
+  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="removeFromList&#39;vc.1.0" expl="postcondition">
+   <proof prover="2"><result status="valid" time="0.21" steps="57930"/></proof>
+   </goal>
+   <goal name="removeFromList&#39;vc.1.1" expl="postcondition">
+   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2140363"/></proof>
+   <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="118602"/></proof>
+   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+   <transf name="split_vc" >
+    <goal name="removeFromList&#39;vc.1.1.0" expl="postcondition">
+    <proof prover="0"><result status="timeout" time="1.00" steps="2252233"/></proof>
+    <proof prover="2"><result status="timeout" time="1.00" steps="124469"/></proof>
+    <proof prover="4"><result status="timeout" time="1.00"/></proof>
+    <transf name="split_vc" >
+     <goal name="removeFromList&#39;vc.1.1.0.0" expl="postcondition">
+     <proof prover="2"><result status="valid" time="0.14" steps="53081"/></proof>
+     </goal>
+     <goal name="removeFromList&#39;vc.1.1.0.1" expl="postcondition">
+     <proof prover="0"><result status="timeout" time="1.00" steps="2217021"/></proof>
+     <proof prover="2"><result status="timeout" time="1.00" steps="123821"/></proof>
+     <proof prover="4"><result status="timeout" time="1.00"/></proof>
+     <transf name="split_vc" >
+      <goal name="removeFromList&#39;vc.1.1.0.1.0" expl="postcondition">
+      <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="7329302"/></proof>
+      <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="695104"/></proof>
+      <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
+      <transf name="eliminate_let" >
+       <goal name="removeFromList&#39;vc.1.1.0.1.0.0" expl="postcondition">
+       <proof prover="0"><result status="timeout" time="1.00" steps="2120047"/></proof>
+       <proof prover="2"><result status="timeout" time="1.00" steps="111055"/></proof>
+       <proof prover="4"><result status="timeout" time="1.00"/></proof>
+       <transf name="eliminate_if" >
+        <goal name="removeFromList&#39;vc.1.1.0.1.0.0.0" expl="postcondition">
+        <transf name="destruct" arg1="H1">
+         <goal name="removeFromList&#39;vc.1.1.0.1.0.0.0.0" expl="postcondition">
+         <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="7851960"/></proof>
+         <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="725852"/></proof>
+         <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
+         <transf name="destruct" arg1="H4">
+          <goal name="removeFromList&#39;vc.1.1.0.1.0.0.0.0.0" expl="postcondition">
+          <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="7499353"/></proof>
+          <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="668809"/></proof>
+          <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
+          </goal>
+         </transf>
+         </goal>
+        </transf>
+        </goal>
+       </transf>
+       </goal>
+      </transf>
+      </goal>
+      <goal name="removeFromList&#39;vc.1.1.0.1.1" expl="postcondition">
+      <proof prover="2"><result status="valid" time="0.13" steps="53096"/></proof>
+      </goal>
+     </transf>
+     </goal>
+    </transf>
+    </goal>
+    <goal name="removeFromList&#39;vc.1.1.1" expl="postcondition">
+    <proof prover="2" obsolete="true"><result status="valid" time="0.29" steps="61757"/></proof>
+    </goal>
+   </transf>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="removeFromList&#39;vc.2" expl="postcondition">
+  <proof prover="2" obsolete="true"><undone/></proof>
+  </goal>
+  <goal name="removeFromList&#39;vc.1" expl="postcondition">
+  <proof prover="0"><result status="timeout" time="1.00" steps="2252099"/></proof>
+  <proof prover="2"><undone/></proof>
+  <proof prover="4"><result status="timeout" time="1.00"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="algorithmA&#39;vc" expl="VC for algorithmA">
+ <transf name="split_vc" >
+  <goal name="algorithmA&#39;vc.0" expl="variant decrease">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2352410"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="135799"/></proof>
+  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" >
+   <goal name="algorithmA&#39;vc.0.0" expl="variant decrease">
+   <proof prover="2"><result status="valid" time="0.28" steps="62501"/></proof>
+   </goal>
+   <goal name="algorithmA&#39;vc.0.1" expl="variant decrease">
+   <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="6092048"/></proof>
+   <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="660262"/></proof>
+   <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="algorithmA&#39;vc.1" expl="precondition">
+  <proof prover="2"><result status="valid" time="0.23" steps="59577"/></proof>
+  </goal>
+  <goal name="algorithmA&#39;vc.2" expl="postcondition">
+  <proof prover="0"><result status="timeout" time="1.00" steps="1668640"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="148412"/></proof>
+  <proof prover="4"><result status="timeout" time="1.00"/></proof>
+  </goal>
+ </transf>
+ </goal>
 </theory>
 </file>
 </why3session>
