@@ -1312,6 +1312,21 @@ module Horn
                (algorithmA_spec clauselist (singleton ATop))
                
   (* END OF INDUCTION CASE *)
+  
+  
+  (* PROGRAM *)
+  
+  let rec function algorithmA_spec (clauselist: list (set ,rightside))
+                              (c: set) : fset atomicformula
+    requires{ mem ATop c }
+    ensures { subset c result }
+    ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }
+    variant { length clauselist }
+  = match clauselist with
+    | Nil -> c
+    | Cons _ _ ->  let (s,p) = findOneSubset clauselist c in
+              algorithmA (removeFromList (s,p) clauselist) (add (convertRStoAF p) c)
+    end
       
 
 end
