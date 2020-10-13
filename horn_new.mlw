@@ -381,6 +381,10 @@ module Horn
     end
     meta rewrite_def function listset_to_listfset
     
+  lemma length_equal_listset_to_list_fset:
+    forall cl.
+      length cl = length (listset_to_listfset cl)
+    
   function listfset_to_listset (clauselist: list (fset atomicformula, rightside))
                           : list (set, rightside)
   = match clauselist with
@@ -486,11 +490,23 @@ module Horn
                          : option (fset atomicformula,rightside)
                          
   axiom findOneSubset_def: 
-    forall cl c. not is_nil cl -> 
+    forall cl c.
       match findOneSubset cl c with
-        | None -> true
+        | None -> forall s p. (ListMem.mem (s,p) cl -> not subset s c)
         | Some (s,p) -> ListMem.mem (s,p) cl /\ subset s c
       end
+      
+  axiom findOneSubset_exists:
+     forall cl c.
+      not is_nil cl ->
+        (forall s1 p1. ListMem.mem (s1,p1) cl /\ subset s1 c ->
+          findOneSubset cl c = Some (s1,p1))
+          
+  lemma findOneSubset_if_only_if_some:
+     forall cl c.
+      not is_nil cl ->
+        (forall s1 p1. ListMem.mem (s1,p1) cl /\ subset s1 c <->
+          findOneSubset cl c = Some (s1,p1))
         
           
   lemma findOneSubset_mem_subset:
@@ -501,19 +517,13 @@ module Horn
         | Some (s,p) -> ListMem.mem (s,p) cl /\ subset s c
       end
           
-  axiom findOneSubset_exists:
-     forall cl c.
-      not is_nil cl ->
-        forall s1 p1. ListMem.mem (s1,p1) cl /\ subset s1 c ->
-          findOneSubset cl c = Some (s1,p1)
-          
-  axiom findOneSubset_nil:
+  lemma findOneSubset_nil:
     forall cl c.
       is_nil cl -> findOneSubset cl c = None
       
-  axiom findOneSubset_notsubset:
+  lemma findOneSubset_notsubset:
     forall cl c.
-      forall s1 p1. (ListMem.mem (s1,p1) cl -> not subset s1 c) -> findOneSubset cl c = None
+      (forall s1 p1. (ListMem.mem (s1,p1) cl -> not subset s1 c)) -> findOneSubset cl c = None
           
   goal G: false
   
