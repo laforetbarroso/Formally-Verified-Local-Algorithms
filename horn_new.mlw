@@ -1451,7 +1451,7 @@ module Horn
         
   lemma unsat_clauselist_then_exists_one_clause_unsat:
     forall clauselist. 
-      is_unsatisfiable_clauselist clauselist ->
+      is_unsatisfiable_clauselist clauselist <->
         exists x p. is_unsatisfiable_clause (x,p) /\ ListMem.mem (x,p) clauselist
         
     
