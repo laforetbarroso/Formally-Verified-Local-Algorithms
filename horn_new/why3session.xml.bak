@@ -13,15 +13,15 @@
 <theory name="Horn_Logic">
  <goal name="removeFromList_numocc">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="150509"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_numocc_2">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="123833"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_length">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="138252"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="findOneSubset_if_only_if_some">
  <proof prover="2" obsolete="true"><result status="valid" time="0.16" steps="38064"/></proof>
@@ -31,49 +31,49 @@
  </goal>
  <goal name="findOneSubset_nil">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="460256"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="findOneSubset_notsubset">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="259748"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="G">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="410185"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="if_mem_then_subset_set_smb">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="97512"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="subset_set_smb_clauselist">
  <proof prover="2" obsolete="true"><result status="valid" time="0.36" steps="54746"/></proof>
  </goal>
  <goal name="sublist_subset_set_smb">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="161270"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="algorithmA_spec&#39;vc" expl="VC for algorithmA_spec">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="101909"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="permutacoes&#39;vc" expl="VC for permutacoes">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="104835"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="monotone_algA&#39;vc" expl="VC for monotone_algA">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="104001"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="all_x_top_then_eval_setconjunction_top&#39;vc" expl="VC for all_x_top_then_eval_setconjunction_top">
  <proof prover="2" obsolete="true"><result status="valid" time="0.27" steps="48453"/></proof>
  </goal>
  <goal name="subset_of_evalsetconjunction_1">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="113517"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="subset_of_evalsetconjunction">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="134326"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="contr_exists">
  <proof prover="2" obsolete="true"><result status="valid" time="0.15" steps="39838"/></proof>
@@ -86,7 +86,7 @@
  </goal>
  <goal name="sublist_is_satisfiable_clauselist">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="417743"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="smb_generic">
  <proof prover="2" obsolete="true"><result status="valid" time="0.44" steps="65976"/></proof>
@@ -96,7 +96,7 @@
  </goal>
  <goal name="not_subset_spec_test">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="103386"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="equality_is_equal_list&#39;vc" expl="VC for equality_is_equal_list">
  <proof prover="2" obsolete="true"><result status="valid" time="0.20" steps="45280"/></proof>
@@ -108,199 +108,199 @@
  <proof prover="2" obsolete="true"><result status="valid" time="0.17" steps="41417"/></proof>
  </goal>
  <goal name="tuple_equality&#39;vc" expl="VC for tuple_equality">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="permut_ref">
  <proof prover="2" obsolete="true"><result status="valid" time="0.17" steps="42045"/></proof>
  </goal>
  <goal name="permut_trans">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="num_occ_permut_concat&#39;vc" expl="VC for num_occ_permut_concat">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="num_occ_concat&#39;vc" expl="VC for num_occ_concat">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="num_occ_1_plus_tail&#39;vc" expl="VC for num_occ_1_plus_tail">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="num_occ_permut_list&#39;vc" expl="VC for num_occ_permut_list">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="permut_list_permut_sublist&#39;vc" expl="VC for permut_list_permut_sublist">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="permut_cl1_cl2">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="concat_with_element">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_concat_not_mem_l1">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_concat">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_permut">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_permut_concat">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_elem_not_in_list">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="numOfSubset&#39;vc" expl="VC for numOfSubset">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="not_subset_spec_for_all">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="not_subset_general">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="not_subset_numOfSubset_0">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="numOfSubset_0_not_subset&#39;vc" expl="VC for numOfSubset_0_not_subset">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="notSubset_numOfSubset_0">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="notSubset_numOfSubset_1">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="addSubset_to_numOfSubset">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeNumOfSubset">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="numOfSubset_clauselist_c_1">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="numOfSubset_1_num_occ">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="numOfSubset_1">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="not_subset_permut&#39;vc" expl="VC for not_subset_permut">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="set_equality_add">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeTwoClauses_basecase&#39;vc" expl="VC for removeTwoClauses_basecase">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeTwoClauses_inductive_case2&#39;vc" expl="VC for removeTwoClauses_inductive_case2">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeTwoClauses&#39;vc" expl="VC for removeTwoClauses">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_algorithmA&#39;vc" expl="VC for removeFromList_algorithmA">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="diff_is_sat_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="herbrand_model_case1">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="herbrand_model_case2">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="herbrand_model_case3">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="if_sat_clauselist_sat_clause">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="herbrand_model">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="is_sat_set">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_not_empty_setc_clauselist">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_top_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_conjuction_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_general">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_general_top_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_general_conjuction_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case2_top_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case2_conjunction_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case2_general">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case2_general_top_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case2_general_conjunction_imples_p">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case3_induction_general&#39;vc" expl="VC for case3_induction_general">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case3_induction">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="G1">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="unsat_then_bot">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="is_unsat_then_p_is_bot">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="unsat_clauselist_then_exists_one_clause_unsat">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="unsat_induction_general&#39;vc" expl="VC for unsat_induction_general">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="G2">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="unsat_induction">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="horn_logic&#39;vc" expl="VC for horn_logic">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="horn_sat_soundness">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="horn_unsat_soundness">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="G3">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="GG">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="not_unsat_set_sat_set">
  <proof prover="2" obsolete="true"><result status="valid" time="0.23" steps="57133"/></proof>
@@ -325,20 +325,20 @@
  <proof prover="2" obsolete="true"><result status="valid" time="0.25" steps="58741"/></proof>
  </goal>
  <goal name="G4">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="G5">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="G6">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="sat_clause">
- <proof prover="2" obsolete="true"><undone/></proof>
+ <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="satisf_clauselist_all_mem_satisf">
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="120013"/></proof>
- <proof prover="4" obsolete="true"><undone/></proof>
+ <proof prover="4" obsolete="true"><result status="failure" time="0.00"/></proof>
  </goal>
 </theory>
 <theory name="Eval">
@@ -357,38 +357,38 @@
  </goal>
  <goal name="p_implies_bot_sat1">
  <proof prover="0"><result status="timeout" time="1.00" steps="2142076"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="top_is_satisfiable">
  <proof prover="0"><result status="timeout" time="1.00" steps="4328253"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="if_unsat_then_not_sat">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="bot_not_in_set_then_sat_set&#39;vc" expl="VC for bot_not_in_set_then_sat_set">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="if_satisf_then_not_bottom">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="all_set_without_bot_eval_set&#39;vc" expl="VC for all_set_without_bot_eval_set">
  <proof prover="0"><result status="timeout" time="1.00" steps="3754137"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="p_implies_bot_sat2">
  <proof prover="0"><result status="timeout" time="1.00" steps="2069143"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="bot_is_unsatisfiable">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="p_implies_bot_sat">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
 </theory>
 <theory name="Hornify">
@@ -638,14 +638,14 @@
     <transf name="split_vc" >
      <goal name="algorithmA&#39;vc.0.1.0.0" expl="variant decrease">
      <proof prover="0" obsolete="true"><result status="valid" time="0.16" steps="268742"/></proof>
-     <proof prover="2" obsolete="true"><undone/></proof>
+     <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
     </goal>
     <goal name="algorithmA&#39;vc.4.0.0" expl="postcondition">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1136193"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="1.71" steps="5511"/></proof>
     </goal>
    </transf>
@@ -735,7 +735,7 @@
        <proof prover="4"><result status="timeout" time="1.00"/></proof>
        <transf name="destruct" arg1="Hinst">
         <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0" expl="destruct premise">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
         <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1" expl="postcondition">
         <proof prover="0"><result status="timeout" time="1.00" steps="2162014"/></proof>
@@ -743,7 +743,7 @@
         <proof prover="4"><result status="timeout" time="1.00"/></proof>
         <transf name="destruct" arg1="Hinst">
          <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0" expl="destruct premise">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
          <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1" expl="postcondition">
          <proof prover="0"><result status="timeout" time="1.00" steps="2134790"/></proof>
@@ -751,7 +751,7 @@
          <proof prover="4"><result status="timeout" time="1.00"/></proof>
          <transf name="destruct" arg1="Hinst">
           <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.0" expl="destruct premise">
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           </goal>
           <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.1" expl="postcondition">
           <proof prover="0"><result status="timeout" time="1.00" steps="2206923"/></proof>
@@ -759,7 +759,7 @@
           <proof prover="4"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct" arg1="Hinst">
            <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.1.0" expl="postcondition">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
            <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.1.1" expl="postcondition">
            <proof prover="0"><result status="timeout" time="1.00" steps="2127846"/></proof>
@@ -772,7 +772,7 @@
             <proof prover="4"><result status="timeout" time="1.00"/></proof>
             <transf name="induction_arg_ty_lex" arg1="clauselist">
              <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.1.1.0.0" expl="VC for algorithmA">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              </goal>
             </transf>
             </goal>
@@ -782,7 +782,7 @@
             <proof prover="4"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" arg1="Hinst">
              <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.1.1.1.0" expl="postcondition">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              </goal>
              <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.1.1.1.1" expl="postcondition">
              <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="5886284"/></proof>
@@ -790,7 +790,7 @@
              <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
              <transf name="induction_arg_ty_lex" arg1="clauselist">
               <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.1.1.1.1.1.0" expl="VC for algorithmA">
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               </goal>
              </transf>
              </goal>
@@ -825,7 +825,7 @@
       <proof prover="4"><result status="timeout" time="1.00"/></proof>
       <transf name="destruct" arg1="Hinst">
        <goal name="algorithmA&#39;vc.5.1.0.0.0.0" expl="destruct premise">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        </goal>
        <goal name="algorithmA&#39;vc.5.1.0.0.0.1" expl="postcondition">
        <proof prover="0"><result status="timeout" time="1.00" steps="2107631"/></proof>
@@ -833,7 +833,7 @@
        <proof prover="4"><result status="timeout" time="1.00"/></proof>
        <transf name="destruct" arg1="Hinst">
         <goal name="algorithmA&#39;vc.5.1.0.0.0.1.0" expl="destruct premise">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
         <goal name="algorithmA&#39;vc.5.1.0.0.0.1.1" expl="postcondition">
         <proof prover="0"><result status="timeout" time="1.00" steps="2154964"/></proof>
@@ -841,7 +841,7 @@
         <proof prover="4"><result status="timeout" time="1.00"/></proof>
         <transf name="destruct" arg1="Hinst">
          <goal name="algorithmA&#39;vc.5.1.0.0.0.1.1.0" expl="destruct premise">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
          <goal name="algorithmA&#39;vc.5.1.0.0.0.1.1.1" expl="postcondition">
          <proof prover="0"><result status="timeout" time="1.00" steps="2119860"/></proof>
@@ -849,10 +849,10 @@
          <proof prover="4"><result status="timeout" time="1.00"/></proof>
          <transf name="destruct" arg1="Hinst">
           <goal name="algorithmA&#39;vc.5.1.0.0.0.1.1.1.0" expl="postcondition">
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           </goal>
           <goal name="algorithmA&#39;vc.5.1.0.0.0.1.1.1.1" expl="postcondition">
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           <proof prover="4"><result status="valid" time="0.94" steps="2489"/></proof>
           </goal>
          </transf>
@@ -990,13 +990,13 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
      <goal name="algorithmA&#39;vc.4.1.1.0" expl="postcondition">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4"><result status="valid" time="0.05" steps="195"/></proof>
      </goal>
     </transf>
     </goal>
     <goal name="algorithmA&#39;vc.4.1.0" expl="postcondition">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -1084,7 +1084,7 @@
     <transf name="eliminate_let" >
      <goal name="algorithmA&#39;vc.5.0.0.0" expl="postcondition">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1300265"/></proof>
-     <proof prover="2" obsolete="true"><undone/></proof>
+     <proof prover="2" obsolete="true"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -1107,7 +1107,7 @@
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        <transf name="destruct" arg1="Hinst">
         <goal name="algorithmA&#39;vc.4.1.0.0.0.1.0" expl="destruct premise">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
         <goal name="algorithmA&#39;vc.4.1.0.0.0.1.1" expl="postcondition">
         <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2163536"/></proof>
@@ -1116,11 +1116,11 @@
         <transf name="destruct" arg1="Hinst">
          <goal name="algorithmA&#39;vc.4.1.0.0.0.1.1.0" expl="destruct premise">
          <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1359158"/></proof>
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" timelimit="5" obsolete="true"><result status="valid" time="1.94" steps="2536"/></proof>
          </goal>
          <goal name="algorithmA&#39;vc.4.1.0.0.0.1.1.1" expl="postcondition">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="valid" time="0.90" steps="2549"/></proof>
          </goal>
         </transf>
@@ -1129,7 +1129,7 @@
        </goal>
        <goal name="algorithmA&#39;vc.5.1.1.0.0.1" expl="postcondition">
        <proof prover="0"><result status="timeout" time="1.00" steps="1344272"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4"><result status="timeout" time="1.00"/></proof>
        </goal>
       </transf>
@@ -1172,7 +1172,7 @@
           <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0" expl="postcondition">
           <transf name="destruct" arg1="Hinst">
            <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.0" expl="destruct premise">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
            <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.1" expl="postcondition">
            <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2101868"/></proof>
@@ -1180,7 +1180,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" arg1="Hinst">
             <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.1.0" expl="destruct premise">
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             </goal>
             <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.1.1" expl="postcondition">
             <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2126434"/></proof>
@@ -1189,7 +1189,7 @@
             <transf name="destruct" arg1="Hinst">
              <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.1.1.0" expl="destruct premise">
              <proof prover="0" obsolete="true"><result status="valid" time="0.02" steps="11796"/></proof>
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="58"/></proof>
              </goal>
              <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.1.1.1" expl="postcondition">
@@ -1203,7 +1203,7 @@
               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
               <transf name="induction_arg_ty_lex" arg1="clauselist">
                <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.1.1.1.0.0" expl="VC for algorithmA">
-               <proof prover="2"><undone/></proof>
+               <proof prover="2"><result status="failure" time="0.00"/></proof>
                </goal>
               </transf>
               </goal>
@@ -1213,7 +1213,7 @@
               <proof prover="4" obsolete="true"><result status="valid" time="0.07" steps="220"/></proof>
               <transf name="induction_arg_ty_lex" arg1="clauselist">
                <goal name="algorithmA&#39;vc.5.1.1.0.0.0.0.0.0.1.1.1.1.0" expl="VC for algorithmA">
-               <proof prover="2"><undone/></proof>
+               <proof prover="2"><result status="failure" time="0.00"/></proof>
                </goal>
               </transf>
               </goal>
@@ -1242,7 +1242,7 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct" arg1="Hinst">
            <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0.0.0" expl="destruct premise">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
            <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0.0.1" expl="postcondition">
            <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2168402"/></proof>
@@ -1250,7 +1250,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" arg1="Hinst">
             <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0.0.1.0" expl="destruct premise">
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             </goal>
             <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0.0.1.1" expl="postcondition">
             <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2160542"/></proof>
@@ -1258,7 +1258,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" arg1="Hinst">
              <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0.0.1.1.0" expl="destruct premise">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              </goal>
              <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0.0.1.1.1" expl="postcondition">
              <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2129197"/></proof>
@@ -1266,7 +1266,7 @@
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="induction_arg_ty_lex" arg1="clauselist">
               <goal name="algorithmA&#39;vc.5.1.1.0.0.0.1.0.0.1.1.1.0" expl="VC for algorithmA">
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               </goal>
              </transf>
              </goal>
@@ -1285,7 +1285,7 @@
       </transf>
       </goal>
       <goal name="algorithmA&#39;vc.5.1.1.0.1" expl="postcondition">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="1.03" steps="3298"/></proof>
       </goal>
      </transf>
@@ -1329,16 +1329,16 @@
  <transf name="split_vc" >
   <goal name="p_implies_bot_sat1.0">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1965659"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="addSubset_to_numOfSubset">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="add_eval">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_top_imples_p">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="979345"/></proof>
@@ -1368,7 +1368,7 @@
        <transf name="subst" arg1="clause">
         <goal name="case1_top_imples_p.1.0.0.1.0.0.0" expl="destruct premise">
         <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2300008"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
        </transf>
@@ -1382,7 +1382,7 @@
       <transf name="destruct" arg1="Hinst">
        <goal name="case1_top_imples_p.1.0.0.1.1.0" expl="destruct premise">
        <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="3789846"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
        </goal>
        <goal name="case1_top_imples_p.1.0.0.1.1.1">
@@ -1396,19 +1396,19 @@
         <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
         <transf name="destruct" arg1="Hinst">
          <goal name="case1_top_imples_p.1.0.0.1.1.1.1.0">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="valid" time="0.87" steps="5331"/></proof>
          </goal>
          <goal name="case1_top_imples_p.1.0.0.1.1.1.1.1">
          <proof prover="0" obsolete="true"><result status="valid" time="0.05" steps="212275"/></proof>
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="valid" time="0.86" steps="5329"/></proof>
          </goal>
         </transf>
         </goal>
         <goal name="case1_top_imples_p.1.0.0.1.1.1.1">
         <proof prover="0"><result status="timeout" time="1.00" steps="2217561"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4"><result status="timeout" time="2.00"/></proof>
         </goal>
        </transf>
@@ -1418,7 +1418,7 @@
      </transf>
      </goal>
      <goal name="case1_top_imples_p.0.0.0.1">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
@@ -1428,16 +1428,16 @@
   </goal>
   <goal name="case1_top_imples_p.1">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2527138"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="permut_trans">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="is_equal_list_commutative&#39;vc" expl="VC for is_equal_list_commutative">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="is_sat_set">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2354252"/></proof>
@@ -1475,17 +1475,17 @@
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        <transf name="assert" arg1="(is_satisfiable_clause (x1,x))">
         <goal name="is_sat_set.0.0.0.0.0.0.0" expl="asserted formula">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
         <goal name="is_sat_set.0.0.0.0.0.0.1">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
        </transf>
        </goal>
       </transf>
       </goal>
       <goal name="is_sat_set.0.0.0.0.1" expl="asserted formula">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
      </transf>
      </goal>
@@ -1495,11 +1495,11 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      <transf name="assert" arg1="(is_satisfiable_set x1)">
       <goal name="is_sat_set.0.0.0.1.0" expl="asserted formula">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
       <goal name="is_sat_set.0.0.0.1.1">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2338176"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       </goal>
      </transf>
@@ -1511,7 +1511,7 @@
   </transf>
   </goal>
   <goal name="is_sat_set.1">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
@@ -1526,14 +1526,14 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="l1">
    <goal name="removeFromList_concat_not_mem_l1.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
  </transf>
  </goal>
  <goal name="set_equality_add">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="all_x_top_then_eval_setconjunction_top&#39;vc" expl="VC for all_x_top_then_eval_setconjunction_top">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="462678"/></proof>
@@ -1541,7 +1541,7 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="all_x_top_then_eval_setconjunction_top&#39;vc.0" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="all_x_top_then_eval_setconjunction_top&#39;vc.1" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3344032"/></proof>
@@ -1550,7 +1550,7 @@
   <transf name="case" arg1="(cardinal s &gt; 1)">
    <goal name="all_x_top_then_eval_setconjunction_top&#39;vc.1.0" expl="true case (postcondition)">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="4197408"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
    <goal name="all_x_top_then_eval_setconjunction_top&#39;vc.1.1" expl="false case (postcondition)">
@@ -1564,12 +1564,12 @@
      <transf name="destruct" arg1="Hinst">
       <goal name="all_x_top_then_eval_setconjunction_top&#39;vc.1.1.0.0.0" expl="destruct premise">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="5846692"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="0.08" steps="541"/></proof>
       </goal>
       <goal name="all_x_top_then_eval_setconjunction_top&#39;vc.1.1.0.0.1" expl="false case (postcondition)">
       <proof prover="0" obsolete="true"><result status="valid" time="0.04" steps="131944"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="0.02" steps="39"/></proof>
       </goal>
      </transf>
@@ -1584,7 +1584,7 @@
  </goal>
  <goal name="removeFromList_concat">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="910038"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="numOfSubset_0_not_subset&#39;vc" expl="VC for numOfSubset_0_not_subset">
@@ -1600,11 +1600,11 @@
    <goal name="numOfSubset_0_not_subset&#39;vc.0.0" expl="VC for numOfSubset_0_not_subset">
    <transf name="split_vc" >
     <goal name="numOfSubset_0_not_subset&#39;vc.0.0.0" expl="assertion">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.05" steps="225"/></proof>
     </goal>
     <goal name="numOfSubset_0_not_subset&#39;vc.0.0.1" expl="assertion">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -1612,12 +1612,12 @@
   </goal>
   <goal name="numOfSubset_0_not_subset&#39;vc.1" expl="precondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="599401"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="valid" time="0.04" steps="49"/></proof>
   </goal>
   <goal name="numOfSubset_0_not_subset&#39;vc.2" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1353144"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="valid" time="0.05" steps="161"/></proof>
   </goal>
  </transf>
@@ -1629,15 +1629,15 @@
  <transf name="split_vc" >
   <goal name="not_subset_permut&#39;vc.0" expl="variant decrease">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2370706"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="not_subset_permut&#39;vc.1" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="47"/></proof>
   </goal>
   <goal name="not_subset_permut&#39;vc.2" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="not_subset_permut&#39;vc.3" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2662931"/></proof>
@@ -1648,12 +1648,12 @@
    <transf name="destruct_term" arg1="clauselist">
     <goal name="not_subset_permut&#39;vc.3.0.0" expl="postcondition">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1271690"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     </goal>
     <goal name="not_subset_permut&#39;vc.3.0.1" expl="postcondition">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1068885"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     </goal>
    </transf>
@@ -1680,7 +1680,7 @@
      <transf name="destruct" arg1="Hinst">
       <goal name="case2_conjunction_imples_p.0.0.0.1.0" expl="destruct premise">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2013086"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       </goal>
       <goal name="case2_conjunction_imples_p.0.0.0.1.1">
@@ -1690,7 +1690,7 @@
       <transf name="destruct" arg1="Hinst">
        <goal name="case2_conjunction_imples_p.0.0.0.1.1.0" expl="destruct premise">
        <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1263000"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="timeout" time="2.00"/></proof>
        </goal>
        <goal name="case2_conjunction_imples_p.0.0.0.1.1.1">
@@ -1705,7 +1705,7 @@
         <transf name="destruct" arg1="Hinst">
          <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.0">
          <proof prover="0" timelimit="5" obsolete="true"><result status="valid" time="0.03" steps="57397"/></proof>
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" timelimit="5" obsolete="true"><result status="valid" time="0.03" steps="56"/></proof>
          </goal>
          <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1">
@@ -1724,7 +1724,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" arg1="Hinst">
             <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.0.0.0" expl="destruct premise">
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             </goal>
             <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.0.0.1">
             <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1808939"/></proof>
@@ -1732,10 +1732,10 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" arg1="Hinst">
              <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.0.0.1.0">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              </goal>
              <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.0.0.1.1">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              <proof prover="4" obsolete="true"><result status="valid" time="0.19" steps="1445"/></proof>
              </goal>
             </transf>
@@ -1752,7 +1752,7 @@
            <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.1.0">
            <transf name="destruct" arg1="Hinst">
             <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.1.0.0" expl="destruct premise">
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             </goal>
             <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.1.0.1">
             <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1820817"/></proof>
@@ -1760,7 +1760,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" arg1="Hinst">
              <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.1.0.1.0">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              </goal>
              <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.1.0.1.1">
              <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1871960"/></proof>
@@ -1768,12 +1768,12 @@
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" arg1="Hinst">
               <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.1.0.1.1.0">
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               <proof prover="4" obsolete="true"><result status="valid" time="0.29" steps="1793"/></proof>
               </goal>
               <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1.1.1.0.1.1.1">
               <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1762950"/></proof>
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               <proof prover="4" obsolete="true"><result status="valid" time="0.50" steps="2859"/></proof>
               </goal>
              </transf>
@@ -1790,7 +1790,7 @@
         </goal>
         <goal name="case2_conjunction_imples_p.0.0.0.1.1.1.1">
         <proof prover="0"><result status="timeout" time="1.00" steps="1554827"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4"><result status="timeout" time="2.00"/></proof>
         </goal>
        </transf>
@@ -1800,7 +1800,7 @@
      </transf>
      </goal>
      <goal name="case2_conjunction_imples_p.0.0.0.1">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
@@ -1821,12 +1821,12 @@
   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="not_unsat_sat.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="not_unsat_sat.1">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
@@ -1848,7 +1848,7 @@
      <transf name="destruct" arg1="Hinst">
       <goal name="case2_top_imples_p.0.0.0.1.0" expl="destruct premise">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1565640"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       </goal>
       <goal name="case2_top_imples_p.0.0.0.1.1">
@@ -1858,7 +1858,7 @@
       <transf name="destruct" arg1="Hinst">
        <goal name="case2_top_imples_p.0.0.0.1.1.0" expl="destruct premise">
        <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1103452"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="timeout" time="2.00"/></proof>
        </goal>
        <goal name="case2_top_imples_p.0.0.0.1.1.1">
@@ -1872,19 +1872,19 @@
         <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
         <transf name="destruct" arg1="Hinst">
          <goal name="case2_top_imples_p.0.0.0.1.1.1.1.0">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="56"/></proof>
          </goal>
          <goal name="case2_top_imples_p.0.0.0.1.1.1.1.1">
          <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1566606"/></proof>
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="valid" time="0.51" steps="2953"/></proof>
          </goal>
         </transf>
         </goal>
         <goal name="case2_top_imples_p.0.0.0.1.1.1.1">
         <proof prover="0"><result status="timeout" time="1.00" steps="1494614"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4"><result status="timeout" time="2.00"/></proof>
         </goal>
        </transf>
@@ -1894,7 +1894,7 @@
      </transf>
      </goal>
      <goal name="case2_top_imples_p.0.0.0.1">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
@@ -1916,7 +1916,7 @@
    <transf name="destruct_term" arg1="phi">
     <goal name="convertConjunctionToSet_lemma1&#39;vc.0.0.0" expl="VC for convertConjunctionToSet_lemma1">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3540884"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     </goal>
     <goal name="convertConjunctionToSet_lemma1&#39;vc.0.0.1" expl="VC for convertConjunctionToSet_lemma1">
@@ -1940,7 +1940,7 @@
          <proof prover="4" obsolete="true"><result status="valid" time="0.15" steps="793"/></proof>
          <transf name="compile_match" >
           <goal name="convertConjunctionToSet_lemma1&#39;vc.0.0.1.0.0.0.0.0.0" expl="destruct premise">
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           <proof prover="4" obsolete="true"><result status="valid" time="0.15" steps="793"/></proof>
           </goal>
          </transf>
@@ -1960,10 +1960,10 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct_term" arg1="x">
            <goal name="convertConjunctionToSet_lemma1&#39;vc.0.0.1.0.0.0.1.0.0.0" expl="VC for convertConjunctionToSet_lemma1">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
            <goal name="convertConjunctionToSet_lemma1&#39;vc.0.0.1.0.0.0.1.0.0.1" expl="VC for convertConjunctionToSet_lemma1">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
           </transf>
           </goal>
@@ -2001,10 +2001,10 @@
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="split_vc" >
     <goal name="subset_set_smb_clauselist.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="subset_set_smb_clauselist.0.0.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.18" steps="610"/></proof>
     </goal>
    </transf>
@@ -2014,7 +2014,7 @@
  </transf>
  </goal>
  <goal name="if_unsat_then_not_sat">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="subset_of_evalsetconjunction_1">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2824061"/></proof>
@@ -2024,7 +2024,7 @@
   <goal name="subset_of_evalsetconjunction_1.0">
   <transf name="exists" arg1="(val_all_top)">
    <goal name="subset_of_evalsetconjunction_1.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -2042,7 +2042,7 @@
   <transf name="assert" arg1="((horn_logic clauselist = False) -&gt; (mem ABot (algorithmA_spec clauselist (singleton ATop))))
 ">
    <goal name="horn_unsat_soundness.0.0" expl="asserted formula">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="horn_unsat_soundness.0.1">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2245775"/></proof>
@@ -2057,20 +2057,20 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      <transf name="split_vc" >
       <goal name="horn_unsat_soundness.0.1.0.0.0">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
       <goal name="horn_unsat_soundness.0.1.0.0.1">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
       <goal name="horn_unsat_soundness.0.1.0.0.2">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2267940"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       </goal>
      </transf>
      </goal>
      <goal name="horn_unsat_soundness.0.1.0.1">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
@@ -2086,10 +2086,10 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="bot_not_in_set_then_sat_set&#39;vc.0" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="bot_not_in_set_then_sat_set&#39;vc.1" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="bot_not_in_set_then_sat_set&#39;vc.2" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3128856"/></proof>
@@ -2099,7 +2099,7 @@
    <goal name="bot_not_in_set_then_sat_set&#39;vc.2.0" expl="VC for bot_not_in_set_then_sat_set">
    <transf name="exists" arg1="(val_all_top)">
     <goal name="bot_not_in_set_then_sat_set&#39;vc.2.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -2121,7 +2121,7 @@
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="split_vc" >
     <goal name="not_subset_general.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="not_subset_general.0.0.1">
     <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="1499880"/></proof>
@@ -2129,7 +2129,7 @@
     <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
     <transf name="destruct" arg1="H1">
      <goal name="not_subset_general.1.0.1.0" expl="destruct premise">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="not_subset_general.1.0.1.1">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="778925"/></proof>
@@ -2140,11 +2140,11 @@
       <transf name="split_vc" >
        <goal name="not_subset_general.1.0.1.1.0.0">
        <proof prover="0"><result status="timeout" time="1.00" steps="2160003"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4"><result status="timeout" time="1.00"/></proof>
        </goal>
        <goal name="not_subset_general.1.0.1.1.0.1">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        </goal>
       </transf>
       </goal>
@@ -2157,12 +2157,12 @@
   </transf>
   </goal>
   <goal name="not_subset_general.1">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="if_satisf_then_not_bottom">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_algorithmA&#39;vc" expl="VC for removeFromList_algorithmA">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2138055"/></proof>
@@ -2190,7 +2190,7 @@
       <transf name="destruct" arg1="Hinst">
        <goal name="removeFromList_algorithmA&#39;vc.0.0.0.0.1.0" expl="destruct premise">
        <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1151625"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        </goal>
        <goal name="removeFromList_algorithmA&#39;vc.0.0.0.0.1.1" expl="postcondition">
@@ -2200,7 +2200,7 @@
        <transf name="destruct" arg1="Hinst">
         <goal name="removeFromList_algorithmA&#39;vc.0.0.0.0.1.1.0" expl="destruct premise">
         <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2160085"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
         <goal name="removeFromList_algorithmA&#39;vc.0.0.0.0.1.1.1" expl="postcondition">
@@ -2209,10 +2209,10 @@
         <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
         <transf name="destruct" arg1="Hinst">
          <goal name="removeFromList_algorithmA&#39;vc.0.0.0.0.1.1.1.0" expl="postcondition">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
          <goal name="removeFromList_algorithmA&#39;vc.0.0.0.0.1.1.1.1" expl="postcondition">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
         </transf>
         </goal>
@@ -2221,7 +2221,7 @@
       </transf>
       </goal>
       <goal name="removeFromList_algorithmA&#39;vc.0.0.0.0.1" expl="postcondition">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
      </transf>
      </goal>
@@ -2240,18 +2240,18 @@
  <transf name="split_vc" >
   <goal name="case3_induction_general&#39;vc.0" expl="variant decrease">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1334937"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="case3_induction_general&#39;vc.1" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="case3_induction_general&#39;vc.2" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="case3_induction_general&#39;vc.3" expl="precondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1879508"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="case3_induction_general&#39;vc.4" expl="precondition">
@@ -2293,7 +2293,7 @@
          <goal name="case3_induction_general&#39;vc.4.0.0.0.0.0.0.0" expl="destruct premise">
          <transf name="destruct" arg1="Hinst">
           <goal name="case3_induction_general&#39;vc.4.0.0.0.0.0.0.0.0" expl="destruct premise">
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           </goal>
           <goal name="case3_induction_general&#39;vc.4.0.0.0.0.0.0.0.1" expl="destruct premise">
           <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1779613"/></proof>
@@ -2307,17 +2307,17 @@
            <transf name="destruct" arg1="Hinst">
             <goal name="case3_induction_general&#39;vc.4.0.0.0.0.0.0.0.1.0.0" expl="destruct premise">
             <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1449171"/></proof>
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             </goal>
             <goal name="case3_induction_general&#39;vc.8.2.0.0.1.0.1.0.1.1.0" expl="equality hypothesis">
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             <proof prover="4" obsolete="true"><result status="valid" time="0.27" steps="1904"/></proof>
             </goal>
            </transf>
            </goal>
            <goal name="case3_induction_general&#39;vc.4.0.0.0.0.0.0.0.1.1" expl="destruct premise">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
           </transf>
           </goal>
@@ -2326,17 +2326,17 @@
         </transf>
         </goal>
         <goal name="case3_induction_general&#39;vc.4.0.0.0.0.0.1" expl="equality hypothesis">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
        </transf>
        </goal>
        <goal name="case3_induction_general&#39;vc.4.0.0.0.0.1" expl="precondition">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        </goal>
       </transf>
       </goal>
       <goal name="case3_induction_general&#39;vc.8.2.0.0.0" expl="postcondition">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
      </transf>
      </goal>
@@ -2351,7 +2351,7 @@
    <transf name="eliminate_let" >
     <goal name="case3_induction_general&#39;vc.8.2.0" expl="postcondition">
     <proof prover="0"><result status="timeout" time="1.00" steps="1918439"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4"><result status="timeout" time="1.00"/></proof>
     </goal>
    </transf>
@@ -2363,7 +2363,7 @@
     <transf name="eliminate_let" >
      <goal name="case3_induction_general&#39;vc.8.2.0.0" expl="postcondition">
      <proof prover="0"><result status="timeout" time="1.00" steps="1925431"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -2372,7 +2372,7 @@
    </goal>
    <goal name="case3_induction_general&#39;vc.8.1" expl="postcondition">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1653921"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4"><result status="valid" time="0.07" steps="225"/></proof>
    </goal>
   </transf>
@@ -2384,7 +2384,7 @@
   <transf name="split_vc" >
    <goal name="case3_induction_general&#39;vc.5.0" expl="precondition">
    <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="3982180"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
    </goal>
   </transf>
@@ -2396,19 +2396,19 @@
   <transf name="split_vc" >
    <goal name="case3_induction_general&#39;vc.6.0" expl="precondition">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1484999"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="2.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="case3_induction_general&#39;vc.7" expl="unreachable point">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="case3_induction_general&#39;vc.8" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="case3_induction_general&#39;vc.0" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
@@ -2418,7 +2418,7 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="unsat_induction_general&#39;vc.0" expl="unreachable point">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="unsat_induction_general&#39;vc.1" expl="assertion">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1134473"/></proof>
@@ -2436,7 +2436,7 @@
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="destruct" arg1="Hinst">
      <goal name="unsat_induction_general&#39;vc.1.0.0.0" expl="destruct premise">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="unsat_induction_general&#39;vc.1.0.0.1" expl="assertion">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1354353"/></proof>
@@ -2444,7 +2444,7 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      <transf name="destruct" arg1="Hinst">
       <goal name="unsat_induction_general&#39;vc.1.0.0.1.0" expl="destruct premise">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
       <goal name="unsat_induction_general&#39;vc.1.0.0.1.1" expl="assertion">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1354752"/></proof>
@@ -2462,21 +2462,21 @@
         <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
         <transf name="destruct" arg1="Hinst">
          <goal name="unsat_induction_general&#39;vc.11.0.0.1.1.1.1.0" expl="postcondition">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
          <goal name="unsat_induction_general&#39;vc.11.0.0.1.1.1.1.1" expl="postcondition">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="valid" time="0.22" steps="1557"/></proof>
          </goal>
         </transf>
         </goal>
         <goal name="unsat_induction_general&#39;vc.11.1.0.1.1.1.1" expl="postcondition">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
        </transf>
        </goal>
        <goal name="unsat_induction_general&#39;vc.1.0.0.1.1.1" expl="assertion">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        </goal>
       </transf>
       </goal>
@@ -2498,7 +2498,7 @@
     <transf name="induction_arg_ty_lex" arg1="clauselist">
      <goal name="unsat_induction_general&#39;vc.11.0.0.0" expl="VC for unsat_induction_general">
      <proof prover="0"><result status="timeout" time="1.00" steps="592186"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -2509,11 +2509,11 @@
   </goal>
   <goal name="unsat_induction_general&#39;vc.2" expl="assertion">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2242907"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="valid" time="0.07" steps="191"/></proof>
   </goal>
   <goal name="unsat_induction_general&#39;vc.3" expl="unreachable point">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="unsat_induction_general&#39;vc.4" expl="variant decrease">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1688663"/></proof>
@@ -2521,7 +2521,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="assert" arg1="(x &lt;&gt; RProp bot1)">
    <goal name="unsat_induction_general&#39;vc.4.0" expl="asserted formula">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="unsat_induction_general&#39;vc.4.1" expl="variant decrease">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1788340"/></proof>
@@ -2536,7 +2536,7 @@
      <goal name="unsat_induction_general&#39;vc.4.1.0.0" expl="asserted formula">
      <transf name="assert" arg1="(x &lt;&gt; y2)">
       <goal name="unsat_induction_general&#39;vc.6.1.1.0.0" expl="asserted formula">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
       <goal name="unsat_induction_general&#39;vc.6.1.1.0.1" expl="precondition">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1170943"/></proof>
@@ -2544,10 +2544,10 @@
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       <transf name="assert" arg1="(mem1 (y1,y2) (removeFromList (x1, x) clauselist))">
        <goal name="unsat_induction_general&#39;vc.6.1.1.0.1.0" expl="asserted formula">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        </goal>
        <goal name="unsat_induction_general&#39;vc.6.1.1.0.1.1" expl="precondition">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        </goal>
       </transf>
       </goal>
@@ -2556,14 +2556,14 @@
     </transf>
     </goal>
     <goal name="unsat_induction_general&#39;vc.4.1.1" expl="variant decrease">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
   </transf>
   </goal>
   <goal name="unsat_induction_general&#39;vc.5" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="unsat_induction_general&#39;vc.6" expl="precondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1718449"/></proof>
@@ -2572,7 +2572,7 @@
   <transf name="assert" arg1="(exists x p. is_unsatisfiable_clause (x,p) /\ mem1 (x,p) clauselist)">
    <goal name="unsat_induction_general&#39;vc.6.0" expl="asserted formula">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1195941"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
    <goal name="unsat_induction_general&#39;vc.6.1" expl="precondition">
@@ -2582,7 +2582,7 @@
    <transf name="unfold" arg1="is_unsatisfiable_clauselist" arg2="in" arg3="Requires3">
     <goal name="unsat_induction_general&#39;vc.6.1.0" expl="precondition">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1780045"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     </goal>
    </transf>
@@ -2590,7 +2590,7 @@
   </transf>
   </goal>
   <goal name="unsat_induction_general&#39;vc.7" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="unsat_induction_general&#39;vc.8" expl="precondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1845259"/></proof>
@@ -2598,26 +2598,26 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="case" arg1="(x1 ==&#39; (singleton ATop))">
    <goal name="unsat_induction_general&#39;vc.8.0" expl="true case (precondition)">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.05" steps="192"/></proof>
    </goal>
    <goal name="unsat_induction_general&#39;vc.8.1" expl="false case (precondition)">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2155759"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="unsat_induction_general&#39;vc.9" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="unsat_induction_general&#39;vc.10" expl="precondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1808070"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="unsat_induction_general&#39;vc.11" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
@@ -2632,7 +2632,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="removeNumOfSubset.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.47" steps="3052"/></proof>
    </goal>
   </transf>
@@ -2647,7 +2647,7 @@
   <goal name="unsat_clauselist_then_exists_one_clause_unsat.0">
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="unsat_clauselist_then_exists_one_clause_unsat.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -2657,7 +2657,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="unsat_clauselist_then_exists_one_clause_unsat.1.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -2665,7 +2665,7 @@
  </goal>
  <goal name="horn_logic&#39;vc" expl="VC for horn_logic">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2153270"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="removeFromList_not_empty_setc_clauselist">
@@ -2679,7 +2679,7 @@
   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="removeFromList_not_empty_setc_clauselist.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -2687,16 +2687,16 @@
  </goal>
  <goal name="case1_general">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="910017"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="eval_equivalent&#39;vc" expl="VC for eval_equivalent">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="valid" time="0.37" steps="1947"/></proof>
  </goal>
  <goal name="case2_general">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1119322"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="sublist_subset_set_smb">
@@ -2714,7 +2714,7 @@
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="assert" arg1="(mem1 x1 (Cons x1 x) -&gt; mem1 x1 (clauselist))">
      <goal name="sublist_subset_set_smb.0.0.1.0" expl="asserted formula">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="sublist_subset_set_smb.0.0.1.1">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1707639"/></proof>
@@ -2722,7 +2722,7 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      <transf name="destruct" arg1="H1">
       <goal name="sublist_subset_set_smb.0.0.1.1.0" expl="destruct premise">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       </goal>
       <goal name="sublist_subset_set_smb.0.0.1.1.1">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1816447"/></proof>
@@ -2744,22 +2744,22 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct" arg1="h1">
            <goal name="sublist_subset_set_smb.0.0.1.1.1.0.0.0.0.0" expl="destruct premise">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
            <goal name="sublist_subset_set_smb.0.0.1.1.1.0.0.0.0.1" expl="asserted formula">
            <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3038971"/></proof>
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            </goal>
           </transf>
           </goal>
           <goal name="sublist_subset_set_smb.0.0.1.1.1.0.0.0.1">
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           </goal>
          </transf>
          </goal>
          <goal name="sublist_subset_set_smb.0.0.1.1.1.0.0.1" expl="equality hypothesis">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
         </transf>
         </goal>
@@ -2772,7 +2772,7 @@
     </transf>
     </goal>
     <goal name="sublist_subset_set_smb.0.0.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -2801,7 +2801,7 @@
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="case" arg1="(is_empty d)">
      <goal name="subset_of_evalsetconjunction.0.0.0.0" expl="true case">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="subset_of_evalsetconjunction.0.0.0.1" expl="false case (true case)">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2358643"/></proof>
@@ -2816,11 +2816,11 @@
        <goal name="subset_of_evalsetconjunction.0.0.0.1.0.0" expl="false case (true case)">
        <transf name="destruct" arg1="Hinst">
         <goal name="subset_of_evalsetconjunction.0.0.0.1.0.0.0" expl="destruct premise">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
         <goal name="subset_of_evalsetconjunction.0.0.0.1.0.0.1" expl="false case (true case)">
         <proof prover="0" obsolete="true"><result status="valid" time="0.11" steps="210713"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
        </transf>
@@ -2832,7 +2832,7 @@
     </transf>
     </goal>
     <goal name="subset_of_evalsetconjunction.0.0.1" expl="false case">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -2847,31 +2847,31 @@
  <transf name="split_vc" >
   <goal name="not_subset_spec_for_all.0">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2154148"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="case2_general_top_imples_p">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2027613"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="G1">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2077907"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="horn_unsat_completeness">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2185813"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="add_then_mem_convertPLtoAF">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="union_eval_empty">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="not_subset_numOfSubset_0">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2503073"/></proof>
@@ -2884,7 +2884,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="not_subset_numOfSubset_0.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.23" steps="475"/></proof>
    </goal>
   </transf>
@@ -2904,7 +2904,7 @@
    <goal name="satisf_clauselist_all_mem_satisf.0.0">
    <transf name="induction_arg_ty_lex" arg1="clauselist">
     <goal name="satisf_clauselist_all_mem_satisf.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -2913,15 +2913,15 @@
  </transf>
  </goal>
  <goal name="convertConjunctionToSet_lemma&#39;vc" expl="VC for convertConjunctionToSet_lemma">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="is_unsat_then_p_is_bot">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2277140"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="num_occ_1_plus_tail&#39;vc" expl="VC for num_occ_1_plus_tail">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="is_equal_list_reflexive&#39;vc" expl="VC for is_equal_list_reflexive">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2406598"/></proof>
@@ -2948,20 +2948,20 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="is_equal_list_reflexive&#39;vc.1.0" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="is_equal_list_reflexive&#39;vc.1.1" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
  </transf>
  </goal>
  <goal name="not_sat_unsat">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_general_top_imples_p">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="algorithmA_spec&#39;vc" expl="VC for algorithmA_spec">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3752049"/></proof>
@@ -2969,7 +2969,7 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="algorithmA_spec&#39;vc.0" expl="assertion">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="algorithmA_spec&#39;vc.1" expl="variant decrease">
   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="9028784"/></proof>
@@ -2978,7 +2978,7 @@
   <transf name="destruct" arg1="H">
    <goal name="algorithmA_spec&#39;vc.1.0" expl="variant decrease">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2271004"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
    <goal name="algorithmA_spec&#39;vc.6.0" expl="postcondition">
@@ -2988,7 +2988,7 @@
    <transf name="destruct" arg1="H">
     <goal name="algorithmA_spec&#39;vc.6.1.0" expl="postcondition">
     <proof prover="0" obsolete="true"><result status="valid" time="0.05" steps="162398"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.04" steps="175"/></proof>
     </goal>
     <goal name="algorithmA_spec&#39;vc.6.1.1" expl="postcondition">
@@ -3021,7 +3021,7 @@
            <transf name="destruct" arg1="Hinst">
             <goal name="algorithmA_spec&#39;vc.6.1.1.0.0.0.0.0.0.0.0" expl="destruct premise">
             <proof prover="0" obsolete="true"><result status="valid" time="0.06" steps="185493"/></proof>
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             <proof prover="4" obsolete="true"><result status="valid" time="0.04" steps="188"/></proof>
             </goal>
             <goal name="algorithmA_spec&#39;vc.6.1.1.0.0.0.0.0.0.0.1" expl="postcondition">
@@ -3045,11 +3045,11 @@
                <proof prover="4" obsolete="true"><result status="valid" time="0.21" steps="1219"/></proof>
                <transf name="destruct" arg1="Hinst">
                 <goal name="algorithmA_spec&#39;vc.6.1.1.0.0.0.0.0.0.0.1.0.0.0.0" expl="destruct premise">
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 </goal>
                 <goal name="algorithmA_spec&#39;vc.6.1.1.0.0.0.0.0.0.0.1.0.0.0.1" expl="asserted formula">
                 <proof prover="0" obsolete="true"><result status="valid" time="0.05" steps="169869"/></proof>
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 <proof prover="4" obsolete="true"><result status="valid" time="0.19" steps="1082"/></proof>
                 </goal>
                </transf>
@@ -3074,11 +3074,11 @@
                <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                <transf name="destruct" arg1="Hinst">
                 <goal name="algorithmA_spec&#39;vc.6.1.1.0.0.0.0.0.0.0.1.1.0.0.0" expl="destruct premise">
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 </goal>
                 <goal name="algorithmA_spec&#39;vc.6.1.1.0.0.0.0.0.0.0.1.1.0.0.1" expl="postcondition">
                 <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2541135"/></proof>
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                 </goal>
                </transf>
@@ -3115,7 +3115,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="algorithmA_spec&#39;vc.2.0" expl="precondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="algorithmA_spec&#39;vc.1.1" expl="variant decrease">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2955214"/></proof>
@@ -3125,11 +3125,11 @@
     <goal name="algorithmA_spec&#39;vc.1.1.0" expl="variant decrease">
     <transf name="destruct" arg1="Hinst">
      <goal name="algorithmA_spec&#39;vc.1.1.0.0" expl="variant decrease">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="algorithmA_spec&#39;vc.1.1.0.1" expl="variant decrease">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2869379"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -3139,15 +3139,15 @@
   </transf>
   </goal>
   <goal name="algorithmA_spec&#39;vc.3" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="algorithmA_spec&#39;vc.4" expl="precondition">
   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="6182892"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
   <goal name="algorithmA_spec&#39;vc.5" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="algorithmA_spec&#39;vc.6" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3216326"/></proof>
@@ -3156,16 +3156,16 @@
   <transf name="split_vc" >
    <goal name="algorithmA_spec&#39;vc.6.0" expl="postcondition">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2438588"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
    <goal name="algorithmA_spec&#39;vc.6.1" expl="postcondition">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3731142"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
    <goal name="algorithmA_spec&#39;vc.6.2" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -3199,7 +3199,7 @@
       <goal name="convertConjunctionToSet_lemma_differs_singleton_atop&#39;vc.0.0.0.0.0" expl="postcondition">
       <transf name="compile_match" >
        <goal name="convertConjunctionToSet_lemma_differs_singleton_atop&#39;vc.0.0.0.0.0.0" expl="postcondition">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="valid" time="0.28" steps="801"/></proof>
        </goal>
       </transf>
@@ -3228,7 +3228,7 @@
       <goal name="convertConjunctionToSet_lemma_differs_singleton_atop&#39;vc.0.1.0.0.0" expl="postcondition">
       <transf name="compile_match" >
        <goal name="convertConjunctionToSet_lemma_differs_singleton_atop&#39;vc.0.1.0.0.0.0" expl="postcondition">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="valid" time="0.13" steps="801"/></proof>
        </goal>
       </transf>
@@ -3262,7 +3262,7 @@
     <transf name="split_vc" >
      <goal name="p_implies_bot_sat.0.0.0.0">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="4109221"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -3275,7 +3275,7 @@
  </goal>
  <goal name="case3_induction">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2424592"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="monotone_algA&#39;vc" expl="VC for monotone_algA">
@@ -3284,13 +3284,13 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="monotone_algA&#39;vc.0" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.1" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.2" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.3" expl="precondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2200494"/></proof>
@@ -3314,11 +3314,11 @@
      <transf name="assert" arg1="(findOneSubset clauselist c = findOneSubset clauselist d)">
       <goal name="monotone_algA&#39;vc.3.0.0.0.0" expl="asserted formula">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2355606"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       </goal>
       <goal name="monotone_algA&#39;vc.3.0.0.0.1" expl="precondition">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="0.10" steps="891"/></proof>
       </goal>
      </transf>
@@ -3329,12 +3329,12 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      <transf name="assert" arg1="(findOneSubset clauselist c = findOneSubset clauselist d)">
       <goal name="monotone_algA&#39;vc.5.2.0.0.0" expl="asserted formula">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="0.25" steps="891"/></proof>
       </goal>
       <goal name="monotone_algA&#39;vc.5.2.0.0.1" expl="postcondition">
       <proof prover="0"><result status="timeout" time="1.00" steps="2149525"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4"><result status="timeout" time="1.00"/></proof>
       </goal>
      </transf>
@@ -3351,7 +3351,7 @@
     <goal name="monotone_algA&#39;vc.5.0.0" expl="postcondition">
     <transf name="eliminate_let" >
      <goal name="monotone_algA&#39;vc.5.0.0.0" expl="postcondition">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4"><result status="valid" time="0.04" steps="150"/></proof>
      </goal>
     </transf>
@@ -3360,37 +3360,37 @@
    </goal>
    <goal name="monotone_algA&#39;vc.5.1" expl="postcondition">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2496849"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="150"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="monotone_algA&#39;vc.4" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.5" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="G3">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2131918"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="smb">
  <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="14278341"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
  </goal>
  <goal name="eval_setconjunction_singleton">
  <proof prover="0" obsolete="true"><result status="valid" time="0.04" steps="123773"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="permut_list_permut_sublist&#39;vc" expl="VC for permut_list_permut_sublist">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2081573"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="removeFromList_permut">
@@ -3411,11 +3411,11 @@
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="case" arg1="(x = elem)">
      <goal name="removeFromList_permut.0.0.0.0" expl="true case">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="removeFromList_permut.0.0.0.1" expl="false case">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1657192"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -3428,12 +3428,12 @@
  </goal>
  <goal name="G6">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1893188"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="G5">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2048997"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="numOfSubset_1_num_occ">
@@ -3447,7 +3447,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="numOfSubset_1_num_occ.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.25" steps="1437"/></proof>
    </goal>
   </transf>
@@ -3456,14 +3456,14 @@
  </goal>
  <goal name="G4">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2135044"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="case2_general_conjunction_imples_p">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="num_occ_permut_concat&#39;vc" expl="VC for num_occ_permut_concat">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="if_mem_then_subset_set_smb">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2876564"/></proof>
@@ -3476,7 +3476,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="if_mem_then_subset_set_smb.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.79" steps="1558"/></proof>
    </goal>
   </transf>
@@ -3485,11 +3485,11 @@
  </goal>
  <goal name="herbrand_model">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2834289"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="valid" time="0.07" steps="468"/></proof>
  </goal>
  <goal name="convertToSet&#39;vc" expl="VC for convertToSet">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="top_is_satisfiable">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="4242737"/></proof>
@@ -3504,7 +3504,7 @@
    <goal name="top_is_satisfiable.0.0">
    <transf name="exists" arg1="(val_all_top)">
     <goal name="top_is_satisfiable.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -3514,7 +3514,7 @@
  </goal>
  <goal name="distr_exists">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="5040407"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="eval_union&#39;vc" expl="VC for eval_union">
@@ -3524,23 +3524,23 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="eval_union&#39;vc.0" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="5" obsolete="true"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="eval_union&#39;vc.1" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="5" obsolete="true"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="eval_union&#39;vc.2" expl="assertion">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="5" obsolete="true"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="eval_union&#39;vc.3" expl="assertion">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="5" obsolete="true"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="eval_union&#39;vc.4" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="5" obsolete="true"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
@@ -3556,7 +3556,7 @@
   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="clauselist">
    <goal name="numOfSubset_1.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.29" steps="1576"/></proof>
    </goal>
   </transf>
@@ -3564,18 +3564,18 @@
  </transf>
  </goal>
  <goal name="GG">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="herbrand_model_case2">
  <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="8484290"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
  </goal>
  <goal name="convertToList&#39;vc" expl="VC for convertToList">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="case1_general_conjuction_imples_p">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="sat_clause">
  <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="8416214"/></proof>
@@ -3584,14 +3584,14 @@
  <transf name="split_vc" >
   <goal name="sat_clause.0">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2208785"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="if_sat_clauselist_sat_clause">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1412420"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="removeFromList_permut_concat">
@@ -3601,7 +3601,7 @@
  <transf name="split_vc" >
   <goal name="removeFromList_permut_concat.0">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1626528"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
  </transf>
@@ -3612,10 +3612,10 @@
  <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
  <transf name="split_vc" >
   <goal name="all_set_without_bot_eval_set&#39;vc.0" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="all_set_without_bot_eval_set&#39;vc.1" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="all_set_without_bot_eval_set&#39;vc.2" expl="postcondition">
   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="6285900"/></proof>
@@ -3639,7 +3639,7 @@
      <transf name="destruct" arg1="Hinst">
       <goal name="all_set_without_bot_eval_set&#39;vc.2.0.0.0.0" expl="destruct premise">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="683215"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="0.98" steps="1638"/></proof>
       </goal>
       <goal name="all_set_without_bot_eval_set&#39;vc.2.0.0.0.1" expl="true case (postcondition)">
@@ -3649,7 +3649,7 @@
       <transf name="destruct" arg1="H">
        <goal name="all_set_without_bot_eval_set&#39;vc.2.0.0.0.1.0" expl="true case (postcondition)">
        <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3179677"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        </goal>
        <goal name="all_set_without_bot_eval_set&#39;vc.2.0.0.0.1.1" expl="true case (postcondition)">
@@ -3658,7 +3658,7 @@
        <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
        <transf name="instantiate" arg1="Hinst" arg2="(pick c)">
         <goal name="all_set_without_bot_eval_set&#39;vc.2.0.0.0.1.1.0" expl="true case (postcondition)">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4" obsolete="true"><result status="valid" time="0.41" steps="1334"/></proof>
         </goal>
        </transf>
@@ -3683,7 +3683,7 @@
     <transf name="destruct" arg1="H">
      <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.0" expl="false case (true case. postcondition)">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3176163"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
      <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1" expl="false case (true case. postcondition)">
@@ -3697,7 +3697,7 @@
       <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
       <transf name="assert" arg1="(exists x. c = singleton x)">
        <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.0" expl="asserted formula">
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="valid" time="0.09" steps="311"/></proof>
        </goal>
        <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.1" expl="false case (true case. postcondition)">
@@ -3723,7 +3723,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" arg1="Hinst">
             <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.1.0.0.0.0.0" expl="destruct premise">
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             </goal>
             <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.1.0.0.0.0.1" expl="false case (true case. postcondition)">
             <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2329451"/></proof>
@@ -3736,7 +3736,7 @@
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" arg1="Hinst">
               <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.1.0.0.0.0.1.0.0" expl="destruct premise">
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               </goal>
               <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.1.0.0.0.0.1.0.1" expl="false case (true case. postcondition)">
               <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2464033"/></proof>
@@ -3744,11 +3744,11 @@
               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
               <transf name="assert" arg1="(eval_atomicformula x val_all_top = top1)">
                <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.1.0.0.0.0.1.0.1.0" expl="asserted formula">
-               <proof prover="2"><undone/></proof>
+               <proof prover="2"><result status="failure" time="0.00"/></proof>
                <proof prover="4" obsolete="true"><result status="valid" time="0.89" steps="2075"/></proof>
                </goal>
                <goal name="all_set_without_bot_eval_set&#39;vc.2.1.0.1.0.1.0.0.0.0.1.0.1.1" expl="false case (true case. postcondition)">
-               <proof prover="2"><undone/></proof>
+               <proof prover="2"><result status="failure" time="0.00"/></proof>
                </goal>
               </transf>
               </goal>
@@ -3773,7 +3773,7 @@
     </transf>
     </goal>
     <goal name="all_set_without_bot_eval_set&#39;vc.2.1.1" expl="false case (postcondition)">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -3782,16 +3782,16 @@
  </transf>
  </goal>
  <goal name="num_occ_concat&#39;vc" expl="VC for num_occ_concat">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="herbrand_model_case3">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2421551"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="removeTwoClauses&#39;vc" expl="VC for removeTwoClauses">
  <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="6415372"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
  </goal>
  <goal name="smb_generic">
@@ -3801,13 +3801,13 @@
  <transf name="split_vc" >
   <goal name="smb_generic.0">
   <proof prover="0" timelimit="5" obsolete="true"><result status="failure" time="0.00"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="notSubset_numOfSubset_1">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeTwoClauses_inductive_case2&#39;vc" expl="VC for removeTwoClauses_inductive_case2">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1936611"/></proof>
@@ -3830,7 +3830,7 @@
      <transf name="destruct" arg1="Hinst">
       <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1.0" expl="destruct premise">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2015634"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       </goal>
       <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1.1" expl="postcondition">
@@ -3845,11 +3845,11 @@
        <transf name="assert" arg1="(is_equal_list (removeFromList elem1 clauselist) (Cons elem2 Nil))">
         <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1.1.0.0" expl="asserted formula">
         <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="501722"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
         <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1.1.0.1" expl="destruct premise">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
        </transf>
        </goal>
@@ -3870,7 +3870,7 @@
          <transf name="induction_arg_ty_lex" arg1="clauselist">
           <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1.1.1.1.0.0" expl="VC for removeTwoClauses_inductive_case2">
           <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1695796"/></proof>
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           </goal>
          </transf>
@@ -3882,7 +3882,7 @@
          <transf name="induction_arg_ty_lex" arg1="clauselist">
           <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1.1.1.1.1.0" expl="VC for removeTwoClauses_inductive_case2">
           <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1742889"/></proof>
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           </goal>
          </transf>
@@ -3891,7 +3891,7 @@
         </goal>
         <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1.1.1.1" expl="postcondition">
         <proof prover="0"><result status="timeout" time="1.00" steps="1498176"/></proof>
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         <proof prover="4"><result status="timeout" time="1.00"/></proof>
         </goal>
        </transf>
@@ -3901,7 +3901,7 @@
      </transf>
      </goal>
      <goal name="removeTwoClauses_inductive_case2&#39;vc.0.0.0.1" expl="postcondition">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
@@ -3913,11 +3913,11 @@
  </goal>
  <goal name="union_eval_diffsingleton">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="496899"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="horn_sat_completeness">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="unsat_then_bot">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2216871"/></proof>
@@ -3946,18 +3946,18 @@
      <transf name="replace" arg1="(assign_rightside p val_all_top)" arg2="(RProp x)" arg3="in" arg4="Hinst">
       <goal name="unsat_then_bot.0.0.0.1.0">
       <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2270869"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="0.64" steps="1322"/></proof>
       </goal>
       <goal name="unsat_then_bot.0.0.0.1.1" expl="equality hypothesis">
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="44"/></proof>
       </goal>
      </transf>
      </goal>
      <goal name="unsat_then_bot.0.0.0.1">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2114810"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -3981,11 +3981,11 @@
    <goal name="not_subset_spec_test.0.0">
    <transf name="split_vc" >
     <goal name="not_subset_spec_test.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="50"/></proof>
     </goal>
     <goal name="not_subset_spec_test.0.0.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="50"/></proof>
     </goal>
    </transf>
@@ -3996,27 +3996,27 @@
  </goal>
  <goal name="findOneSubset_mem_subset">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3422201"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="subset_of_satisfiable_set">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2294650"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="num_occ_permut_list&#39;vc" expl="VC for num_occ_permut_list">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2080190"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="not_unsat_set_sat_set">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2220289"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="G2">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2127456"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="findOneSubset_notsubset">
@@ -4032,11 +4032,11 @@
    <goal name="findOneSubset_notsubset.0.0">
    <transf name="destruct" arg1="Hinst">
     <goal name="findOneSubset_notsubset.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="findOneSubset_notsubset.0.0.1">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2717005"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     </goal>
    </transf>
@@ -4051,19 +4051,19 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="eval_commutes_add&#39;vc.0" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="eval_commutes_add&#39;vc.1" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="eval_commutes_add&#39;vc.0" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="p_implies_bot_sat2">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2012631"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="equality_is_equal_list&#39;vc" expl="VC for equality_is_equal_list">
@@ -4073,11 +4073,11 @@
  <transf name="split_vc" >
   <goal name="equality_is_equal_list&#39;vc.0" expl="assertion">
   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="3682332"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
   <goal name="equality_is_equal_list&#39;vc.1" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="equality_is_equal_list&#39;vc.2" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2527581"/></proof>
@@ -4085,16 +4085,16 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="equality_is_equal_list&#39;vc.2.0" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="equality_is_equal_list&#39;vc.2.1" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="equality_is_equal_list&#39;vc.2.2" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="equality_is_equal_list&#39;vc.2.3" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -4113,10 +4113,10 @@
    <goal name="findOneSubset_nil.0.0">
    <transf name="destruct" arg1="Hinst">
     <goal name="findOneSubset_nil.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="findOneSubset_nil.0.0.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -4157,7 +4157,7 @@
         <transf name="assert" arg1="((exists f.
 not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = top1))">
          <goal name="not_unsat_clause_sat_clause.0.0.0.0.0.0.0.0" expl="asserted formula">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
          <goal name="not_unsat_clause_sat_clause.0.0.0.0.0.0.0.1">
          <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="8136656"/></proof>
@@ -4181,7 +4181,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
             <transf name="destruct" arg1="h">
              <goal name="not_unsat_clause_sat_clause.0.0.0.0.0.0.0.1.0.0.0.0">
              <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2218820"/></proof>
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              </goal>
             </transf>
@@ -4216,10 +4216,10 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
     <goal name="not_unsat_clause_sat_clause.1.0.0">
     <transf name="destruct" arg1="H">
      <goal name="not_unsat_clause_sat_clause.1.0.0.0">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="not_unsat_clause_sat_clause.1.0.0.0">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
@@ -4237,25 +4237,25 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="tuple_equality&#39;vc.0.0" expl="variant decrease">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="tuple_equality&#39;vc.0.1" expl="variant decrease">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="tuple_equality&#39;vc.2.1" expl="postcondition">
    <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="6780028"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.04" steps="197"/></proof>
    </goal>
    <goal name="tuple_equality&#39;vc.2.2" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4"><result status="valid" time="0.05" steps="197"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="tuple_equality&#39;vc.1" expl="postcondition">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1423557"/></proof>
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="tuple_equality&#39;vc.2" expl="postcondition">
@@ -4264,17 +4264,17 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="tuple_equality&#39;vc.2.0" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.05" steps="271"/></proof>
    </goal>
    <goal name="tuple_equality&#39;vc.2.1" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="tuple_equality&#39;vc.2.2" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="tuple_equality&#39;vc.2.3" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="valid" time="0.05" steps="271"/></proof>
    </goal>
   </transf>
@@ -4302,7 +4302,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
      <transf name="destruct" arg1="Hinst">
       <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1.0" expl="destruct premise">
       <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="4473183"/></proof>
-      <proof prover="2"><undone/></proof>
+      <proof prover="2"><result status="failure" time="0.00"/></proof>
       <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
       </goal>
       <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1.1" expl="postcondition">
@@ -4312,7 +4312,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
       <transf name="destruct" arg1="Hinst">
        <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1.1.0" expl="destruct premise">
        <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1589306"/></proof>
-       <proof prover="2"><undone/></proof>
+       <proof prover="2"><result status="failure" time="0.00"/></proof>
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        </goal>
        <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1.1.1" expl="postcondition">
@@ -4327,18 +4327,18 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
         <transf name="destruct" arg1="Hinst">
          <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1.1.1.1.0" expl="postcondition">
          <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1656780"/></proof>
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
          </goal>
          <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1.1.1.1.1" expl="postcondition">
          <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1792043"/></proof>
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
          </goal>
         </transf>
         </goal>
         <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1.1.1.1" expl="postcondition">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
        </transf>
        </goal>
@@ -4347,7 +4347,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
      </transf>
      </goal>
      <goal name="removeTwoClauses_basecase&#39;vc.0.0.0.1" expl="postcondition">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
     </transf>
     </goal>
@@ -4370,10 +4370,10 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
    <goal name="removeFromList_numocc.0.0">
    <transf name="split_vc" >
     <goal name="removeFromList_numocc.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="removeFromList_numocc.0.0.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.04" steps="260"/></proof>
     </goal>
    </transf>
@@ -4393,13 +4393,13 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" >
    <goal name="numOfSubset&#39;vc.0.0" expl="variant decrease">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="numOfSubset&#39;vc.0.1" expl="variant decrease">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="numOfSubset&#39;vc.3.0" expl="postcondition">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -4414,13 +4414,13 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="split_vc" >
     <goal name="numOfSubset&#39;vc.1.0.0" expl="variant decrease">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="numOfSubset&#39;vc.2.0.0" expl="postcondition">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="numOfSubset&#39;vc.2.0.1" expl="postcondition">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -4430,15 +4430,15 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="split_vc" >
     <goal name="numOfSubset&#39;vc.1.1.0" expl="variant decrease">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.04" steps="52"/></proof>
     </goal>
     <goal name="numOfSubset&#39;vc.2.1.2" expl="postcondition">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4"><result status="valid" time="0.03" steps="52"/></proof>
     </goal>
     <goal name="numOfSubset&#39;vc.2.1.1" expl="postcondition">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4"><result status="valid" time="0.04" steps="54"/></proof>
     </goal>
    </transf>
@@ -4446,18 +4446,18 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
   </transf>
   </goal>
   <goal name="numOfSubset&#39;vc.2" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="48"/></proof>
   </goal>
   <goal name="numOfSubset&#39;vc.3" expl="postcondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="48"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="herbrand_model_case1">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1556250"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="numOfSubset_clauselist_c_1">
@@ -4476,17 +4476,17 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="assert" arg1="(forall set1:fset atomicformula, p1:rightside. mem1 (set1,p1) (removeFromList (set, p) clauselist) -&gt; (not subset set1 c))">
     <goal name="numOfSubset_clauselist_c_1.0.0.0" expl="asserted formula">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="numOfSubset_clauselist_c_1.0.0.1" expl="asserted formula">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1220980"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     </goal>
    </transf>
    </goal>
    <goal name="numOfSubset_clauselist_c_1.0.1">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
@@ -4504,7 +4504,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
   <transf name="destruct_term" arg1="clauselist">
    <goal name="horn_sat_soundness.0.0">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2030547"/></proof>
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
    <goal name="horn_sat_soundness.0.1">
@@ -4518,17 +4518,17 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="destruct" arg1="h">
      <goal name="horn_sat_soundness.0.1.0.0" expl="asserted formula">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="horn_sat_soundness.0.0.1.0" expl="destruct premise">
      <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="8472244"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
      </goal>
     </transf>
     </goal>
     <goal name="horn_sat_soundness.0.1.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -4537,27 +4537,27 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
  </transf>
  </goal>
  <goal name="notSubset_numOfSubset_0">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="convertConjunctionToSet_lemma_subset&#39;vc" expl="VC for convertConjunctionToSet_lemma_subset">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="bot_is_unsatisfiable">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="permut_cl1_cl2">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="G">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3271297"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="union_eval_samesingleton">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="concat_with_element">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="permutacoes&#39;vc" expl="VC for permutacoes">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3460135"/></proof>
@@ -4565,16 +4565,16 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" >
   <goal name="permutacoes&#39;vc.0" expl="variant decrease">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="permutacoes&#39;vc.1" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="permutacoes&#39;vc.2" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="permutacoes&#39;vc.3" expl="precondition">
-  <proof prover="2"><undone/></proof>
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
   </goal>
   <goal name="permutacoes&#39;vc.4" expl="postcondition">
   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="12555206"/></proof>
@@ -4588,12 +4588,12 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
    <transf name="destruct" arg1="H">
     <goal name="permutacoes&#39;vc.4.0.0" expl="postcondition">
     <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2181374"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     </goal>
     <goal name="permutacoes&#39;vc.4.1.0" expl="postcondition">
     <proof prover="0"><result status="timeout" time="1.00" steps="1955007"/></proof>
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4"><result status="timeout" time="1.00"/></proof>
     </goal>
    </transf>
@@ -4630,7 +4630,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
         <transf name="destruct" arg1="Hinst">
          <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.0" expl="destruct premise">
          <proof prover="0" obsolete="true"><result status="valid" time="0.02" steps="8450"/></proof>
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          <proof prover="4" obsolete="true"><result status="valid" time="0.02" steps="50"/></proof>
          </goal>
          <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1" expl="postcondition">
@@ -4640,7 +4640,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
          <transf name="destruct" arg1="Hinst">
           <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.0" expl="destruct premise">
           <proof prover="0" timelimit="5" obsolete="true"><result status="valid" time="0.05" steps="151803"/></proof>
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           <proof prover="4" timelimit="5" obsolete="true"><result status="valid" time="0.03" steps="56"/></proof>
           </goal>
           <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1" expl="postcondition">
@@ -4659,7 +4659,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
             <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="67"/></proof>
             <transf name="destruct" arg1="Hinst">
              <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.0.0.0" expl="destruct premise">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              </goal>
              <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.0.0.1" expl="postcondition">
              <proof prover="0" obsolete="true"><result status="valid" time="0.05" steps="155676"/></proof>
@@ -4668,7 +4668,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
              <transf name="destruct" arg1="Hinst">
               <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.0.0.1.0" expl="destruct premise">
               <proof prover="0" obsolete="true"><result status="valid" time="0.02" steps="8456"/></proof>
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               <proof prover="4" obsolete="true"><result status="valid" time="0.02" steps="54"/></proof>
               </goal>
               <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.0.0.1.1" expl="postcondition">
@@ -4678,11 +4678,11 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
               <transf name="destruct" arg1="Hinst">
                <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.0.0.1.1.0" expl="destruct premise">
                <proof prover="0" obsolete="true"><result status="valid" time="0.05" steps="151463"/></proof>
-               <proof prover="2"><undone/></proof>
+               <proof prover="2"><result status="failure" time="0.00"/></proof>
                <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="60"/></proof>
                </goal>
                <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.0.0.1.1.1" expl="postcondition">
-               <proof prover="2"><undone/></proof>
+               <proof prover="2"><result status="failure" time="0.00"/></proof>
                </goal>
               </transf>
               </goal>
@@ -4703,7 +4703,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" arg1="Hinst">
              <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.0" expl="destruct premise">
-             <proof prover="2"><undone/></proof>
+             <proof prover="2"><result status="failure" time="0.00"/></proof>
              </goal>
              <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.1" expl="postcondition">
              <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2384839"/></proof>
@@ -4711,7 +4711,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" arg1="Hinst">
               <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.1.0" expl="destruct premise">
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               </goal>
               <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.1.1" expl="postcondition">
               <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2295142"/></proof>
@@ -4724,11 +4724,11 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
                <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="59"/></proof>
                <transf name="destruct" arg1="Hinst">
                 <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.1.1.0.0" expl="destruct premise">
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 <proof prover="4" obsolete="true"><result status="valid" time="0.03" steps="62"/></proof>
                 </goal>
                 <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.1.1.0.1" expl="destruct premise">
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 </goal>
                </transf>
                </goal>
@@ -4736,10 +4736,10 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
                <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="101433"/></proof>
                <transf name="destruct" arg1="Hinst">
                 <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.1.1.1.0" expl="postcondition">
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 </goal>
                 <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0.1.1.1.1" expl="postcondition">
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 </goal>
                </transf>
                </goal>
@@ -4758,7 +4758,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
         </transf>
         </goal>
         <goal name="permutacoes&#39;vc.4.1.0.0.0.0.1" expl="postcondition">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
        </transf>
        </goal>
@@ -4783,7 +4783,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
        <goal name="permutacoes&#39;vc.4.1.1.0.0.0" expl="postcondition">
        <transf name="destruct" arg1="Hinst">
         <goal name="permutacoes&#39;vc.4.1.1.0.0.0.0" expl="destruct premise">
-        <proof prover="2"><undone/></proof>
+        <proof prover="2"><result status="failure" time="0.00"/></proof>
         </goal>
         <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1" expl="postcondition">
         <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2413880"/></proof>
@@ -4791,7 +4791,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         <transf name="destruct" arg1="Hinst">
          <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.0" expl="destruct premise">
-         <proof prover="2"><undone/></proof>
+         <proof prover="2"><result status="failure" time="0.00"/></proof>
          </goal>
          <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1" expl="postcondition">
          <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2217479"/></proof>
@@ -4799,7 +4799,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
          <transf name="destruct" arg1="Hinst">
           <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.0" expl="destruct premise">
-          <proof prover="2"><undone/></proof>
+          <proof prover="2"><result status="failure" time="0.00"/></proof>
           </goal>
           <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1" expl="postcondition">
           <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2272160"/></proof>
@@ -4807,7 +4807,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct" arg1="Hinst">
            <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.0" expl="postcondition">
-           <proof prover="2"><undone/></proof>
+           <proof prover="2"><result status="failure" time="0.00"/></proof>
            </goal>
            <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1" expl="postcondition">
            <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2077934"/></proof>
@@ -4815,7 +4815,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" arg1="Hinst">
             <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.0" expl="postcondition">
-            <proof prover="2"><undone/></proof>
+            <proof prover="2"><result status="failure" time="0.00"/></proof>
             </goal>
             <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.1" expl="postcondition">
             <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="8341508"/></proof>
@@ -4835,7 +4835,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
                <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                <transf name="destruct" arg1="Hinst">
                 <goal name="permutacoes&#39;vc.4.1.0.0.0.0.1.1.1.1.0.0.1.1.0" expl="destruct premise">
-                <proof prover="2"><undone/></proof>
+                <proof prover="2"><result status="failure" time="0.00"/></proof>
                 </goal>
                 <goal name="permutacoes&#39;vc.4.1.0.0.0.0.1.1.1.1.0.0.1.1.1" expl="postcondition">
                 <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2065389"/></proof>
@@ -4843,22 +4843,22 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
                 <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                 <transf name="destruct" arg1="Hinst">
                  <goal name="permutacoes&#39;vc.4.1.0.0.0.0.1.1.1.1.0.0.1.1.1.0" expl="postcondition">
-                 <proof prover="2"><undone/></proof>
+                 <proof prover="2"><result status="failure" time="0.00"/></proof>
                  </goal>
                  <goal name="permutacoes&#39;vc.4.1.0.0.0.0.1.1.1.1.0.0.1.1.1.1" expl="postcondition">
-                 <proof prover="2"><undone/></proof>
+                 <proof prover="2"><result status="failure" time="0.00"/></proof>
                  </goal>
                 </transf>
                 </goal>
                </transf>
                </goal>
                <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.1.0.0.1" expl="destruct premise">
-               <proof prover="2"><undone/></proof>
+               <proof prover="2"><result status="failure" time="0.00"/></proof>
                </goal>
               </transf>
               </goal>
               <goal name="permutacoes&#39;vc.4.1.1.0.0.0.1.1.1.1.1.0.1" expl="postcondition">
-              <proof prover="2"><undone/></proof>
+              <proof prover="2"><result status="failure" time="0.00"/></proof>
               </goal>
              </transf>
              </goal>
@@ -4901,17 +4901,17 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="destruct" arg1="H1">
      <goal name="sublist_is_satisfiable_clauselist.0.0.1.0" expl="destruct premise">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="sublist_is_satisfiable_clauselist.0.0.1.1">
      <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1090093"/></proof>
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
     </goal>
     <goal name="sublist_is_satisfiable_clauselist.0.0.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
    </transf>
    </goal>
@@ -4930,7 +4930,7 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="case" arg1="(clauselist = Nil)">
    <goal name="removeFromList_length.0.0" expl="true case">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
    <goal name="removeFromList_length.0.1" expl="false case">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2160427"/></proof>
@@ -4940,10 +4940,10 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
     <goal name="removeFromList_length.0.1.0">
     <transf name="split_vc" >
      <goal name="removeFromList_length.0.1.0.0" expl="false case">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      </goal>
      <goal name="removeFromList_length.0.1.0.1" expl="false case">
-     <proof prover="2"><undone/></proof>
+     <proof prover="2"><result status="failure" time="0.00"/></proof>
      <proof prover="4" obsolete="true"><result status="valid" time="0.06" steps="667"/></proof>
      </goal>
     </transf>
@@ -4964,10 +4964,10 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
    <goal name="removeFromList_numocc_2.0.0">
    <transf name="split_vc" >
     <goal name="removeFromList_numocc_2.0.0.0">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     </goal>
     <goal name="removeFromList_numocc_2.0.0.1">
-    <proof prover="2"><undone/></proof>
+    <proof prover="2"><result status="failure" time="0.00"/></proof>
     <proof prover="4" obsolete="true"><result status="valid" time="0.10" steps="722"/></proof>
     </goal>
    </transf>
@@ -4978,16 +4978,16 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
  </goal>
  <goal name="diff_is_sat_p">
  <proof prover="0" obsolete="true"><result status="valid" time="0.20" steps="360856"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="unsat_induction">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2211890"/></proof>
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="contr_exists">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="removeFromList_elem_not_in_list">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2424464"/></proof>
@@ -5000,17 +5000,17 @@ not eval_setconjunction x1 f = top1 \/ eval_rightside (assign_rightside x f) = t
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="induction_arg_ty_lex" arg1="l">
    <goal name="removeFromList_elem_not_in_list.0.0">
-   <proof prover="2"><undone/></proof>
+   <proof prover="2"><result status="failure" time="0.00"/></proof>
    </goal>
   </transf>
   </goal>
  </transf>
  </goal>
  <goal name="findOneSubset_if_only_if_some">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
  <goal name="permut_ref">
- <proof prover="2"><undone/></proof>
+ <proof prover="2"><result status="failure" time="0.00"/></proof>
  </goal>
 </theory>
 </file>

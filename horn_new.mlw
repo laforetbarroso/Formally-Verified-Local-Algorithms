@@ -241,7 +241,7 @@ module SAT
   lemma cl_unsat_then_not_sat: forall cl. is_unsatisfiable_clauselist cl ->
                                   not is_satisfiable_clauselist cl
     
-  constant val_all_top: fun x -> ( _:i -> top)
+  constant val_all_top: i -> t = fun _ -> top
                                       
                                                
   let rec lemma all_set_without_bot_eval_set (c: fset atomicformula)
