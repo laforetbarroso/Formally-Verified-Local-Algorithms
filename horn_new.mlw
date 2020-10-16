@@ -166,20 +166,17 @@ module Horn
     SATISFIABILITY
   *)
   
-  predicate is_satisfiable (phi: hornclause)
-  = exists f. eval_hornclause phi f = top
+  
 
   predicate is_satisfiable_rs (phi: rightside)
   = exists f. (eval_rightside (assign_rightside phi f)) = top
 
-  predicate is_satisfiable_ls (phi: leftside)
-  = exists f. (eval_leftside phi f) = top
+  
   
   predicate is_satisfiable_af (phi: atomicformula)
   = exists f. (eval_atomicformula phi f) = top
 
-  predicate is_unsatisfiable_ls (phi: leftside)
-  = forall f. (eval_leftside phi f) <> top
+  
 
   predicate is_unsatisfiable_rs (phi: rightside)
   = forall f. (eval_rightside (assign_rightside phi f)) <> top
@@ -187,14 +184,13 @@ module Horn
   predicate is_satisfiable_set (set: fset atomicformula)
   = exists f. (eval_setconjunction set f) = top
   
-  predicate is_unsatisfiable_set (set: fset atomicformula)
-  = forall f. (eval_setconjunction set f) <> top
+ predicate is_unsatisfiable_set (set: fset atomicformula)
+ = forall f. (eval_setconjunction set f) = bot
   
   predicate is_satisfiable_clause (clause: (fset atomicformula, rightside))
   = match clause with
     | setc, p -> 
-      (is_unsatisfiable_set setc) || 
-        (exists f. ((eval_setconjunction setc f) = top) /\ (eval_rightside (assign_rightside p f) = top))
+      exists f. (eval_setconjunction setc f = bot) || (((eval_setconjunction setc f) = top) /\ (eval_rightside (assign_rightside p f) = top))
     end
   
   predicate is_satisfiable_clauselist (clauselist: list (fset atomicformula, rightside))
@@ -214,21 +210,23 @@ module Horn
     | Cons clause l -> is_unsatisfiable_clause clause || is_unsatisfiable_clauselist l
     end
   
-  predicate is_satisfiable_clause_left (set: fset atomicformula)
-  = exists f. (eval_setconjunction set f) = top
-  
-  predicate is_unsatisfiable_clause_left (set: fset atomicformula)
-  = forall f. (eval_setconjunction set f) <> top
-  
-  predicate is_satisfiable_clause_right (p: rightside)
-  = exists f. (eval_rightside (assign_rightside p f)) = top
+ 
   
   (* (PROVED) SATISFIABILITY LEMMAS *)
 
   lemma if_unsat_then_not_sat: forall p. is_unsatisfiable_rs p ->
                                   not is_satisfiable_rs p
+                                  
+  
+  predicate is_sat_clauselist (clauselist: list (fset atomicformula, rightside))
+  = exists f. eval_clauselist clauselist f = top
+  
+  predicate is_unsat_clauselist (clauselist: list (fset atomicformula, rightside))
+  = forall f. eval_clauselist clauselist f = bot
 
   constant val_all_top: i -> t = fun _ -> top
+  
+  constant val_all_bot: i -> t = fun _ -> bot
 
   lemma top_is_satisfiable: forall p. p = RProp top ->
                                         is_satisfiable_rs p
@@ -238,6 +236,40 @@ module Horn
 
   lemma if_satisf_then_not_bottom: forall p. is_satisfiable_rs p ->
                                                p <> RProp bot
+                                               
+                                               
+    let rec lemma all_set_without_bot_eval_set (c: fset atomicformula)
+   requires{ not mem ABot c }
+   ensures { (eval_setconjunction c val_all_top = top) }
+   variant{ cardinal c }
+  = if (FS.is_empty c) then
+      ()
+    else
+      let o = pick c in
+        all_set_without_bot_eval_set (FS.remove o c)
+  
+  
+  let rec lemma bot_not_in_set_then_sat_set (c: fset atomicformula)
+   requires{ not mem ABot c }
+   ensures { is_satisfiable_set c }
+   variant{ cardinal c }
+  = if (FS.is_empty c) then
+      ()
+    else
+      let o = pick c in
+        bot_not_in_set_then_sat_set (FS.remove o c)
+  
+  type x
+        
+  goal p_implies_bot_sat:
+      forall x. is_satisfiable_clause ((singleton (AVar x), RProp bot))
+      
+  goal p_implies_bot_sat1:
+      forall x. is_satisfiable_clauselist (Cons ((singleton ATop),RVar x) (Cons ((singleton (AVar x), RProp bot)) Nil))
+
+  goal p_implies_bot_sat2:
+      forall x. is_sat_clauselist (Cons ((singleton ATop),RVar x) (Cons ((singleton (AVar x), RProp bot)) Nil))
+
 
   (*
 
@@ -493,7 +525,7 @@ module Horn
     forall cl c.
       match findOneSubset cl c with
         | None -> forall s p. (ListMem.mem (s,p) cl -> not subset s c)
-        | Some (s,p) -> ListMem.mem (s,p) cl /\ subset s c
+        | Some (s,p) -> ListMem.mem (s,p) cl /\ subset s c 
       end
       
   axiom findOneSubset_exists:
@@ -523,7 +555,8 @@ module Horn
       
   lemma findOneSubset_notsubset:
     forall cl c.
-      (forall s1 p1. (ListMem.mem (s1,p1) cl -> not subset s1 c)) -> findOneSubset cl c = None
+      (forall s1 p1. (ListMem.mem (s1,p1) cl -> not subset s1 c)) -> 
+        findOneSubset cl c = None
           
   goal G: false
   
@@ -578,6 +611,7 @@ module Horn
                               (c: fset atomicformula) : fset atomicformula
     requires{ mem ATop c }
     requires{ not mem ABot c }
+    requires{ is_satisfiable_set c }
     ensures { subset c result }
     ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }
     variant { length clauselist }
@@ -585,7 +619,8 @@ module Horn
     | Nil -> c
     | Cons _ _ -> match findOneSubset clauselist c with
                   | None -> c
-                  | Some (s,p) -> if eq_pos (convertRStoAF p) ABot then
+                  | Some (s,p) -> assert {is_satisfiable_set s};
+                                  if eq_pos (convertRStoAF p) ABot then
                                     (FS.add ABot c)
                                   else
                                     algorithmA_spec (removeFromList (s,p) clauselist) (FS.add (convertRStoAF p) c)
@@ -1114,27 +1149,6 @@ module Horn
       
   (* START OF HERBRAND LEMMAS *)
   
-  let rec lemma all_set_without_bot_eval_set (c: fset atomicformula)
-   requires{ not mem ABot c }
-   ensures { (eval_setconjunction c val_all_top = top) }
-   variant{ cardinal c }
-  = if (FS.is_empty c) then
-      ()
-    else
-      let o = pick c in
-        all_set_without_bot_eval_set (FS.remove o c)
-  
-  
-  let rec lemma bot_not_in_set_then_sat_set (c: fset atomicformula)
-   requires{ not mem ABot c }
-   ensures { is_satisfiable_set c }
-   variant{ cardinal c }
-  = if (FS.is_empty c) then
-      ()
-    else
-      let o = pick c in
-        bot_not_in_set_then_sat_set (FS.remove o c)
-  
   lemma diff_is_sat_p:
     forall clauselist c. is_satisfiable_clauselist clauselist -> 
       (let result = algorithmA_spec clauselist c in
@@ -1145,14 +1159,14 @@ module Horn
     clause = (singleton ATop, p) /\ is_satisfiable_clause clause -> is_satisfiable_rs p
     
   lemma herbrand_model_case2: forall clause p setc.
-    clause = (setc, p) /\ is_satisfiable_clause clause /\ p = RProp bot -> is_unsatisfiable_set setc
+    clause = (setc, p) /\ is_satisfiable_clause clause /\ p = RProp bot -> exists f. eval_setconjunction setc f = bot
                
   lemma herbrand_model_case3: forall clause p setc.
-    clause = (setc, p) /\ is_satisfiable_clause clause /\ is_unsatisfiable_rs p -> is_unsatisfiable_set setc
+    clause = (setc, p) /\ is_satisfiable_clause clause /\ is_unsatisfiable_rs p -> exists f. eval_setconjunction setc f = bot
   
-  lemma herbrand_model_case4: forall clause p setc.
+  (*lemma herbrand_model_case4: forall clause p setc.
     clause = (setc, p) /\ is_satisfiable_clause clause /\ is_satisfiable_set setc -> is_satisfiable_rs p
-  
+  *)
   lemma if_sat_clauselist_sat_clause: forall clauselist clause.
     is_satisfiable_clauselist clauselist /\ ListMem.mem clause clauselist -> is_satisfiable_clause clause
        
@@ -1175,18 +1189,30 @@ module Horn
                               else
                                 variable_in_clauselist_program variable cl
         end
-        
    
-  (* FINDFIRST (PROGRAM) *)
+  (*lemma is_sat_clause_sat_rs:
+    forall set p.
+      is_satisfiable_clause (set,p) -> is_satisfiable_set set -> is_satisfiable_rs p  
+   *)
+   
+  lemma sat_clause:
+    forall s p.
+      is_satisfiable_clause (s,p) -> is_satisfiable_set s -> is_satisfiable_rs p
 
- 
-
-  (* ALGORITHMA (PROGRAM) *)
-  
-  
-
-  (* HORN (PROGRAM) *)
-
+      
+  lemma is_sat_set:
+    forall clauselist c.
+      is_satisfiable_set c -> 
+      match findOneSubset clauselist c with
+        | None -> true
+        | Some (s,p) -> if is_unsatisfiable_clause (s,p) then
+                          is_unsatisfiable_rs p
+                        else
+                          is_satisfiable_rs p
+      end
+      
+      
+      
   
     
   (* PROOF OF HORN ALGORITHM *)  
@@ -1392,6 +1418,7 @@ module Horn
     requires { not_empty_setc_clauselist clauselist }
     requires { not mem ABot c }
     requires { mem ATop c }
+    requires { is_satisfiable_set c }
     ensures { not mem ABot (algorithmA_spec clauselist c) }
     variant { length clauselist }
   = match clauselist with
@@ -1439,6 +1466,12 @@ module Horn
       is_unsatisfiable_clause (x,p) -> rs_eq_pos p (RProp bot)
       
   
+  (*lemma is_sat_set_then_subset:
+    forall x p cl c.
+      is_satisfiable_set x /\ ListMem.mem (x,p) cl /\ mem ATop c /\ not mem ABot c -> 
+        subset x (algorithmA_spec cl c)  
+      
+  
   lemma is_unsat_then_subset_singletonATop:
     forall x p cl.
       is_unsatisfiable_clause (x,p) /\ ListMem.mem (x,p) cl -> 
@@ -1447,20 +1480,26 @@ module Horn
   lemma is_unsat_then_subset:
     forall x p cl c.
       is_unsatisfiable_clause (x,p) /\ ListMem.mem (x,p) cl /\ mem ATop c /\ not mem ABot c -> 
-        subset x (algorithmA_spec cl c)
+        subset x (algorithmA_spec cl c)*)
         
   lemma unsat_clauselist_then_exists_one_clause_unsat:
     forall clauselist. 
       is_unsatisfiable_clauselist clauselist <->
         exists x p. is_unsatisfiable_clause (x,p) /\ ListMem.mem (x,p) clauselist
-        
-    
+                    
+                    
+  (* END OF CASE 2 *)
+  
+  (* START OF INDUCTION CASE *)     
+                      
+  
   let rec lemma unsat_induction_general (clauselist: list (fset atomicformula, rightside)) (c: fset atomicformula)
     requires { clauselist <> Nil }
     requires { is_unsatisfiable_clauselist clauselist }
     requires { not_empty_setc_clauselist clauselist }
     requires { not mem ABot c }
     requires { mem ATop c }
+    requires { is_satisfiable_set c }
     ensures { mem ABot (algorithmA_spec clauselist c) }
     variant { length clauselist }
   = match clauselist with
@@ -1506,6 +1545,11 @@ module Horn
   
   goal GG: ((a /\ b) -> c) <-> (((not c) /\ b) -> (not a))
   
+  
+  lemma not_unsat_set_sat_set:
+    forall set.
+       not is_unsatisfiable_set set <-> (exists f:i -> t. eval_setconjunction set f = top)
+        
   lemma not_unsat_clause_sat_clause:
      forall clause.
       (not is_unsatisfiable_clause clause) <-> is_satisfiable_clause clause
@@ -1568,6 +1612,7 @@ module Horn
                               (c: set) : set
     requires{ mem ATop c }
     requires{ not mem ABot c }
+    requires{ is_satisfiable_set c }
     ensures { subset c result }
     ensures { to_fset result = algorithmA_spec (listset_to_listfset clauselist) (to_fset c) }
     (*ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }*)

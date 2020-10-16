@@ -1,0 +1,32 @@
+not (exists f1:i1 -> t1.
+        eval_setconjunction set f1 = top1 /\
+        eval_rightside (assign_rightside p f1) = top1) 
+
+
+assert ((not (exists f1:i1 -> t1.
+        eval_setconjunction set f1 = top1 /\
+        eval_rightside (assign_rightside p f1) = top1)) -> (forall f1:i1 -> t1. (not eval_setconjunction set f1 = top1 \/
+        not eval_rightside (assign_rightside p f1))))
+
+
+
+A -> B
+
+A -- B -- A -> B
+
+T -- T -- T
+T -- F -- F
+F -- T -- T
+F -- F -- T
+
+
+
+
+
+Satisfazivel?
+
+(T -> p /\ p -> bot) 
+
+
+is_sat_clause (T -> p) /\ is_sat_clause (p -> bot)
+
