@@ -14,6 +14,14 @@ module TypeForm
     end
 end
 
+module SetAppAF
+
+  use TypeForm
+
+  clone export set.SetApp with type elt = atomicformula
+  
+end
+
 
 module Converts
 
@@ -89,7 +97,7 @@ module Converts
 
 end
 
-module Horn
+module Eval
 
   use TypeForm
 
@@ -101,7 +109,6 @@ module Horn
   use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
   use Converts
   use import set.Fset as FS
-  clone set.SetApp with type elt = atomicformula
   
   (* EVALS*)
   
@@ -130,13 +137,13 @@ module Horn
     
   (* (PROVED) EVAL COMMUTES WITH ADD *)
 
-  let rec lemma eval_commutes_add (s: set) (x: atomicformula) (f: i -> t)
+  let rec lemma eval_commutes_add (s: fset atomicformula) (x: atomicformula) (f: i -> t)
     variant { cardinal (add x s) }
     ensures { eval_setconjunction (add x s) f = eval_atomicformula x f /*\ eval_setconjunction s f }
-  = if is_empty s then ()
-    else let y = choose (add x s) in
+  = if FS.is_empty s then ()
+    else let y = FS.pick (FS.add x s) in
       if eq_pos x y then ()
-      else let new_s = remove y (add x s) in
+      else let new_s = FS.remove y (FS.add x s) in
         eval_commutes_add new_s x f
         
         
@@ -166,79 +173,78 @@ module Horn
     SATISFIABILITY
   *)
   
-  
+end
 
-  predicate is_satisfiable_rs (phi: rightside)
-  = exists f. (eval_rightside (assign_rightside phi f)) = top
+module SAT
+  
+  use TypeForm
 
-  
-  
-  predicate is_satisfiable_af (phi: atomicformula)
-  = exists f. (eval_atomicformula phi f) = top
+  use import formula.ConjunctiveNormalForm as CNF
+  use import formula.Horn as HornFormula
+  use list.Mem as ListMem
+  use list.List, list.Append, list.Length, list.HdTl, list.Permut, list.NumOcc, list.Distinct
 
-  
-
-  predicate is_unsatisfiable_rs (phi: rightside)
-  = forall f. (eval_rightside (assign_rightside phi f)) <> top
-  
-  predicate is_satisfiable_set (set: fset atomicformula)
-  = exists f. (eval_setconjunction set f) = top
-  
- predicate is_unsatisfiable_set (set: fset atomicformula)
- = forall f. (eval_setconjunction set f) = bot
-  
-  predicate is_satisfiable_clause (clause: (fset atomicformula, rightside))
-  = match clause with
-    | setc, p -> 
-      exists f. (eval_setconjunction setc f = bot) || (((eval_setconjunction setc f) = top) /\ (eval_rightside (assign_rightside p f) = top))
-    end
-  
-  predicate is_satisfiable_clauselist (clauselist: list (fset atomicformula, rightside))
-  = match clauselist with
-    | Nil -> true
-    | Cons clause l -> is_satisfiable_clause clause /\ is_satisfiable_clauselist l
-    end
-    
-  predicate is_unsatisfiable_clause (clause: (fset atomicformula, rightside))
-  = match clause with
-    | setc, p -> forall f. ((eval_setconjunction setc f) = top) /\ (eval_rightside (assign_rightside p f) <> top)
-    end
-  
-  predicate is_unsatisfiable_clauselist (clauselist: list (fset atomicformula, rightside))
-  = match clauselist with
-    | Nil -> false
-    | Cons clause l -> is_unsatisfiable_clause clause || is_unsatisfiable_clauselist l
-    end
-  
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Converts
+  use import set.Fset as FS
+  use Eval
  
   
   (* (PROVED) SATISFIABILITY LEMMAS *)
-
-  lemma if_unsat_then_not_sat: forall p. is_unsatisfiable_rs p ->
-                                  not is_satisfiable_rs p
-                                  
   
-  predicate is_sat_clauselist (clauselist: list (fset atomicformula, rightside))
+  predicate is_satisfiable_rs (rs: rightside)
+  = exists f. eval_rightside (assign_rightside rs f) = top
+  
+  predicate is_unsatisfiable_rs (rs: rightside)
+  = forall f. eval_rightside (assign_rightside rs f) = bot
+  
+  lemma rs_unsat_then_not_sat: 
+    forall rs. is_unsatisfiable_rs rs ->
+      not is_satisfiable_rs rs
+  
+  predicate is_satisfiable_af (af: atomicformula)
+  = exists f. eval_atomicformula af f = top
+  
+  predicate is_unsatisfiable_af (af: atomicformula)
+  = forall f. eval_atomicformula af f = bot
+  
+  lemma af_unsat_then_not_sat: 
+    forall af. is_unsatisfiable_af af ->
+      not is_satisfiable_af af
+      
+  predicate is_satisfiable_set (set: fset atomicformula)
+  = exists f. eval_setconjunction set f = top
+  
+  predicate is_unsatisfiable_set (set: fset atomicformula)
+  = forall f. eval_setconjunction set f = bot
+  
+  lemma set_unsat_then_not_sat: 
+    forall set. is_unsatisfiable_set set ->
+      not is_satisfiable_set set
+  
+  predicate is_satisfiable_clause (clause: (fset atomicformula, rightside))
+  = exists f. eval_clause clause f = top
+  
+  predicate is_unsatisfiable_clause (clause: (fset atomicformula, rightside))
+  = forall f. eval_clause clause f = bot
+  
+  lemma clause_unsat_then_not_sat: 
+    forall clause. is_unsatisfiable_clause clause ->
+      not is_satisfiable_clause clause
+  
+  predicate is_satisfiable_clauselist (clauselist: list (fset atomicformula, rightside))
   = exists f. eval_clauselist clauselist f = top
   
-  predicate is_unsat_clauselist (clauselist: list (fset atomicformula, rightside))
+  predicate is_unsatisfiable_clauselist (clauselist: list (fset atomicformula, rightside))
   = forall f. eval_clauselist clauselist f = bot
-
-  constant val_all_top: i -> t = fun _ -> top
   
-  constant val_all_bot: i -> t = fun _ -> bot
-
-  lemma top_is_satisfiable: forall p. p = RProp top ->
-                                        is_satisfiable_rs p
-
-  lemma bot_is_unsatisfiable: forall p. p = RProp bot ->
-                                          is_unsatisfiable_rs p
-
-  lemma if_satisf_then_not_bottom: forall p. is_satisfiable_rs p ->
-                                               p <> RProp bot
+  lemma cl_unsat_then_not_sat: forall cl. is_unsatisfiable_clauselist cl ->
+                                  not is_satisfiable_clauselist cl
+    
+  constant val_all_top: fun x -> ( _:i -> top)
+                                      
                                                
-                                               
-    let rec lemma all_set_without_bot_eval_set (c: fset atomicformula)
+  let rec lemma all_set_without_bot_eval_set (c: fset atomicformula)
    requires{ not mem ABot c }
    ensures { (eval_setconjunction c val_all_top = top) }
    variant{ cardinal c }
@@ -251,7 +257,7 @@ module Horn
   
   let rec lemma bot_not_in_set_then_sat_set (c: fset atomicformula)
    requires{ not mem ABot c }
-   ensures { is_satisfiable_set c }
+   ensures { exists f. eval_setconjunction c f = top }
    variant{ cardinal c }
   = if (FS.is_empty c) then
       ()
@@ -259,17 +265,23 @@ module Horn
       let o = pick c in
         bot_not_in_set_then_sat_set (FS.remove o c)
   
-  type x
-        
-  goal p_implies_bot_sat:
-      forall x. is_satisfiable_clause ((singleton (AVar x), RProp bot))
-      
-  goal p_implies_bot_sat1:
-      forall x. is_satisfiable_clauselist (Cons ((singleton ATop),RVar x) (Cons ((singleton (AVar x), RProp bot)) Nil))
+end
 
-  goal p_implies_bot_sat2:
-      forall x. is_sat_clauselist (Cons ((singleton ATop),RVar x) (Cons ((singleton (AVar x), RProp bot)) Nil))
+module Hornify
 
+  use TypeForm
+
+  use import formula.ConjunctiveNormalForm as CNF
+  use import formula.Horn as HornFormula
+  use list.Mem as ListMem
+  use list.List, list.Append, list.Length, list.HdTl, list.Permut, list.NumOcc, list.Distinct
+
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Converts
+  use import set.Fset as FS
+  use SetAppAF
+  use Eval
+  use SAT
 
   (*
 
@@ -395,7 +407,22 @@ module Horn
       | HAnd e1 e2 -> (convertToList e1) ++ (convertToList e2)
     end
 
+end
 
+module Horn_Logic
+
+  use TypeForm
+  use Eval
+  use import formula.ConjunctiveNormalForm as CNF
+  use import formula.Horn as HornFormula
+  use list.Mem as ListMem
+  use list.List, list.Append, list.Length, list.HdTl, list.Permut, list.NumOcc, list.Distinct
+
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Converts
+  use import set.Fset as FS
+  use SAT
+  
   (*
 
     HORN ALGORITHM STARTS HERE
@@ -405,25 +432,7 @@ module Horn
   
   (* LIST(SET,RS) TO LIST(FSET ATOMICFORMULA,RS) *) 
 
-  function listset_to_listfset (clauselist: list (set, rightside))
-                          : list (fset atomicformula, rightside)
-  = match clauselist with
-      | Nil -> Nil
-      | Cons (setc, p) l -> Cons (to_fset setc, p) (listset_to_listfset l)
-    end
-    meta rewrite_def function listset_to_listfset
-    
-  lemma length_equal_listset_to_list_fset:
-    forall cl.
-      length cl = length (listset_to_listfset cl)
-    
-  function listfset_to_listset (clauselist: list (fset atomicformula, rightside))
-                          : list (set, rightside)
-  = match clauselist with
-      | Nil -> Nil
-      | Cons (setc, p) l -> Cons (mk (setc), p) (listfset_to_listset l)
-    end
-    meta rewrite_def function listfset_to_listset
+  
    
   (*lemma to_fset_same_elem:
     forall x1 x2.
@@ -439,13 +448,7 @@ module Horn
 *)
   (* NOTSUBSET: CHECKS IF A SPECIFIC SET IS NOT A SUBSET OF SOME CLAUSE *) 
 
-  predicate not_subset (clauselist: list (set,rightside))
-                                    (c: set)
-  = match clauselist with
-      | Nil -> true
-      | Cons (setc,_) l -> (not subset setc c) /\
-                              not_subset l c
-     end
+ 
      
   (* NOTSUBSET (LOGIC): CHECKS IF A SPECIFIC SET IS NOT A SUBSET OF SOME CLAUSE *) 
      
@@ -482,9 +485,7 @@ module Horn
     
   (* (PROVED) DISTRIBUTION OF LISTSET_TO_LISTFSET *) 
 
-  lemma listset_to_listfset_distr:
-    forall left right. listset_to_listfset (left ++ right) =
-      (listset_to_listfset left) ++ (listset_to_listfset right)
+  
       
   (* FIND FIRST SUBSET (LOGIC) *) 
   
@@ -561,17 +562,7 @@ module Horn
   goal G: false
   
   
-  val findOneSubset_prog (clauselist: list (set ,rightside)) 
-                         (c: set) 
-                         : option (set ,rightside)
-  ensures { match result with
-            | None -> match  findOneSubset (listset_to_listfset clauselist) c with
-                      | None -> true
-                      | Some _ -> false
-                      end
-            | Some (setc,p) -> Some (to_fset setc, p) = findOneSubset (listset_to_listfset clauselist) c
-            end
-          }   
+  
           
           
           
@@ -611,7 +602,6 @@ module Horn
                               (c: fset atomicformula) : fset atomicformula
     requires{ mem ATop c }
     requires{ not mem ABot c }
-    requires{ is_satisfiable_set c }
     ensures { subset c result }
     ensures { subset (diff result c) (add ATop (add ABot (set_smb_clauselist clauselist))) }
     variant { length clauselist }
@@ -619,8 +609,7 @@ module Horn
     | Nil -> c
     | Cons _ _ -> match findOneSubset clauselist c with
                   | None -> c
-                  | Some (s,p) -> assert {is_satisfiable_set s};
-                                  if eq_pos (convertRStoAF p) ABot then
+                  | Some (s,p) -> if eq_pos (convertRStoAF p) ABot then
                                     (FS.add ABot c)
                                   else
                                     algorithmA_spec (removeFromList (s,p) clauselist) (FS.add (convertRStoAF p) c)
@@ -720,15 +709,12 @@ module Horn
           
         
   lemma subset_of_satisfiable_set:
-    forall c d.
-      (is_satisfiable_set d /\ subset c d) -> is_satisfiable_set c
+    forall c d f.
+      ((eval_setconjunction d f = top) /\ subset c d) -> (eval_setconjunction c f = top)
       
   
   
-  lemma satisf_clauselist_all_mem_satisf:
-    forall clauselist.
-      is_satisfiable_clauselist clauselist -> 
-        (forall x. ListMem.mem x clauselist -> is_satisfiable_clause x)
+ 
       
       
   lemma sublist_is_satisfiable_clauselist:
@@ -1180,24 +1166,12 @@ module Horn
               
   (* END OF HERBRAND LEMMAS *) 
         
-  predicate variable_in_clauselist_program (variable: atomicformula) (clauselist: list (set,rightside))
-  = variable <> ABot /\ variable <> ATop ->
-      match clauselist with
-        | Nil -> false
-        | Cons (setc,p) cl -> if (((convertRStoAF p) = variable) || (mem variable setc)) then
-                                true
-                              else
-                                variable_in_clauselist_program variable cl
-        end
+
    
   (*lemma is_sat_clause_sat_rs:
     forall set p.
       is_satisfiable_clause (set,p) -> is_satisfiable_set set -> is_satisfiable_rs p  
    *)
-   
-  lemma sat_clause:
-    forall s p.
-      is_satisfiable_clause (s,p) -> is_satisfiable_set s -> is_satisfiable_rs p
 
       
   lemma is_sat_set:
@@ -1588,15 +1562,7 @@ module Horn
   goal G4: false
   
   
-  let rec removeFromList_prog (elem: (set, rightside)) (clauselist: list (set, rightside)) : list (set, rightside)
-    ensures { let (set,p) = elem in
-                listset_to_listfset result = (removeFromList ((to_fset set),p) (listset_to_listfset clauselist)) }
-    variant { length clauselist }
-  = match clauselist with
-    | Nil -> Nil
-    | Cons (s1,p1) l -> let (s2,p2) = elem in
-      if (s1 == s2 && rs_eq_pos p1 p2) then l else Cons (s1,p1) (removeFromList_prog elem l)
-    end
+  
     
   (*let lemma mem_fset_then_mem_set (elem: (set, rightside)) (clauselist: list (set ,rightside))
     requires { let (set,p) = elem in
@@ -1608,6 +1574,94 @@ module Horn
    goal G5: false
 
   
+    
+  
+  
+  goal G6: false
+      
+
+end
+
+module Horn
+
+  use TypeForm
+  use Eval
+  use import formula.ConjunctiveNormalForm as CNF
+  use import formula.Horn as HornFormula
+  use list.Mem as ListMem
+  use list.List, list.Append, list.Length, list.HdTl, list.Permut, list.NumOcc, list.Distinct
+
+  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
+  use Converts
+  use import set.Fset as FS
+  use SetAppAF
+  use Horn_Logic
+  use SAT
+
+  function listset_to_listfset (clauselist: list (set, rightside))
+                          : list (fset atomicformula, rightside)
+  = match clauselist with
+      | Nil -> Nil
+      | Cons (setc, p) l -> Cons (to_fset setc, p) (listset_to_listfset l)
+    end
+    meta rewrite_def function listset_to_listfset
+    
+  lemma length_equal_listset_to_list_fset:
+    forall cl.
+      length cl = length (listset_to_listfset cl)
+    
+  function listfset_to_listset (clauselist: list (fset atomicformula, rightside))
+                          : list (set, rightside)
+  = match clauselist with
+      | Nil -> Nil
+      | Cons (setc, p) l -> Cons (mk (setc), p) (listfset_to_listset l)
+    end
+    meta rewrite_def function listfset_to_listset
+    
+    
+  predicate not_subset (clauselist: list (set,rightside))
+                                    (c: set)
+  = match clauselist with
+      | Nil -> true
+      | Cons (setc,_) l -> (not subset setc c) /\
+                              not_subset l c
+     end 
+   
+
+  val findOneSubset_prog (clauselist: list (set ,rightside)) 
+                         (c: set) 
+                         : option (set ,rightside)
+  ensures { match result with
+            | None -> match  findOneSubset (listset_to_listfset clauselist) c with
+                      | None -> true
+                      | Some _ -> false
+                      end
+            | Some (setc,p) -> Some (to_fset setc, p) = findOneSubset (listset_to_listfset clauselist) c
+            end
+          }
+          
+  predicate variable_in_clauselist_program (variable: atomicformula) (clauselist: list (set,rightside))
+  = variable <> ABot /\ variable <> ATop ->
+      match clauselist with
+        | Nil -> false
+        | Cons (setc,p) cl -> if (((convertRStoAF p) = variable) || (mem variable setc)) then
+                                true
+                              else
+                                variable_in_clauselist_program variable cl
+        end
+        
+        
+  let rec removeFromList_prog (elem: (set, rightside)) (clauselist: list (set, rightside)) : list (set, rightside)
+    ensures { let (set,p) = elem in
+                listset_to_listfset result = (removeFromList ((to_fset set),p) (listset_to_listfset clauselist)) }
+    variant { length clauselist }
+  = match clauselist with
+    | Nil -> Nil
+    | Cons (s1,p1) l -> let (s2,p2) = elem in
+      if (s1 == s2 && rs_eq_pos p1 p2) then l else Cons (s1,p1) (removeFromList_prog elem l)
+    end
+  
+    
   let rec algorithmA (clauselist: list (set ,rightside))
                               (c: set) : set
     requires{ mem ATop c }
@@ -1627,14 +1681,13 @@ module Horn
                                       algorithmA (removeFromList_prog (s,p) clauselist) (add (convertRStoAF p) c)
                    end
     end
-    
+  
+  
+  
   let horn (clauselist: list (set ,rightside)) : bool
     requires { not_empty_setc_clauselist (listset_to_listfset clauselist) }
     ensures { result = horn_logic (listset_to_listfset clauselist) }
   = not (mem ABot (algorithmA clauselist (singleton ATop)))
   
-  
-  goal G6: false
-      
-
+          
 end
