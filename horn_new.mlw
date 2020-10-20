@@ -1359,8 +1359,13 @@ module Horn_Logic
   *)
   
   lemma sat_clause_sat_set_then_sat_rs:
-    forall s,p.
-      is_satisfiable_clause (s,p) -> is_satisfiable_set s -> (p <> RProp bot)
+    forall cl c.
+      is_satisfiable_clauselist cl ->
+        mem ATop c /\ not mem ABot c ->
+          match findOneSubset cl c with
+            | None -> true
+            | Some (s,p) -> (p <> RProp bot)
+          end
   
   lemma case2_conjunction_imples_p: forall clauselist setc p c.
     let clause = (setc,p) in
@@ -1463,19 +1468,19 @@ module Horn_Logic
                     
   (* END OF CASE 2 *)
   
-  (* START OF INDUCTION CASE *) 
+  (* START OF INDUCTION CASE *)
   
-  lemma subset1:
+  lemma tautology_then_subset_s:
     forall cl c s p.
-      is_satisfiable_set s -> ListMem.mem (s,p) cl ->
+      (forall f. eval_setconjunction s f = top) -> ListMem.mem (s,p) cl ->
         mem ATop c /\ not mem ABot c ->
-          subset s (algorithmA_spec cl c)         
-   
-  lemma subset:
+          subset s (algorithmA_spec cl c)
+          
+  lemma unsat_clause_then_subset_s:
     forall cl c s p.
       is_unsatisfiable_clause (s,p) -> ListMem.mem (s,p) cl ->
         mem ATop c /\ not mem ABot c ->
-          subset s (algorithmA_spec cl c)          
+          subset s (algorithmA_spec cl c)         
   
   let rec lemma unsat_induction_general (clauselist: list (fset atomicformula, rightside)) (c: fset atomicformula)
     requires { clauselist <> Nil }
