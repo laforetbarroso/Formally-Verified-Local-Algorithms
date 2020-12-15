@@ -113,8 +113,7 @@ lemma ifnottop_thenbot: forall t. t <> top -> t = bot
 
 lemma ifnotbot_thentop: forall t. t <> bot -> t = top
 
-
-
+lemma modus_ponens: forall t p. ((t ->* p) = top) -> t = top -> p = top
 
 
 end

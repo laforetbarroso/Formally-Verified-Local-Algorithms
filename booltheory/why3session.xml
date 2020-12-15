@@ -1,91 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
 "http://why3.lri.fr/why3session.dtd">
-<why3session shape_version="8">
+<why3session shape_version="6">
 <prover id="0" name="Alt-Ergo" version="2.2.0" timelimit="1" steplimit="0" memlimit="1000"/>
 <prover id="1" name="CVC4" version="1.6" timelimit="1" steplimit="0" memlimit="1000"/>
 <prover id="2" name="Z3" version="4.8.4" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="3" name="Z3" version="4.8.6" alternative="noBV" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="4" name="Alt-Ergo" version="2.3.1" timelimit="1" steplimit="0" memlimit="1000"/>
 <file format="whyml" proved="true">
 <path name=".."/><path name="booltheory.mlw"/>
 <theory name="BoolImplementation" proved="true">
  <goal name="or_elem_abso" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="195"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="203"/></proof>
  </goal>
  <goal name="and_elem_abso" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="286"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="294"/></proof>
  </goal>
  <goal name="repr_of_top" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="311"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="319"/></proof>
  </goal>
  <goal name="implEquiv" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="355"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="363"/></proof>
  </goal>
  <goal name="and_neutral_elem" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="479"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="491"/></proof>
  </goal>
  <goal name="or_neutral_elem" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="560"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="572"/></proof>
  </goal>
  <goal name="and_assoc" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="939"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="935"/></proof>
  </goal>
  <goal name="or_assoc" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="1089"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="1113"/></proof>
  </goal>
  <goal name="and_comm" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="1165"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="1178"/></proof>
  </goal>
  <goal name="or_comm" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="1278"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="1291"/></proof>
  </goal>
  <goal name="and_distr" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="1584"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="1571"/></proof>
  </goal>
  <goal name="or_distr" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="1801"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="1806"/></proof>
  </goal>
  <goal name="compl_bot" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="1648"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="1656"/></proof>
  </goal>
  <goal name="compl_top" proved="true">
- <proof prover="0"><result status="valid" time="0.00" steps="96"/></proof>
- <proof prover="1"><result status="unknown" time="0.01" steps="2006"/></proof>
+ <proof prover="1" obsolete="true"><result status="unknown" time="0.01" steps="2006"/></proof>
+ <proof prover="4"><result status="valid" time="0.00" steps="99"/></proof>
  </goal>
  <goal name="doubleneg" proved="true">
- <proof prover="0"><result status="valid" time="0.00" steps="32"/></proof>
- <proof prover="1"><result status="unknown" time="0.01" steps="2135"/></proof>
- <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="7668"/></proof>
+ <proof prover="1" obsolete="true"><result status="unknown" time="0.01" steps="2135"/></proof>
+ <proof prover="3"><result status="valid" time="0.02"/></proof>
+ <proof prover="4"><result status="valid" time="0.00" steps="34"/></proof>
  </goal>
  <goal name="deMorgan_or" proved="true">
- <proof prover="0" obsolete="true"><result status="valid" time="0.00" steps="28"/></proof>
- <proof prover="1"><result status="valid" time="0.01" steps="2435"/></proof>
- <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="4370"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="2445"/></proof>
+ <proof prover="3"><result status="valid" time="0.76"/></proof>
+ <proof prover="4"><result status="valid" time="0.00" steps="68"/></proof>
  </goal>
  <goal name="deMorgan_and" proved="true">
- <proof prover="0" obsolete="true"><result status="valid" time="0.00" steps="36"/></proof>
- <proof prover="1"><result status="valid" time="0.01" steps="2637"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="2645"/></proof>
  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="374224"/></proof>
+ <proof prover="4"><result status="valid" time="0.00" steps="68"/></proof>
  </goal>
  <goal name="ifnottop_thenbot" proved="true">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <proof prover="1" obsolete="true"><result status="unknown" time="0.01"/></proof>
- <proof prover="2" obsolete="true"><result status="valid" time="0.02"/></proof>
+ <proof prover="3"><result status="valid" time="0.02"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="ifnottop_thenbot.0" proved="true">
-  <proof prover="0"><result status="timeout" time="1.00"/></proof>
-  <proof prover="1"><result status="unknown" time="0.01" steps="2525"/></proof>
-  <proof prover="2"><result status="valid" time="0.03" steps="20097"/></proof>
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="0.01" steps="2525"/></proof>
+  <proof prover="3"><result status="valid" time="0.03"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="ifnotbot_thentop" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="2590"/></proof>
+ <proof prover="1"><result status="valid" time="0.01" steps="2600"/></proof>
  </goal>
- <goal name="negbot_top" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="2655"/></proof>
- </goal>
- <goal name="negtop_bot" proved="true">
- <proof prover="1"><result status="valid" time="0.01" steps="2432"/></proof>
+ <goal name="modus_ponens" proved="true">
+ <proof prover="1"><result status="valid" time="0.02" steps="2872"/></proof>
  </goal>
 </theory>
 </file>

@@ -65,6 +65,7 @@ module PropositionalFormulaSet
 
   use import BoolSet as BoolSet
 
+
   clone export booltheory.Bool with
     type t = t, constant top = top, constant bot = bot,
     function (/*\) = (/*\), function (\*/) = (\*/), function neg = neg,
