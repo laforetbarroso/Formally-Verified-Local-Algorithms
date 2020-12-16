@@ -12,77 +12,77 @@
  <goal name="convertLiteralToR&#39;vc" expl="VC for convertLiteralToR" proved="true">
  <transf name="split_vc" proved="true" >
   <goal name="convertLiteralToR&#39;vc.0" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="22695"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="16765221"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="140"/></proof>
-  </goal>
-  <goal name="convertLiteralToR&#39;vc.1" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.09" steps="23611"/></proof>
+  <proof prover="0"><result status="valid" time="0.09" steps="22834"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="15856796"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.05" steps="136"/></proof>
+  </goal>
+  <goal name="convertLiteralToR&#39;vc.1" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.05" steps="23750"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="16765221"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="140"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="addLiterals&#39;vc" expl="VC for addLiterals" proved="true">
  <transf name="split_vc" proved="true" >
   <goal name="addLiterals&#39;vc.0" expl="postcondition" proved="true">
-  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="150489"/></proof>
-  <proof prover="1" timelimit="1" obsolete="true"><result status="timeout" time="1.00" steps="660615"/></proof>
-  <proof prover="2" timelimit="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
-  <transf name="split_vc" proved="true" >
-   <goal name="addLiterals&#39;vc.0.0" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.17" steps="24066"/></proof>
-   <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="741109"/></proof>
-   <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-   </goal>
-   <goal name="addLiterals&#39;vc.0.1" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.09" steps="24081"/></proof>
-   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="77972"/></proof>
-   <proof prover="2" obsolete="true"><result status="valid" time="0.19" steps="664"/></proof>
-   </goal>
-   <goal name="addLiterals&#39;vc.0.2" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.14" steps="24066"/></proof>
-   <proof prover="1" obsolete="true"><result status="valid" time="0.05" steps="109082"/></proof>
-   <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-   </goal>
-   <goal name="addLiterals&#39;vc.0.3" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.10" steps="24033"/></proof>
-   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="77894"/></proof>
-   <proof prover="2" obsolete="true"><result status="valid" time="0.10" steps="131"/></proof>
-   </goal>
-  </transf>
-  </goal>
-  <goal name="addLiterals&#39;vc.1" expl="postcondition" proved="true">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="187654"/></proof>
   <proof prover="1" timelimit="1" obsolete="true"><result status="timeout" time="1.00" steps="2304861"/></proof>
   <proof prover="2" timelimit="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" proved="true" >
-   <goal name="addLiterals&#39;vc.1.0" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.11" steps="23627"/></proof>
-   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80778"/></proof>
-   <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="227"/></proof>
+   <goal name="addLiterals&#39;vc.0.0" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.12" steps="24205"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80647"/></proof>
+   <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="209"/></proof>
    </goal>
-   <goal name="addLiterals&#39;vc.1.1" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.11" steps="26939"/></proof>
-   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80705"/></proof>
-   <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="218"/></proof>
-   </goal>
-   <goal name="addLiterals&#39;vc.1.2" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.11" steps="23630"/></proof>
+   <goal name="addLiterals&#39;vc.0.1" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.11" steps="24220"/></proof>
    <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80720"/></proof>
    <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="218"/></proof>
    </goal>
+   <goal name="addLiterals&#39;vc.0.2" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.11" steps="24205"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80705"/></proof>
+   <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="218"/></proof>
+   </goal>
+   <goal name="addLiterals&#39;vc.0.3" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.11" steps="24172"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80778"/></proof>
+   <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="227"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="addLiterals&#39;vc.1" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="150489"/></proof>
+  <proof prover="1" timelimit="1" obsolete="true"><result status="timeout" time="1.00" steps="660615"/></proof>
+  <proof prover="2" timelimit="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <transf name="split_vc" proved="true" >
+   <goal name="addLiterals&#39;vc.1.0" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.10" steps="23766"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="77894"/></proof>
+   <proof prover="2" obsolete="true"><result status="valid" time="0.10" steps="131"/></proof>
+   </goal>
+   <goal name="addLiterals&#39;vc.1.1" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.14" steps="27078"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.05" steps="109082"/></proof>
+   <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
+   </goal>
+   <goal name="addLiterals&#39;vc.1.2" expl="postcondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.09" steps="23769"/></proof>
+   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="77972"/></proof>
+   <proof prover="2" obsolete="true"><result status="valid" time="0.19" steps="664"/></proof>
+   </goal>
    <goal name="addLiterals&#39;vc.1.3" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.12" steps="30709"/></proof>
-   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80647"/></proof>
-   <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="209"/></proof>
+   <proof prover="0"><result status="valid" time="0.17" steps="30850"/></proof>
+   <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="741109"/></proof>
+   <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
    </goal>
   </transf>
   </goal>
  </transf>
  </goal>
  <goal name="processCombination&#39;vc" expl="VC for processCombination" proved="true">
- <proof prover="0"><result status="valid" time="0.09" steps="20500"/></proof>
+ <proof prover="0"><result status="valid" time="0.09" steps="20615"/></proof>
  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4032"/></proof>
  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="8"/></proof>
  </goal>
@@ -92,292 +92,293 @@
  <proof prover="2" timelimit="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="hornify_aux&#39;vc.0" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="20716"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4130"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
+  <proof prover="0"><result status="valid" time="0.14" steps="20831"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="84223"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
   <goal name="hornify_aux&#39;vc.1" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="27873"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="10219002"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.2" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.24" steps="24299"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="99983"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.13" steps="223"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.3" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="23496"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="78951"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="67"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.4" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="20464"/></proof>
+  <proof prover="0"><result status="valid" time="0.18" steps="28012"/></proof>
   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4102"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.5" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="20788"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79669"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="83"/></proof>
+  <goal name="hornify_aux&#39;vc.2" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.13" steps="24439"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80208"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="93"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.6" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.25" steps="30936"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="3.85" steps="450696"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.7" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.11" steps="24438"/></proof>
+  <goal name="hornify_aux&#39;vc.3" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.11" steps="23635"/></proof>
   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="81220"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="191"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.8" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.09" steps="20716"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="75149"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="16"/></proof>
+  <goal name="hornify_aux&#39;vc.4" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.08" steps="20579"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="99983"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.13" steps="223"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.9" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.11" steps="27083"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="86674"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="222"/></proof>
+  <goal name="hornify_aux&#39;vc.5" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.11" steps="20903"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="82861"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.05" steps="291"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.10" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="24299"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="4128"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.11" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.10" steps="24790"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79004"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="106"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.12" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.28" steps="43889"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="79269"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="85"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.13" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="25582"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="2.04" steps="13979963"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.14" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="24236"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="2.22" steps="15178755"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.15" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="20517"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="78951"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="67"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.16" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.11" steps="20826"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="93151"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="211"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.17" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.24" steps="40783"/></proof>
+  <goal name="hornify_aux&#39;vc.6" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.12" steps="31077"/></proof>
   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79069"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="75"/></proof>
   </goal>
+  <goal name="hornify_aux&#39;vc.7" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.09" steps="24578"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="74370"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="14"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.8" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.12" steps="20831"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="78951"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="67"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.9" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.12" steps="27222"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="78951"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="67"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.10" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.12" steps="24439"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="86675"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="222"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.11" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.18" steps="24929"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="2.17" steps="404588"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.12" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.38" steps="44030"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="2.22" steps="15178755"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.13" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.11" steps="25722"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="79649"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="190"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.14" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.12" steps="24375"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79669"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="83"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.15" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.05" steps="20632"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="4128"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.16" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.06" steps="20941"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4102"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.17" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.31" steps="40924"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="2.04" steps="13979963"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
+  </goal>
   <goal name="hornify_aux&#39;vc.18" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="25132"/></proof>
+  <proof prover="0"><result status="valid" time="0.05" steps="25272"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="10780759"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
   </goal>
   <goal name="hornify_aux&#39;vc.19" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.16" steps="23496"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="84223"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.20" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="20464"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79069"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="75"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.21" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="20788"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="1352890"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.22" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.19" steps="31498"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="23635"/></proof>
   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4128"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.23" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="24438"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79269"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="85"/></proof>
+  <goal name="hornify_aux&#39;vc.20" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.05" steps="20579"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="10219002"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.24" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.11" steps="24236"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="81221"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="191"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.25" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.14" steps="20517"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="84223"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.26" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.09" steps="20826"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="74370"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="14"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.27" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.19" steps="40946"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="2.52" steps="404588"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.28" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="25132"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="86675"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="222"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.29" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="23474"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4126"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
-  </goal>
-  <goal name="hornify_aux&#39;vc.30" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.08" steps="22295"/></proof>
+  <goal name="hornify_aux&#39;vc.21" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.08" steps="20903"/></proof>
   <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="100805"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.33" steps="1116"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.31" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.06" steps="23788"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4102"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
+  <goal name="hornify_aux&#39;vc.22" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.16" steps="31639"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="84223"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.32" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.11" steps="22424"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="82861"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.05" steps="291"/></proof>
+  <goal name="hornify_aux&#39;vc.23" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.11" steps="24578"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="93151"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="211"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.33" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.11" steps="20844"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="79649"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="190"/></proof>
+  <goal name="hornify_aux&#39;vc.24" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.12" steps="24375"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79269"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="85"/></proof>
   </goal>
-  <goal name="hornify_aux&#39;vc.34" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.25" steps="43192"/></proof>
+  <goal name="hornify_aux&#39;vc.25" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.11" steps="20632"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="86674"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="222"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.26" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.05" steps="20941"/></proof>
   <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4126"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
   </goal>
+  <goal name="hornify_aux&#39;vc.27" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.28" steps="41087"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="79269"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="85"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.28" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.25" steps="25272"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4126"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.29" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.05" steps="23613"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="1352890"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.30" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.11" steps="22434"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79069"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="75"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.31" expl="variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.25" steps="23927"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="3.85" steps="450696"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.32" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.09" steps="22563"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="75149"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="16"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.33" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.11" steps="20959"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="81221"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="191"/></proof>
+  </goal>
+  <goal name="hornify_aux&#39;vc.34" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.33" steps="43333"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="79004"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="106"/></proof>
+  </goal>
   <goal name="hornify_aux&#39;vc.35" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.13" steps="24667"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="80208"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="93"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="24807"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="2.52" steps="404588"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
   <goal name="hornify_aux&#39;vc.36" expl="unreachable point" proved="true">
-  <proof prover="0"><result status="valid" time="0.18" steps="23036"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="2.17" steps="404588"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
+  <proof prover="0"><result status="valid" time="0.05" steps="23175"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4130"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="conjunction&#39;vc" expl="VC for conjunction" proved="true">
  <transf name="split_vc" proved="true" >
   <goal name="conjunction&#39;vc.0" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="20582"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="81449"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="22"/></proof>
+  <transf name="split_vc" proved="true" >
+   <goal name="conjunction&#39;vc.0.0" expl="precondition" proved="true">
+   <proof prover="0"><result status="valid" time="0.10" steps="20697"/></proof>
+   <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="664724"/></proof>
+   <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="41"/></proof>
+   </goal>
+  </transf>
   </goal>
   <goal name="conjunction&#39;vc.1" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.05" steps="20586"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4072"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="14"/></proof>
+  <proof prover="0"><result status="valid" time="0.10" steps="20701"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="77073"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="22"/></proof>
   </goal>
   <goal name="conjunction&#39;vc.2" expl="variant decrease" proved="true">
-  <proof prover="0"><result status="valid" time="0.06" steps="25605"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4070"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="14"/></proof>
+  <proof prover="0"><result status="valid" time="0.25" steps="25744"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4060"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="10"/></proof>
   </goal>
   <goal name="conjunction&#39;vc.3" expl="precondition" proved="true">
   <transf name="split_vc" proved="true" >
    <goal name="conjunction&#39;vc.3.0" expl="precondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.21" steps="22845"/></proof>
+   <proof prover="0"><result status="valid" time="0.21" steps="22984"/></proof>
    <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="86841"/></proof>
    <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="78"/></proof>
    </goal>
    <goal name="conjunction&#39;vc.4.0" expl="postcondition">
-   <proof prover="0"><undone/></proof>
+   <proof prover="0"><result status="failure" time="0.00"/></proof>
    <proof prover="1" obsolete="true"><result status="valid" time="0.04" steps="84631"/></proof>
    <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="conjunction&#39;vc.4" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.25" steps="49147"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4060"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="10"/></proof>
+  <proof prover="0"><result status="valid" time="0.33" steps="49288"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="81449"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="22"/></proof>
   </goal>
   <goal name="conjunction&#39;vc.5" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.10" steps="20543"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="77073"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="22"/></proof>
+  <proof prover="0"><result status="valid" time="0.06" steps="20658"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4070"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="14"/></proof>
   </goal>
   <goal name="conjunction&#39;vc.6" expl="postcondition" proved="true">
-  <transf name="split_vc" proved="true" >
-   <goal name="conjunction&#39;vc.6.0" expl="postcondition" proved="true">
-   <proof prover="0"><result status="valid" time="0.10" steps="23450"/></proof>
-   <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="664724"/></proof>
-   <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="41"/></proof>
-   </goal>
-  </transf>
+  <proof prover="0"><result status="valid" time="0.05" steps="23589"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4072"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="14"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="getPositive&#39;vc" expl="VC for getPositive" proved="true">
- <proof prover="0"><result status="valid" time="0.09" steps="23469"/></proof>
+ <proof prover="0"><result status="valid" time="0.09" steps="23608"/></proof>
  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="27924364"/></proof>
  <proof prover="2" obsolete="true"><result status="valid" time="0.11" steps="460"/></proof>
  </goal>
  <goal name="getBasicHorn&#39;vc" expl="VC for getBasicHorn" proved="true">
  <transf name="split_vc" proved="true" >
   <goal name="getBasicHorn&#39;vc.0" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.16" steps="24612"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="16546349"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="3.11" steps="712"/></proof>
-  </goal>
-  <goal name="getBasicHorn&#39;vc.1" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.10" steps="23827"/></proof>
-  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4112"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
-  </goal>
-  <goal name="getBasicHorn&#39;vc.2" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.12" steps="24770"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="997833"/></proof>
-  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
-  </goal>
-  <goal name="getBasicHorn&#39;vc.3" expl="postcondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.11" steps="23837"/></proof>
+  <proof prover="0"><result status="valid" time="0.11" steps="24752"/></proof>
   <proof prover="1" obsolete="true"><result status="valid" time="0.03" steps="74450"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="14"/></proof>
   </goal>
-  <goal name="getBasicHorn&#39;vc.4" expl="precondition" proved="true">
-  <proof prover="0"><result status="timeout" time="1.00" steps="357049"/></proof>
-  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="16493667"/></proof>
-  <proof prover="2" obsolete="true"><result status="valid" time="0.86" steps="492"/></proof>
-  <proof prover="3"><result status="valid" time="0.01" steps="14"/></proof>
-  </goal>
-  <goal name="getBasicHorn&#39;vc.5" expl="precondition" proved="true">
-  <proof prover="0"><result status="valid" time="0.09" steps="20745"/></proof>
+  <goal name="getBasicHorn&#39;vc.1" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.09" steps="23966"/></proof>
   <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="15536813"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="0.83" steps="485"/></proof>
   </goal>
-  <goal name="getBasicHorn&#39;vc.6" expl="postcondition" proved="true">
-  <proof prover="0" timelimit="5"><result status="valid" time="1.25" steps="231003"/></proof>
-  <proof prover="1" timelimit="1"><result status="timeout" time="1.00" steps="557668"/></proof>
+  <goal name="getBasicHorn&#39;vc.2" expl="postcondition" proved="true">
+  <proof prover="0" timelimit="5"><result status="valid" time="0.16" steps="24910"/></proof>
+  <proof prover="1" timelimit="1" obsolete="true"><result status="timeout" time="1.00" steps="557668"/></proof>
   <proof prover="2" obsolete="true"><result status="valid" time="3.08" steps="2331"/></proof>
+  <proof prover="3" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  </goal>
+  <goal name="getBasicHorn&#39;vc.3" expl="postcondition" proved="true">
+  <proof prover="0" timelimit="5"><result status="valid" time="0.15" steps="23976"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="16493667"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.86" steps="492"/></proof>
   <proof prover="3"><result status="timeout" time="1.00"/></proof>
+  </goal>
+  <goal name="getBasicHorn&#39;vc.4" expl="precondition" proved="true">
+  <proof prover="0" timelimit="5"><result status="timeout" time="5.00" steps="1550956"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="16546349"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="3.11" steps="712"/></proof>
+  <proof prover="3" timelimit="5"><result status="valid" time="0.02" steps="14"/></proof>
+  </goal>
+  <goal name="getBasicHorn&#39;vc.5" expl="precondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.10" steps="20860"/></proof>
+  <proof prover="1" obsolete="true"><result status="valid" time="0.02" steps="4112"/></proof>
+  <proof prover="2" obsolete="true"><result status="valid" time="0.01" steps="16"/></proof>
+  </goal>
+  <goal name="getBasicHorn&#39;vc.6" expl="postcondition" proved="true">
+  <proof prover="0" timelimit="5"><result status="valid" time="1.63" steps="231093"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="997833"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="hornify&#39;vc" expl="VC for hornify" proved="true">
- <proof prover="0"><result status="valid" time="0.22" steps="31011"/></proof>
+ <proof prover="0"><result status="valid" time="0.22" steps="31154"/></proof>
  <proof prover="1" obsolete="true"><result status="timeout" time="5.00" steps="16287440"/></proof>
  <proof prover="2" obsolete="true"><result status="valid" time="1.20" steps="1556"/></proof>
  </goal>
