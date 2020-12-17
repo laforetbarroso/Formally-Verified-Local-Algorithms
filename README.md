@@ -132,7 +132,21 @@ It uses sets to identify the negative/positive literals of a specific formulae.
 
 Implementation and Verification of the Horn-satisfiability algorithm.
 
-Deciding whether a given set of propositional Horn clauses is satisfiable or not.
+Algorithm to decide whether a given set of propositional Horn clauses is satisfiable or not.
+
+**Modules:**
+
+* **TypeForm** - Type and valuation of atomic formulae.
+* **SetAppAF** - Sets of atomic formulae.
+* **Converts** - Functions that converts atomic formulae into pliterals (positive literals) or rightside (right side of Horn clauses implications). 
+* **Eval** - Valuation functions and their additional lemmas.
+* **SAT** - Satisfiability definition and its properties.
+* **ListPlus** - Additional lemmas and functions related to lists.
+* **RemoveFromList** - Function and corresponding lemmas to remove one element from a given list.
+* **FindOneSubset** - Function and corresponding lemmas to find one Horn clause from a given list of clauses where left side is subset of a given set.
+* **SetOfSymbols** - Function and lemmas to get an set containing all the symbols of a given Horn formulae (clauselist)
+* **Horn_Logic** - Definition of the algorithm and its correctness.
+* **Horn** - Applicative Horn algorithm.
 
 
 ## Authors

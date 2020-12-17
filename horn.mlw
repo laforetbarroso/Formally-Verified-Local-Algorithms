@@ -380,148 +380,7 @@ module SAT
 
 end
 
-module Hornify
 
-  use TypeForm
-
-  use import formula.ConjunctiveNormalForm as CNF
-  use import formula.Horn as HornFormula
-  use list.Mem as ListMem
-  use list.List, list.Append, list.Length, list.HdTl, list.Permut, list.NumOcc, list.Distinct
-
-  use booltheory.BoolImplementation, int.Int, setstheory.BoolSet, setstheory.PropositionalFormulaSet, option.Option
-  use Converts
-  use import set.Fset as FS
-  use SetAppAF
-  use Eval
-  use SAT
-
-  (*
-
-    CONVERTING DATA STRUCTURES
-
-  *)
-
-
-  (* (PROVED) LEMMAS *)
-
-  let rec lemma eval_union (s1: set) (s2: set) (f: i -> t)
-   variant { cardinal s1 + cardinal s2 }
-   ensures { eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f }
-  = match is_empty s1, is_empty s2 with
-    | True, True -> ()
-    | False, True -> ()
-    | True, False -> ()
-    | False, False -> let element = choose s1 in eval_union (remove element s1) s2 f;
-    assert { union s1 s2 == add element (union (remove element s1) s2) };
-    assert { eval_setconjunction s1 f = eval_atomicformula element f /*\ eval_setconjunction (remove element s1) f }
-   end
-
-  lemma union_eval_empty: forall s1 s2 f. s1 = empty /\ s2 = empty -> eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f
-
-  lemma union_eval_samesingleton: forall s1 s2 e f. s1 = singleton e /\ s2 = singleton e -> eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f
-
-  lemma union_eval_diffsingleton: forall s1 s2 e1 e2 f. e1 <> e2 /\ s1 = singleton e1 /\ s2 = singleton e2 -> eval_setconjunction (union s1 s2) f = eval_setconjunction s1 f /*\ eval_setconjunction s2 f
-
-  lemma add_then_mem_convertPLtoAF: forall x ns. ns = add (convertPLtoAF x) empty -> mem (convertPLtoAF x) ns
-
-
-  (* CONVERT FUNCTIONS *)
-  
-  (* NUMBER OF HBASIC CONSTRUCTORS *)
-
-  function numberOfHBasic (phi: hornclause) : int
-  = match phi with
-      | HBasic _ -> 1
-      | HAnd e1 e2 -> numberOfHBasic e1 + numberOfHBasic e2
-     end
-     
-  (* EXISTS X IN CONJ_PLITERAL? *)
-
-  predicate op_and (x: pliteral) (phi: conj_pliteral)
-  = match phi with
-    | CPL y -> y = x
-    | CPAnd w z -> op_and x w \/ op_and x z
-   end
-
-  (* CONVERT CONJ_PLITERAL IN SET *)
-
-  let rec function convertConjunctionToSet (phi: conj_pliteral) : set
-  = match phi with
-      | CPL pl -> singleton (convertPLtoAF pl)
-      | CPAnd c1 c2 -> union (convertConjunctionToSet c1) (convertConjunctionToSet c2)
-    end
-
-  (* (PROVED) Y EXISTS IN CONJ_PLITERAL -> Y IS IN CONVERT *)
-
-  let rec lemma convertConjunctionToSet_lemma (y: pliteral) (phi: conj_pliteral)
-    ensures { op_and y phi -> (mem (convertPLtoAF y) (convertConjunctionToSet phi)) }
-  = match phi with
-      | CPL _ -> ()
-      | CPAnd c1 c2 -> convertConjunctionToSet_lemma y c1; convertConjunctionToSet_lemma y c2
-     end
-     
-  (* (PROVED) Y IS IN CONVERT -> Y EXISTS IN CONJ_PLITERAL *)
-
-  let rec lemma convertConjunctionToSet_lemma1 (y: atomicformula) (phi: conj_pliteral)
-    ensures { mem y (convertConjunctionToSet phi) -> op_and (convertAFtoPL y) phi }
-  = match phi with
-      | CPL _ -> ()
-      | CPAnd c1 c2 -> convertConjunctionToSet_lemma1 y c1; convertConjunctionToSet_lemma1 y c2
-     end
-     
-  (* (PROVED) EVERY CONVERTCONJUNCTIONTOSET <> SINGLETON_ATOP *)
-     
-  let rec lemma convertConjunctionToSet_lemma_differs_singleton_atop (y: atomicformula) (phi: conj_pliteral)
-    ensures { (convertConjunctionToSet phi) <> singleton ATop }
-  = match phi with
-      | CPL _ -> ()
-      | CPAnd c1 c2 -> convertConjunctionToSet_lemma_differs_singleton_atop y c1; convertConjunctionToSet_lemma_differs_singleton_atop y c2
-     end
-     
-  (* (PROVED) EVERY CONVERTCONJUNCTIONTOSET -> NOT SUBSET SINGLETON_ATOP *)  
-   
-  let rec lemma convertConjunctionToSet_lemma_subset (y: atomicformula) (phi: conj_pliteral)
-    ensures { not subset (convertConjunctionToSet phi) (singleton ATop) }
-  = match phi with
-      | CPL _ -> ()
-      | CPAnd c1 c2 -> convertConjunctionToSet_lemma_subset y c1; convertConjunctionToSet_lemma_subset y c2
-     end
-     
-  (* (PROVED) EVAL SETCONJUNCTION OF CONVERT = EVAL_POSITIVE FORMULA *) 
-
-  let rec lemma eval_equivalent (phi: conj_pliteral) (f: i -> t)
-    variant { phi }
-    ensures { let s = convertConjunctionToSet phi in HornFormula.eval_positive phi f = eval_setconjunction s f }
-  = match phi with
-      | CPL _ -> ()
-      | CPAnd z w -> eval_equivalent z f; eval_equivalent w f
-     end
-
-  (* (PROVED) CONVERTTOSET FROM LEFTSIDE TO SET *) 
-
-  let rec function convertToSet (phi: leftside) : set
-    ensures{ phi = LTop -> result = singleton ATop }
-    ensures{ forall c. phi = LPos c -> result = convertConjunctionToSet c }
-  = match phi with
-      | LTop -> singleton ATop
-      | LPos c -> convertConjunctionToSet c
-    end
-
-
-  (* (PROVED) CONVERTTOLIST: FROM HORNCLAUSE TO LIST (SET,RIGHTSIDE)  *) 
-
-  let rec function convertToList (phi: hornclause) : list (set, rightside)
-    ensures{ forall l r. phi = HBasic (BImpl l r) -> ListMem.mem (convertToSet l, r) result }
-    ensures{ length result = numberOfHBasic phi }
-    ensures { result <> Nil }
-  = match phi with
-      | HBasic (BImpl l r) -> Cons ((convertToSet l), r) Nil
-      | HAnd e1 e2 -> (convertToList e1) ++ (convertToList e2)
-    end
-
-
-end
 
 
 
@@ -665,7 +524,7 @@ module RemoveFromList
     forall clauselist:list 'a, elem. ListMem.mem elem clauselist ->
       num_occ elem clauselist = 1 + num_occ elem (removeFromList elem clauselist)
       
-  lemma removeFromList_numocc_2:
+  lemma removeFromList_numocc_not_elem:
     forall clauselist:list 'a, elem x. ListMem.mem elem clauselist -> 
       not x = elem ->
         num_occ x clauselist = num_occ x (removeFromList elem clauselist)
