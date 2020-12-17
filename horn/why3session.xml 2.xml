@@ -1300,7 +1300,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="permutacoes&#39;vc.9.0" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.23" steps="47264"/></proof>
+   <proof prover="2"><result status="valid" time="0.21" steps="47174"/></proof>
    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2925638"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
@@ -1310,19 +1310,18 @@
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="assert" proved="true" arg1="(findOneSubset clauselist c = findOneSubset clauselist2 c)">
     <goal name="permutacoes&#39;vc.9.1.0" expl="asserted formula" proved="true">
-    <proof prover="2" timelimit="5"><result status="valid" time="0.33" steps="56102"/></proof>
-    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2384465"/></proof>
-    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+    <proof prover="2"><result status="valid" time="0.31" steps="55994"/></proof>
+    <proof prover="4"><result status="valid" time="0.04" steps="176"/></proof>
     </goal>
     <goal name="permutacoes&#39;vc.9.1.1" expl="postcondition" proved="true">
-    <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="137150"/></proof>
-    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2632662"/></proof>
+    <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="137094"/></proof>
+    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2727485"/></proof>
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="instantiate" proved="true" arg1="algorithmA_spec&#39;def" arg2="full_clauselist,processed_clauses,clauselist,c">
      <goal name="permutacoes&#39;vc.9.1.1.0" expl="postcondition" proved="true">
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="permutacoes&#39;vc.9.1.1.0.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.11" steps="41775"/></proof>
+      <proof prover="2"><result status="valid" time="0.11" steps="41763"/></proof>
       </goal>
       <goal name="permutacoes&#39;vc.9.1.1.0.1" expl="postcondition" proved="true">
       <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="143319"/></proof>
@@ -1330,12 +1329,12 @@
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="permutacoes&#39;vc.9.1.1.0.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.11" steps="41773"/></proof>
+       <proof prover="2"><result status="valid" time="0.11" steps="41761"/></proof>
        </goal>
        <goal name="permutacoes&#39;vc.9.1.1.0.1.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="permutacoes&#39;vc.9.1.1.0.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.10" steps="39560"/></proof>
+        <proof prover="2"><result status="valid" time="0.10" steps="39548"/></proof>
         </goal>
         <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1" expl="postcondition" proved="true">
         <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="138526"/></proof>
@@ -1343,7 +1342,7 @@
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.26" steps="49858"/></proof>
+         <proof prover="2"><result status="valid" time="0.26" steps="49763"/></proof>
          <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1997360"/></proof>
          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
          </goal>
@@ -1353,7 +1352,7 @@
          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.15" steps="40329"/></proof>
+          <proof prover="2"><result status="valid" time="0.15" steps="40317"/></proof>
           </goal>
           <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1" expl="postcondition" proved="true">
           <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="138933"/></proof>
@@ -1361,7 +1360,7 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.18" steps="43438"/></proof>
+           <proof prover="2"><result status="valid" time="0.18" steps="43357"/></proof>
            </goal>
            <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
            <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="151356"/></proof>
@@ -1369,7 +1368,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.31" steps="54600"/></proof>
+            <proof prover="2"><result status="valid" time="0.31" steps="54505"/></proof>
             <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2752274"/></proof>
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             </goal>
@@ -1379,7 +1378,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-             <proof prover="2"><result status="valid" time="0.22" steps="43417"/></proof>
+             <proof prover="2"><result status="valid" time="0.22" steps="43336"/></proof>
              </goal>
              <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
              <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="138125"/></proof>
@@ -1394,37 +1393,37 @@
                <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0" expl="postcondition" proved="true">
                <transf name="destruct" proved="true" arg1="Hinst">
                 <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.0" expl="destruct premise" proved="true">
-                <proof prover="2"><result status="valid" time="0.11" steps="41810"/></proof>
+                <proof prover="2"><result status="valid" time="0.11" steps="41798"/></proof>
                 </goal>
                 <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1" expl="postcondition" proved="true">
                 <transf name="destruct" proved="true" arg1="Hinst">
                  <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.0" expl="destruct premise" proved="true">
-                 <proof prover="2"><result status="valid" time="0.11" steps="41808"/></proof>
+                 <proof prover="2"><result status="valid" time="0.11" steps="41796"/></proof>
                  </goal>
                  <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.26" steps="46792"/></proof>
+                  <proof prover="2"><result status="valid" time="0.26" steps="46697"/></proof>
                   </goal>
                   <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.26" steps="49610"/></proof>
+                   <proof prover="2"><result status="valid" time="0.26" steps="49515"/></proof>
                    </goal>
                    <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                    <proof prover="2"><result status="valid" time="0.16" steps="40364"/></proof>
+                    <proof prover="2"><result status="valid" time="0.16" steps="40352"/></proof>
                     </goal>
                     <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.29" steps="43493"/></proof>
+                     <proof prover="2"><result status="valid" time="0.29" steps="43412"/></proof>
                      </goal>
                      <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.30" steps="46454"/></proof>
+                      <proof prover="2"><result status="valid" time="0.16" steps="46359"/></proof>
                       </goal>
                       <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                       <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="138224"/></proof>
@@ -1432,10 +1431,10 @@
                       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.22" steps="43472"/></proof>
+                       <proof prover="2"><result status="valid" time="0.22" steps="43391"/></proof>
                        </goal>
                        <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-                       <proof prover="2"><result status="valid" time="0.22" steps="47253"/></proof>
+                       <proof prover="2"><result status="valid" time="0.22" steps="47082"/></proof>
                        </goal>
                       </transf>
                       </goal>
@@ -1461,37 +1460,37 @@
                <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
                <transf name="destruct" proved="true" arg1="Hinst">
                 <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.0" expl="destruct premise" proved="true">
-                <proof prover="2"><result status="valid" time="0.11" steps="42184"/></proof>
+                <proof prover="2"><result status="valid" time="0.11" steps="42172"/></proof>
                 </goal>
                 <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1" expl="postcondition" proved="true">
                 <transf name="destruct" proved="true" arg1="Hinst">
                  <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.0" expl="destruct premise" proved="true">
-                 <proof prover="2"><result status="valid" time="0.11" steps="42182"/></proof>
+                 <proof prover="2"><result status="valid" time="0.11" steps="42170"/></proof>
                  </goal>
                  <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.32" steps="54995"/></proof>
+                  <proof prover="2"><result status="valid" time="0.32" steps="54905"/></proof>
                   </goal>
                   <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.85" steps="110822"/></proof>
+                   <proof prover="2"><result status="valid" time="0.87" steps="110686"/></proof>
                    </goal>
                    <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                    <proof prover="2"><result status="valid" time="0.17" steps="40714"/></proof>
+                    <proof prover="2"><result status="valid" time="0.17" steps="40702"/></proof>
                     </goal>
                     <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.19" steps="43979"/></proof>
+                     <proof prover="2"><result status="valid" time="0.19" steps="43890"/></proof>
                      </goal>
                      <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.31" steps="55137"/></proof>
+                      <proof prover="2"><result status="valid" time="0.31" steps="55034"/></proof>
                       </goal>
                       <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                       <proof prover="2" obsolete="true"><result status="timeout" time="2.00" steps="262449"/></proof>
@@ -1499,7 +1498,7 @@
                       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.24" steps="43958"/></proof>
+                       <proof prover="2"><result status="valid" time="0.24" steps="43869"/></proof>
                        </goal>
                        <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                        <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="118365"/></proof>
@@ -1507,12 +1506,24 @@
                        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                        <transf name="destruct" proved="true" arg1="Hinst">
                         <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-                        <proof prover="2"><result status="valid" time="0.22" steps="47242"/></proof>
+                        <proof prover="2"><result status="valid" time="0.23" steps="47139"/></proof>
                         </goal>
                         <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-                        <proof prover="2"><result status="valid" time="0.22" steps="47699"/></proof>
-                        <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2537561"/></proof>
-                        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+                        <transf name="destruct" proved="true" arg1="Hinst">
+                         <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
+                         <proof prover="2"><result status="valid" time="0.23" steps="47189"/></proof>
+                         </goal>
+                         <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
+                         <transf name="destruct" proved="true" arg1="Hinst">
+                          <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
+                          <proof prover="2"><result status="valid" time="0.25" steps="50419"/></proof>
+                          </goal>
+                          <goal name="permutacoes&#39;vc.9.1.1.0.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
+                          <proof prover="2"><result status="valid" time="0.27" steps="52382"/></proof>
+                          </goal>
+                         </transf>
+                         </goal>
+                        </transf>
                         </goal>
                        </transf>
                        </goal>
@@ -1562,8 +1573,8 @@
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="assert" proved="true" arg1="(findOneSubset clauselist c = findOneSubset clauselist2 c)">
     <goal name="permutacoes&#39;vc.9.2.0" expl="asserted formula" proved="true">
-    <proof prover="2"><result status="valid" time="1.30" steps="135387"/></proof>
-    <proof prover="4"><result status="valid" time="0.23" steps="1378"/></proof>
+    <proof prover="2"><result status="valid" time="1.30" steps="134500"/></proof>
+    <proof prover="4"><result status="valid" time="0.06" steps="307"/></proof>
     </goal>
     <goal name="permutacoes&#39;vc.9.2.1" expl="postcondition" proved="true">
     <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="114781"/></proof>
@@ -1573,12 +1584,12 @@
      <goal name="permutacoes&#39;vc.9.2.1.0" expl="postcondition" proved="true">
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="permutacoes&#39;vc.9.2.1.0.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.10" steps="42347"/></proof>
+      <proof prover="2"><result status="valid" time="0.10" steps="42303"/></proof>
       </goal>
       <goal name="permutacoes&#39;vc.9.2.1.0.1" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="permutacoes&#39;vc.9.2.1.0.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.12" steps="42345"/></proof>
+       <proof prover="2"><result status="valid" time="0.12" steps="42301"/></proof>
        </goal>
        <goal name="permutacoes&#39;vc.9.2.1.0.1.1" expl="postcondition" proved="true">
        <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="109819"/></proof>
@@ -1586,7 +1597,7 @@
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="permutacoes&#39;vc.9.2.1.0.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.10" steps="40132"/></proof>
+        <proof prover="2"><result status="valid" time="0.10" steps="40088"/></proof>
         </goal>
         <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1" expl="postcondition" proved="true">
         <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="114578"/></proof>
@@ -1594,7 +1605,7 @@
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.31" steps="53048"/></proof>
+         <proof prover="2"><result status="valid" time="0.31" steps="52850"/></proof>
          </goal>
          <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1" expl="postcondition" proved="true">
          <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="114558"/></proof>
@@ -1602,7 +1613,7 @@
          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.16" steps="40883"/></proof>
+          <proof prover="2"><result status="valid" time="0.16" steps="40846"/></proof>
           </goal>
           <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1" expl="postcondition" proved="true">
           <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="109686"/></proof>
@@ -1610,9 +1621,9 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.21" steps="44146"/></proof>
-           <proof prover="3"><result status="valid" time="0.03" steps="16772"/></proof>
-           <proof prover="4"><result status="valid" time="0.04" steps="54"/></proof>
+           <proof prover="2"><result status="valid" time="0.21" steps="44076"/></proof>
+           <proof prover="3"><result status="valid" time="0.03" steps="16748"/></proof>
+           <proof prover="4"><result status="valid" time="0.04" steps="59"/></proof>
            </goal>
            <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
            <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="103946"/></proof>
@@ -1620,7 +1631,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.68" steps="80945"/></proof>
+            <proof prover="2"><result status="valid" time="0.68" steps="80375"/></proof>
             <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2830603"/></proof>
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             </goal>
@@ -1630,7 +1641,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-             <proof prover="2"><result status="valid" time="0.21" steps="44125"/></proof>
+             <proof prover="2"><result status="valid" time="0.21" steps="44055"/></proof>
              </goal>
              <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
              <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="116614"/></proof>
@@ -1638,8 +1649,8 @@
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" proved="true" arg1="Hinst">
               <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-              <proof prover="2"><result status="valid" time="0.29" steps="49289"/></proof>
-              <proof prover="4"><result status="valid" time="0.04" steps="56"/></proof>
+              <proof prover="2"><result status="valid" time="0.29" steps="49063"/></proof>
+              <proof prover="4"><result status="valid" time="0.04" steps="61"/></proof>
               </goal>
               <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
               <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="131240"/></proof>
@@ -1654,38 +1665,38 @@
                 <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0" expl="postcondition" proved="true">
                 <transf name="destruct" proved="true" arg1="Hinst">
                  <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.0" expl="destruct premise" proved="true">
-                 <proof prover="2"><result status="valid" time="0.12" steps="42394"/></proof>
+                 <proof prover="2"><result status="valid" time="0.12" steps="42350"/></proof>
                  </goal>
                  <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.13" steps="42392"/></proof>
+                  <proof prover="2"><result status="valid" time="0.13" steps="42348"/></proof>
                   </goal>
                   <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.44" steps="64978"/></proof>
+                   <proof prover="2"><result status="valid" time="0.44" steps="64605"/></proof>
                    </goal>
                    <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.0" expl="destruct premise" proved="true">
                     <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="103486"/></proof>
-                    <proof prover="4"><result status="valid" time="0.04" steps="58"/></proof>
+                    <proof prover="4"><result status="valid" time="0.04" steps="63"/></proof>
                     </goal>
                     <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.16" steps="40930"/></proof>
+                     <proof prover="2"><result status="valid" time="0.16" steps="40893"/></proof>
                      </goal>
                      <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.19" steps="44220"/></proof>
+                      <proof prover="2"><result status="valid" time="0.19" steps="44150"/></proof>
                       </goal>
                       <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.45" steps="66671"/></proof>
+                       <proof prover="2"><result status="valid" time="0.45" steps="66119"/></proof>
                        </goal>
                        <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                        <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="132797"/></proof>
@@ -1693,11 +1704,11 @@
                        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                        <transf name="destruct" proved="true" arg1="Hinst">
                         <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                        <proof prover="2"><result status="valid" time="0.16" steps="44199"/></proof>
+                        <proof prover="2"><result status="valid" time="0.16" steps="44129"/></proof>
                         </goal>
                         <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                         <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="105704"/></proof>
-                        <proof prover="4"><result status="valid" time="0.05" steps="59"/></proof>
+                        <proof prover="4"><result status="valid" time="0.05" steps="64"/></proof>
                         </goal>
                        </transf>
                        </goal>
@@ -1725,17 +1736,17 @@
                 <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
                 <transf name="destruct" proved="true" arg1="Hinst">
                  <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0" expl="destruct premise" proved="true">
-                 <proof prover="2"><result status="valid" time="0.11" steps="42518"/></proof>
+                 <proof prover="2"><result status="valid" time="0.11" steps="42488"/></proof>
                  </goal>
                  <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.11" steps="42516"/></proof>
+                  <proof prover="2"><result status="valid" time="0.11" steps="42486"/></proof>
                   </goal>
                   <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.65" steps="84546"/></proof>
+                   <proof prover="2"><result status="valid" time="0.65" steps="84417"/></proof>
                    </goal>
                    <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1" expl="postcondition" proved="true">
                    <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="114182"/></proof>
@@ -1745,22 +1756,22 @@
                     <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.0" expl="destruct premise" proved="true">
                     <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="600264"/></proof>
                     <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1472427"/></proof>
-                    <proof prover="4" timelimit="5"><result status="valid" time="0.19" steps="922"/></proof>
+                    <proof prover="4" timelimit="5"><result status="valid" time="2.40" steps="5642"/></proof>
                     </goal>
                     <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.17" steps="41043"/></proof>
+                     <proof prover="2"><result status="valid" time="0.17" steps="41013"/></proof>
                      </goal>
                      <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.23" steps="44391"/></proof>
+                      <proof prover="2"><result status="valid" time="0.23" steps="44343"/></proof>
                       </goal>
                       <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.93" steps="116852"/></proof>
+                       <proof prover="2"><result status="valid" time="0.93" steps="116613"/></proof>
                        </goal>
                        <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                        <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="125251"/></proof>
@@ -1768,16 +1779,16 @@
                        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                        <transf name="destruct" proved="true" arg1="Hinst">
                         <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                        <proof prover="2"><result status="valid" time="0.25" steps="44370"/></proof>
+                        <proof prover="2"><result status="valid" time="0.25" steps="44322"/></proof>
                         </goal>
                         <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                         <transf name="destruct" proved="true" arg1="Hinst">
                          <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-                         <proof prover="2"><result status="valid" time="0.26" steps="51783"/></proof>
+                         <proof prover="2"><result status="valid" time="0.26" steps="51650"/></proof>
                          </goal>
                          <goal name="permutacoes&#39;vc.9.2.1.0.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                          <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="131741"/></proof>
-                         <proof prover="4"><result status="valid" time="0.20" steps="1284"/></proof>
+                         <proof prover="4"><result status="valid" time="0.20" steps="1416"/></proof>
                          </goal>
                         </transf>
                         </goal>
@@ -1825,50 +1836,6 @@
    </goal>
   </transf>
   </goal>
-  <goal name="permutacoes&#39;vc.10" expl="postcondition" proved="true">
-  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="144187"/></proof>
-  <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2608626"/></proof>
-  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
-  <transf name="split_vc" proved="true" >
-   <goal name="permutacoes&#39;vc.10.0" expl="postcondition" proved="true">
-   <proof prover="2"><result status="timeout" time="1.00" steps="126627"/></proof>
-   <proof prover="4"><result status="valid" time="0.31" steps="1722"/></proof>
-   </goal>
-   <goal name="permutacoes&#39;vc.10.1" expl="postcondition" proved="true">
-   <proof prover="2"><result status="timeout" time="1.00" steps="129490"/></proof>
-   <proof prover="4"><result status="valid" time="0.37" steps="2074"/></proof>
-   </goal>
-   <goal name="permutacoes&#39;vc.10.2" expl="postcondition" proved="true">
-   <proof prover="2"><result status="timeout" time="1.00" steps="117063"/></proof>
-   <proof prover="3"><result status="timeout" time="1.00" steps="2325077"/></proof>
-   <proof prover="4"><result status="timeout" time="1.00"/></proof>
-   <transf name="assert" proved="true" arg1="(findOneSubset clauselist c = findOneSubset clauselist2 c)">
-    <goal name="permutacoes&#39;vc.10.2.0" expl="asserted formula" proved="true">
-    <proof prover="2"><result status="timeout" time="1.00" steps="121691"/></proof>
-    <proof prover="4"><result status="valid" time="0.25" steps="1406"/></proof>
-    </goal>
-    <goal name="permutacoes&#39;vc.10.2.1" expl="postcondition" proved="true">
-    <proof prover="2"><result status="timeout" time="1.00" steps="119419"/></proof>
-    <proof prover="3"><result status="timeout" time="1.00" steps="2269029"/></proof>
-    <proof prover="4"><result status="timeout" time="1.00"/></proof>
-    <transf name="instantiate" proved="true" arg1="algorithmA_spec&#39;def" arg2="full_clauselist,processed_clauses,clauselist,c">
-     <goal name="permutacoes&#39;vc.10.2.1.0" expl="postcondition" proved="true">
-     <transf name="destruct" proved="true" arg1="Hinst">
-      <goal name="permutacoes&#39;vc.10.2.1.0.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.12" steps="42395"/></proof>
-      </goal>
-      <goal name="permutacoes&#39;vc.10.2.1.0.1" expl="postcondition" proved="true">
-      <proof prover="2"><result status="timeout" time="1.00" steps="129462"/></proof>
-      <proof prover="4"><result status="valid" time="0.53" steps="3507"/></proof>
-      </goal>
-     </transf>
-     </goal>
-    </transf>
-    </goal>
-   </transf>
-   </goal>
-  </transf>
-  </goal>
  </transf>
  </goal>
  <goal name="monotone_algA&#39;vc" expl="VC for monotone_algA" proved="true">
@@ -1877,29 +1844,29 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="monotone_algA&#39;vc.0" expl="variant decrease" proved="true">
-  <proof prover="2"><result status="valid" time="0.24" steps="50929"/></proof>
+  <proof prover="2"><result status="valid" time="0.24" steps="50822"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.1" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.18" steps="47131"/></proof>
+  <proof prover="2"><result status="valid" time="0.18" steps="47062"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.2" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.30" steps="47170"/></proof>
+  <proof prover="2"><result status="valid" time="0.30" steps="47101"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.3" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.40" steps="67512"/></proof>
+  <proof prover="2"><result status="valid" time="0.40" steps="67443"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.4" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.18" steps="45978"/></proof>
+  <proof prover="2"><result status="valid" time="0.18" steps="45909"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1844762"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.5" expl="precondition" proved="true">
   <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="700022"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="851412"/></proof>
-  <proof prover="4" timelimit="5"><result status="valid" time="1.10" steps="4908"/></proof>
+  <proof prover="4" timelimit="5"><result status="valid" time="1.10" steps="4186"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.6" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.50" steps="75107"/></proof>
+  <proof prover="2"><result status="valid" time="0.50" steps="75038"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.7" expl="precondition" proved="true">
   <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="114249"/></proof>
@@ -1907,7 +1874,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="monotone_algA&#39;vc.7.0" expl="precondition" proved="true">
-   <proof prover="2"><result status="valid" time="1.52" steps="136384"/></proof>
+   <proof prover="2"><result status="valid" time="1.52" steps="136749"/></proof>
    </goal>
   </transf>
   </goal>
@@ -1916,7 +1883,7 @@
   <proof prover="4"><result status="valid" time="1.89" steps="8417"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.9" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.35" steps="61204"/></proof>
+  <proof prover="2"><result status="valid" time="0.35" steps="61192"/></proof>
   <proof prover="4"><result status="valid" time="0.09" steps="963"/></proof>
   </goal>
   <goal name="monotone_algA&#39;vc.10" expl="postcondition" proved="true">
@@ -1935,44 +1902,44 @@
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="destruct" proved="true" arg1="Hinst">
      <goal name="monotone_algA&#39;vc.10.0.0.0" expl="destruct premise" proved="true">
-     <proof prover="2"><result status="valid" time="0.11" steps="42219"/></proof>
+     <proof prover="2"><result status="valid" time="0.11" steps="42150"/></proof>
      </goal>
      <goal name="monotone_algA&#39;vc.10.0.0.1" expl="postcondition" proved="true">
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="monotone_algA&#39;vc.10.0.0.1.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.31" steps="46501"/></proof>
+      <proof prover="2"><result status="valid" time="0.31" steps="46432"/></proof>
       </goal>
       <goal name="monotone_algA&#39;vc.10.0.0.1.1" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="monotone_algA&#39;vc.10.0.0.1.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.10" steps="40007"/></proof>
+       <proof prover="2"><result status="valid" time="0.10" steps="39938"/></proof>
        </goal>
        <goal name="monotone_algA&#39;vc.10.0.0.1.1.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.18" steps="46607"/></proof>
+        <proof prover="2"><result status="valid" time="0.18" steps="46538"/></proof>
         </goal>
         <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1" expl="postcondition" proved="true">
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.23" steps="44727"/></proof>
+         <proof prover="2"><result status="valid" time="0.23" steps="44658"/></proof>
          </goal>
          <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1" expl="postcondition" proved="true">
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.26" steps="46978"/></proof>
+          <proof prover="2"><result status="valid" time="0.26" steps="46909"/></proof>
           </goal>
           <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.29" steps="51673"/></proof>
+           <proof prover="2"><result status="valid" time="0.29" steps="51604"/></proof>
            <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2028305"/></proof>
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            </goal>
            <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.18" steps="43878"/></proof>
+            <proof prover="2"><result status="valid" time="0.18" steps="43809"/></proof>
             <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2318341"/></proof>
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             </goal>
@@ -1986,49 +1953,49 @@
               <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0" expl="postcondition" proved="true">
               <transf name="destruct" proved="true" arg1="Hinst">
                <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.0" expl="destruct premise" proved="true">
-               <proof prover="2"><result status="valid" time="0.19" steps="46546"/></proof>
+               <proof prover="2"><result status="valid" time="0.19" steps="46477"/></proof>
                </goal>
                <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1" expl="postcondition" proved="true">
                <transf name="destruct" proved="true" arg1="Hinst">
                 <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.0" expl="destruct premise" proved="true">
-                <proof prover="2"><result status="valid" time="0.11" steps="42244"/></proof>
+                <proof prover="2"><result status="valid" time="0.11" steps="42175"/></proof>
                 </goal>
                 <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1" expl="postcondition" proved="true">
                 <transf name="destruct" proved="true" arg1="Hinst">
                  <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.0" expl="destruct premise" proved="true">
-                 <proof prover="2"><result status="valid" time="0.10" steps="40034"/></proof>
+                 <proof prover="2"><result status="valid" time="0.10" steps="39965"/></proof>
                  </goal>
                  <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.18" steps="46650"/></proof>
+                  <proof prover="2"><result status="valid" time="0.18" steps="46581"/></proof>
                   <proof prover="3" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="8144690"/></proof>
                   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
                   </goal>
                   <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.17" steps="40793"/></proof>
+                   <proof prover="2"><result status="valid" time="0.17" steps="40724"/></proof>
                    </goal>
                    <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                    <proof prover="2"><result status="valid" time="0.27" steps="43942"/></proof>
+                    <proof prover="2"><result status="valid" time="0.27" steps="43873"/></proof>
                     </goal>
                     <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.28" steps="51719"/></proof>
+                     <proof prover="2"><result status="valid" time="0.28" steps="51650"/></proof>
                      <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2051993"/></proof>
                      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                      </goal>
                      <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.16" steps="43921"/></proof>
+                      <proof prover="2"><result status="valid" time="0.16" steps="43852"/></proof>
                       </goal>
                       <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-                      <proof prover="2"><result status="valid" time="0.18" steps="45076"/></proof>
+                      <proof prover="2"><result status="valid" time="0.18" steps="45007"/></proof>
                       </goal>
                      </transf>
                      </goal>
@@ -2049,12 +2016,12 @@
              </transf>
              </goal>
              <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-             <proof prover="2"><result status="valid" time="0.99" steps="83891"/></proof>
+             <proof prover="2"><result status="valid" time="0.76" steps="83822"/></proof>
              <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2340172"/></proof>
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" proved="true" arg1="Hinst">
               <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-              <proof prover="2" timelimit="5"><result status="valid" time="0.75" steps="74353"/></proof>
+              <proof prover="2" timelimit="5"><result status="valid" time="0.58" steps="74284"/></proof>
               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
               </goal>
               <goal name="monotone_algA&#39;vc.10.0.0.1.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
@@ -2096,7 +2063,7 @@
      <goal name="monotone_algA&#39;vc.10.1.0.0" expl="asserted formula" proved="true">
      <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="115056"/></proof>
      <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2564570"/></proof>
-     <proof prover="4"><result status="valid" time="0.56" steps="2224"/></proof>
+     <proof prover="4"><result status="valid" time="0.36" steps="2224"/></proof>
      </goal>
      <goal name="monotone_algA&#39;vc.10.1.0.1" expl="postcondition" proved="true">
      <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="130767"/></proof>
@@ -2106,47 +2073,47 @@
       <goal name="monotone_algA&#39;vc.10.1.0.1.0" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="monotone_algA&#39;vc.10.1.0.1.0.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.23" steps="42292"/></proof>
+       <proof prover="2"><result status="valid" time="0.11" steps="42223"/></proof>
        </goal>
        <goal name="monotone_algA&#39;vc.10.1.0.1.0.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.33" steps="46602"/></proof>
+        <proof prover="2"><result status="valid" time="0.19" steps="46533"/></proof>
         </goal>
         <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1" expl="postcondition" proved="true">
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.11" steps="40080"/></proof>
+         <proof prover="2"><result status="valid" time="0.11" steps="40011"/></proof>
          </goal>
          <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1" expl="postcondition" proved="true">
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.25" steps="50678"/></proof>
+          <proof prover="2"><result status="valid" time="0.25" steps="50609"/></proof>
           </goal>
           <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1" expl="postcondition" proved="true">
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.23" steps="44817"/></proof>
+           <proof prover="2"><result status="valid" time="0.23" steps="44748"/></proof>
            </goal>
            <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1" expl="postcondition" proved="true">
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.30" steps="47707"/></proof>
+            <proof prover="2"><result status="valid" time="0.30" steps="47638"/></proof>
             </goal>
             <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-             <proof prover="2"><result status="valid" time="0.47" steps="56570"/></proof>
+             <proof prover="2"><result status="valid" time="0.33" steps="56501"/></proof>
              </goal>
              <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
              <transf name="destruct" proved="true" arg1="Hinst">
               <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-              <proof prover="2"><result status="valid" time="0.18" steps="43979"/></proof>
+              <proof prover="2"><result status="valid" time="0.18" steps="43910"/></proof>
               </goal>
               <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
               <transf name="destruct" proved="true" arg1="Hinst">
                <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-               <proof prover="2"><result status="valid" time="0.18" steps="44522"/></proof>
+               <proof prover="2"><result status="valid" time="0.18" steps="44453"/></proof>
                </goal>
                <goal name="monotone_algA&#39;vc.10.1.0.1.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                <transf name="destruct" proved="true" arg1="Hinst">
@@ -2201,37 +2168,37 @@
      <goal name="monotone_algA&#39;vc.10.2.1.0" expl="postcondition" proved="true">
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="monotone_algA&#39;vc.10.2.1.0.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.12" steps="42988"/></proof>
+      <proof prover="2"><result status="valid" time="0.12" steps="42919"/></proof>
       </goal>
       <goal name="monotone_algA&#39;vc.10.2.1.0.1" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="monotone_algA&#39;vc.10.2.1.0.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.19" steps="47547"/></proof>
+       <proof prover="2"><result status="valid" time="0.19" steps="47478"/></proof>
        </goal>
        <goal name="monotone_algA&#39;vc.10.2.1.0.1.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.11" steps="40776"/></proof>
+        <proof prover="2"><result status="valid" time="0.11" steps="40707"/></proof>
         </goal>
         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1" expl="postcondition" proved="true">
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.28" steps="54031"/></proof>
+         <proof prover="2"><result status="valid" time="0.28" steps="53962"/></proof>
          </goal>
          <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1" expl="postcondition" proved="true">
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.25" steps="45734"/></proof>
+          <proof prover="2"><result status="valid" time="0.25" steps="45665"/></proof>
           </goal>
           <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1" expl="postcondition" proved="true">
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.26" steps="50675"/></proof>
+           <proof prover="2"><result status="valid" time="0.26" steps="50606"/></proof>
            </goal>
            <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.56" steps="73890"/></proof>
+            <proof prover="2"><result status="valid" time="0.56" steps="73821"/></proof>
             </goal>
             <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
             <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="121721"/></proof>
@@ -2239,7 +2206,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-             <proof prover="2"><result status="valid" time="0.26" steps="44916"/></proof>
+             <proof prover="2"><result status="valid" time="0.26" steps="44847"/></proof>
              </goal>
              <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
              <transf name="destruct" proved="true" arg1="Hinst">
@@ -2260,46 +2227,46 @@
                 <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0" expl="postcondition" proved="true">
                 <transf name="destruct" proved="true" arg1="Hinst">
                  <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.0" expl="destruct premise" proved="true">
-                 <proof prover="2"><result status="valid" time="0.32" steps="47623"/></proof>
+                 <proof prover="2"><result status="valid" time="0.32" steps="47554"/></proof>
                  </goal>
                  <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.11" steps="43033"/></proof>
+                  <proof prover="2"><result status="valid" time="0.11" steps="42964"/></proof>
                   </goal>
                   <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.11" steps="40823"/></proof>
+                   <proof prover="2"><result status="valid" time="0.11" steps="40754"/></proof>
                    </goal>
                    <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.0" expl="destruct premise" proved="true">
-                    <proof prover="2"><result status="valid" time="0.28" steps="53976"/></proof>
+                    <proof prover="2"><result status="valid" time="0.28" steps="53907"/></proof>
                     </goal>
                     <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.17" steps="41553"/></proof>
+                     <proof prover="2"><result status="valid" time="0.17" steps="41484"/></proof>
                      </goal>
                      <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.19" steps="45011"/></proof>
+                      <proof prover="2"><result status="valid" time="0.19" steps="44942"/></proof>
                       </goal>
                       <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.45" steps="68733"/></proof>
+                       <proof prover="2"><result status="valid" time="0.45" steps="68664"/></proof>
                        </goal>
                        <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                        <transf name="destruct" proved="true" arg1="Hinst">
                         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                        <proof prover="2"><result status="valid" time="0.20" steps="44990"/></proof>
+                        <proof prover="2"><result status="valid" time="0.20" steps="44921"/></proof>
                         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                         </goal>
                         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-                        <proof prover="2"><result status="valid" time="0.24" steps="46203"/></proof>
+                        <proof prover="2"><result status="valid" time="0.24" steps="46134"/></proof>
                         </goal>
                        </transf>
                        </goal>
@@ -2329,49 +2296,49 @@
                  <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.20" steps="47749"/></proof>
+                  <proof prover="2"><result status="valid" time="0.20" steps="47680"/></proof>
                   </goal>
                   <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.12" steps="43099"/></proof>
+                   <proof prover="2"><result status="valid" time="0.12" steps="43030"/></proof>
                    </goal>
                    <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.0" expl="destruct premise" proved="true">
-                    <proof prover="2"><result status="valid" time="0.11" steps="40889"/></proof>
+                    <proof prover="2"><result status="valid" time="0.11" steps="40820"/></proof>
                     </goal>
                     <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.33" steps="55305"/></proof>
+                     <proof prover="2"><result status="valid" time="0.33" steps="55001"/></proof>
                      </goal>
                      <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.11" steps="41612"/></proof>
+                      <proof prover="2"><result status="valid" time="0.11" steps="41543"/></proof>
                       </goal>
                       <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1" expl="postcondition" proved="true">
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.22" steps="45101"/></proof>
+                       <proof prover="2"><result status="valid" time="0.22" steps="45032"/></proof>
                        </goal>
                        <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                        <transf name="destruct" proved="true" arg1="Hinst">
                         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                        <proof prover="2"><result status="valid" time="0.68" steps="82634"/></proof>
+                        <proof prover="2"><result status="valid" time="0.68" steps="82565"/></proof>
                         </goal>
                         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                         <transf name="destruct" proved="true" arg1="Hinst">
                          <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                         <proof prover="2"><result status="valid" time="0.20" steps="45080"/></proof>
+                         <proof prover="2"><result status="valid" time="0.20" steps="45011"/></proof>
                          </goal>
                          <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-                         <proof prover="2"><result status="valid" time="0.73" steps="89710"/></proof>
+                         <proof prover="2"><result status="valid" time="0.73" steps="89646"/></proof>
                          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                          <transf name="destruct" proved="true" arg1="Hinst">
                           <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-                          <proof prover="2"><result status="valid" time="0.27" steps="51761"/></proof>
+                          <proof prover="2"><result status="valid" time="0.27" steps="51692"/></proof>
                           <proof prover="4"><result status="valid" time="0.04" steps="73"/></proof>
                           </goal>
                           <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
@@ -2386,8 +2353,8 @@
                            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                            <transf name="destruct" proved="true" arg1="Hinst">
                             <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-                            <proof prover="2"><result status="valid" time="0.53" steps="82741"/></proof>
-                            <proof prover="3"><result status="valid" time="0.15" steps="400386"/></proof>
+                            <proof prover="2"><result status="valid" time="0.53" steps="82664"/></proof>
+                            <proof prover="3"><result status="valid" time="0.15" steps="399974"/></proof>
                             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                             </goal>
                             <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.0.0.1.1.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
@@ -2423,49 +2390,49 @@
                  <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.21" steps="47772"/></proof>
+                  <proof prover="2"><result status="valid" time="0.21" steps="47703"/></proof>
                   </goal>
                   <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1" expl="postcondition" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.0" expl="destruct premise" proved="true">
-                   <proof prover="2"><result status="valid" time="0.12" steps="43148"/></proof>
+                   <proof prover="2"><result status="valid" time="0.12" steps="43079"/></proof>
                    </goal>
                    <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.0" expl="destruct premise" proved="true">
-                    <proof prover="2"><result status="valid" time="0.12" steps="40938"/></proof>
+                    <proof prover="2"><result status="valid" time="0.12" steps="40869"/></proof>
                     </goal>
                     <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.37" steps="55936"/></proof>
+                     <proof prover="2"><result status="valid" time="0.37" steps="55867"/></proof>
                      </goal>
                      <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.14" steps="41657"/></proof>
+                      <proof prover="2"><result status="valid" time="0.14" steps="41588"/></proof>
                       </goal>
                       <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1" expl="postcondition" proved="true">
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.24" steps="45160"/></proof>
+                       <proof prover="2"><result status="valid" time="0.24" steps="45091"/></proof>
                        </goal>
                        <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                        <transf name="destruct" proved="true" arg1="Hinst">
                         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                        <proof prover="2"><result status="valid" time="0.69" steps="77927"/></proof>
+                        <proof prover="2"><result status="valid" time="0.69" steps="77858"/></proof>
                         </goal>
                         <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                         <transf name="destruct" proved="true" arg1="Hinst">
                          <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                         <proof prover="2"><result status="valid" time="0.22" steps="45139"/></proof>
+                         <proof prover="2"><result status="valid" time="0.22" steps="45070"/></proof>
                          </goal>
                          <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                          <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="93343"/></proof>
                          <proof prover="4"><result status="valid" time="0.85" steps="3704"/></proof>
                          <transf name="destruct" proved="true" arg1="Hinst">
                           <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-                          <proof prover="2"><result status="valid" time="0.32" steps="52369"/></proof>
+                          <proof prover="2"><result status="valid" time="0.32" steps="52300"/></proof>
                           <proof prover="4"><result status="valid" time="0.05" steps="73"/></proof>
                           </goal>
                           <goal name="monotone_algA&#39;vc.10.2.1.0.1.1.1.1.1.1.1.1.1.1.1.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
@@ -2553,7 +2520,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="instantiate" proved="true" arg1="algorithmA_spec&#39;spec" arg2="clauselist,processed_clauses,clauselist,c">
    <goal name="smb&#39;vc.0.0" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.40" steps="68878"/></proof>
+   <proof prover="2"><result status="valid" time="0.40" steps="68809"/></proof>
    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2344050"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
@@ -2567,20 +2534,20 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.0" expl="variant decrease" proved="true">
-  <proof prover="2"><result status="valid" time="0.27" steps="51924"/></proof>
+  <proof prover="2"><result status="valid" time="0.27" steps="51855"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.1" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.12" steps="40975"/></proof>
+  <proof prover="2"><result status="valid" time="0.12" steps="40906"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.2" expl="precondition" proved="true">
-  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="98900"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="98900"/></proof>
   <proof prover="4"><result status="valid" time="0.97" steps="3611"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.3" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.19" steps="46676"/></proof>
+  <proof prover="2"><result status="valid" time="0.19" steps="46607"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.4" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.63" steps="79034"/></proof>
+  <proof prover="2"><result status="valid" time="0.63" steps="79142"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5" expl="precondition" proved="true">
   <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="99411"/></proof>
@@ -2600,7 +2567,7 @@
      <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
      <transf name="assert" proved="true" arg1="(x &lt;&gt; RProp bot1)">
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5.0.0.0.0" expl="asserted formula" proved="true">
-      <proof prover="2"><result status="valid" time="0.18" steps="45562"/></proof>
+      <proof prover="2"><result status="valid" time="0.18" steps="45493"/></proof>
       </goal>
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5.0.0.0.1" proved="true">
       <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="488276"/></proof>
@@ -2620,7 +2587,7 @@
          <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
          <transf name="assert" proved="true" arg1="(eval_setconjunction x1 val_all_top = top1)">
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5.0.0.0.1.0.0.0.0" expl="asserted formula" proved="true">
-          <proof prover="2"><result status="valid" time="0.64" steps="83208"/></proof>
+          <proof prover="2"><result status="valid" time="0.64" steps="83139"/></proof>
           </goal>
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5.0.0.0.1.0.0.0.1" expl="asserted formula" proved="true">
           <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="115518"/></proof>
@@ -2628,11 +2595,11 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="assert" proved="true" arg1="((assign_rightside x val_all_top) = RProp top1)">
            <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5.0.0.0.1.0.0.0.1.0" expl="asserted formula" proved="true">
-           <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="121514"/></proof>
+           <proof prover="2"><result status="timeout" time="1.00" steps="121514"/></proof>
            <proof prover="4"><result status="valid" time="1.03" steps="5263"/></proof>
            </goal>
            <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5.0.0.0.1.0.0.0.1.1" expl="asserted formula" proved="true">
-           <proof prover="2"><result status="valid" time="0.31" steps="51184"/></proof>
+           <proof prover="2"><result status="valid" time="0.31" steps="51115"/></proof>
            </goal>
           </transf>
           </goal>
@@ -2643,7 +2610,7 @@
        </transf>
        </goal>
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.5.0.0.0.1.1" proved="true">
-       <proof prover="2"><result status="valid" time="0.34" steps="59576"/></proof>
+       <proof prover="2"><result status="valid" time="0.34" steps="59507"/></proof>
        </goal>
       </transf>
       </goal>
@@ -2656,7 +2623,7 @@
   </transf>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.6" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.28" steps="55621"/></proof>
+  <proof prover="2"><result status="valid" time="0.28" steps="55552"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.7" expl="precondition" proved="true">
   <proof prover="2" obsolete="true"><result status="timeout" time="2.00" steps="258542"/></proof>
@@ -2664,20 +2631,20 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.7.0" expl="precondition" proved="true">
-   <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="117038"/></proof>
+   <proof prover="2"><result status="timeout" time="1.00" steps="117038"/></proof>
    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1285114"/></proof>
    <proof prover="4"><result status="valid" time="1.45" steps="5178"/></proof>
    </goal>
    <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.7.1" expl="precondition" proved="true">
-   <proof prover="2"><result status="valid" time="1.25" steps="161051"/></proof>
+   <proof prover="2"><result status="valid" time="1.25" steps="160982"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.8" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.18" steps="48118"/></proof>
+  <proof prover="2"><result status="valid" time="0.18" steps="48049"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.9" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.18" steps="48150"/></proof>
+  <proof prover="2"><result status="valid" time="0.18" steps="48081"/></proof>
   </goal>
   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10" expl="postcondition" proved="true">
   <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="139674"/></proof>
@@ -2685,7 +2652,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.0" expl="postcondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.24" steps="50506"/></proof>
+   <proof prover="2"><result status="valid" time="0.24" steps="50437"/></proof>
    <proof prover="3" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="6600517"/></proof>
    <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
    </goal>
@@ -2705,7 +2672,7 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      <transf name="assert" proved="true" arg1="(is_unsatisfiable_clauselist (processed_clauses ++ clauselist))">
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.0.0.0" expl="asserted formula" proved="true">
-      <proof prover="2"><result status="valid" time="0.26" steps="49807"/></proof>
+      <proof prover="2"><result status="valid" time="0.26" steps="49738"/></proof>
       </goal>
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.0.0.1" expl="asserted formula" proved="true">
       <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="122313"/></proof>
@@ -2725,7 +2692,7 @@
          <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.0.0.1.0.0.0" proved="true">
          <transf name="exists" proved="true" arg1="f">
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.0.0.1.0.0.0.0" proved="true">
-          <proof prover="2"><result status="valid" time="0.33" steps="60156"/></proof>
+          <proof prover="2"><result status="valid" time="0.33" steps="60087"/></proof>
           </goal>
          </transf>
          </goal>
@@ -2734,7 +2701,7 @@
        </transf>
        </goal>
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.0.0.1.1" expl="asserted formula" proved="true">
-       <proof prover="2"><result status="valid" time="0.18" steps="44992"/></proof>
+       <proof prover="2"><result status="valid" time="0.18" steps="44923"/></proof>
        </goal>
       </transf>
       </goal>
@@ -2751,7 +2718,7 @@
      <transf name="assert" proved="true" arg1="(forall f:i1 -&gt; t1.
    eval_clauselist processed_clauses f = top1 -&gt; eval_rightside (assign_rightside x f) = bot1)">
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.0" expl="asserted formula" proved="true">
-      <proof prover="2"><result status="valid" time="0.47" steps="77353"/></proof>
+      <proof prover="2"><result status="valid" time="0.47" steps="77284"/></proof>
       </goal>
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1" expl="postcondition" proved="true">
       <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="118935"/></proof>
@@ -2769,12 +2736,12 @@
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         <transf name="instantiate" proved="true" arg1="h1" arg2="val_all_top">
          <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.0.0.0" expl="asserted formula" proved="true">
-         <proof prover="2"><result status="valid" time="0.26" steps="50500"/></proof>
+         <proof prover="2"><result status="valid" time="0.26" steps="50431"/></proof>
          </goal>
         </transf>
         </goal>
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.0.1" expl="asserted formula" proved="true">
-        <proof prover="2"><result status="valid" time="0.42" steps="72186"/></proof>
+        <proof prover="2"><result status="valid" time="0.42" steps="72071"/></proof>
         <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2788367"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
@@ -2786,7 +2753,7 @@
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        <transf name="assert" proved="true" arg1="(forall f. (eval_clauselist processed_clauses f = top1) -&gt; (eval_setconjunction x1 f = top1))">
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.0" expl="asserted formula" proved="true">
-        <proof prover="2"><result status="valid" time="0.38" steps="62467"/></proof>
+        <proof prover="2"><result status="valid" time="0.38" steps="62398"/></proof>
         </goal>
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1" expl="postcondition" proved="true">
         <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="118984"/></proof>
@@ -2804,7 +2771,7 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.12" steps="43263"/></proof>
+           <proof prover="2"><result status="valid" time="0.12" steps="43194"/></proof>
            </goal>
            <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1" expl="true case (postcondition)" proved="true">
            <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="103110"/></proof>
@@ -2812,7 +2779,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.12" steps="43261"/></proof>
+            <proof prover="2"><result status="valid" time="0.12" steps="43192"/></proof>
             </goal>
             <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1" expl="true case (postcondition)" proved="true">
             <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="117570"/></proof>
@@ -2820,7 +2787,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.0" expl="destruct premise" proved="true">
-             <proof prover="2"><result status="valid" time="0.12" steps="41060"/></proof>
+             <proof prover="2"><result status="valid" time="0.12" steps="40991"/></proof>
              </goal>
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1" expl="true case (postcondition)" proved="true">
              <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="98998"/></proof>
@@ -2828,40 +2795,40 @@
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" proved="true" arg1="Hinst">
               <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.0" expl="destruct premise" proved="true">
-              <proof prover="2"><result status="valid" time="0.15" steps="43509"/></proof>
+              <proof prover="2"><result status="valid" time="0.15" steps="43440"/></proof>
               </goal>
               <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1" expl="true case (postcondition)" proved="true">
               <transf name="destruct" proved="true" arg1="Hinst">
                <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-               <proof prover="2"><result status="valid" time="0.21" steps="41778"/></proof>
+               <proof prover="2"><result status="valid" time="0.21" steps="41709"/></proof>
                </goal>
                <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1" expl="true case (postcondition)" proved="true">
                <transf name="destruct" proved="true" arg1="Hinst">
                 <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                <proof prover="2"><result status="valid" time="0.13" steps="45282"/></proof>
+                <proof prover="2"><result status="valid" time="0.13" steps="45213"/></proof>
                 </goal>
                 <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1" expl="true case (postcondition)" proved="true">
                 <transf name="destruct" proved="true" arg1="Hinst">
                  <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                 <proof prover="2"><result status="valid" time="0.21" steps="40780"/></proof>
+                 <proof prover="2"><result status="valid" time="0.21" steps="40711"/></proof>
                  </goal>
                  <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.1" expl="true case (postcondition)" proved="true">
                  <transf name="destruct" proved="true" arg1="Hinst">
                   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                  <proof prover="2"><result status="valid" time="0.30" steps="45261"/></proof>
+                  <proof prover="2"><result status="valid" time="0.30" steps="45192"/></proof>
                   </goal>
                   <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.1.1" expl="true case (postcondition)" proved="true">
                   <transf name="destruct" proved="true" arg1="Hinst">
                    <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.1.1.0" expl="true case (postcondition)" proved="true">
-                   <proof prover="2"><result status="valid" time="0.29" steps="51648"/></proof>
+                   <proof prover="2"><result status="valid" time="0.29" steps="51617"/></proof>
                    </goal>
                    <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.1.1.1" expl="true case (postcondition)" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.1.1.1.0" expl="true case (postcondition)" proved="true">
-                    <proof prover="2"><result status="valid" time="0.46" steps="52251"/></proof>
+                    <proof prover="2"><result status="valid" time="0.22" steps="52182"/></proof>
                     </goal>
                     <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.0.0.1.1.1.1.1.1.1.1.1.1" expl="true case (postcondition)" proved="true">
-                    <proof prover="2"><result status="valid" time="0.47" steps="54722"/></proof>
+                    <proof prover="2"><result status="valid" time="0.47" steps="54607"/></proof>
                     </goal>
                    </transf>
                    </goal>
@@ -2896,43 +2863,43 @@
           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
           <transf name="exists" proved="true" arg1="(val_top_c c)">
            <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0" proved="true">
-           <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="126520"/></proof>
-           <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2702603"/></proof>
-           <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+           <proof prover="2"><result status="timeout" time="1.00" steps="126520"/></proof>
+           <proof prover="3"><result status="timeout" time="1.00" steps="2702603"/></proof>
+           <proof prover="4"><result status="timeout" time="1.00"/></proof>
            <transf name="split_vc" proved="true" >
             <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.0" proved="true">
-            <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="105427"/></proof>
-            <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1678962"/></proof>
-            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+            <proof prover="2"><result status="timeout" time="1.00" steps="105427"/></proof>
+            <proof prover="3"><result status="timeout" time="1.00" steps="1678962"/></proof>
+            <proof prover="4"><result status="timeout" time="1.00"/></proof>
             <transf name="assert" proved="true" arg1="(forall p. mem p c -&gt; eval_atomicformula p (val_top_c c) = top1)">
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.0.0" expl="asserted formula" proved="true">
-             <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="116863"/></proof>
+             <proof prover="2"><result status="timeout" time="1.00" steps="116863"/></proof>
              <proof prover="4"><result status="valid" time="0.11" steps="637"/></proof>
              </goal>
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.0.1" proved="true">
-             <proof prover="2"><result status="valid" time="0.57" steps="63642"/></proof>
+             <proof prover="2"><result status="valid" time="0.37" steps="63573"/></proof>
              </goal>
             </transf>
             </goal>
             <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.1" proved="true">
-            <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="116466"/></proof>
-            <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2363719"/></proof>
-            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+            <proof prover="2"><result status="timeout" time="1.00" steps="116466"/></proof>
+            <proof prover="3"><result status="timeout" time="1.00" steps="2363719"/></proof>
+            <proof prover="4"><result status="timeout" time="1.00"/></proof>
             <transf name="assert" proved="true" arg1="(forall p. not mem p c -&gt; eval_atomicformula p (val_top_c c) = bot1)">
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.1.0" expl="asserted formula" proved="true">
-             <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="115659"/></proof>
-             <proof prover="4"><result status="valid" time="0.53" steps="2052"/></proof>
+             <proof prover="2"><result status="timeout" time="1.00" steps="115659"/></proof>
+             <proof prover="4"><result status="valid" time="0.35" steps="2052"/></proof>
              </goal>
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.1.1" proved="true">
-             <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="122328"/></proof>
-             <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2658020"/></proof>
-             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+             <proof prover="2"><result status="timeout" time="1.00" steps="122328"/></proof>
+             <proof prover="3"><result status="timeout" time="1.00" steps="2658020"/></proof>
+             <proof prover="4"><result status="timeout" time="1.00"/></proof>
              <transf name="assert" proved="true" arg1="(exists p. mem p x1 /\ not mem p c)">
               <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.1.1.0" expl="asserted formula" proved="true">
-              <proof prover="2"><result status="valid" time="0.26" steps="51156"/></proof>
+              <proof prover="2"><result status="valid" time="0.26" steps="51087"/></proof>
               </goal>
               <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.0.0.1.1.1" proved="true">
-              <proof prover="2"><result status="valid" time="1.13" steps="108390"/></proof>
+              <proof prover="2"><result status="valid" time="0.93" steps="108330"/></proof>
               </goal>
              </transf>
              </goal>
@@ -2943,7 +2910,7 @@
           </transf>
           </goal>
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.1.1.0.1.1.1.1.1" expl="false case (postcondition)" proved="true">
-          <proof prover="2"><result status="valid" time="0.18" steps="47832"/></proof>
+          <proof prover="2"><result status="valid" time="0.18" steps="47763"/></proof>
           </goal>
          </transf>
          </goal>
@@ -2965,65 +2932,65 @@
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    <transf name="assert" proved="true" arg1="(exists f. eval_clauselist processed_clauses f = top1 /\ eval_clauselist clauselist f = top1)">
     <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0" expl="asserted formula" proved="true">
-    <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="95722"/></proof>
-    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2016113"/></proof>
-    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+    <proof prover="2"><result status="timeout" time="1.00" steps="95722"/></proof>
+    <proof prover="3"><result status="timeout" time="1.00" steps="2016113"/></proof>
+    <proof prover="4"><result status="timeout" time="1.00"/></proof>
     <transf name="exists" proved="true" arg1="(val_top_c c)">
      <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0" proved="true">
      <transf name="split_vc" proved="true" >
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.0" proved="true">
-      <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="107436"/></proof>
-      <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1526780"/></proof>
-      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+      <proof prover="2"><result status="timeout" time="1.00" steps="107436"/></proof>
+      <proof prover="3"><result status="timeout" time="1.00" steps="1526780"/></proof>
+      <proof prover="4"><result status="timeout" time="1.00"/></proof>
       <transf name="assert" proved="true" arg1="(forall p. mem p c -&gt; eval_atomicformula p (val_top_c c) = top1)">
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.0.0" expl="asserted formula" proved="true">
-       <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="107342"/></proof>
+       <proof prover="2"><result status="timeout" time="1.00" steps="107342"/></proof>
        <proof prover="4"><result status="valid" time="0.11" steps="673"/></proof>
        </goal>
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.0.1" proved="true">
-       <proof prover="2"><result status="valid" time="0.36" steps="63452"/></proof>
+       <proof prover="2"><result status="valid" time="0.36" steps="63383"/></proof>
        </goal>
       </transf>
       </goal>
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1" proved="true">
-      <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="91850"/></proof>
-      <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1803943"/></proof>
-      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+      <proof prover="2"><result status="timeout" time="1.00" steps="91850"/></proof>
+      <proof prover="3"><result status="timeout" time="1.00" steps="1803943"/></proof>
+      <proof prover="4"><result status="timeout" time="1.00"/></proof>
       <transf name="assert" proved="true" arg1="(forall p. not mem p c -&gt; eval_atomicformula p (val_top_c c) = bot1)">
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.0" expl="asserted formula" proved="true">
-       <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="106479"/></proof>
+       <proof prover="2"><result status="timeout" time="1.00" steps="106479"/></proof>
        <proof prover="4"><result status="valid" time="0.28" steps="1402"/></proof>
        </goal>
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.1" proved="true">
-       <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="104973"/></proof>
-       <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1995407"/></proof>
-       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+       <proof prover="2"><result status="timeout" time="1.00" steps="104973"/></proof>
+       <proof prover="3"><result status="timeout" time="1.00" steps="1995407"/></proof>
+       <proof prover="4"><result status="timeout" time="1.00"/></proof>
        <transf name="assert" proved="true" arg1="(forall x p. mem1 (x,p) clauselist -&gt; not subset x c)">
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.1.0" expl="asserted formula" proved="true">
-        <proof prover="2"><result status="valid" time="0.20" steps="47391"/></proof>
+        <proof prover="2"><result status="valid" time="0.20" steps="47322"/></proof>
         </goal>
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.1.1" proved="true">
-        <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="98183"/></proof>
-        <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2019665"/></proof>
-        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+        <proof prover="2"><result status="timeout" time="1.00" steps="98183"/></proof>
+        <proof prover="3"><result status="timeout" time="1.00" steps="2019665"/></proof>
+        <proof prover="4"><result status="timeout" time="1.00"/></proof>
         <transf name="assert" proved="true" arg1="(forall x1:fset atomicformula, p:rightside.
    mem1 (x1, p) clauselist -&gt; exists elem. mem elem x1 /\ not mem elem c)">
          <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.1.1.0" expl="asserted formula" proved="true">
-         <proof prover="2"><result status="valid" time="0.38" steps="71840"/></proof>
+         <proof prover="2"><result status="valid" time="0.38" steps="71771"/></proof>
          </goal>
          <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.1.1.1" proved="true">
-         <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="101695"/></proof>
-         <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1981928"/></proof>
-         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+         <proof prover="2"><result status="timeout" time="1.00" steps="101695"/></proof>
+         <proof prover="3"><result status="timeout" time="1.00" steps="1981928"/></proof>
+         <proof prover="4"><result status="timeout" time="1.00"/></proof>
          <transf name="assert" proved="true" arg1="(forall x1:fset atomicformula, p:rightside.
    mem1 (x1, p) clauselist -&gt; eval_setconjunction x1 (val_top_c c) = bot1)">
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.1.1.1.0" expl="asserted formula" proved="true">
-          <proof prover="2" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="477962"/></proof>
-          <proof prover="3" timelimit="5"><result status="valid" time="4.40" steps="4742832"/></proof>
-          <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
+          <proof prover="2" timelimit="5"><result status="timeout" time="5.00" steps="477962"/></proof>
+          <proof prover="3" timelimit="5"><result status="valid" time="3.84" steps="4741880"/></proof>
+          <proof prover="4" timelimit="5"><result status="timeout" time="5.00"/></proof>
           </goal>
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.0.0.1.1.1.1.1" proved="true">
-          <proof prover="2"><result status="valid" time="0.72" steps="85409"/></proof>
+          <proof prover="2"><result status="valid" time="0.72" steps="85340"/></proof>
           </goal>
          </transf>
          </goal>
@@ -3053,7 +3020,7 @@
       <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
       <transf name="assert" proved="true" arg1="(eval_clauselist (processed_clauses ++ clauselist) f = top1)">
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.1.0.0.0" expl="asserted formula" proved="true">
-       <proof prover="2"><result status="valid" time="0.19" steps="47156"/></proof>
+       <proof prover="2"><result status="valid" time="0.19" steps="47087"/></proof>
        </goal>
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.1.0.0.1" expl="postcondition" proved="true">
        <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="118913"/></proof>
@@ -3061,10 +3028,10 @@
        <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
        <transf name="assert" proved="true" arg1="(is_unsatisfiable_clauselist (processed_clauses ++ clauselist))">
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.1.0.0.1.0" expl="asserted formula" proved="true">
-        <proof prover="2"><result status="valid" time="0.27" steps="50365"/></proof>
+        <proof prover="2"><result status="valid" time="0.27" steps="50296"/></proof>
         </goal>
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.2.1.0.0.1.1" expl="postcondition" proved="true">
-        <proof prover="2"><result status="valid" time="0.41" steps="53691"/></proof>
+        <proof prover="2"><result status="valid" time="0.41" steps="53622"/></proof>
         </goal>
        </transf>
        </goal>
@@ -3084,7 +3051,7 @@
     <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0" expl="postcondition" proved="true">
     <transf name="destruct" proved="true" arg1="Hinst">
      <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.0" expl="destruct premise" proved="true">
-     <proof prover="2"><result status="valid" time="0.12" steps="43529"/></proof>
+     <proof prover="2"><result status="valid" time="0.12" steps="43460"/></proof>
      </goal>
      <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1" expl="postcondition" proved="true">
      <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="125086"/></proof>
@@ -3092,45 +3059,45 @@
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.12" steps="43527"/></proof>
+      <proof prover="2"><result status="valid" time="0.12" steps="43458"/></proof>
       </goal>
       <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.11" steps="41333"/></proof>
+       <proof prover="2"><result status="valid" time="0.11" steps="41264"/></proof>
        </goal>
        <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.11" steps="43786"/></proof>
+        <proof prover="2"><result status="valid" time="0.11" steps="43717"/></proof>
         </goal>
         <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1" expl="postcondition" proved="true">
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.12" steps="42043"/></proof>
+         <proof prover="2"><result status="valid" time="0.12" steps="41974"/></proof>
          </goal>
          <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1" expl="postcondition" proved="true">
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.22" steps="45608"/></proof>
+          <proof prover="2"><result status="valid" time="0.22" steps="45539"/></proof>
           </goal>
           <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.1" expl="postcondition" proved="true">
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.16" steps="41053"/></proof>
+           <proof prover="2"><result status="valid" time="0.16" steps="40984"/></proof>
            </goal>
            <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.25" steps="45587"/></proof>
+            <proof prover="2"><result status="valid" time="0.25" steps="45518"/></proof>
             </goal>
             <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-             <proof prover="2"><result status="valid" time="0.28" steps="53332"/></proof>
+             <proof prover="2"><result status="valid" time="0.28" steps="53263"/></proof>
              </goal>
              <goal name="unsat_cl_mem_ABot_in_algorithmA&#39;vc.10.3.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-             <proof prover="2"><result status="valid" time="0.44" steps="59077"/></proof>
+             <proof prover="2"><result status="valid" time="0.44" steps="58969"/></proof>
              <proof prover="4"><result status="valid" time="0.18" steps="1143"/></proof>
              </goal>
             </transf>
@@ -3158,12 +3125,12 @@
  </transf>
  </goal>
  <goal name="not_mem_ABot_then_cl_sat&#39;vc" expl="VC for not_mem_ABot_then_cl_sat" proved="true">
- <proof prover="2"><result status="valid" time="0.41" steps="65461"/></proof>
+ <proof prover="2"><result status="valid" time="0.41" steps="65392"/></proof>
  <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2630026"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="not_mem_ABot_then_cl_sat&#39;vc.0" expl="postcondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.40" steps="56472"/></proof>
+  <proof prover="2"><result status="valid" time="0.40" steps="56403"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2813596"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
@@ -3182,17 +3149,17 @@
   <transf name="split_vc" proved="true" >
    <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.0.0" expl="variant decrease" proved="true">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1807845"/></proof>
-   <proof prover="2"><result status="valid" time="0.24" steps="50938"/></proof>
+   <proof prover="2"><result status="valid" time="0.24" steps="50869"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
    <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.0.1" expl="variant decrease" proved="true">
-   <proof prover="2"><result status="valid" time="0.25" steps="52410"/></proof>
+   <proof prover="2"><result status="valid" time="0.25" steps="52383"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.1" expl="precondition" proved="true">
   <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="5531626"/></proof>
-  <proof prover="2"><result status="valid" time="0.12" steps="41435"/></proof>
+  <proof prover="2"><result status="valid" time="0.12" steps="41366"/></proof>
   <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
   </goal>
   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.2" expl="precondition" proved="true">
@@ -3201,12 +3168,12 @@
   </goal>
   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.3" expl="precondition" proved="true">
   <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="690778"/></proof>
-  <proof prover="2"><result status="valid" time="0.21" steps="47264"/></proof>
+  <proof prover="2"><result status="valid" time="0.21" steps="47195"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2079401"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.4" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.75" steps="79360"/></proof>
+  <proof prover="2"><result status="valid" time="0.75" steps="79286"/></proof>
   </goal>
   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.5" expl="precondition" proved="true">
   <proof prover="2" obsolete="true"><result status="timeout" time="2.00" steps="268610"/></proof>
@@ -3214,7 +3181,7 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.5.0" expl="precondition" proved="true">
-   <proof prover="2"><result status="valid" time="1.44" steps="145067"/></proof>
+   <proof prover="2"><result status="valid" time="1.44" steps="145186"/></proof>
    <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="993822"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
@@ -3225,12 +3192,12 @@
   <proof prover="4"><result status="valid" time="1.68" steps="7538"/></proof>
   </goal>
   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.7" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.20" steps="48656"/></proof>
+  <proof prover="2"><result status="valid" time="0.20" steps="48587"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2789861"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.8" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.19" steps="48688"/></proof>
+  <proof prover="2"><result status="valid" time="0.19" steps="48619"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="818731"/></proof>
   <proof prover="4"><result status="valid" time="0.03" steps="54"/></proof>
   </goal>
@@ -3250,42 +3217,42 @@
     <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
     <transf name="destruct" proved="true" arg1="Hinst">
      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.0" expl="destruct premise" proved="true">
-     <proof prover="2"><result status="valid" time="0.11" steps="43410"/></proof>
+     <proof prover="2"><result status="valid" time="0.11" steps="43341"/></proof>
      </goal>
      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1" expl="postcondition" proved="true">
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.11" steps="43408"/></proof>
+      <proof prover="2"><result status="valid" time="0.11" steps="43339"/></proof>
       </goal>
       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.10" steps="41224"/></proof>
+       <proof prover="2"><result status="valid" time="0.10" steps="41155"/></proof>
        </goal>
        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.14" steps="43666"/></proof>
+        <proof prover="2"><result status="valid" time="0.14" steps="43597"/></proof>
         <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2393752"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.1" expl="postcondition" proved="true">
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.17" steps="41931"/></proof>
+         <proof prover="2"><result status="valid" time="0.17" steps="41862"/></proof>
          </goal>
          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.1.1" expl="postcondition" proved="true">
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.27" steps="45444"/></proof>
+          <proof prover="2"><result status="valid" time="0.27" steps="45375"/></proof>
           </goal>
           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.33" steps="47943"/></proof>
+           <proof prover="2"><result status="valid" time="0.33" steps="47874"/></proof>
            </goal>
            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-           <proof prover="2"><result status="valid" time="0.18" steps="48472"/></proof>
+           <proof prover="2"><result status="valid" time="0.18" steps="48403"/></proof>
            </goal>
           </transf>
           </goal>
@@ -3311,39 +3278,39 @@
     <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0" expl="postcondition" proved="true">
     <transf name="destruct" proved="true" arg1="Hinst">
      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.0" expl="destruct premise" proved="true">
-     <proof prover="2"><result status="valid" time="0.12" steps="43429"/></proof>
+     <proof prover="2"><result status="valid" time="0.12" steps="43360"/></proof>
      </goal>
      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1" expl="postcondition" proved="true">
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.12" steps="43427"/></proof>
+      <proof prover="2"><result status="valid" time="0.12" steps="43358"/></proof>
       </goal>
       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.11" steps="41243"/></proof>
+       <proof prover="2"><result status="valid" time="0.11" steps="41174"/></proof>
        </goal>
        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.17" steps="43685"/></proof>
+        <proof prover="2"><result status="valid" time="0.17" steps="43616"/></proof>
         <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2157751"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1" expl="postcondition" proved="true">
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.17" steps="41950"/></proof>
+         <proof prover="2"><result status="valid" time="0.17" steps="41881"/></proof>
          </goal>
          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1" expl="postcondition" proved="true">
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.20" steps="45463"/></proof>
+          <proof prover="2"><result status="valid" time="0.20" steps="45394"/></proof>
           </goal>
           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1" expl="postcondition" proved="true">
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="0.32" steps="57961"/></proof>
+           <proof prover="2"><result status="valid" time="0.32" steps="57842"/></proof>
            </goal>
            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
            <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="136028"/></proof>
@@ -3351,7 +3318,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.20" steps="45442"/></proof>
+            <proof prover="2"><result status="valid" time="0.20" steps="45373"/></proof>
             </goal>
             <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
             <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="120000"/></proof>
@@ -3359,7 +3326,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-             <proof prover="2"><result status="valid" time="0.17" steps="47813"/></proof>
+             <proof prover="2"><result status="valid" time="0.17" steps="47744"/></proof>
              </goal>
              <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
              <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="168255"/></proof>
@@ -3367,7 +3334,7 @@
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" proved="true" arg1="Hinst">
               <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-              <proof prover="2"><result status="valid" time="0.19" steps="47843"/></proof>
+              <proof prover="2"><result status="valid" time="0.19" steps="47774"/></proof>
               <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2330600"/></proof>
               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
               </goal>
@@ -3377,9 +3344,9 @@
               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
               <transf name="destruct" proved="true" arg1="Hinst">
                <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-               <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="128010"/></proof>
-               <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1152332"/></proof>
-               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+               <proof prover="2"><result status="timeout" time="1.00" steps="128010"/></proof>
+               <proof prover="3"><result status="timeout" time="1.00" steps="1152332"/></proof>
+               <proof prover="4"><result status="timeout" time="1.00"/></proof>
                <transf name="unfold" proved="true" arg1="is_satisfiable_clauselist" arg2="in" arg3="Requires7">
                 <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.0.0" expl="postcondition" proved="true">
                 <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="129472"/></proof>
@@ -3392,10 +3359,10 @@
                  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                  <transf name="assert" proved="true" arg1="(eval_setconjunction (add ABot c) f = bot1)">
                   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.0.0.0.0" expl="asserted formula" proved="true">
-                  <proof prover="2"><result status="valid" time="0.27" steps="52606"/></proof>
+                  <proof prover="2"><result status="valid" time="0.27" steps="52537"/></proof>
                   </goal>
                   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.0.0.0.1" expl="postcondition" proved="true">
-                  <proof prover="2"><result status="valid" time="0.51" steps="73567"/></proof>
+                  <proof prover="2"><result status="valid" time="0.51" steps="73498"/></proof>
                   <proof prover="4"><result status="valid" time="0.56" steps="2680"/></proof>
                   </goal>
                  </transf>
@@ -3405,9 +3372,9 @@
                </transf>
                </goal>
                <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-               <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="121818"/></proof>
-               <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1455853"/></proof>
-               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
+               <proof prover="2"><result status="timeout" time="1.00" steps="121818"/></proof>
+               <proof prover="3"><result status="timeout" time="1.00" steps="1455853"/></proof>
+               <proof prover="4"><result status="timeout" time="1.00"/></proof>
                <transf name="instantiate" proved="true" arg1="algorithmA_spec&#39;def" arg2="full_clauselist">
                 <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
                 <transf name="instantiate" proved="true" arg1="Hinst" arg2="(Cons (s, p) processed_clauses)">
@@ -3418,57 +3385,57 @@
                    <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0" expl="postcondition" proved="true">
                    <transf name="destruct" proved="true" arg1="Hinst">
                     <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.0" expl="destruct premise" proved="true">
-                    <proof prover="2"><result status="valid" time="0.23" steps="51370"/></proof>
+                    <proof prover="2"><result status="valid" time="0.23" steps="51301"/></proof>
                     </goal>
                     <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1" expl="postcondition" proved="true">
                     <transf name="destruct" proved="true" arg1="Hinst">
                      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.0" expl="destruct premise" proved="true">
-                     <proof prover="2"><result status="valid" time="0.23" steps="51710"/></proof>
+                     <proof prover="2"><result status="valid" time="0.23" steps="51641"/></proof>
                      </goal>
                      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1" expl="postcondition" proved="true">
                      <transf name="destruct" proved="true" arg1="Hinst">
                       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.0" expl="destruct premise" proved="true">
-                      <proof prover="2"><result status="valid" time="0.21" steps="50145"/></proof>
+                      <proof prover="2"><result status="valid" time="0.21" steps="50076"/></proof>
                       </goal>
                       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1" expl="postcondition" proved="true">
                       <transf name="destruct" proved="true" arg1="Hinst">
                        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.0" expl="destruct premise" proved="true">
-                       <proof prover="2"><result status="valid" time="0.36" steps="61678"/></proof>
+                       <proof prover="2"><result status="valid" time="0.36" steps="61609"/></proof>
                        </goal>
                        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1" expl="postcondition" proved="true">
                        <transf name="destruct" proved="true" arg1="Hinst">
                         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.0" expl="destruct premise" proved="true">
-                        <proof prover="2"><result status="valid" time="0.51" steps="83447"/></proof>
+                        <proof prover="2"><result status="valid" time="0.51" steps="83235"/></proof>
                         </goal>
                         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1" expl="postcondition" proved="true">
                         <transf name="destruct" proved="true" arg1="Hinst">
                          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                         <proof prover="2"><result status="valid" time="0.62" steps="97908"/></proof>
+                         <proof prover="2"><result status="valid" time="0.62" steps="97839"/></proof>
                          </goal>
                          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1" expl="postcondition" proved="true">
                          <transf name="destruct" proved="true" arg1="Hinst">
                           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                          <proof prover="2"><result status="valid" time="0.41" steps="65879"/></proof>
+                          <proof prover="2"><result status="valid" time="0.41" steps="65810"/></proof>
                           <transf name="unfold" proved="true" arg1="is_satisfiable_clauselist">
                            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.0.0" proved="true">
-                           <proof prover="2"><result status="valid" time="0.37" steps="66224"/></proof>
+                           <proof prover="2"><result status="valid" time="0.37" steps="66155"/></proof>
                            </goal>
                           </transf>
                           </goal>
                           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                           <transf name="destruct" proved="true" arg1="Hinst">
                            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-                           <proof prover="2" timelimit="5"><result status="valid" time="2.00" steps="210344"/></proof>
+                           <proof prover="2" timelimit="5"><result status="valid" time="2.35" steps="210666"/></proof>
                            <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="646143"/></proof>
                            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                            </goal>
                            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
                            <transf name="destruct" proved="true" arg1="Hinst">
                             <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-                            <proof prover="2"><result status="valid" time="0.22" steps="51917"/></proof>
+                            <proof prover="2"><result status="valid" time="0.22" steps="51848"/></proof>
                             </goal>
                             <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.1.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
-                            <proof prover="2"><result status="valid" time="0.43" steps="62345"/></proof>
+                            <proof prover="2"><result status="valid" time="0.43" steps="62358"/></proof>
                             </goal>
                            </transf>
                            </goal>
@@ -3533,39 +3500,39 @@
     <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0" expl="postcondition" proved="true">
     <transf name="destruct" proved="true" arg1="Hinst">
      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.0" expl="destruct premise" proved="true">
-     <proof prover="2"><result status="valid" time="0.13" steps="43973"/></proof>
+     <proof prover="2"><result status="valid" time="0.13" steps="43904"/></proof>
      </goal>
      <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1" expl="postcondition" proved="true">
      <transf name="destruct" proved="true" arg1="Hinst">
       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.0" expl="destruct premise" proved="true">
-      <proof prover="2"><result status="valid" time="0.13" steps="43971"/></proof>
+      <proof prover="2"><result status="valid" time="0.13" steps="43902"/></proof>
       </goal>
       <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1" expl="postcondition" proved="true">
       <transf name="destruct" proved="true" arg1="Hinst">
        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.0" expl="destruct premise" proved="true">
-       <proof prover="2"><result status="valid" time="0.14" steps="41794"/></proof>
+       <proof prover="2"><result status="valid" time="0.14" steps="41725"/></proof>
        </goal>
        <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1" expl="postcondition" proved="true">
        <transf name="destruct" proved="true" arg1="Hinst">
         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.0" expl="destruct premise" proved="true">
-        <proof prover="2"><result status="valid" time="0.16" steps="44240"/></proof>
+        <proof prover="2"><result status="valid" time="0.16" steps="44171"/></proof>
         <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2144087"/></proof>
         <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
         </goal>
         <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1" expl="postcondition" proved="true">
         <transf name="destruct" proved="true" arg1="Hinst">
          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.0" expl="destruct premise" proved="true">
-         <proof prover="2"><result status="valid" time="0.19" steps="42490"/></proof>
+         <proof prover="2"><result status="valid" time="0.19" steps="42421"/></proof>
          </goal>
          <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1" expl="postcondition" proved="true">
          <transf name="destruct" proved="true" arg1="Hinst">
           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.0" expl="destruct premise" proved="true">
-          <proof prover="2"><result status="valid" time="0.31" steps="46205"/></proof>
+          <proof prover="2"><result status="valid" time="0.31" steps="46136"/></proof>
           </goal>
           <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1" expl="postcondition" proved="true">
           <transf name="destruct" proved="true" arg1="Hinst">
            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-           <proof prover="2"><result status="valid" time="1.25" steps="163681"/></proof>
+           <proof prover="2"><result status="valid" time="1.25" steps="163617"/></proof>
            </goal>
            <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1" expl="postcondition" proved="true">
            <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="150855"/></proof>
@@ -3573,7 +3540,7 @@
            <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
            <transf name="destruct" proved="true" arg1="Hinst">
             <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.0" expl="destruct premise" proved="true">
-            <proof prover="2"><result status="valid" time="0.17" steps="46184"/></proof>
+            <proof prover="2"><result status="valid" time="0.17" steps="46115"/></proof>
             </goal>
             <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
             <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="150629"/></proof>
@@ -3581,7 +3548,7 @@
             <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
             <transf name="destruct" proved="true" arg1="Hinst">
              <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-             <proof prover="2"><result status="valid" time="0.17" steps="48544"/></proof>
+             <proof prover="2"><result status="valid" time="0.17" steps="48475"/></proof>
              </goal>
              <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1.1" expl="postcondition" proved="true">
              <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="136462"/></proof>
@@ -3589,7 +3556,7 @@
              <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
              <transf name="destruct" proved="true" arg1="Hinst">
               <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1.1.0" expl="postcondition" proved="true">
-              <proof prover="2"><result status="valid" time="0.19" steps="48563"/></proof>
+              <proof prover="2"><result status="valid" time="0.19" steps="48494"/></proof>
               <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1729311"/></proof>
               <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
               </goal>
@@ -3608,7 +3575,7 @@
                  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
                  <transf name="assert" proved="true" arg1="(eval_setconjunction (add ABot c) f = bot1)">
                   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1.1.1.0.0.0.0" expl="asserted formula" proved="true">
-                  <proof prover="2"><result status="valid" time="0.31" steps="57703"/></proof>
+                  <proof prover="2"><result status="valid" time="0.31" steps="57544"/></proof>
                   </goal>
                   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1.1.1.0.0.0.1" expl="postcondition" proved="true">
                   <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="96332"/></proof>
@@ -3630,7 +3597,7 @@
                  <proof prover="4"><result status="valid" time="0.05" steps="140"/></proof>
                  <transf name="assert" proved="true" arg1="(eval_setconjunction (add ABot c) f = bot1)">
                   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1.1.1.1.0.0.0" expl="asserted formula" proved="true">
-                  <proof prover="2"><result status="valid" time="0.31" steps="57327"/></proof>
+                  <proof prover="2"><result status="valid" time="0.31" steps="57353"/></proof>
                   </goal>
                   <goal name="sat_cl_not_ABot_in_algorithmA&#39;vc.9.3.0.1.1.1.1.1.1.1.1.1.1.1.0.0.1" expl="postcondition" proved="true">
                   <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="107217"/></proof>
@@ -3676,23 +3643,23 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="mem_ABot_then_cl_unsat&#39;vc.0" expl="postcondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.44" steps="58529"/></proof>
+  <proof prover="2"><result status="valid" time="0.44" steps="58460"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2689387"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
  </transf>
  </goal>
  <goal name="horn_logic&#39;vc" expl="VC for horn_logic" proved="true">
- <proof prover="2"><result status="valid" time="0.52" steps="76606"/></proof>
+ <proof prover="2"><result status="valid" time="0.52" steps="76588"/></proof>
  </goal>
  <goal name="horn_sat_completeness" proved="true">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2148638"/></proof>
- <proof prover="2"><result status="valid" time="0.22" steps="47153"/></proof>
+ <proof prover="2"><result status="valid" time="0.22" steps="47084"/></proof>
  <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2633015"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="horn_unsat_completeness" proved="true">
- <proof prover="2"><result status="valid" time="0.21" steps="47161"/></proof>
+ <proof prover="2"><result status="valid" time="0.21" steps="47092"/></proof>
  <proof prover="3" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="10684499"/></proof>
  <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
  </goal>
@@ -3715,7 +3682,7 @@
  </goal>
  <goal name="removeFromList_prog&#39;vc" expl="VC for removeFromList_prog" proved="true">
  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2344047"/></proof>
- <proof prover="2"><result status="valid" time="0.63" steps="85603"/></proof>
+ <proof prover="2"><result status="valid" time="0.63" steps="85541"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  </goal>
  <goal name="algorithmA&#39;vc" expl="VC for algorithmA" proved="true">
@@ -3724,7 +3691,7 @@
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="algorithmA&#39;vc.0" expl="variant decrease" proved="true">
-  <proof prover="2"><result status="valid" time="0.41" steps="66075"/></proof>
+  <proof prover="2"><result status="valid" time="0.41" steps="66006"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="2527875"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
@@ -3734,16 +3701,16 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="algorithmA&#39;vc.1.0" expl="precondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.19" steps="50425"/></proof>
+   <proof prover="2"><result status="valid" time="0.19" steps="50356"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="algorithmA&#39;vc.2" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.32" steps="50459"/></proof>
+  <proof prover="2"><result status="valid" time="0.32" steps="50390"/></proof>
   <transf name="split_vc" proved="true" >
    <goal name="algorithmA&#39;vc.2.0" expl="precondition" proved="true">
    <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1910792"/></proof>
-   <proof prover="2"><result status="valid" time="0.20" steps="50459"/></proof>
+   <proof prover="2"><result status="valid" time="0.20" steps="50390"/></proof>
    <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
    </goal>
   </transf>
@@ -3789,7 +3756,7 @@
     <proof prover="4" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
     <transf name="induction_arg_ty_lex" proved="true" arg1="clauselist">
      <goal name="algorithmA&#39;vc.5.0.0.0" expl="VC for algorithmA" proved="true">
-     <proof prover="2"><result status="valid" time="1.63" steps="177460"/></proof>
+     <proof prover="2"><result status="valid" time="1.63" steps="177386"/></proof>
      <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
      </goal>
     </transf>
@@ -3842,7 +3809,7 @@
    <proof prover="4"><result status="valid" time="0.78" steps="2409"/></proof>
    </goal>
    <goal name="algorithmA&#39;vc.8.1" expl="precondition" proved="true">
-   <proof prover="2"><result status="valid" time="0.58" steps="98389"/></proof>
+   <proof prover="2"><result status="valid" time="0.58" steps="98320"/></proof>
    </goal>
   </transf>
   </goal>
@@ -3876,7 +3843,7 @@
       <proof prover="4"><result status="valid" time="0.28" steps="1537"/></proof>
       </goal>
       <goal name="algorithmA&#39;vc.9.1.0.0.1" expl="postcondition" proved="true">
-      <proof prover="2"><result status="valid" time="0.11" steps="42645"/></proof>
+      <proof prover="2"><result status="valid" time="0.11" steps="42576"/></proof>
       </goal>
      </transf>
      </goal>
@@ -3927,24 +3894,24 @@
  </transf>
  </goal>
  <goal name="horn&#39;vc" expl="VC for horn" proved="true">
- <proof prover="2"><result status="valid" time="0.42" steps="70737"/></proof>
+ <proof prover="2"><result status="valid" time="0.42" steps="70269"/></proof>
  <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1518312"/></proof>
  <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
  <transf name="split_vc" proved="true" >
   <goal name="horn&#39;vc.0" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.35" steps="52612"/></proof>
+  <proof prover="2"><result status="valid" time="0.35" steps="52071"/></proof>
   </goal>
   <goal name="horn&#39;vc.1" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.31" steps="49899"/></proof>
+  <proof prover="2"><result status="valid" time="0.31" steps="49358"/></proof>
   </goal>
   <goal name="horn&#39;vc.2" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.24" steps="50186"/></proof>
+  <proof prover="2"><result status="valid" time="0.39" steps="49638"/></proof>
   </goal>
   <goal name="horn&#39;vc.3" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.23" steps="58078"/></proof>
+  <proof prover="2"><result status="valid" time="0.39" steps="57537"/></proof>
   </goal>
   <goal name="horn&#39;vc.4" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.27" steps="52648"/></proof>
+  <proof prover="2"><result status="valid" time="0.43" steps="52111"/></proof>
   <proof prover="3" obsolete="true"><result status="timeout" time="1.00" steps="1484616"/></proof>
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   </goal>
@@ -3954,18 +3921,18 @@
   <proof prover="4" obsolete="true"><result status="timeout" time="1.00"/></proof>
   <transf name="unfold" proved="true" arg1="is_satisfiable_clauselist">
    <goal name="horn&#39;vc.5.0" expl="VC for horn" proved="true">
-   <proof prover="2"><result status="valid" time="0.64" steps="84314"/></proof>
+   <proof prover="2"><result status="valid" time="0.64" steps="83763"/></proof>
    </goal>
   </transf>
   </goal>
   <goal name="horn&#39;vc.6" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.25" steps="50602"/></proof>
+  <proof prover="2"><result status="valid" time="0.25" steps="50051"/></proof>
   </goal>
   <goal name="horn&#39;vc.7" expl="precondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.28" steps="54653"/></proof>
+  <proof prover="2"><result status="valid" time="0.28" steps="54102"/></proof>
   </goal>
   <goal name="horn&#39;vc.8" expl="postcondition" proved="true">
-  <proof prover="2"><result status="valid" time="0.23" steps="55798"/></proof>
+  <proof prover="2"><result status="valid" time="0.23" steps="49319"/></proof>
   </goal>
  </transf>
  </goal>

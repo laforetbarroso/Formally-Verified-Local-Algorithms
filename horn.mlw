@@ -847,6 +847,7 @@ module Horn_Logic
     requires{ forall f. (eval_clauselist full_clauselist f = top) -> eval_setconjunction c f = top }
     requires{ forall f. eval_clauselist processed_clauses f = top <-> eval_setconjunction c f = top }
     ensures { (algorithmA_spec full_clauselist processed_clauses clauselist c == algorithmA_spec full_clauselist processed_clauses clauselist2 c) }
+    ensures { result == algorithmA_spec full_clauselist processed_clauses clauselist c }
     variant { length clauselist }
     = match clauselist with
     | Nil -> c
@@ -1036,8 +1037,7 @@ module Horn
   
   
     
-  let rec algorithmA (ghost full_clauselist: list (fset atomicformula ,rightside)) (ghost processed_clauses: list (fset atomicformula ,rightside)) (clauselist: list (set ,rightside))
-                              (c: set) : set
+  let rec function algorithmA (ghost full_clauselist: list (fset atomicformula ,rightside)) (ghost processed_clauses: list (fset atomicformula ,rightside)) (clauselist: list (set ,rightside)) (c: set) : set
     requires{ mem ATop c }
     requires{ not mem ABot c }
     requires{ sublist (listset_to_listfset clauselist) full_clauselist }
