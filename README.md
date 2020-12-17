@@ -13,7 +13,7 @@ Implementation and verification of standard Computational Logic Algorithms
 * Transformation Algorithm from CNF to Horn Clauses (Hornify)
 
 
-## # [booltheory.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/booltheory.mlw) - Boolean Theory
+## # [booltheory.mlw](https://gitlab.com/releaselab/factor/formally-verified-bug-free-implementations-of-logical-algorithms/-/blob/master/booltheory.mlw) - Boolean Theory
 
 
 Description of each lemma and axiom proved/needed for each file.
@@ -53,7 +53,7 @@ All other properties can be deducted from the axioms above.
 17. lemma implEquiv: forall x1 x2. (x1 ->* x2) = ((neg x1) \\\*/ x2)
 
 
-## # [setstheory.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/setstheory.mlw) - Sets Theory
+## # [setstheory.mlw](https://gitlab.com/releaselab/factor/formally-verified-bug-free-implementations-of-logical-algorithms/-/blob/master/setstheory.mlw) - Sets Theory
 
 
 Theory for boolean sets and formula sets.
@@ -90,7 +90,7 @@ The negative and positive evaluations uses the functions defined in the BoolSet 
 
 
 
-## # [formula.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/formula.mlw) - Formula Types
+## # [formula.mlw](https://gitlab.com/releaselab/factor/formally-verified-bug-free-implementations-of-logical-algorithms/-/blob/master/formula.mlw) - Formula Types
 
 This file has all the types of formulas and their respective evaluation function.
 
@@ -110,7 +110,7 @@ Or
 Impl
 ```
 
-## # [cnf.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/cnf.mlw) - Transformation Algorithm to Conjunctive Normal Form
+## # [cnf.mlw](https://gitlab.com/releaselab/factor/formally-verified-bug-free-implementations-of-logical-algorithms/-/blob/master/cnf.mlw) - Transformation Algorithm to Conjunctive Normal Form
 
 Implementation and Verification of the Transformation Algorithm to Conjunctive Normal Form.
 
@@ -122,11 +122,17 @@ Implementation and Verification of the Transformation Algorithm to Conjunctive N
 * T (composition of the functions above)
 
 
-## # [hornify.mlw](https://bitbucket.org/laforetbarroso/hornify/src/master/hornify.mlw) - Transformation Algorithm from CNF to Horn Clauses
+## # [hornify.mlw](https://gitlab.com/releaselab/factor/formally-verified-bug-free-implementations-of-logical-algorithms/-/blob/master/hornify.mlw) - Transformation Algorithm from CNF to Horn Clauses
 
 Implementation and Verification of the Transformation Algorithm from CNF to Horn Clauses.
 
 It uses sets to identify the negative/positive literals of a specific formulae.
+
+## # [horn.mlw](https://gitlab.com/releaselab/factor/formally-verified-bug-free-implementations-of-logical-algorithms/-/blob/master/horn.mlw) - Horn-satisfiability algorithm
+
+Implementation and Verification of the Horn-satisfiability algorithm.
+
+Deciding whether a given set of propositional Horn clauses is satisfiable or not.
 
 
 ## Authors
